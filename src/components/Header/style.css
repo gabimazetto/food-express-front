@@ -1,0 +1,12 @@
+.header {
+    background-color: #ee0202;
+}
+
+.header nav a {
+    color: #ffffff;
+    text-decoration:  none;
+}
+
+.header nav a:hover {
+    color: #000000;
+}
