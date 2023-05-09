@@ -76,8 +76,8 @@ export function NovoCliente() {
                 type="text"
                 className={errors.cpf && "is-invalid"}
                 placeholder="999.999.999-99"
-                pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}"
-                title="Formato: 123.456.789-12"
+                pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}|[0-9]{9}-[0-9]{2}"
+                title="Formato: 123.456.789-12 ou 123456789-12"
                 {...register("cpf", {
                   required: "O CPF é obrigatório.",
                   maxLength: { value: 14, message: "Limite de 14 caracteres." },
@@ -181,6 +181,8 @@ export function NovoCliente() {
                 <Form.Control
                   type="text"
                   placeholder="99999-999"
+                  pattern="[0-9]{5}-[0-9]{3}|[0-9]{8}"
+                  title="Formato: 123.456.789-12"
                   className={errors.endereco?.cep && "is-invalid"}
                   {...register("endereco.cep", {
                     required: "O CEP é obrigatório.",
@@ -204,8 +206,8 @@ export function NovoCliente() {
                   {...register("endereco.rua", {
                     required: "A rua é obrigatória.",
                     maxLength: {
-                      value: 255,
-                      message: "Limite de 255 caracteres.",
+                      value: 100,
+                      message: "Limite de 100 caracteres.",
                     },
                   })}
                 />
