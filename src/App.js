@@ -3,6 +3,7 @@ import { Root } from "./pages/Root/Root";
 import { Home } from "./pages/Home/Home";
 import { Login } from "./pages/Login/Login";
 import { NovoCliente } from "./pages/NovoCliente/NovoCliente";
+import { CadastroClienteParte1 } from "./pages/CadastroClienteParte1/CadastoClienteParte1";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/novocliente" element={<NovoCliente />} />
         </Route>
+        <Route path="/cadastrocliente" element={<CadastroClienteParte1 />} />
       </Routes>
     </BrowserRouter>
   );
