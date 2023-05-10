@@ -15,13 +15,15 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Root />}>
-          <Route path="/" element={<Home />}/>
-          <Route path="/login" element={<Login />}/>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/novocliente" element={<NovoCliente />} />
           <Route path="/novorestaurante" element={<NovoRestaurante />} />
-          <Route path="/restaurante/cardapio/nova" element={<NovaComida/>}/>   
+          <Route path="/restaurante/cardapio/nova" element={<NovaComida />} />
           <Route path="/comidas" element={<Cardapio />} />
           <Route path="/editarrestaurante/:id" element={<EditaRestaurante />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }
