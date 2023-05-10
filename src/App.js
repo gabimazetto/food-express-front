@@ -4,8 +4,10 @@ import { Home } from "./pages/Home/Home";
 import { Login } from "./pages/Login/Login";
 import { NovoCliente } from "./pages/NovoCliente/NovoCliente";
 import { NovoRestaurante } from "./pages/NovoRestaurante/NovoRestaurante";
+import { NovaComida } from "./pages/NovaComida/NovaComida";
 import { Cardapio } from "./pages/Cardapio/Cardapio";
 import { EditaRestaurante } from "./pages/EditarRestaurante/EditarRestaurante";
+
 
 
 function App() {
@@ -13,16 +15,13 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Root />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Home />}/>
+          <Route path="/login" element={<Login />}/>
           <Route path="/novocliente" element={<NovoCliente />} />
           <Route path="/novorestaurante" element={<NovoRestaurante />} />
+          <Route path="/restaurante/cardapio/nova" element={<NovaComida/>}/>   
           <Route path="/comidas" element={<Cardapio />} />
           <Route path="/editarrestaurante/:id" element={<EditaRestaurante />} />
-
-
-        </Route>
-      </Routes>
     </BrowserRouter>
   );
 }
