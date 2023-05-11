@@ -10,9 +10,8 @@ import {
 } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import signinIcon from "../../assets/images/9 2.png";
+import signinIcon from "../../assets/icons/negocioCheck.svg";
 import foodExpressLogo from "../../assets/images/1-removebg-preview 1.png";
-
 
 export function CadastroClienteParte1() {
   const {
@@ -34,27 +33,36 @@ export function CadastroClienteParte1() {
   }
   return (
     <>
-      <Container fluid className="pt-3 vh-100 bg-warning">
-        <Card className="container  w-75 rounded-5  ">
+      <Container
+        fluid
+        id="background-gradient"
+        className=" pt-3 vh-100 bg-warning"
+      >
+        <Card className="container mt-5 w-75 align-items-center rounded-5  ">
           <Card.Body>
             <Row>
               <Col>
                 <Container>
-                  <Card.Img src={foodExpressLogo}></Card.Img>
+                  <Card.Img width="auto" src={foodExpressLogo}></Card.Img>
                   <Form onSubmit={handleSubmit(onSubmit)}>
-                    <Form.Group className="d-flex mb-3" controlId="email">
-                      <Form.Control
-                        type="email"
-                        className={errors.email && "is-invalid"}
-                        placeholder="Informe seu e-mail"
-                        {...register("email", {
-                          required: "O email é obrigatório",
-                        })}
-                      />
+                    <Form.Group className=" d-flex mb-3" controlId="email">
+                      <InputGroup className="">
+                        <Form.Control
+                          type="email"
+                          className={errors.email && "is-invalid"}
+                          placeholder="Informe seu e-mail"
+                          {...register("email", {
+                            required: "O email é obrigatório",
+                          })}
+                        />
+                        <InputGroup.Text className="rounded-2 text-white bg-warning">
+                          <i class="bi bi-envelope"></i>
+                        </InputGroup.Text>
 
-                      <Form.Text className="invalid-feedback">
-                        {errors.email?.message}
-                      </Form.Text>
+                        <Form.Text className="invalid-feedback">
+                          {errors.email?.message}
+                        </Form.Text>
+                      </InputGroup>
                     </Form.Group>
                     <Form.Group className="d-flex mb-3" controlId="password">
                       <InputGroup>
@@ -66,8 +74,8 @@ export function CadastroClienteParte1() {
                             required: "A senha é obrigatória",
                           })}
                         />
-                        <InputGroup.Text>
-                          <i class={"bi bi-eye-fill"}></i>
+                        <InputGroup.Text className="rounded-2 text-white bg-warning">
+                          <i class="bi bi-lock"></i>
                         </InputGroup.Text>
                         <Form.Text className="invalid-feedback">
                           {errors.senha?.message}
@@ -84,8 +92,8 @@ export function CadastroClienteParte1() {
                             required: "As senhas são diferentes",
                           })}
                         />
-                        <InputGroup.Text>
-                          <i class={"bi bi-eye-fill"}></i>
+                        <InputGroup.Text className="rounded-2 text-white bg-warning">
+                          <i class="bi bi-lock"></i>
                         </InputGroup.Text>
                         <Form.Text className="invalid-feedback">
                           {errors.senha?.message}
@@ -93,7 +101,7 @@ export function CadastroClienteParte1() {
                       </InputGroup>
                     </Form.Group>
 
-                    <div className="d-grid gap-2">
+                    <div className=" d-grid p-2 gap-2">
                       <Button
                         variant="warning"
                         className="text-white"
@@ -103,22 +111,23 @@ export function CadastroClienteParte1() {
                         Cadastrar
                       </Button>
                     </div>
+
+                    <div className="d-grid p-2 gap-2">
+                      <Button variant="outline-warning" type="submit" size="lg">
+                        Ir para Login
+                      </Button>
+                    </div>
                   </Form>
                 </Container>
               </Col>
               <Col className=" rounded-5 bg-warning">
-                <Card.Img
-                  variant="right"
-                  className=" w-75"
-                  src={signinIcon}
-                ></Card.Img>
-                <Container className="bg-warning"></Container>
-                {/* <img width="auto" src={signinIcon} alt="Icon"></img> */}
+                <Card.Img width="auto" className="" src={signinIcon}></Card.Img>
               </Col>
             </Row>
           </Card.Body>
         </Card>
       </Container>
+      {/* background: linear-gradient(34deg, rgba(66,66,66,1) 0%, rgba(240,96,0,1) 0%, rgba(255,249,237,1) 100%); */}
     </>
   );
 }
