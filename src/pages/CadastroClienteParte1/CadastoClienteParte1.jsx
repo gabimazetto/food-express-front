@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import signinIcon from "../../assets/images/9 2.png";
 import foodExpressLogo from "../../assets/images/1-removebg-preview 1.png";
 
+
 export function CadastroClienteParte1() {
   const {
     register,
