@@ -1,2 +1,12 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 @import "bootstrap-icons/font/bootstrap-icons.css";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Signika+Negative:wght@300;400;500;600;700&display=swap");
+
+
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: "Signika Negative", "Roboto";
+}
