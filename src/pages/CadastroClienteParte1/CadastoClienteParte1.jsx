@@ -10,7 +10,7 @@ import {
 } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import signinIcon from "../../assets/icons/9.svg";
+import signinIcon from "../../assets/images/9 2.png";
 import foodExpressLogo from "../../assets/images/1-removebg-preview 1.png";
 
 export function CadastroClienteParte1() {
@@ -33,18 +33,13 @@ export function CadastroClienteParte1() {
   }
   return (
     <>
-      <Container fluid className="vh-100 bg-warning">
-        <Card className="w-75 h-75 d-flex rounded-5 ">
+      <Container fluid className="pt-3 vh-100 bg-warning">
+        <Card className="container  w-75 rounded-5  ">
           <Card.Body>
             <Row>
-              <Col className="d-flex">
-                <Container className="w-auto h-auto p-5 mb-3">
-                  <Card.Img
-                    width="393px"
-                    height="110px"
-                    src={foodExpressLogo}
-                  ></Card.Img>
-
+              <Col>
+                <Container>
+                  <Card.Img src={foodExpressLogo}></Card.Img>
                   <Form onSubmit={handleSubmit(onSubmit)}>
                     <Form.Group className="d-flex mb-3" controlId="email">
                       <Form.Control
@@ -97,20 +92,26 @@ export function CadastroClienteParte1() {
                       </InputGroup>
                     </Form.Group>
 
-                    <div className="d-grid gap-2" color="#fd7e14">
-                      <Button variant="warning" type="submit" size="lg">
+                    <div className="d-grid gap-2">
+                      <Button
+                        variant="warning"
+                        className="text-white"
+                        type="submit"
+                        size="lg"
+                      >
                         Cadastrar
                       </Button>
                     </div>
                   </Form>
                 </Container>
               </Col>
-              <Col>
+              <Col className=" rounded-5 bg-warning">
                 <Card.Img
                   variant="right"
-                  className="d-flex w-75"
+                  className=" w-75"
                   src={signinIcon}
                 ></Card.Img>
+                <Container className="bg-warning"></Container>
                 {/* <img width="auto" src={signinIcon} alt="Icon"></img> */}
               </Col>
             </Row>
