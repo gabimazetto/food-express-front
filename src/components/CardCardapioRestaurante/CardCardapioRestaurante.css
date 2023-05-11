@@ -1,0 +1,77 @@
+    /* CARDS */
+    .main-home-restaurante {
+        margin-top: 9.15%;
+    }
+
+    .article-home-restaurante {
+        width: 242px;
+        height: 328px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+        margin-bottom: 26px;
+    }
+
+    .article-home-restaurante img {
+        height: 192px;
+        width: 242px;
+    }
+
+    .article-home-restaurante .article-body {
+        background-color: #D97B0B;
+        height: 136px;
+        border-radius: 0px 0px 10px 10px;
+    }
+
+    .article-home-restaurante .article-body .titulo-card-restaurante {
+        width: 198px;
+        height: 38px;
+        margin-left: 22.5px;
+    }
+
+    .article-home-restaurante .article-body .titulo-card-restaurante h1 {
+        font-family: "Signika Negative";
+        color: white;
+        font-size: 20px;
+        font-weight: 700;
+        text-align: left;
+        height: 100%;
+        margin-top: 18.5px;
+    }
+
+    .article-home-restaurante div .titulo-card-restaurante i {
+        font-size: 1.4em;
+        margin-top: 18.5px;
+        color: white;
+    }
+
+    .article-home-restaurante div p {
+        width: 198px;
+        font-family: 'Signika Negative';
+        color: #000000;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        margin-left: 22px;
+        margin-top: 17.6px;
+    }
+
+    .article-home-restaurante div .preco-card-restaurante {
+        width: 198px;
+        margin-left: 22px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .article-home-restaurante div .preco-card-restaurante h1 {
+        font-family: 'Signika Negative';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        color: #49402F;
+    }
+
+    .article-home-restaurante div .preco-card-restaurante i {
+        font-size: 1.5em;
+        color: #49402F;
+    }
