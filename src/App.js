@@ -6,6 +6,7 @@ import { NovoCliente } from "./pages/NovoCliente/NovoCliente";
 import { NovoRestaurante } from "./pages/NovoRestaurante/NovoRestaurante";
 import { Cardapio } from "./pages/Cardapio/Cardapio";
 import { EditaRestaurante } from "./pages/EditarRestaurante/EditarRestaurante";
+import { EditarCliente } from "./pages/EditarCliente/EditarCliente";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/novocliente" element={<NovoCliente />} />
+          <Route path="/clientes/editar/:id" element={<EditarCliente />} />
           <Route path="/novorestaurante" element={<NovoRestaurante />} />
           <Route path="/comidas" element={<Cardapio />} />
           <Route path="/editarrestaurante/:id" element={<EditaRestaurante />} />
