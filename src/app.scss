@@ -1,4 +1,5 @@
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Signika+Negative:wght@300;400;500;600;700&display=swap");
 $theme-colors: (
   "info": #00b3e6,
   "danger": tomato,
@@ -6,3 +7,33 @@ $theme-colors: (
   "warning": #f06000,
   "primary": #00b3e6,
 );
+* {
+  padding: 0;
+  margin: 0;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: "Signika Negative", "Roboto" !important;
+}
+
+#background-gradient {
+  background: linear-gradient(
+    34deg,
+    rgba(66, 66, 66, 1) 0%,
+    rgba(240, 96, 0, 1) 0%,
+    rgba(255, 249, 237, 1) 100%
+  );
+}
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
