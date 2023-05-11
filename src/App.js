@@ -3,7 +3,11 @@ import { Root } from "./pages/Root/Root";
 import { Home } from "./pages/Home/Home";
 import { Login } from "./pages/Login/Login";
 import { NovoCliente } from "./pages/NovoCliente/NovoCliente";
+import { CadastroClienteParte1 } from "./pages/CadastroClienteParte1/CadastoClienteParte1";
 import { NovoRestaurante } from "./pages/NovoRestaurante/NovoRestaurante";
+import { NovaComida } from "./pages/NovaComida/NovaComida";
+import { Cardapio } from "./pages/Cardapio/Cardapio";
+import { EditaRestaurante } from "./pages/EditarRestaurante/EditarRestaurante";
 
 function App() {
   return (
@@ -14,8 +18,11 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/novocliente" element={<NovoCliente />} />
           <Route path="/novorestaurante" element={<NovoRestaurante />} />
-
+          <Route path="/restaurante/cardapio/nova" element={<NovaComida />} />
+          <Route path="/comidas" element={<Cardapio />} />
+          <Route path="/editarrestaurante/:id" element={<EditaRestaurante />} />
         </Route>
+        <Route path="/cadastrocliente" element={<CadastroClienteParte1 />} />
       </Routes>
     </BrowserRouter>
   );
