@@ -108,7 +108,7 @@ export function CadastroClienteParte1() {
                       </InputGroup>
                     </Form.Group>
 
-                    <div className="d-flex justify-content-center p-2 gap-2">
+                    <div className="d-grid  p-2 gap-2">
                       <Button
                         variant="primary"
                         className="text-white"
@@ -119,7 +119,7 @@ export function CadastroClienteParte1() {
                       </Button>
                     </div>
                     <div className="d-flex  justify-content-center ">OU</div>
-                    <div className="d-flex mt-3 justify-content-center ">
+                    <div className="d-grid mt-3  ">
                       <Button variant="outline-primary" type="submit" size="lg">
                         Ir para Login
                       </Button>
