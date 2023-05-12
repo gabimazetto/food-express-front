@@ -18,7 +18,7 @@ export function CadastroClienteParte1() {
     register,
     handleSubmit,
     formState: { errors },
-    getValues
+    getValues,
   } = useForm();
   const navigate = useNavigate();
 
@@ -34,29 +34,27 @@ export function CadastroClienteParte1() {
   }
   return (
     <>
-      <Container
-        fluid
-        id="background-gradient"
-        className=" pt-3 vh-100 bg-warning"
-      >
-        <Card className="container mt-5 w-75 align-items-center rounded-5  ">
+      <Container fluid id="background-gradient" className=" pt-3 vh-100">
+        <Card className="d-flex container mt-5 w-75 align-items-center rounded-5  ">
           <Card.Body>
             <Row>
               <Col>
                 <Container>
                   <Card.Img width="auto" src={foodExpressLogo}></Card.Img>
                   <Form onSubmit={handleSubmit(onSubmit)}>
-                    <Form.Group className=" d-flex mb-3" controlId="email">
+                    <Form.Group className="d-flex mb-3" controlId="email">
                       <InputGroup className="">
                         <Form.Control
                           type="email"
-                          className={errors.email && "is-invalid"}
+                          className={
+                            "bg-input" || (errors.email && "is-invalid")
+                          }
                           placeholder="Informe seu e-mail"
                           {...register("email", {
                             required: "O email é obrigatório",
                           })}
                         />
-                        <InputGroup.Text className="rounded-2 text-white bg-warning">
+                        <InputGroup.Text className="rounded-2 text-white bg-primary">
                           <i class="bi bi-envelope"></i>
                         </InputGroup.Text>
 
@@ -69,13 +67,15 @@ export function CadastroClienteParte1() {
                       <InputGroup>
                         <Form.Control
                           type="password"
-                          className={errors.senha && "is-invalid"}
+                          className={
+                            "bg-input" || (errors.senha && "is-invalid")
+                          }
                           placeholder="Crie sua senha"
                           {...register("senha", {
                             required: "A senha é obrigatória",
                           })}
                         />
-                        <InputGroup.Text className="rounded-2 text-white bg-warning">
+                        <InputGroup.Text className="rounded-2 text-white bg-primary">
                           <i class="bi bi-lock"></i>
                         </InputGroup.Text>
                         <Form.Text className="invalid-feedback">
@@ -83,20 +83,23 @@ export function CadastroClienteParte1() {
                         </Form.Text>
                       </InputGroup>
                     </Form.Group>
-                    <Form.Group className=" d-flex mb-3" controlId="password">
+                    <Form.Group className="d-flex mb-3" controlId="password">
                       <InputGroup>
                         <Form.Control
                           type="password"
-                          className={errors.confirmacaoSenha && "is-invalid"}
+                          className={
+                            "bg-input" ||
+                            (errors.senha && "bg-input is-invalid")
+                          }
                           placeholder="Confirme sua senha"
                           {...register("confirmacaoSenha", {
                             required: "As senhas devem ser iguais",
-                            validate:(value) =>
-                            value === getValues("senha") ||
-                            "As senhas devem ser iguais"
+                            validate: (value) =>
+                              value === getValues("senha") ||
+                              "As senhas devem ser iguais",
                           })}
                         />
-                        <InputGroup.Text className="rounded-2 text-white bg-warning">
+                        <InputGroup.Text className="rounded-2 text-white bg-primary">
                           <i class="bi bi-lock"></i>
                         </InputGroup.Text>
                         <Form.Text className="invalid-feedback">
@@ -105,9 +108,9 @@ export function CadastroClienteParte1() {
                       </InputGroup>
                     </Form.Group>
 
-                    <div className=" d-grid p-2 gap-2">
+                    <div className="d-grid  p-2 gap-2">
                       <Button
-                        variant="warning"
+                        variant="primary"
                         className="text-white"
                         type="submit"
                         size="lg"
@@ -115,17 +118,17 @@ export function CadastroClienteParte1() {
                         Cadastrar
                       </Button>
                     </div>
-
-                    <div className="d-grid p-2 gap-2">
-                      <Button variant="outline-warning" type="submit" size="lg">
+                    <div className="d-flex  justify-content-center ">OU</div>
+                    <div className="d-grid mt-3  ">
+                      <Button variant="outline-primary" type="submit" size="lg">
                         Ir para Login
                       </Button>
                     </div>
                   </Form>
                 </Container>
               </Col>
-              <Col className=" rounded-5 bg-warning">
-                <Card.Img width="auto" className="" src={signinIcon}></Card.Img>
+              <Col className=" rounded-5 ">
+                <Card.Img className=" bg-primary" src={signinIcon}></Card.Img>
               </Col>
             </Row>
           </Card.Body>
