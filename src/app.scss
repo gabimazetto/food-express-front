@@ -27,6 +27,27 @@ h6,
   font-family: "Signika Negative", "Roboto" !important;
 }
 
+// .container, .container-fluid, .container-xxl, .container-xl, .container-lg, .container-md, .container-sm {
+//     --bs-gutter-x: 1.5rem;
+//     --bs-gutter-y: 1.5rem;
+//     width: 100%;
+//     padding-right: calc(var(--bs-gutter-x) * 2.5) !important;
+//     padding-left: calc(var(--bs-gutter-x) * 2.5)!important;
+//     margin-right: auto;
+//     margin-left: auto;
+//     padding-top: calc(var(--bs-gutter-x) * 4.5) ;
+//     padding-bottom: calc(var(--bs-gutter-x) * 4.5);
+// }
+
+.gradient-brackgound {
+  background: linear-gradient(
+    34deg,
+    rgba(66, 66, 66, 1) 0%,
+    rgba(240, 96, 0, 1) 0%,
+    rgba(255, 249, 237, 1) 100%
+  );
+}
+
 #background-gradient {
   background: linear-gradient(
     34deg,
