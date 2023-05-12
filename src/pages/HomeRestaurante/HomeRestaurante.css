@@ -1,0 +1,275 @@
+/* MEDIA QUERY'S */
+/* DISPOSITIVOS MÓVEIS */
+@media (max-width: 480px) {
+    .container-home-restaurante {
+        width: 100%;
+    }
+
+    .header-home-restaurante {
+        height: 220px;
+    }
+
+    .header-home-restaurante .container-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60%;
+        width: 100%;
+    }
+
+    .header-home-restaurante .button-home-restaurante {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .header-home-restaurante .container-header .imagem-home-restaurante {
+        padding-left: 15px;
+    }
+
+    .header-home-restaurante .container-header .titulo-home-restaurante h1 {
+        font: 700;
+        font-size: 36px;
+        color: #F06000;
+        font-family: "Signika Negative";
+        font-weight: 700;
+        padding-right: 15px;
+    }
+
+    .header-home-restaurante .container-header .imagem-home-restaurante img {
+        height: 87px;
+        width: 105px;
+    }
+
+    .header-home-restaurante .button-home-restaurante {
+        display: flex;
+        flex-direction: row-reverse;
+        width: 190px;
+        margin-left: 32%;
+    }
+
+    .header-home-restaurante .button-home-restaurante .button-header {
+        width: 190px !important;
+        height: 50px !important;
+        color: #F06000;
+        background-color: white;
+    }
+
+    .invisivel-mobile {
+        display: none;
+    }
+}
+
+/* TABLET'S */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .container-home-restaurante {
+        width: 100%;
+    }
+
+    .header-home-restaurante .container-header {
+        display: flex;
+        height: 50vh;
+    }
+
+    .header-home-restaurante .container-header .titulo-home-restaurante {
+        width: 90%;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .header-home-restaurante .container-header .titulo-home-restaurante h1 {
+        font: 700;
+        font-size: 46px;
+        color: #F06000;
+        font-family: "Signika Negative";
+        font-weight: 700;
+        width: 75%;
+        height: 50%;
+        display: flex;
+        align-items: center;
+    }
+
+    .header-home-restaurante .container-header .titulo-home-restaurante .button-header {
+        width: 75%;
+        height: 50%;
+    }
+
+    .header-home-restaurante .container-header .imagem-home-restaurante {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .header-home-restaurante .container-header div img {
+        width: 231px;
+        height: 249px;
+    }
+
+    .button-add-itens {
+        width: 166px;
+        height: 35px;
+        text-align: start !important;
+        color: white !important;
+    }
+
+    .button-meus-itens {
+        width: 110px;
+        height: 35px;
+        text-align: start !important;
+        margin-bottom: 34.5px;
+        color: white !important;
+    }
+
+    .invisivel-desktop {
+        display: none;
+    }
+}
+
+/* TELAS PEQUENAS */
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+    .header-home-restaurante {
+        width: 90%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+
+    .header-home-restaurante .container-header {
+        display: flex;
+        height: 50vh;
+    }
+
+    .header-home-restaurante .container-header .titulo-home-restaurante {
+        width: 90%;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .header-home-restaurante .container-header .titulo-home-restaurante h1 {
+        font: 700;
+        font-size: 46px;
+        color: #F06000;
+        font-family: "Signika Negative";
+        font-weight: 700;
+        width: 75%;
+        height: 50%;
+        display: flex;
+        align-items: center;
+    }
+
+    .header-home-restaurante .container-header .titulo-home-restaurante .button-header {
+        width: 75%;
+        height: 50%;
+        display: flex;
+        flex-flow: column nowrap;
+    }
+
+    .header-home-restaurante .container-header .imagem-home-restaurante {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .header-home-restaurante .container-header div img {
+        width: 365.33px;
+        height: 314px;
+    }
+
+    .button-add-itens {
+        width: 166px;
+        height: 35px;
+        text-align: start !important;
+        color: white !important;
+    }
+
+    .button-meus-itens {
+        width: 110px;
+        height: 35px;
+        text-align: start !important;
+        margin-bottom: 34.5px;
+        color: white !important;
+    }
+
+    .invisivel-desktop {
+        display: none;
+    }
+}
+
+/* TELAS GRANDES */
+@media screen and (min-width: 1201px) {
+    .header-home-restaurante {
+        width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .header-home-restaurante .container-header {
+        display: flex;
+        height: 60vh;
+    }
+
+    .header-home-restaurante .container-header .titulo-home-restaurante {
+        width: 90%;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .header-home-restaurante .container-header .titulo-home-restaurante h1 {
+        font: 700;
+        font-size: 57.5px;
+        color: #F06000;
+        font-family: "Signika Negative";
+        font-weight: 700;
+        width: 75%;
+        height: 50%;
+        display: flex;
+        align-items: center;
+    }
+
+    .header-home-restaurante .container-header .titulo-home-restaurante .button-header {
+        width: 75%;
+        height: 50%;
+        display: flex;
+        flex-flow: column nowrap;
+    }
+
+    .header-home-restaurante .container-header .imagem-home-restaurante {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .header-home-restaurante .container-header div img {
+        width: 482px;
+        height: 414px;
+    }
+
+    .button-add-itens {
+        width: 207.5px;
+        height: 43.75px;
+        text-align: start !important;
+        color: white !important;
+    }
+
+    .button-meus-itens {
+        width: 137.5px;
+        height: 43.75px;
+        text-align: start !important;
+        margin-bottom: 34.5px;
+        color: white !important;
+    }
+
+    .invisivel-desktop {
+        display: none;
+    }
+}
