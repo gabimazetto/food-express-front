@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { Loader } from "../../components/Loader/Loader";
 import "./Cardapio.css"
-
+import { CardCardapioRestaurante } from "../../components/CardCardapioRestaurante/CardCardapioRestaurante";
 
 
 export function Cardapio() {
@@ -186,7 +186,7 @@ export function Cardapio() {
 
                         
                             <>
-                            <img className="img-modal" src={comidaSelecionada.imagem} alt="Imagem da Comida" />
+                            <img src={comidaSelecionada.imagem} alt="Imagem da Comida" />
                             <p>Peso: {comidaSelecionada.peso}</p>
                             <p>Preço: {comidaSelecionada.preco}</p>
                             <p>Categoria: {comidaSelecionada.categoria}</p>
