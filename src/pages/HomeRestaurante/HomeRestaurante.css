@@ -130,7 +130,7 @@
 }
 
 /* TELAS PEQUENAS */
-@media screen and (min-width: 769px) and (max-width: 1024px) {
+@media screen and (min-width: 769px) and (max-width: 1200px) {
     .header-home-restaurante {
         width: 90%;
         margin-right: auto;
@@ -203,7 +203,7 @@
 }
 
 /* TELAS GRANDES */
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1201px) {
     .header-home-restaurante {
         width: 80%;
         margin-right: auto;
