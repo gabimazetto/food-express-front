@@ -1,4 +1,4 @@
-.header {
+/* .header {
     background-color: #e29837;
 }
 
@@ -9,4 +9,12 @@
 
 .header nav a:hover {
     color: #000000;
+} */
+
+.icones-atalho-grandes{
+    font-size: xx-large;
+}
+
+.icones-atalho{
+    font-size: xx-large;
 }
