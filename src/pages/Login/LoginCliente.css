@@ -1,5 +1,14 @@
-.container {
+/* .container {
  margin-top: 25%;
+} */
+
+.posicionar{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 100vh;
+    margin: 0;
+    align-items: center;
 }
 
 .img{
@@ -7,11 +16,14 @@
 }
 
 .conteudo{
-    width: 80% !important;
+    width: 85% !important;
     background-color: #fff;
     height: 680px;
-    margin-left: 9%;
 }
+
+/* main {
+    margin-top: 25% !important ;
+} */
 
 .gradient-brackgound {
     width: 100% !important;
@@ -24,10 +36,9 @@
 }
 
 :root {
-     background: linear-gradient(34deg, rgba(255,255,255,1) 23%, rgba(240,96,0,1) 85%) !important;      
-         
-
+     background: rgba(255, 255, 255, 0)!important;
 }
+
 #root {
     width: 100%;
     background-color: transparent;

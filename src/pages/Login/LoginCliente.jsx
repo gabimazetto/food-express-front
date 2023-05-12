@@ -3,12 +3,20 @@ import { Container, Card, Form, Button, Col, Row, InputGroup } from "react-boots
 import loginImg  from "../../assets/images/meninaNoteFood.png";
 import "./LoginCliente.css";
 
+const styles = {
+  pageStyle: {
+    background: ' linear-gradient(34deg, rgba(255,255,255,1) 23%, rgba(240,96,0,1) 85%)',
+    minHeight: '100vh' 
+  },
+};
+
 export function LoginCliente() {
   return (
     <>
-     <div className="container" >
+     <div className="container posicionar" style={styles.pageStyle} >
         
-      <main fluid className="border conteudo rounded-5">
+      <main fluid className="border conteudo rounded-5 ">
+        
         <Row>
           <Col>
             <div class="text-center">
@@ -67,6 +75,7 @@ export function LoginCliente() {
           </Col>
           {/* <Col>2 of 2</Col> */}
         </Row>
+        
       </main>
       </div>
       {/* <div  className="" id="#background-gradient" >

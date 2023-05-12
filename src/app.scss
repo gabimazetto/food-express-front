@@ -7,10 +7,15 @@ $theme-colors: (
   "warning": #d93f0b,
   "primary": #f06000,
 );
-* {
-  padding: 0;
+html, body {
   margin: 0;
+  padding: 0;
 }
+* {
+  box-sizing: border-box !important;
+}
+
+
 body,
 h1,
 h2,
