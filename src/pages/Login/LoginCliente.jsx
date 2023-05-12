@@ -42,18 +42,16 @@ export function LoginCliente() {
                 </InputGroup>
               </Form.Group>
 
-              <div class="d-grid gap-2">
+              <div class="d-grid gap-2 mt-4">
               <Button variant="primary" type="submit">
                 Login
               </Button>
               </div>
 
-              <div className="mt-3 mb-2 d-flex flex-wrap" >
-                <div className="line-left" ></div>
-                <p>OU</p>
-                <div id="line-right"></div>
-              </div>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
+              
+                <p className="divisao" >OU</p>
+               
+              <Form.Group className="mb-3 fontForm3" controlId="formBasicEmail">
               <InputGroup>
                 <Form.Control  type="email" placeholder="Seja nosso cliente, cadastre-se aqui" /> 
                 <InputGroup.Text>
@@ -62,9 +60,9 @@ export function LoginCliente() {
                 </InputGroup>
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Group className="mb-3 fontForm3" controlId="formBasicPassword">
               <InputGroup>
-                <Form.Control type="password"  placeholder="Seja nosso parceiro, cadastre seu restaurante aqui" />
+                <Form.Control type="password"  placeholder="Seja nosso parceiro, cadastre-se aqui" />
                 <InputGroup.Text>
                         <i class="bi bi-lock-fill white" style={{backgroundColor: "transparent"}} ></i>
                     </InputGroup.Text>

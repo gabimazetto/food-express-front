@@ -18,7 +18,7 @@
 .conteudo{
     width: 85% !important;
     background-color: #fff;
-    height: 680px;
+    height: 760px;
 }
 
 /* main {
@@ -45,20 +45,36 @@
     height: 100vh;    
 }
 
-.line-left{
-    content: "";
-    display: block;
-    width: 150px;
-    height: 0.05rem;
-    background-color: #f06000;
-    position: absolute;
+.divisao {
+    position: relative;
+    margin-top: 2.5rem;  
+    left: 45%;  
+    margin-bottom: 3rem;
+    color: #f06000;
 }
 
-#line-rigth {
+.divisao::before, .divisao::after {
     content: "";
     display: block;
-    width: 150px;
-    height: 0.5rem;
-    background-color: #000;
-    position: absolute; 
+    width: 40%;
+    height: 0.12rem;
+    background-color: #f06000;
+    position: absolute;
+    top: 0;
+}
+
+.divisao::before {
+  
+    left: -45%; /* Altere para a localização desejada */
+    top: 50%;
+}
+
+.divisao::after {
+    left: 13%;
+    top: 50%;
+
+}
+
+.fontForm3 input{
+    font-size: 0.9rem;
 }
