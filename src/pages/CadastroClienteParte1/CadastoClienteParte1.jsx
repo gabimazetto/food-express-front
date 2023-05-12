@@ -18,6 +18,7 @@ export function CadastroClienteParte1() {
     register,
     handleSubmit,
     formState: { errors },
+    getValues
   } = useForm();
   const navigate = useNavigate();
 
@@ -86,17 +87,20 @@ export function CadastroClienteParte1() {
                       <InputGroup>
                         <Form.Control
                           type="password"
-                          className={errors.senha && "is-invalid"}
+                          className={errors.confirmacaoSenha && "is-invalid"}
                           placeholder="Confirme sua senha"
-                          {...register("senha", {
-                            required: "As senhas são diferentes",
+                          {...register("confirmacaoSenha", {
+                            required: "As senhas devem ser iguais",
+                            validate:(value) =>
+                            value === getValues("senha") ||
+                            "As senhas devem ser iguais"
                           })}
                         />
                         <InputGroup.Text className="rounded-2 text-white bg-warning">
                           <i class="bi bi-lock"></i>
                         </InputGroup.Text>
                         <Form.Text className="invalid-feedback">
-                          {errors.senha?.message}
+                          {errors.confirmacaoSenha?.message}
                         </Form.Text>
                       </InputGroup>
                     </Form.Group>
