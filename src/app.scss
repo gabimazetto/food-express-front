@@ -2,10 +2,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Signika+Negative:wght@300;400;500;600;700&display=swap");
 $theme-colors: (
   "info": #00b3e6,
-  "danger": tomato,
-  "success": #00b3e6,
-  "warning": #f06000,
-  "primary": #00b3e6,
+  "danger": #f8260c,
+  "success": #f8a80c,
+  "warning": #d93f0b,
+  "primary": #f06000,
 );
 * {
   padding: 0;
@@ -56,5 +56,6 @@ h6,
     rgba(255, 249, 237, 1) 100%
   );
 }
+
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";

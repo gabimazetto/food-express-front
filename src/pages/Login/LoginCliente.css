@@ -1,8 +1,5 @@
 .container {
  margin-top: 25%;
- margin-left: 15% !important;
- margin-right: 15% !important;
-width: 70%;
 }
 
 .img{
@@ -10,7 +7,10 @@ width: 70%;
 }
 
 .conteudo{
-    width: 70% !important;
+    width: 80% !important;
+    background-color: #fff;
+    height: 680px;
+    margin-left: 9%;
 }
 
 .gradient-brackgound {
@@ -24,10 +24,30 @@ width: 70%;
 }
 
 :root {
-     background: linear-gradient(
-        34deg,
-        rgba(66, 66, 66, 1) 0%,
-        rgba(240, 96, 0, 1) 0%,
-        rgba(255, 249, 237, 1) 100%
-      ) !important;
+     background: linear-gradient(34deg, rgba(255,255,255,1) 23%, rgba(240,96,0,1) 85%) !important;      
+         
+
+}
+#root {
+    width: 100%;
+    background-color: transparent;
+    height: 100vh;    
+}
+
+.line-left{
+    content: "";
+    display: block;
+    width: 150px;
+    height: 0.05rem;
+    background-color: #f06000;
+    position: absolute;
+}
+
+#line-rigth {
+    content: "";
+    display: block;
+    width: 150px;
+    height: 0.5rem;
+    background-color: #000;
+    position: absolute; 
 }
