@@ -12,6 +12,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import signinIcon from "../../assets/icons/negocioCheck.svg";
 import foodExpressLogo from "../../assets/images/1-removebg-preview 1.png";
+import { useState } from "react";
 
 export function CadastroClienteParte1() {
   const {
@@ -21,6 +22,33 @@ export function CadastroClienteParte1() {
     getValues,
   } = useForm();
   const navigate = useNavigate();
+
+
+  const [senha, setSenha] = useState("password");
+  const [icone, setIcone] = useState("bi bi-eye-slash text-light");
+  function mudarTipo() {
+    if (senha === "password") {
+      setIcone("bi bi-eye-fill text-light");
+      setSenha("text");
+    } else {
+      setIcone("bi bi-eye-slash text-light");
+      setSenha("password");
+    }
+  }
+
+
+  const [senha2, setSenha2] = useState("password");
+  const [icone2, setIcone2] = useState("bi bi-eye-slash text-light");
+  function mudarTipo2() {
+    if (senha2 === "password") {
+      setIcone2("bi bi-eye-fill text-light");
+      setSenha2("text");
+    } else {
+      setIcone2("bi bi-eye-slash text-light");
+      setSenha2("password");
+    }
+  }
+
 
   function onSubmit(data) {
     axios
@@ -66,7 +94,7 @@ export function CadastroClienteParte1() {
                     <Form.Group className="d-flex mb-3" controlId="password">
                       <InputGroup>
                         <Form.Control
-                          type="password"
+                          type={senha}
                           className={
                             "bg-input" || (errors.senha && "is-invalid")
                           }
@@ -75,8 +103,8 @@ export function CadastroClienteParte1() {
                             required: "A senha é obrigatória",
                           })}
                         />
-                        <InputGroup.Text className="rounded-2 text-white bg-primary">
-                          <i class="bi bi-lock"></i>
+                        <InputGroup.Text className="bg-primary" onClick={mudarTipo}>
+                          <i className={icone}></i>
                         </InputGroup.Text>
                         <Form.Text className="invalid-feedback">
                           {errors.senha?.message}
@@ -86,7 +114,7 @@ export function CadastroClienteParte1() {
                     <Form.Group className="d-flex mb-3" controlId="password">
                       <InputGroup>
                         <Form.Control
-                          type="password"
+                          type={senha2}
                           className={
                             "bg-input" ||
                             (errors.senha && "bg-input is-invalid")
@@ -99,8 +127,8 @@ export function CadastroClienteParte1() {
                               "As senhas devem ser iguais",
                           })}
                         />
-                        <InputGroup.Text className="rounded-2 text-white bg-primary">
-                          <i class="bi bi-lock"></i>
+                        <InputGroup.Text className="bg-primary" onClick={mudarTipo2}>
+                          <i className={icone2}></i>
                         </InputGroup.Text>
                         <Form.Text className="invalid-feedback">
                           {errors.confirmacaoSenha?.message}
