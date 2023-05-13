@@ -2,20 +2,26 @@ import React from "react";
 import { Container, Card, Form, Button, Col, Row, InputGroup } from "react-bootstrap";
 import loginImg  from "../../assets/images/meninaNoteFood.png";
 import "./LoginCliente.css";
+import { CustomInput } from "../../components/CustomInput/CustomInput";
+import { ButtonNavigation } from "../../components/ButtonNavigation/ButtonNavigation";
+import Divider from "../../components/Divider/Divider";
+import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/ContainerCenterMobile";
 
 const styles = {
   pageStyle: {
     background: ' linear-gradient(34deg, rgba(255,255,255,1) 23%, rgba(240,96,0,1) 85%)',
-    minHeight: '100vh' 
+    minHeight: '100vh' ,
+
   },
 };
 
 export function LoginCliente() {
   return (
     <>
-     <div className="container posicionar" style={styles.pageStyle} >
+    <ContainerCenterMobile className="background-gradient" >
+    
         
-      <main fluid className="border conteudo rounded-5 ">
+      <main className="border conteudo rounded-5 ">
         
         <Row>
           <Col>
@@ -24,82 +30,28 @@ export function LoginCliente() {
             </div>
             <div className="px-3 py-4" >
             <Form>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-              <InputGroup>
-                <Form.Control  type="email" placeholder="Digite seu e-mail" /> 
-                <InputGroup.Text>
-                        <i class="bi bi-envelope-at-fill white" style={{backgroundColor: "transparent"}} ></i>
-                    </InputGroup.Text>
-                </InputGroup>
-              </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formBasicPassword">
-              <InputGroup>
-                <Form.Control type="password" placeholder="Digite sua senha" />
-                <InputGroup.Text>
-                        <i class="bi bi-lock-fill white" style={{backgroundColor: "transparent"}} ></i>
-                    </InputGroup.Text>
-                </InputGroup>
-              </Form.Group>
+              <CustomInput type="email" placeholder="Digite seu e-mail" icon="bi bi-envelope-at-fill white "/>
+              <CustomInput type="password" placeholder="Digite sua senha" icon="bi bi-eye-fill white "/>  
 
-              <div class="d-grid gap-2 mt-4">
-              <Button variant="primary" type="submit">
-                Login
-              </Button>
+              <div class="d-grid gap-2 mt-4">              
+              <ButtonNavigation text="Login" route="/" className="white"/>
               </div>
-
+              </Form>
+              <Divider>OU</Divider>          
               
-                <p className="divisao" >OU</p>
-               
-              <Form.Group className="mb-3 fontForm3" controlId="formBasicEmail">
-              <InputGroup>
-                <Form.Control  type="email" placeholder="Seja nosso cliente, cadastre-se aqui" /> 
-                <InputGroup.Text>
-                        <i class="bi bi-envelope-at-fill white" style={{backgroundColor: "transparent"}} ></i>
-                    </InputGroup.Text>
-                </InputGroup>
-              </Form.Group>
+              <ButtonNavigation text="Seja nosso cliente, cadastre-se aqui" route="/" className="my-button-not-filled"/>
 
-              <Form.Group className="mb-3 fontForm3" controlId="formBasicPassword">
-              <InputGroup>
-                <Form.Control type="password"  placeholder="Seja nosso parceiro, cadastre-se aqui" />
-                <InputGroup.Text>
-                        <i class="bi bi-lock-fill white" style={{backgroundColor: "transparent"}} ></i>
-                    </InputGroup.Text>
-                </InputGroup>
-              </Form.Group>
-            </Form>
+              <ButtonNavigation text="Seja nosso parceiro, cadastre-se aqui" route="/" className="my-button-not-filled"/>
+           
             </div>
           </Col>
           {/* <Col>2 of 2</Col> */}
         </Row>
         
       </main>
-      </div>
-      {/* <div  className="" id="#background-gradient" >
-    <Container fluid className="d-flex justify-content-center align-items-center border " style={{ minHeight: "75vh" }}>
-     
-        
-        <Card.Body>
-          <Form>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" placeholder="Digite seu email" />
-            </Form.Group>
-
-            <Form.Group controlId="formBasicPassword">
-              <Form.Label>Senha</Form.Label>
-              <Form.Control type="password" placeholder="Senha" />
-            </Form.Group>
-
-            <Button variant="primary" type="submit">
-              Login
-            </Button>
-          </Form>
-        </Card.Body>
-      
-    </Container>
-    </div> */}
+      </ContainerCenterMobile>
+   
     </>
   );
 }
