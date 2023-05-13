@@ -12,14 +12,43 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import signinIcon from "../../assets/icons/negocioCheck.svg";
 import foodExpressLogo from "../../assets/images/1-removebg-preview 1.png";
+import { useState } from "react";
 
 export function CadastroClienteParte1() {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    getValues,
   } = useForm();
   const navigate = useNavigate();
+
+
+  const [senha, setSenha] = useState("password");
+  const [icone, setIcone] = useState("bi bi-eye-slash text-light");
+  function mudarTipo() {
+    if (senha === "password") {
+      setIcone("bi bi-eye-fill text-light");
+      setSenha("text");
+    } else {
+      setIcone("bi bi-eye-slash text-light");
+      setSenha("password");
+    }
+  }
+
+
+  const [senha2, setSenha2] = useState("password");
+  const [icone2, setIcone2] = useState("bi bi-eye-slash text-light");
+  function mudarTipo2() {
+    if (senha2 === "password") {
+      setIcone2("bi bi-eye-fill text-light");
+      setSenha2("text");
+    } else {
+      setIcone2("bi bi-eye-slash text-light");
+      setSenha2("password");
+    }
+  }
+
 
   function onSubmit(data) {
     axios
@@ -33,29 +62,27 @@ export function CadastroClienteParte1() {
   }
   return (
     <>
-      <Container
-        fluid
-        id="background-gradient"
-        className=" pt-3 vh-100 bg-warning"
-      >
-        <Card className="container mt-5 w-75 align-items-center rounded-5  ">
+      <Container fluid id="background-gradient" className=" pt-3 vh-100">
+        <Card className="d-flex container mt-5 w-75 align-items-center rounded-5  ">
           <Card.Body>
             <Row>
               <Col>
                 <Container>
                   <Card.Img width="auto" src={foodExpressLogo}></Card.Img>
                   <Form onSubmit={handleSubmit(onSubmit)}>
-                    <Form.Group className=" d-flex mb-3" controlId="email">
+                    <Form.Group className="d-flex mb-3" controlId="email">
                       <InputGroup className="">
                         <Form.Control
                           type="email"
-                          className={errors.email && "is-invalid"}
+                          className={
+                            "bg-input" || (errors.email && "is-invalid")
+                          }
                           placeholder="Informe seu e-mail"
                           {...register("email", {
                             required: "O email é obrigatório",
                           })}
                         />
-                        <InputGroup.Text className="rounded-2 text-white bg-warning">
+                        <InputGroup.Text className="rounded-2 text-white bg-primary">
                           <i class="bi bi-envelope"></i>
                         </InputGroup.Text>
 
@@ -67,43 +94,51 @@ export function CadastroClienteParte1() {
                     <Form.Group className="d-flex mb-3" controlId="password">
                       <InputGroup>
                         <Form.Control
-                          type="password"
-                          className={errors.senha && "is-invalid"}
+                          type={senha}
+                          className={
+                            "bg-input" || (errors.senha && "is-invalid")
+                          }
                           placeholder="Crie sua senha"
                           {...register("senha", {
                             required: "A senha é obrigatória",
                           })}
                         />
-                        <InputGroup.Text className="rounded-2 text-white bg-warning">
-                          <i class="bi bi-lock"></i>
+                        <InputGroup.Text className="bg-primary" onClick={mudarTipo}>
+                          <i className={icone}></i>
                         </InputGroup.Text>
                         <Form.Text className="invalid-feedback">
                           {errors.senha?.message}
                         </Form.Text>
                       </InputGroup>
                     </Form.Group>
-                    <Form.Group className=" d-flex mb-3" controlId="password">
+                    <Form.Group className="d-flex mb-3" controlId="password">
                       <InputGroup>
                         <Form.Control
-                          type="password"
-                          className={errors.senha && "is-invalid"}
+                          type={senha2}
+                          className={
+                            "bg-input" ||
+                            (errors.senha && "bg-input is-invalid")
+                          }
                           placeholder="Confirme sua senha"
-                          {...register("senha", {
-                            required: "As senhas são diferentes",
+                          {...register("confirmacaoSenha", {
+                            required: "As senhas devem ser iguais",
+                            validate: (value) =>
+                              value === getValues("senha") ||
+                              "As senhas devem ser iguais",
                           })}
                         />
-                        <InputGroup.Text className="rounded-2 text-white bg-warning">
-                          <i class="bi bi-lock"></i>
+                        <InputGroup.Text className="bg-primary" onClick={mudarTipo2}>
+                          <i className={icone2}></i>
                         </InputGroup.Text>
                         <Form.Text className="invalid-feedback">
-                          {errors.senha?.message}
+                          {errors.confirmacaoSenha?.message}
                         </Form.Text>
                       </InputGroup>
                     </Form.Group>
 
-                    <div className=" d-grid p-2 gap-2">
+                    <div className="d-grid  p-2 gap-2">
                       <Button
-                        variant="warning"
+                        variant="primary"
                         className="text-white"
                         type="submit"
                         size="lg"
@@ -111,17 +146,17 @@ export function CadastroClienteParte1() {
                         Cadastrar
                       </Button>
                     </div>
-
-                    <div className="d-grid p-2 gap-2">
-                      <Button variant="outline-warning" type="submit" size="lg">
+                    <div className="d-flex  justify-content-center ">OU</div>
+                    <div className="d-grid mt-3  ">
+                      <Button variant="outline-primary" type="submit" size="lg">
                         Ir para Login
                       </Button>
                     </div>
                   </Form>
                 </Container>
               </Col>
-              <Col className=" rounded-5 bg-warning">
-                <Card.Img width="auto" className="" src={signinIcon}></Card.Img>
+              <Col className=" rounded-5 ">
+                <Card.Img className=" bg-primary" src={signinIcon}></Card.Img>
               </Col>
             </Row>
           </Card.Body>

@@ -2,13 +2,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Signika+Negative:wght@300;400;500;600;700&display=swap");
 $theme-colors: (
   "info": #00b3e6,
-  "danger": #F8260C,
-  "success": #D97B0B,
-  "warning": #F8A80C,
+  "danger": #f8260c,
+  "success": #d97b0b,
+  "warning": #f8a80c,
   "primary": #f06000,
-  "secondary": #D93F0B,
-  "light": #FCFCFC,
-  "dark": #16171B,
+  "secondary": #d93f0b,
+  "light": #fcfcfc,
+  "dark": #16171b,
+  "input": #f1f3f6,
 );
 html, body {
   height: 100%;
