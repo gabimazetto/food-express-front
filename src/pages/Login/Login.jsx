@@ -12,9 +12,6 @@ import loginImg from "../../assets/images/meninaNoteFood.png";
 import logo from "../../assets/images/logoTemaClaro.png";
 import "./Login.css";
 
-
-
-
 export function Login() {
   return (
     <>
