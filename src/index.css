@@ -1,0 +1,4 @@
+.btn {    
+    --bs-btn-font-weight: 700 !important;
+    --bs-btn-font-size: 1.1rem !important;
+}

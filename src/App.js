@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Root } from "./pages/Root/Root";
 import { Home } from "./pages/Home/Home";
-import { Login } from "./pages/Login/Login";
 import { NovoCliente } from "./pages/NovoCliente/NovoCliente";
 import { CadastroClienteParte1 } from "./pages/CadastroClienteParte1/CadastoClienteParte1";
 import { NovoRestaurante } from "./pages/NovoRestaurante/NovoRestaurante";
@@ -11,6 +10,7 @@ import { EditaRestaurante } from "./pages/EditarRestaurante/EditarRestaurante";
 import { EditarCliente } from "./pages/EditarCliente/EditarCliente";
 import { HomeRestaurante } from "./pages/HomeRestaurante/HomeRestaurante";
 import { AtualizarComida } from "./pages/AtualizarComida/AtualizarComida";
+import { Login } from "./pages/Login/Login";
 
 function App() {
   return (
@@ -18,7 +18,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Root />}>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
           <Route path="/novocliente" element={<NovoCliente />} />
           <Route path="/clientes/editar/:id" element={<EditarCliente />} />
           <Route path="/novorestaurante" element={<NovoRestaurante />} />
@@ -29,6 +28,7 @@ function App() {
           <Route path="/editarrestaurante/:id" element={<EditaRestaurante />} />
         </Route>
         <Route path="/cadastrocliente" element={<CadastroClienteParte1 />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );
