@@ -9,6 +9,7 @@ import { Cardapio } from "./pages/Cardapio/Cardapio";
 import { EditaRestaurante } from "./pages/EditarRestaurante/EditarRestaurante";
 import { EditarCliente } from "./pages/EditarCliente/EditarCliente";
 import { HomeRestaurante } from "./pages/HomeRestaurante/HomeRestaurante";
+import { PerfilRestaurante } from "./pages/PerfilRestaurante/PerfilRestaurante";
 import { AtualizarComida } from "./pages/AtualizarComida/AtualizarComida";
 import { Login } from "./pages/Login/Login";
 
@@ -25,6 +26,9 @@ function App() {
           <Route path="/restaurante" element={<HomeRestaurante/>}/>
           <Route path="/restaurante/cardapio/item/:id" element={<AtualizarComida/>}/>
           <Route path="/comidas" element={<Cardapio />} />
+          <Route path="/restaurantes" element={<Restaurantes />} />
+          <Route path="/restaurantes/:id" element={<PerfilRestaurante />} />
+          <Route path="/editar/restaurante/:id" element={<EditaRestaurante />} />
           <Route path="/editarrestaurante/:id" element={<EditaRestaurante />} />
         </Route>
         <Route path="/cadastrocliente" element={<CadastroClienteParte1 />} />
