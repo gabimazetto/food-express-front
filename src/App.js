@@ -12,6 +12,7 @@ import { HomeRestaurante } from "./pages/HomeRestaurante/HomeRestaurante";
 import { PerfilRestaurante } from "./pages/PerfilRestaurante/PerfilRestaurante";
 import { AtualizarComida } from "./pages/AtualizarComida/AtualizarComida";
 import { Login } from "./pages/Login/Login";
+import { Restaurantes } from "./pages/Restaurantes/Restaurantes";
 
 function App() {
   return (
