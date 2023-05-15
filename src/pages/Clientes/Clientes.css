@@ -1,0 +1,106 @@
+.sectionRestaurante {
+  margin-top: 50px;
+}
+
+.searchBox {
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+}
+
+.searchBoxRestaurante {
+  display: flex;
+  align-items: center;
+  margin-left: 18px;
+  width: 100%;
+  max-width: 283px;
+  height: 38px;
+  background-color: #F5F2F2;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.searchBoxRestauranteInput {
+  flex-grow: 1;
+  border: none;
+  background-color: #F5F2F2;
+}
+
+.searchBoxRestauranteInput:focus {
+  outline: none;
+}
+
+.searchBoxRestauranteSvg {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.searchBoxRestauranteSvgFilter {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.melhoresRestaurantes {
+  display: flex;
+  margin-top: 14px;
+  margin-left: 18px;
+}
+
+.melhoresRestaurantesTxt {
+  font-size: 24px;
+  line-height: 30px;
+  color: #f06000;
+  margin-left: 10px;
+}
+
+.BoxComida {
+  padding-top: 30px;
+}
+
+.sectionComida {
+  margin-top: 50px;
+  background-color: #F5F2F2;
+  width: 100%;
+  max-width: 500px;
+}
+
+.escolhaComida {
+  display: flex;
+}
+
+.searchBoxComida {
+  display: flex;
+  align-items: center;
+  margin-left: 18px;
+  width: 100%;
+  max-width: 283px;
+  height: 38px;
+  background-color: #FFFFFF;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.searchBoxComidaInput {
+  flex-grow: 1;
+  border: none;
+  background-color: #FFFFFF;
+}
+
+.searchBoxComidaInput:focus {
+  outline: none;
+}
+
+.escolhaComidaTxt {
+  color: #f06000;
+  font-size: 36px;
+}
