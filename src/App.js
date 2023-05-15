@@ -12,6 +12,7 @@ import { PerfilRestaurante } from "./pages/PerfilRestaurante/PerfilRestaurante";
 import { AdicionarAtualizarComida } from "./pages/AdicionarAtualizarComida/AdicionarAtualizarComida";
 import { Login } from "./pages/Login/Login";
 import { Restaurantes } from "./pages/Restaurantes/Restaurantes";
+import { Clientes } from "./pages/Clientes/Clientes";
 
 function App() {
   return (
@@ -19,6 +20,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Root />}>
           <Route path="/" element={<Home />} />
+        dev
+          <Route path="/login" element={<Login />} />
+          <Route path="/clientes" element={<Clientes />} />
+
+        main
           <Route path="/novocliente" element={<NovoCliente />} />
           <Route path="/clientes/editar/:id" element={<EditarCliente />} />
           <Route path="/novorestaurante" element={<NovoRestaurante />} />
