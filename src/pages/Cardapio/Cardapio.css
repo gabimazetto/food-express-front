@@ -20,3 +20,7 @@
     margin-left: 50px;
     width: 100%;
 }
+
+.rating-stars {
+    color: #ffd700; /* Cor das estrelas preenchidas */
+  }
