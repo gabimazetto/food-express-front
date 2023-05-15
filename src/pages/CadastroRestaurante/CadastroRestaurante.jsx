@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-export function NovoRestaurante() {
+export function CadastroRestaurante() {
     const {
         register,
         handleSubmit,
@@ -73,6 +73,23 @@ export function NovoRestaurante() {
                                 {errors.razaoSocial && (
                                     <Form.Text className="invalid-feedback">
                                         {errors.razaoSocial.message}
+                                    </Form.Text>
+                                )}
+                            </Form.Group>
+
+                            <Form.Group>
+                                <Form.Label>Telefone</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="(99)99999-9999"
+                                    className={errors.telefone && "is-invalid"}
+                                    {...register("telefone", {
+                                        required: "O telefone é obrigatório.",
+                                    })}
+                                />
+                                {errors.telefone && (
+                                    <Form.Text className="invalid-feedback">
+                                        {errors.telefone.message}
                                     </Form.Text>
                                 )}
                             </Form.Group>

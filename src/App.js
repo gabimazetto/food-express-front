@@ -3,7 +3,6 @@ import { Root } from "./pages/Root/Root";
 import { Home } from "./pages/Home/Home";
 import { NovoCliente } from "./pages/NovoCliente/NovoCliente";
 import { CadastroClienteParte1 } from "./pages/CadastroClienteParte1/CadastoClienteParte1";
-import { NovoRestaurante } from "./pages/NovoRestaurante/NovoRestaurante";
 import { Cardapio } from "./pages/Cardapio/Cardapio";
 import { EditaRestaurante } from "./pages/EditarRestaurante/EditarRestaurante";
 import { EditarCliente } from "./pages/EditarCliente/EditarCliente";
@@ -13,6 +12,7 @@ import { AdicionarAtualizarComida } from "./pages/AdicionarAtualizarComida/Adici
 import { Login } from "./pages/Login/Login";
 import { Restaurantes } from "./pages/Restaurantes/Restaurantes";
 import { Clientes } from "./pages/Clientes/Clientes";
+import { CadastroRestaurante } from "./pages/CadastroRestaurante/CadastroRestaurante";
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
         main
           <Route path="/novocliente" element={<NovoCliente />} />
           <Route path="/clientes/editar/:id" element={<EditarCliente />} />
-          <Route path="/novorestaurante" element={<NovoRestaurante />} />
+          <Route path="/cadastrostaurante" element={<CadastroRestaurante />} />
           <Route path="/restaurante" element={<HomeRestaurante/>}/>
           <Route path="/restaurante/cardapio" element={<Cardapio />} />
           <Route path="/restaurante/cardapio/nova" element={<AdicionarAtualizarComida />} />         {/* Adicionar nova comida ao cardapio*/}
