@@ -11,6 +11,7 @@ import { EditaRestaurante } from "./pages/EditarRestaurante/EditarRestaurante";
 import { EditarCliente } from "./pages/EditarCliente/EditarCliente";
 import { Restaurantes } from "./pages/Restaurantes/Restaurantes";
 import { HomeRestaurante } from "./pages/HomeRestaurante/HomeRestaurante";
+import { PerfilRestaurante } from "./pages/PerfilRestaurante/PerfilRestaurante";
 
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
           <Route path="/restaurante" element={<HomeRestaurante/>}/>
           <Route path="/comidas" element={<Cardapio />} />
           <Route path="/restaurantes" element={<Restaurantes />} />
+          <Route path="/restaurantes/:id" element={<PerfilRestaurante />} />
+
           <Route path="/editar/restaurante/:id" element={<EditaRestaurante />} />
         </Route>
         <Route path="/cadastrocliente" element={<CadastroClienteParte1 />} />
