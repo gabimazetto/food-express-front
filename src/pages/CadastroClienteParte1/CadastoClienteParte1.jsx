@@ -11,7 +11,7 @@ import {
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import signinIcon from "../../assets/icons/negocioCheck.svg";
-import foodExpressLogo from "../../assets/images/1-removebg-preview 1.png";
+import foodExpressLogo from "../../assets/images/logoTemaClaro.png";
 import { useState } from "react";
 
 export function CadastroClienteParte1() {

@@ -11,10 +11,16 @@ $theme-colors: (
   "dark": #16171b,
   "input": #f1f3f6,
 );
-* {
-  padding: 0;
+html, body {
+  height: 100%;
   margin: 0;
+  padding: 0;
 }
+* {
+  box-sizing: border-box !important;
+}
+
+
 body,
 h1,
 h2,
@@ -31,13 +37,6 @@ h6,
   font-family: "Signika Negative", "Roboto" !important;
 }
 
-#background-gradient {
-  background: linear-gradient(
-    34deg,
-    rgba(66, 66, 66, 1) 0%,
-    rgba(240, 96, 0, 1) 0%,
-    rgba(255, 249, 237, 1) 100%
-  );
-}
+
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";

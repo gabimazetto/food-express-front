@@ -1,0 +1,26 @@
+.divider {
+    position: relative;
+    margin-top: 2.5rem;  
+    left: 45%;  
+    color: #f06000;
+}
+
+.divider::before, .divider::after {
+    content: "";
+    display: block;
+    width: 40%;
+    height: 0.12rem;
+    background-color: #f06000;
+    position: absolute;
+    top: 0;
+}
+
+.divider::before {  
+    left: -45%; 
+    top: 50%;
+}
+
+.divider::after {
+    left: 13%;
+    top: 50%;
+}

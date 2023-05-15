@@ -1,11 +1,12 @@
 import { FormularioComidas } from "../../components/FormularioComidas/FormularioComidas";
 
-export function NovaComida() {
+
+export function AtualizarComida(){
 
 
-    return (
+    return(
         <>
-            <FormularioComidas/>
+        <FormularioComidas/>
         </>
     )
 }
