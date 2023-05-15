@@ -18,8 +18,8 @@ function initializeTable(){
         const restaurantes = response.data.map((restaurante) => {
             const { endereco: { uf, cidade, cep, rua, numero, complemento } } = restaurante;
             return { ...restaurante, endereco: { uf, cidade, cep, rua, numero, complemento } };
-          });
-          setRestaurantes(restaurantes);
+        });
+        setRestaurantes(restaurantes);
     })
     .catch((error) =>{
         console.log(error);
@@ -51,16 +51,16 @@ return (
                             <td>{restaurante.endereco.cidade}</td>
                             <td>{restaurante.endereco.rua}</td>
                             <td>{restaurante.endereco.numero}</td>
-                            {/* <td className="d-flex gap-2">
-                                <Button>
+                            <td className="d-flex gap-2">
+                                {/* <Button>
                                     <i className="bi bi-trash-fill"></i>
-                                </Button>
-                                <Button as={Link} to={`/editar/restaurante/${restaurante.id}`}>
+                                </Button> */}
+                                <Button as={Link} to={`/restaurantes/${restaurante.id}`}>
                                     <i className="bi bi-pencil-fill"></i>
                                 </Button>
 
                                 
-                            </td> */}
+                            </td>
                         </tr>
                     )
                 })}

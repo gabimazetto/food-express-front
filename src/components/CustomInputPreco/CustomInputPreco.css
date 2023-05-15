@@ -1,0 +1,37 @@
+.form-control {
+    position: absolute;
+    display: block;
+    width: 100%;
+    padding: 0.275rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #555;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1.5px solid #f06000 !important;
+    appearance: none;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.input-group-text {
+    background-color: #f06000 !important;
+    padding: 0.3rem 0.55rem;
+    border: 0px;
+    border-radius: 8px;
+    position: relative;
+    border: 0 !important;         
+}
+
+.input-preco{
+    width: 94%;
+}
+
+
+/* .form-control:hover {
+    border: 1.7px solid #f27826 !important;
+} */
+
+/* .input-group-text:hover {
+} */

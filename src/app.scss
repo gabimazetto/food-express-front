@@ -2,18 +2,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Signika+Negative:wght@300;400;500;600;700&display=swap");
 $theme-colors: (
   "info": #00b3e6,
-  "danger": #F8260C,
-  "success": #D97B0B,
-  "warning": #F8A80C,
+  "danger": #f8260c,
+  "success": #d97b0b,
+  "warning": #f8a80c,
   "primary": #f06000,
-  "secondary": #D93F0B,
-  "light": #FCFCFC,
-  "dark": #16171B,
+  "secondary": #d93f0b,
+  "light": #fcfcfc,
+  "dark": #16171b,
+  "input": #f1f3f6,
 );
-* {
-  padding: 0;
+html, body {
+  height: 100%;
   margin: 0;
+  padding: 0;
 }
+* {
+  box-sizing: border-box !important;
+}
+
+
 body,
 h1,
 h2,
@@ -30,13 +37,6 @@ h6,
   font-family: "Signika Negative", "Roboto" !important;
 }
 
-#background-gradient {
-  background: linear-gradient(
-    34deg,
-    rgba(66, 66, 66, 1) 0%,
-    rgba(240, 96, 0, 1) 0%,
-    rgba(255, 249, 237, 1) 100%
-  );
-}
+
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
