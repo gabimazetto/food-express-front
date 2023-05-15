@@ -28,10 +28,10 @@ function App() {
           <Route path="/novocliente" element={<NovoCliente />} />
           <Route path="/clientes/editar/:id" element={<EditarCliente />} />
           <Route path="/novorestaurante" element={<NovoRestaurante />} />
-          <Route path="/restaurante/cardapio/nova" element={<AdicionarAtualizarComida/>} />
           <Route path="/restaurante" element={<HomeRestaurante/>}/>
-          <Route path="/restaurante/cardapio/item/:id" element={<AdicionarAtualizarComida/>}/>
-          <Route path="/comidas" element={<Cardapio />} />
+          <Route path="/restaurante/cardapio" element={<Cardapio />} />
+          <Route path="/restaurante/cardapio/nova" element={<AdicionarAtualizarComida />} />         {/* Adicionar nova comida ao cardapio*/}
+          <Route path="/restaurante/cardapio/item/:id" element={<AdicionarAtualizarComida/>}/>       {/* Atualizar comida no cardapio*/}
           <Route path="/restaurantes" element={<Restaurantes />} />
           <Route path="/restaurantes/:id" element={<PerfilRestaurante />} />
           <Route path="/editar/restaurante/:id" element={<EditaRestaurante />} />

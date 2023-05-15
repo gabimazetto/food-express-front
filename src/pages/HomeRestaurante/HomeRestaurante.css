@@ -28,7 +28,7 @@
 
 .button-meus-itens {
     width: 110px;
-    height: 35px;
+    height: 40px;
     text-align: start !important;
     margin-bottom: 34.5px;
     color: white !important;
@@ -70,9 +70,9 @@
         margin-left: 32%;
     }
 
-    .header-home-restaurante .button-home-restaurante .button-header {
+    .button-home-restaurante .button-header {
         width: 190px !important;
-        height: 50px !important;
+        height: 40px !important;
         color: #F06000;
         background-color: white;
     }
@@ -119,7 +119,7 @@
 
     .button-add-itens {
         width: 166px;
-        height: 35px;
+        height: 40px;
         text-align: start !important;
         color: white !important;
     }
@@ -172,11 +172,10 @@
 
     .button-add-itens {
         width: 166px;
-        height: 35px;
+        height: 40px;
         text-align: start !important;
         color: white !important;
     }
-
 
     .invisivel-desktop {
         display: none;
@@ -231,7 +230,7 @@
 
     .button-meus-itens {
         width: 137.5px;
-        height: 43.75px;
+        height: 40px;
     }
 
     .invisivel-desktop {
