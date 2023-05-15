@@ -10,6 +10,7 @@ import { Cardapio } from "./pages/Cardapio/Cardapio";
 import { EditaRestaurante } from "./pages/EditarRestaurante/EditarRestaurante";
 import { EditarCliente } from "./pages/EditarCliente/EditarCliente";
 import { Restaurantes } from "./pages/Restaurantes/Restaurantes";
+import { Clientes } from "./pages/Clientes/Clientes";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Root />}>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/clientes" element={<Clientes />} />
           <Route path="/novocliente" element={<NovoCliente />} />
           <Route path="/clientes/editar/:id" element={<EditarCliente />} />
           <Route path="/novorestaurante" element={<NovoRestaurante />} />
