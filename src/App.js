@@ -4,13 +4,12 @@ import { Home } from "./pages/Home/Home";
 import { NovoCliente } from "./pages/NovoCliente/NovoCliente";
 import { CadastroClienteParte1 } from "./pages/CadastroClienteParte1/CadastoClienteParte1";
 import { NovoRestaurante } from "./pages/NovoRestaurante/NovoRestaurante";
-import { NovaComida } from "./pages/NovaComida/NovaComida";
 import { Cardapio } from "./pages/Cardapio/Cardapio";
 import { EditaRestaurante } from "./pages/EditarRestaurante/EditarRestaurante";
 import { EditarCliente } from "./pages/EditarCliente/EditarCliente";
 import { HomeRestaurante } from "./pages/HomeRestaurante/HomeRestaurante";
 import { PerfilRestaurante } from "./pages/PerfilRestaurante/PerfilRestaurante";
-import { AtualizarComida } from "./pages/AtualizarComida/AtualizarComida";
+import { AdicionarAtualizarComida } from "./pages/AdicionarAtualizarComida/AdicionarAtualizarComida";
 import { Login } from "./pages/Login/Login";
 import { Restaurantes } from "./pages/Restaurantes/Restaurantes";
 
@@ -23,9 +22,9 @@ function App() {
           <Route path="/novocliente" element={<NovoCliente />} />
           <Route path="/clientes/editar/:id" element={<EditarCliente />} />
           <Route path="/novorestaurante" element={<NovoRestaurante />} />
-          <Route path="/restaurante/cardapio/nova" element={<NovaComida />} />
+          <Route path="/restaurante/cardapio/nova" element={<AdicionarAtualizarComida/>} />
           <Route path="/restaurante" element={<HomeRestaurante/>}/>
-          <Route path="/restaurante/cardapio/item/:id" element={<AtualizarComida/>}/>
+          <Route path="/restaurante/cardapio/item/:id" element={<AdicionarAtualizarComida/>}/>
           <Route path="/comidas" element={<Cardapio />} />
           <Route path="/restaurantes" element={<Restaurantes />} />
           <Route path="/restaurantes/:id" element={<PerfilRestaurante />} />
