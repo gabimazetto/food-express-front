@@ -1,0 +1,39 @@
+.footer {
+    background-color: #363636;
+}
+
+.divGeral{
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+.div1 {
+    width: 50%;
+    color: #ffffff;
+    display: inline-block;
+}
+
+.div1 img{
+    width: 60%;
+}
+
+.div2 {
+    width: 30%;
+    color: #ffffff;
+    display: inline-block;
+}
+
+.hr1 {
+    color: #ffffff;
+}
+
+.p1{
+    color: #ffffff;
+}
+
+.divGeral2{
+    margin: 0 auto;
+    width: 80%;
+}
+
