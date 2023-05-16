@@ -8,7 +8,6 @@ import { EditaRestaurante } from "./pages/EditarRestaurante/EditarRestaurante";
 import { EditarCliente } from "./pages/EditarCliente/EditarCliente";
 import { HomeRestaurante } from "./pages/HomeRestaurante/HomeRestaurante";
 import { PerfilRestaurante } from "./pages/PerfilRestaurante/PerfilRestaurante";
-// import { AtualizarComida } from "./pages/AtualizarComida/AtualizarComida";
 import { AdicionarAtualizarComida } from "./pages/AdicionarAtualizarComida/AdicionarAtualizarComida";
 import { Login } from "./pages/Login/Login";
 import { Clientes } from "./pages/Clientes/Clientes";
