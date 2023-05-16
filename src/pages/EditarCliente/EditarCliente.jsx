@@ -249,7 +249,6 @@ export function EditarCliente() {
                     type="text"
                     className="input-web"
                     register={register("endereco.complemento", {
-                      required: "O complemento é obrigatório.",
                       maxLength: {
                         value: 100,
                         message: "Limite de 100 caracteres.",

@@ -270,10 +270,9 @@ return (
                                     <Form.Label>Complemento</Form.Label>
                                     <Form.Control
                                         type="text"
-                                        placeholder="Casa ou Apt"
+                                        placeholder="Complemento"
                                         className={errors.endereco?.complemento && "is-invalid"}
                                         {...register("endereco.complemento", {
-                                            required: "O complemento é obrigatório.",
                                             maxLength: {
                                                 value: 100,
                                                 message: "Limite de 100 caracteres.",
