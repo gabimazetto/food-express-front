@@ -1,0 +1,26 @@
+.card-cardapio {
+    width: 286px;
+    height: 300px;
+    margin: 10px;
+}
+
+.img-modal {
+    width: 300px;
+    margin-left: 80px;
+}
+
+.cardapio-titulo{
+    color: #f06000;
+    font-family: 'Signika Negative';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 45px;
+    text-align: start;
+    margin-left: 50px;
+    width: 100%;
+}
+
+.rating-stars {
+    color: #ffd700; /* Cor das estrelas preenchidas */
+  }
