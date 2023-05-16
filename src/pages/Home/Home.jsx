@@ -27,7 +27,7 @@ export function Home() {
                   <div>
                     <p>Ainda não é nosso cliente?<br /> Faça seu cadastro</p>
                   </div>
-                  <Button as={Link} to="/Cadastro" className="text-light" variant="primary">
+                  <Button as={Link} to="/cadastrocliente" className="text-light" variant="primary">
                     Cadastro
                   </Button>
                 </div>
@@ -51,7 +51,7 @@ export function Home() {
                   <div>
                     <p>Ainda não é um parceiro?<br /> Faça seu cadastro</p>
                   </div>
-                  <Button as={Link} to="/Cadastro" className="text-light" variant="primary">
+                  <Button as={Link} to="/cadastrocliente" className="text-light" variant="primary">
                     Cadastro
                   </Button>
                 </div>

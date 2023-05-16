@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom'; 
 import "./ButtonNavigation"
 
-export  function ButtonNavigation({ text, route, className }) {
+export  function ButtonNavigation({ text, route, className, type }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -11,7 +11,7 @@ export  function ButtonNavigation({ text, route, className }) {
   };
 
   return (
-    <Button variant="primary" onClick={handleClick} className={className}>
+    <Button variant="primary" onClick={handleClick} className={className} type={type}>
       {text}
     </Button>
   );
