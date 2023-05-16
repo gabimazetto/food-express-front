@@ -246,7 +246,6 @@ export function CadastroCliente() {
                   placeholder="Casa ou Apt"
                   className={errors.endereco?.complemento && "is-invalid"}
                   {...register("endereco.complemento", {
-                    required: "O complemento é obrigatório.",
                     maxLength: {
                       value: 100,
                       message: "Limite de 100 caracteres.",
