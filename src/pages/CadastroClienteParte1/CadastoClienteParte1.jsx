@@ -1,18 +1,16 @@
 import axios from "axios";
 import {
-  Button,
-  Card,
-  Col,
-  Form,
-  Row,
-  InputGroup,
-  Container,
+ Form
 } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import signinIcon from "../../assets/icons/negocioCheck.svg";
-import foodExpressLogo from "../../assets/images/logoTemaClaro.png";
 import { useState } from "react";
+import { CustomInput } from "../../components/CustomInput/CustomInput";
+import { ButtonNavigation } from "../../components/ButtonNavigation/ButtonNavigation";
+import Divider from "../../components/Divider/Divider";
+import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/ContainerCenterMobile";
+import cadastroImg from "../../assets/images/negocioCheck.png";
+import logo from "../../assets/images/logoTemaClaro.png";
 
 export function CadastroClienteParte1() {
   const {
@@ -62,7 +60,85 @@ export function CadastroClienteParte1() {
   }
   return (
     <>
-      <Container fluid id="background-gradient" className=" pt-3 vh-100">
+      <ContainerCenterMobile className="background-gradient">
+        <main className="border container rounded-5 ">
+      <div className="grid" >
+          <div className="colTwo" >
+            
+                <div class="text-center">
+                  <img
+                    src={cadastroImg}
+                    class="mt-4 "
+                    alt="Imagem de uma mulher no computador vendo imagens de comidas"
+                  />
+                </div>
+              </div>
+                <div className="colOne">
+                  <div className="px-3 py-4">
+                  <img src={logo} class="img-fluid" alt="Logo do FoodExpress" />
+                  
+                    <Form onSubmit={handleSubmit(onSubmit)}>
+                      <CustomInput
+                        className="input-web"
+                        type="email"
+                        placeholder="Informe seu e-mail"
+                        icon="bi bi-envelope-at-fill white "
+                        register={register("email", {required: "O email é obrigatório"})}
+                        error={errors.email}
+                      />
+                      <CustomInput
+                        className="input-web"
+                        type={senha}
+                        placeholder="Crie sua senha"
+                        icon={icone}
+                        register={register("senha", {
+                          required: "A senha é obrigatória",
+                        })}
+                        error={errors.senha}
+                        toggleType={mudarTipo}
+                        iconType={icone}
+                      />
+                      
+                      <CustomInput
+                        className="input-web"
+                        type={senha2}
+                        placeholder="Confirme sua senha"
+                        icon={icone2}
+                        register={register("confirmacaoSenha", {
+                          required: "As senhas devem ser iguais",
+                          validate: (value) =>
+                            value === getValues("senha") ||
+                            "As senhas devem ser iguais",
+                        })}
+                        error={errors.confirmacaoSenha}
+                        toggleType={mudarTipo2}
+                        iconType={icone2}
+                      />
+
+                      <div class="d-grid gap-2 mt-4">
+                        <ButtonNavigation
+                          text="Cadastrar"
+                          route="/"
+                          className="white"
+                        />
+                      </div>
+                    </Form>
+                    <Divider>OU</Divider>
+
+                    <ButtonNavigation
+                    type="submit"
+                      text="Ir para login"
+                      route="/login"
+                      className="my-button-not-filled fs-6"
+                    />
+
+                  </div>
+                </div> 
+          </div>
+        </main>
+      </ContainerCenterMobile>
+
+      {/* <Container fluid id="background-gradient" className=" pt-3 vh-100">
         <Card className="d-flex container mt-5 w-75 align-items-center rounded-5  ">
           <Card.Body>
             <Row>
@@ -161,7 +237,7 @@ export function CadastroClienteParte1() {
             </Row>
           </Card.Body>
         </Card>
-      </Container>
+      </Container> */}
       {/* background: linear-gradient(34deg, rgba(66,66,66,1) 0%, rgba(240,96,0,1) 0%, rgba(255,249,237,1) 100%); */}
     </>
   );
