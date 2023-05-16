@@ -15,7 +15,7 @@ export function CadastroCliente() {
     axios
       .post("http://localhost:3001/clientes", data)
       .then((response) => {
-        navigate("/");
+        navigate("/cliente/login");
       })
       .catch((error) => {
         console.log(error);

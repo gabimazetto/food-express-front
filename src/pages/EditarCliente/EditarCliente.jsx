@@ -28,7 +28,7 @@ export function EditarCliente() {
           position: "bottom-right",
           duration: 2000,
         });
-        navigate("/");
+        navigate("/cliente/home");
       })
       .catch((error) => {
         toast.error(error.response.data.message, {

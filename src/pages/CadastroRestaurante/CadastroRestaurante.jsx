@@ -21,7 +21,7 @@ export function CadastroRestaurante() {
                     position: "bottom-right",
                     duration: 2000,
                 });
-                navigate("/");
+                navigate("/restaurante/login");
             })
             .catch((error) => {
                 toast.error("Algo deu errado", {

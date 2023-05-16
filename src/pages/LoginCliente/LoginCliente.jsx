@@ -55,13 +55,13 @@ export function LoginCliente() {
 
                     <ButtonNavigation
                       text="Seja nosso cliente, cadastre-se aqui"
-                      route="/"
+                      route="/cliente/cadastro"
                       className="my-button-not-filled"
                     />
 
                     <ButtonNavigation
                       text="Seja nosso parceiro, cadastre-se aqui"
-                      route="/"
+                      route="/restaurante/cadastro"
                       className="my-button-not-filled"
                     />
                   </div>
