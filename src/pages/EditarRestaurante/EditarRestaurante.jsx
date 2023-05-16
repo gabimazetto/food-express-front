@@ -15,7 +15,7 @@ function onSubmit(data) {
     axios.put(`http://localhost:3001/restaurantes/${id}`, data)
     .then(response => {
         toast.success(response.data.message, {position:"bottom-right", duration:2000})
-        navigate("/restaurantes")
+        navigate(`/restaurante/${id}`)
     })
 
 .catch(error => {

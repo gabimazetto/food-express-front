@@ -38,8 +38,8 @@ export function HomeRestaurante() {
                     <div className="titulo-home-restaurante">
                         <h1>Cardápio</h1>
                         <div className="button-header invisivel-mobile ">
-                            <Button as={Link} to="/restaurante/cardapio" className="button-meus-itens" variant="primary">Meus itens</Button>
-                            <Button as={Link} to="/restaurante/cardapio/nova" className="button-add-itens" variant="primary">Adicionar novo item</Button>
+                            <Button as={Link} to="/restaurante/id/cardapio" className="button-meus-itens" variant="primary">Meus itens</Button>
+                            <Button as={Link} to="/restaurante/cardapio/cadastro" className="button-add-itens" variant="primary">Adicionar novo item</Button>
                         </div>
                     </div>
                     <div className="imagem-home-restaurante">
@@ -47,7 +47,7 @@ export function HomeRestaurante() {
                     </div>
                 </div>
                 <div className="invisivel-desktop button-home-restaurante">
-                    <Button  as={Link} to="/restaurante/cardapio/nova" className="button-header" variant="primary">Adicionar refeição</Button>
+                    <Button  as={Link} to="/restaurante/cardapio/cadastro" className="button-header" variant="primary">Adicionar refeição</Button>
                 </div>
             </header>
             <CardCardapioRestaurante

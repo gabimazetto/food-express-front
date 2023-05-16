@@ -47,7 +47,7 @@ export function AdicionarAtualizarComida() {
                 duration: 2000,
             });
         }
-        navigate('/restaurante/cardapio');
+        navigate('/restaurante/id/cardapio');
     }
 
 
