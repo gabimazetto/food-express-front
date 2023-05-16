@@ -1,9 +1,7 @@
 import React from 'react';
-import { useForm } from "react-hook-form"
-import { Button, Table, Input, Col, InputGroup, Form, FormControl } from "react-bootstrap";
-import "./Clientes.css"
+import "./HomeCliente.css"
 
-export function Clientes() {
+export function HomeCliente() {
   return (
     <div>
       <section className='sectionRestaurante'>
