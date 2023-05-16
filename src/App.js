@@ -8,6 +8,8 @@ import { EditaRestaurante } from "./pages/EditarRestaurante/EditarRestaurante";
 import { EditarCliente } from "./pages/EditarCliente/EditarCliente";
 import { HomeRestaurante } from "./pages/HomeRestaurante/HomeRestaurante";
 import { PerfilRestaurante } from "./pages/PerfilRestaurante/PerfilRestaurante";
+import { Restaurantes } from "./pages/Restaurantes/Restaurantes";
+import { AtualizarComida } from "./pages/AtualizarComida/AtualizarComida";
 import { AdicionarAtualizarComida } from "./pages/AdicionarAtualizarComida/AdicionarAtualizarComida";
 import { Login } from "./pages/Login/Login";
 import { Restaurantes } from "./pages/Restaurantes/Restaurantes";
@@ -15,6 +17,7 @@ import { Clientes } from "./pages/Clientes/Clientes";
 import { CadastroRestaurante } from "./pages/CadastroRestaurante/CadastroRestaurante";
 
 function App() {
+  // const clienteId = JWT.getLoggedInClientId(); => ver como isso acontece no jwt ===== clienteId={clienteId}
   return (
     <BrowserRouter>
       <Routes>
