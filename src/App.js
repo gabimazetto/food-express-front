@@ -10,10 +10,12 @@ import { EditaRestaurante } from "./pages/EditarRestaurante/EditarRestaurante";
 import { EditarCliente } from "./pages/EditarCliente/EditarCliente";
 import { HomeRestaurante } from "./pages/HomeRestaurante/HomeRestaurante";
 import { PerfilRestaurante } from "./pages/PerfilRestaurante/PerfilRestaurante";
+import { Restaurantes } from "./pages/Restaurantes/Restaurantes";
 import { AtualizarComida } from "./pages/AtualizarComida/AtualizarComida";
 import { Login } from "./pages/Login/Login";
 
 function App() {
+  // const clienteId = JWT.getLoggedInClientId(); => ver como isso acontece no jwt ===== clienteId={clienteId}
   return (
     <BrowserRouter>
       <Routes>
