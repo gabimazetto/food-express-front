@@ -1,8 +1,6 @@
 import React from "react";
 import {
   Form,
-  Col,
-  Row,
 } from "react-bootstrap";
 import { CustomInput } from "../../components/CustomInput/CustomInput";
 import { ButtonNavigation } from "../../components/ButtonNavigation/ButtonNavigation";
@@ -10,9 +8,9 @@ import Divider from "../../components/Divider/Divider";
 import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/ContainerCenterMobile";
 import loginImg from "../../assets/images/meninaNoteFood.png";
 import logo from "../../assets/images/logoTemaClaro.png";
-import "./Login.css";
+import "./LoginCliente.css";
 
-export function Login() {
+export function LoginCliente() {
   return (
     <>
       <ContainerCenterMobile className="background-gradient">
@@ -48,7 +46,7 @@ export function Login() {
                       <div class="d-grid gap-2 mt-4">
                         <ButtonNavigation
                           text="Login"
-                          route="/"
+                          route="/cliente/home"
                           className="white"
                         />
                       </div>

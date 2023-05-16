@@ -3,7 +3,7 @@ import { Button, Card, Col, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
-export function NovoCliente() {
+export function CadastroCliente() {
   const {
     register,
     handleSubmit,
