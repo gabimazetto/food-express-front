@@ -25,6 +25,16 @@
     width: 94%;
 }
 
+.preco .span-preco {
+    background-color: #f06000 !important;
+    padding: 0.3rem 0.55rem !important;
+    border: 0px;
+    border-radius: 8px 0 0 8px !important;
+    position: none !important;
+    border: 0 !important;
+    right: 0% !important;
+}
+
 .forms-comidas h1 {
     color: #f06000;
     font-family: 'Signika Negative';
@@ -61,6 +71,10 @@
 
 .forms-comidas div .forms-borda {
     border: 1px solid #f06000;
+}
+
+.input-preco .forms-preco{
+    width: 50% !important;
 }
 
 @media (max-width: 480px) {
