@@ -4,12 +4,11 @@ import { Button, Table } from "react-bootstrap";
 import { Loader } from "../../components/Loader/Loader";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
-import { useForm } from "react-hook-form";
+
 
 export function Restaurantes(){
 
     const [restaurantes, setRestaurantes] = useState(null);
-    const { handleSubmit } = useForm();
     const navigate = useNavigate();
 
     const clienteId = 1;
