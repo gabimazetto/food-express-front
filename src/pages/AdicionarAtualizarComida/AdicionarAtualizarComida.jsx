@@ -146,16 +146,16 @@ export function AdicionarAtualizarComida() {
                             {errors.categoria && <Form.Text className="invalid-feedback">{errors.categoria.message}</Form.Text>}
                         </Form.Group>
 
-                        <Form.Group className="mb-2 input-preco">
+                        <Form.Group className="forms-select-comida mb-2">
                             <Form.Label>Preço:</Form.Label>
-                            <InputGroup className="custon-input-group mt-2">
-                                <InputGroup.Text className="">
+                            <InputGroup className="custon-input-group mt-2 preco">
+                                <InputGroup.Text className="span-preco">
                                     R$
                                 </InputGroup.Text>
                                 <Form.Control
                                     type="number"
                                     step="0.01"
-                                    className={`forms-borda   ${errors.codigo && "is-invalid"}`}
+                                    className={`${errors.codigo && "is-invalid"}`}
                                     {...register("preco", {
                                         required: "O preço é obrigatório.",
                                         pattern: {
