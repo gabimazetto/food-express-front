@@ -182,12 +182,7 @@ export function AdicionarAtualizarComida() {
                             </InputGroup>
                         </Form.Group>
 
-                        {/* <Form.Group className="forms-div-group">
-                            <Form.Label>Imagem</Form.Label>
-                            <Form.Control type="file" className="formulario form-font-size" {...register("imagem")} />
-                        </Form.Group> */}
 
-                        {/* <Form.Group className="invisible"> */}
                         {/*  É PRECISO AGUARDAR O LOGIN, PARA LINKAR O RESTAURANTE COM O restauranteId*/}
                         {!id ?
                             <Form.Group className="mb-2">
@@ -214,7 +209,6 @@ export function AdicionarAtualizarComida() {
                                 Limpar
                             </Button>
                         </div>
-
                         {id ?
                             <>   <div className="vertical-row mb-4"></div>
                                 <div className=" mb-2">
@@ -222,7 +216,6 @@ export function AdicionarAtualizarComida() {
                                         Excluir comida
                                     </Button>
                                 </div></>
-
                             : ""}
                     </div>
                 </Form>

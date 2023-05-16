@@ -51,8 +51,8 @@ export function PerfilRestaurante() {
                             <b>Cidade: </b>{restaurante.endereco.cidade} <br />
                             <b>Estado: </b>{restaurante.endereco.uf}
                             
-                            {/*<b>Telefone: </b>{restaurante.telefone} <br />
-                            <b>Comidas:</b>{restaurante.comidas}
+                            <b>Telefone: </b>{restaurante.telefone} <br />
+                            {/* <b>Comidas:</b>{restaurante.comidas}
                             <b>Avaliações:</b>{restaurante.avaliacoes} */}
                             </>
                         </Card.Text>
