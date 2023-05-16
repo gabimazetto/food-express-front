@@ -28,8 +28,8 @@ useEffect( () => {
     axios.get(`http://localhost:3001/restaurantes/${id}`)
     .then(response => {
         //TODO --> Tirar email e senha como obrigatório do put, tanto no front quanto no back.
-        const {nomeFantasia, razaoSocial, cnpj, email, senha, endereco: {uf, cidade, cep, rua, numero, complemento}} = response.data
-        reset ({nomeFantasia, razaoSocial, cnpj, email, senha, endereco: {uf, cidade, cep, rua, numero, complemento}})
+        const {nomeFantasia, razaoSocial, telefone, cnpj, email, senha, endereco: {uf, cidade, cep, rua, numero, complemento}} = response.data
+        reset ({nomeFantasia, razaoSocial, telefone, cnpj, email, senha, endereco: {uf, cidade, cep, rua, numero, complemento}})
     })
 }, [id, reset])
 
@@ -74,6 +74,23 @@ return (
                                 {errors.razaoSocial && (
                                     <Form.Text className="invalid-feedback">
                                         {errors.razaoSocial.message}
+                                    </Form.Text>
+                                )}
+                            </Form.Group>
+
+                            <Form.Group>
+                                <Form.Label>Telefone</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="(99)99999-9999"
+                                    className={errors.telefone && "is-invalid"}
+                                    {...register("telefone", {
+                                        required: "O telefone é obrigatório.",
+                                    })}
+                                />
+                                {errors.telefone && (
+                                    <Form.Text className="invalid-feedback">
+                                        {errors.telefone.message}
                                     </Form.Text>
                                 )}
                             </Form.Group>

@@ -14,21 +14,41 @@
     width: 80%;
 }
 
+.divImg{
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+}
+
 .div1 {
-    width: 50%;
+    width: 30%;
     color: #ffffff;
     display: inline-block;
 }
 
 .div1 img{
-    width: 60%;
+    width: 100%;
 }
 
 .div2 {
     width: 30%;
     color: #ffffff;
     display: inline-block;
-    margin-top: 20px;
+}
+
+.div3 {
+    width: 30%;
+    color: #ffffff;
+    display: inline-block;
+}
+
+.link{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.link :hover{
+    color: #f06000;
 }
 
 .hr1 {
@@ -38,4 +58,6 @@
 .p1{
     color: #ffffff;
 }
+
+
 

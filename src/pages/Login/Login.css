@@ -36,7 +36,6 @@
     color: #fff !important;
     background-color: #f27826 !important;
     font-weight: 500 !important;
-
 }
 
 @media (max-width: 770px) {
@@ -93,12 +92,8 @@
         border-radius: 30px;
         top: -7%;
         left: 26%;
-    }       
-    .input-web{
-        border: none !important;
-        background-color: #F1F3F6 !important;
-        padding: 0.65rem 1.05rem !important;
-    }
+    }   
+    
 }
 
 @media (min-width: 840px) {

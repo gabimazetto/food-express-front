@@ -3,8 +3,6 @@ import { Root } from "./pages/Root/Root";
 import { Home } from "./pages/Home/Home";
 import { NovoCliente } from "./pages/NovoCliente/NovoCliente";
 import { CadastroClienteParte1 } from "./pages/CadastroClienteParte1/CadastoClienteParte1";
-import { NovoRestaurante } from "./pages/NovoRestaurante/NovoRestaurante";
-import { NovaComida } from "./pages/NovaComida/NovaComida";
 import { Cardapio } from "./pages/Cardapio/Cardapio";
 import { EditaRestaurante } from "./pages/EditarRestaurante/EditarRestaurante";
 import { EditarCliente } from "./pages/EditarCliente/EditarCliente";
@@ -12,7 +10,11 @@ import { HomeRestaurante } from "./pages/HomeRestaurante/HomeRestaurante";
 import { PerfilRestaurante } from "./pages/PerfilRestaurante/PerfilRestaurante";
 import { Restaurantes } from "./pages/Restaurantes/Restaurantes";
 import { AtualizarComida } from "./pages/AtualizarComida/AtualizarComida";
+import { AdicionarAtualizarComida } from "./pages/AdicionarAtualizarComida/AdicionarAtualizarComida";
 import { Login } from "./pages/Login/Login";
+import { Restaurantes } from "./pages/Restaurantes/Restaurantes";
+import { Clientes } from "./pages/Clientes/Clientes";
+import { CadastroRestaurante } from "./pages/CadastroRestaurante/CadastroRestaurante";
 
 function App() {
   // const clienteId = JWT.getLoggedInClientId(); => ver como isso acontece no jwt ===== clienteId={clienteId}
@@ -21,13 +23,18 @@ function App() {
       <Routes>
         <Route path="/" element={<Root />}>
           <Route path="/" element={<Home />} />
+        dev
+          <Route path="/login" element={<Login />} />
+          <Route path="/clientes" element={<Clientes />} />
+
+        main
           <Route path="/novocliente" element={<NovoCliente />} />
           <Route path="/clientes/editar/:id" element={<EditarCliente />} />
-          <Route path="/novorestaurante" element={<NovoRestaurante />} />
-          <Route path="/restaurante/cardapio/nova" element={<NovaComida />} />
+          <Route path="/cadastrostaurante" element={<CadastroRestaurante />} />
           <Route path="/restaurante" element={<HomeRestaurante/>}/>
-          <Route path="/restaurante/cardapio/item/:id" element={<AtualizarComida/>}/>
-          <Route path="/comidas" element={<Cardapio />} />
+          <Route path="/restaurante/cardapio" element={<Cardapio />} />
+          <Route path="/restaurante/cardapio/nova" element={<AdicionarAtualizarComida />} />         {/* Adicionar nova comida ao cardapio*/}
+          <Route path="/restaurante/cardapio/item/:id" element={<AdicionarAtualizarComida/>}/>       {/* Atualizar comida no cardapio*/}
           <Route path="/restaurantes" element={<Restaurantes />} />
           <Route path="/restaurantes/:id" element={<PerfilRestaurante />} />
           <Route path="/editar/restaurante/:id" element={<EditaRestaurante />} />
