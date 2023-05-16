@@ -1,0 +1,107 @@
+    /* CARDS */
+    .zerando-margin{
+        margin: 0px;
+    }
+
+    .main-home-restaurante {
+        margin-top: 20px;
+    }
+
+    .container-cards{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+
+    .article-home-restaurante {
+        width: 260px;
+        height: 385px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+        margin-bottom: 20px;
+        margin: 1% 2%;
+    }
+
+    .header-cards-restaurante  {
+        background-color: white;
+        height: 198px;
+        width: 260px;
+        border-radius: 10px 10px 0 0px;
+    }
+
+    .header-cards-restaurante img {
+        height: 100%;
+        width: 100%;
+        border-radius: 10px 10px 0 0px;
+    }
+
+    .article-body {
+        background-color: #D97B0B;
+        height: 187px;
+        border-radius: 0px 0px 10px 10px;
+    }
+
+    .article-body div span{
+        font-size: 14px;
+        padding: 1px 0 0 2px ;
+    }
+
+    .titulo-card-restaurante {
+        width: 260px;
+        height: 34px;
+    }
+    .titulo-card-restaurante h1 {
+        font-family: "Signika Negative";
+        color: #ffffff;
+        font-size: 23px;
+        font-weight: 700;
+        text-align: left;
+        height: 100%;
+        margin-top: 0px !important;
+    }
+
+    .titulo-card-restaurante i {
+        font-size: 1.4em;
+        color: #ffffff;
+    }
+
+    .infos-card{
+        margin-left: 28px;
+        font-size: 16px;
+        font-family: 'Signika Negative';
+        color: #000000;
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    .infos-card .descricao{
+        height: 45px;
+    }
+
+    .preco-card-restaurante {
+        width: 215px;
+        margin-left: 22px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 5px;
+    } 
+
+    .preco-card-restaurante h1 {
+        font-family: 'Signika Negative';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 25px;
+        color: #49402F;
+    }
+
+    .preco-card-restaurante i {
+        font-size: 1.5em;
+        color: #49402F;
+    }
+
+    .cards-botoes {
+        background-color: transparent;
+        margin: 0px !important;
+        border: none;
+      }
