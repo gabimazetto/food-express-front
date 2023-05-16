@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Card} from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { Button, Card} from "react-bootstrap";
+import { Link, useParams } from "react-router-dom";
 
 
 
@@ -49,11 +49,13 @@ export function PerfilRestaurante() {
                             <b>Rua: </b>{restaurante.endereco.rua} <br />
                             <b>Número: </b>{restaurante.endereco.numero} <br />
                             <b>Cidade: </b>{restaurante.endereco.cidade} <br />
-                            <b>Estado: </b>{restaurante.endereco.uf}
-                            
+                            <b>Estado: </b>{restaurante.endereco.uf} <br />
                             <b>Telefone: </b>{restaurante.telefone} <br />
                             {/* <b>Comidas:</b>{restaurante.comidas}
                             <b>Avaliações:</b>{restaurante.avaliacoes} */}
+                        <Button variant="primary" as={Link} to="/restaurantes">
+                            Voltar
+                        </Button>
                             </>
                         </Card.Text>
                     </Card.Body>

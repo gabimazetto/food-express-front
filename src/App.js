@@ -8,13 +8,13 @@ import { EditaRestaurante } from "./pages/EditarRestaurante/EditarRestaurante";
 import { EditarCliente } from "./pages/EditarCliente/EditarCliente";
 import { HomeRestaurante } from "./pages/HomeRestaurante/HomeRestaurante";
 import { PerfilRestaurante } from "./pages/PerfilRestaurante/PerfilRestaurante";
-import { Restaurantes } from "./pages/Restaurantes/Restaurantes";
-import { AtualizarComida } from "./pages/AtualizarComida/AtualizarComida";
+// import { AtualizarComida } from "./pages/AtualizarComida/AtualizarComida";
 import { AdicionarAtualizarComida } from "./pages/AdicionarAtualizarComida/AdicionarAtualizarComida";
 import { Login } from "./pages/Login/Login";
-import { Restaurantes } from "./pages/Restaurantes/Restaurantes";
 import { Clientes } from "./pages/Clientes/Clientes";
 import { CadastroRestaurante } from "./pages/CadastroRestaurante/CadastroRestaurante";
+import { Restaurantes } from "./pages/Restaurantes/Restaurantes";
+import { CardCardapioCliente } from "./components/CardCardapioCliente/CardCardapioCliente";
 
 function App() {
   // const clienteId = JWT.getLoggedInClientId(); => ver como isso acontece no jwt ===== clienteId={clienteId}
@@ -33,6 +33,7 @@ function App() {
           <Route path="/cadastrostaurante" element={<CadastroRestaurante />} />
           <Route path="/restaurante" element={<HomeRestaurante/>}/>
           <Route path="/restaurante/cardapio" element={<Cardapio />} />
+          <Route path="/restaurante/cardapio/cliente" element={<CardCardapioCliente />} />
           <Route path="/restaurante/cardapio/nova" element={<AdicionarAtualizarComida />} />         {/* Adicionar nova comida ao cardapio*/}
           <Route path="/restaurante/cardapio/item/:id" element={<AdicionarAtualizarComida/>}/>       {/* Atualizar comida no cardapio*/}
           <Route path="/restaurantes" element={<Restaurantes />} />
