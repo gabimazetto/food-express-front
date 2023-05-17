@@ -28,10 +28,6 @@ export function AdicionarAtualizarComida() {
         formData.append('imagem', data.imagem[0]);
         formData.append('restauranteId', data.restauranteId);
 
-        console.log(data)
-        console.log(formData)
-        console.log(id)
-
 
         if (!id) {
             await axios.post('http://localhost:3001/comidas', formData);
@@ -49,7 +45,6 @@ export function AdicionarAtualizarComida() {
         }
         navigate('/restaurante/id/cardapio');
     }
-
 
     useEffect(() => {
         if (id) {
@@ -146,16 +141,16 @@ export function AdicionarAtualizarComida() {
                             {errors.categoria && <Form.Text className="invalid-feedback">{errors.categoria.message}</Form.Text>}
                         </Form.Group>
 
-                        <Form.Group className="forms-select-comida mb-2">
+                        <Form.Group className="mb-2 input-preco">
                             <Form.Label>Preço:</Form.Label>
-                            <InputGroup className="custon-input-group mt-2 preco">
-                                <InputGroup.Text className="span-preco">
+                            <InputGroup className="custon-input-group mt-2">
+                                <InputGroup.Text className="">
                                     R$
                                 </InputGroup.Text>
                                 <Form.Control
                                     type="number"
                                     step="0.01"
-                                    className={`${errors.codigo && "is-invalid"}`}
+                                    className={`forms-borda   ${errors.codigo && "is-invalid"}`}
                                     {...register("preco", {
                                         required: "O preço é obrigatório.",
                                         pattern: {

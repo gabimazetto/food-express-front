@@ -15,6 +15,7 @@ import { CadastroRestaurante } from "./pages/CadastroRestaurante/CadastroRestaur
 import { LoginRestaurante } from "./pages/LoginRestaurante/LoginRestaurante";
 import { Restaurantes } from "./pages/Restaurantes/Restaurantes";
 import { CardCardapioCliente } from "./components/CardCardapioCliente/CardCardapioCliente";
+import { PedidosCliente } from "./pages/PedidosCliente/PedidosCliente";
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Route path="/cliente/cadastro" element={<CadastroCliente />} />
           <Route path="/cliente/perfil/:id" element={<EditarCliente />} />
           <Route path="/cliente/listar/restaurantes" element={<Restaurantes />} />
+          <Route path="/cliente/pedidos" element={<PedidosCliente/>} />
           <Route path="/restaurante/cadastro" element={<CadastroRestaurante />} />
           <Route path="/restaurante/home" element={<HomeRestaurante/>}/>
           <Route path="/restaurante/id/cardapio" element={<Cardapio />} />  {/* Alterar a rota também no adicionar/atualizar comida*/}
