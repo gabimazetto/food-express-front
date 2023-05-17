@@ -24,6 +24,7 @@ import { ContextLogin } from "./contexts/LoginContext";
 import { ContextClient } from "./contexts/ClientContext";
 import { ContextRestaurant } from "./contexts/RestaurantContext";
 import { FaleConosco } from "./pages/FaleConosco/FaleConosco";
+import { FAQ } from "./pages/FAQ/FAQ";
 
 
 
@@ -56,6 +57,8 @@ function App() {
 
           <Route path="*" element={<NotFound />} />
           <Route path="/contato" element={<FaleConosco />} />
+          <Route path="/faq" element={<FAQ />} />
+
 
           <Route path="/cliente/login" element={<LoginCliente />} />
           <Route path="/restaurante/login" element={<LoginRestaurante />} />
