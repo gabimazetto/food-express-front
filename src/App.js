@@ -16,10 +16,33 @@ import { Restaurantes } from "./pages/Restaurantes/Restaurantes";
 import { PedidosCliente } from "./pages/PedidosCliente/PedidosCliente";
 import { Favoritos } from "./pages/Favoritos/Favoritos";
 import { CardapioCliente } from "./pages/CardapioCliente/CardapioCliente";
+import { useContext, useEffect } from "react";
+import { ContextLogin } from "./contexts/LoginContext";
+import { ContextClient } from "./contexts/ClientContext";
+import { ContextRestaurant } from "./contexts/RestaurantContext";
 
 
 function App() {
-  // const clienteId = JWT.getLoggedInClientId(); => ver como isso acontece no jwt ===== clienteId={clienteId}
+  const { idCli, emailCli, roleCli, handleDecodeCliente } = useContext(ContextClient);
+  const { idRes, emailRes, roleRes, handleDecodeRestaurante } = useContext(ContextRestaurant);
+  const { authenticated, setAuthenticated } = useContext(ContextLogin);
+
+
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (token && authenticated === false){
+      if(idCli !== null && emailCli !== null && roleCli === "cliente"){
+        handleDecodeCliente(token);
+        setAuthenticated(true);
+      } else if(idRes !== null && emailRes !== null && roleRes === "restaurante"){
+        handleDecodeRestaurante(token);
+        setAuthenticated(true);
+      }
+    } 
+  }, []);
+
   return (
     <BrowserRouter>
       <Routes>
