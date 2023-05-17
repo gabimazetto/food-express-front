@@ -86,7 +86,7 @@ export function CardCardapioRestaurante({ className, comidas, updateData }) {
                                     </div>
                                     <div className="infos-card">
                                         <p className="descricao zerando-margin">{comida.descricao}</p>
-                                        <p className="zerando-margin"><b>Peso:</b> {comida.peso}</p>
+                                        <p className="zerando-margin"><b>Peso (gramas):</b> {comida.peso}</p>
                                         <p className="zerando-margin"><b>Categoria: </b>{comida.categoria}</p>
                                     </div>
                                     <div className="preco-card-restaurante">
