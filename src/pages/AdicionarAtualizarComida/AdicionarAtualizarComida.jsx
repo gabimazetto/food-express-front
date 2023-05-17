@@ -4,46 +4,64 @@ import { Button, Form, InputGroup } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
-import "./AdicionarAtualizarComida.css"
-import imagemLogo from "../../assets/icons/prato.svg"
+import "./AdicionarAtualizarComida.css";
+import imagemLogo from "../../assets/icons/prato.svg";
 import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/ContainerCenterMobile";
-
-
 
 export function AdicionarAtualizarComida() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const { id } = useParams();
     const navigate = useNavigate();
-    const [imagemComida, setimagemComida] = useState(null)
+    const [imagemComida, setimagemComida] = useState(null);
+
+    function convertPrice(price) {
+        const formattedPrice = price.replace(",", ".");
+
+        // Check if the price has a decimal point
+        if (formattedPrice.indexOf(".") === -1) {
+            // If there is no decimal point, append .00 to the end
+            return `${formattedPrice}.00`;
+        }
+
+        // Check if the decimal part has less than two digits
+        const decimalPart = formattedPrice.split(".")[1];
+        if (decimalPart.length < 2) {
+            // If there are less than two digits, append a zero
+            return `${formattedPrice}0`;
+        }
+
+        return formattedPrice;
+    }
+
+
 
 
     async function onSubmit(data) {
         const formData = new FormData();
-        formData.append('codigo', data.codigo);
-        formData.append('nome', data.nome);
-        formData.append('descricao', data.descricao);
-        formData.append('categoria', data.categoria);
-        formData.append('preco', data.preco);
-        formData.append('peso', data.peso);
-        formData.append('imagem', data.imagem[0]);
-        formData.append('restauranteId', data.restauranteId);
-
+        formData.append("codigo", data.codigo);
+        formData.append("nome", data.nome);
+        formData.append("descricao", data.descricao);
+        formData.append("categoria", data.categoria);
+        formData.append("preco", convertPrice(data.preco)); // Convert the price before appending
+        formData.append("peso", data.peso);
+        formData.append("imagem", data.imagem[0]);
+        formData.append("restauranteId", data.restauranteId);
 
         if (!id) {
-            await axios.post('http://localhost:3001/comidas', formData);
-            toast.success('Comida adicionada com sucesso!', {
+            await axios.post("http://localhost:3001/comidas", formData);
+            toast.success("Comida adicionada com sucesso!", {
                 position: "bottom-right",
                 duration: 2000,
             });
         } else {
             await axios.put(`http://localhost:3001/comidas/${id}`, formData);
 
-            toast.success('Comida atualizada com sucesso!', {
+            toast.success("Comida atualizada com sucesso!", {
                 position: "bottom-right",
                 duration: 2000,
             });
         }
-        navigate('/restaurante/id/cardapio');
+        navigate("/restaurante/id/cardapio");
     }
 
     useEffect(() => {
@@ -148,16 +166,17 @@ export function AdicionarAtualizarComida() {
                                     R$
                                 </InputGroup.Text>
                                 <Form.Control
-                                    type="number"
-                                    step="0.01"
-                                    className={`forms-borda   ${errors.codigo && "is-invalid"}`}
+                                    type="text"
+                                    className={`forms-borda ${errors.codigo && "is-invalid"}`}
                                     {...register("preco", {
                                         required: "O preço é obrigatório.",
                                         pattern: {
-                                            value: /^\d+\.\d{2}$/,
-                                            message: "Por favor, digite um valor com duas casas decimais."
+                                            value: /^\d+([,.]\d{1,2})?$/, // Modificado para aceitar números com vírgula ou ponto decimal, com até duas casas decimais opcionais
+                                            message: "Por favor, digite um valor válido."
                                         }
-                                    })} />
+                                    })}
+                                />
+
                                 {errors.preco && <Form.Text className="invalid-feedback">{errors.preco.message}</Form.Text>}
                             </InputGroup>
                         </Form.Group>
@@ -173,7 +192,7 @@ export function AdicionarAtualizarComida() {
                         <Form.Group className="mb-2">
                             <InputGroup className="custon-input-group formulario">
                                 <Form.Label>Imagem:</Form.Label>
-                                <Form.Control className={`formulario borda-direita forms-comidas-component secondary ${errors.preco && "is-invalid"}`} type="file" placeholder="Digite o código da comida:" {...register("imagem", )} />
+                                <Form.Control className={`formulario borda-direita forms-comidas-component secondary ${errors.preco && "is-invalid"}`} type="file" placeholder="Digite o código da comida:" {...register("imagem",)} />
                             </InputGroup>
                         </Form.Group>
 
