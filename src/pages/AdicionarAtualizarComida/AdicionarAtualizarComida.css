@@ -25,6 +25,10 @@
     width: 94%;
 }
 
+.custon-input-group{
+    width: 95% !important;
+}
+
 .preco .span-preco {
     background-color: #f06000 !important;
     padding: 0.3rem 0.55rem !important;
