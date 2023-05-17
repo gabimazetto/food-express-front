@@ -71,7 +71,7 @@ export function Header() {
 
     return (
         <Navbar bg={temaEscuro === false ? "light" : "dark"} expand="lg" className="">
-            <Container fluid className="container d-flex justify-content-between align-items-center" >
+            <Container fluid className=" d-flex justify-content-between align-items-center" >
                 <Navbar.Brand >
                     {/* Verifica se está logado para apresentar as informações */}
                     {estaLogado === false ? (
