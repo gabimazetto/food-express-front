@@ -15,60 +15,60 @@ export function LoginCliente() {
     <>
       <ContainerCenterMobile className="background-gradient">
         <main className="border container rounded-5 ">
-      <div className="grid" >
-          <div className="colTwo" >
-            
-                <div class="text-center">
-                  <img
-                    src={loginImg}
-                    class="mt-4 "
-                    alt="Imagem de uma mulher no computador vendo imagens de comidas"
-                  />
-                </div>
+          <div className="grid" >
+            <div className="colTwo" >
+
+              <div className="text-center">
+                <img
+                  src={loginImg}
+                  className="mt-4 "
+                  alt="Imagem de uma mulher no computador vendo imagens de comidas"
+                />
               </div>
-                <div className="colOne">
-                  <div className="px-3 py-4">
-                  <img src={logo} class="img-fluid" alt="Logo do FoodExpress" />
-                  
-                    <Form>
-                      <CustomInput
-                        className="input-web"
-                        type="email"
-                        placeholder="Digite seu e-mail"
-                        icon="bi bi-envelope-at-fill white "
-                      />
-                      <CustomInput
-                        type="password"
-                        placeholder="Digite sua senha"
-                        icon="bi bi-eye-fill white "
-                      />
+            </div>
+            <div className="colOne">
+              <div className="px-3 py-4">
+                <img src={logo} className="img-fluid" alt="Logo do FoodExpress" />
 
-                      <div class="d-grid gap-2 mt-4">
-                        <ButtonNavigation
-                          text="Login"
-                          route="/cliente/home"
-                          className="white"
-                        />
-                      </div>
-                    </Form>
-                    <Divider>OU</Divider>
+                <Form>
+                  <CustomInput
+                    className="input-web"
+                    type="email"
+                    placeholder="Digite seu e-mail"
+                    icon="bi bi-envelope-at-fill white "
+                  />
+                  <CustomInput
+                    type="password"
+                    placeholder="Digite sua senha"
+                    icon="bi bi-eye-fill white "
+                  />
 
+                  <div className="d-grid gap-2 mt-4">
                     <ButtonNavigation
-                      text="Seja nosso cliente, cadastre-se aqui"
-                      route="/cliente/cadastro"
-                      className="my-button-not-filled"
-                    />
-
-                    <ButtonNavigation
-                      text="Seja nosso parceiro, cadastre-se aqui"
-                      route="/restaurante/cadastro"
-                      className="my-button-not-filled"
+                      text="Login"
+                      route="/cliente/home"
+                      className="white"
                     />
                   </div>
-                </div>               
-              
+                </Form>
+                <Divider>OU</Divider>
+
+                <ButtonNavigation
+                  text="Seja nosso cliente, cadastre-se aqui"
+                  route="/cliente/cadastro"
+                  className="my-button-not-filled"
+                />
+
+                <ButtonNavigation
+                  text="Seja nosso parceiro, cadastre-se aqui"
+                  route="/restaurante/cadastro"
+                  className="my-button-not-filled"
+                />
+              </div>
+            </div>
+
           </div>
-      
+
         </main>
       </ContainerCenterMobile>
     </>
