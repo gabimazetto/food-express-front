@@ -2,7 +2,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Root } from "./pages/Root/Root";
 import { Home } from "./pages/Home/Home";
 import { CadastroCliente } from "./pages/CadastroCliente/CadastroCliente";
-import { CadastroClienteParte1 } from "./pages/CadastroClienteParte1/CadastoClienteParte1";
 import { CardapioRestaurante } from "./pages/CardapioRestaurante/CardapioRestaurante";
 import { EditaRestaurante } from "./pages/EditarRestaurante/EditarRestaurante";
 import { EditarCliente } from "./pages/EditarCliente/EditarCliente";
@@ -26,10 +25,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Root />}>
           <Route path="/" element={<Home />} />
-        dev
+
           <Route path="/cliente/login" element={<LoginCliente />} />
-          <Route path="/restaurante/login" element={<LoginRestaurante />} />          
-        main
+          <Route path="/restaurante/login" element={<LoginRestaurante />} />
+
 
           <Route path="/cliente/home" element={<HomeCliente />} />
           <Route path="/cliente/cadastro" element={<CadastroCliente />} />
@@ -37,18 +36,17 @@ function App() {
           <Route path="/cliente/listar/restaurantes" element={<Restaurantes />} />
           <Route path="/cliente/restaurante/cardapio/:id" element={<CardapioCliente />} />
           <Route path="/cliente/listar/favoritos" element={<Favoritos />} />
-          <Route path="/cliente/pedidos" element={<PedidosCliente/>} />
+          <Route path="/cliente/pedidos" element={<PedidosCliente />} />
+            
           <Route path="/restaurante/cadastro" element={<CadastroRestaurante />} />
-          <Route path="/restaurante/home" element={<HomeRestaurante/>}/>
+          <Route path="/restaurante/home" element={<HomeRestaurante />}/>
           <Route path="/restaurante/id/cardapio" element={<CardapioRestaurante />} />  {/* Alterar a rota também no adicionar/atualizar comida*/}
           <Route path="/restaurante/cardapio/cadastro" element={<AdicionarAtualizarComida />} />         {/* Adicionar nova comida ao cardapio*/}
-          <Route path="/restaurante/cardapio/item/:id" element={<AdicionarAtualizarComida/>}/>       {/* Atualizar comida no cardapio*/}          
+          <Route path="/restaurante/cardapio/item/:id" element={<AdicionarAtualizarComida />} />       {/* Atualizar comida no cardapio*/}
           <Route path="/restaurante/:id" element={<PerfilRestaurante />} />
           <Route path="/restaurante/perfil/:id" element={<EditaRestaurante />} />
-
         </Route>
-        <Route path="/cadastrocliente" element={<CadastroClienteParte1 />} />         {/* manter essa ou a da linha 30*/}
-      
+
       </Routes>
     </BrowserRouter>
   );
