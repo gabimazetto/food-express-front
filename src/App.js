@@ -15,11 +15,15 @@ import { LoginRestaurante } from "./pages/LoginRestaurante/LoginRestaurante";
 import { Restaurantes } from "./pages/Restaurantes/Restaurantes";
 import { PedidosCliente } from "./pages/PedidosCliente/PedidosCliente";
 import { Favoritos } from "./pages/Favoritos/Favoritos";
+
+import { NotFound } from "./pages/NotFound/NotFound";
+
 import { CardapioCliente } from "./pages/CardapioCliente/CardapioCliente";
 import { useContext, useEffect } from "react";
 import { ContextLogin } from "./contexts/LoginContext";
 import { ContextClient } from "./contexts/ClientContext";
 import { ContextRestaurant } from "./contexts/RestaurantContext";
+
 
 
 function App() {
@@ -49,9 +53,12 @@ function App() {
         <Route path="/" element={<Root />}>
           <Route path="/" element={<Home />} />
 
+          <Route path="*" element={<NotFound />} />
           <Route path="/cliente/login" element={<LoginCliente />} />
           <Route path="/restaurante/login" element={<LoginRestaurante />} />
 
+          <Route path="/cliente/login" element={<LoginCliente />} />
+          <Route path="/restaurante/login" element={<LoginRestaurante />} />
 
           <Route path="/cliente/home" element={<HomeCliente />} />
           <Route path="/cliente/cadastro" element={<CadastroCliente />} />
