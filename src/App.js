@@ -15,6 +15,7 @@ import { CadastroRestaurante } from "./pages/CadastroRestaurante/CadastroRestaur
 import { LoginRestaurante } from "./pages/LoginRestaurante/LoginRestaurante";
 import { Restaurantes } from "./pages/Restaurantes/Restaurantes";
 import { CardCardapioCliente } from "./components/CardCardapioCliente/CardCardapioCliente";
+import { Favoritos } from "./pages/Favoritos/Favoritos";
 import { PedidosCliente } from "./pages/PedidosCliente/PedidosCliente";
 
 
@@ -29,6 +30,20 @@ function App() {
           <Route path="/cliente/login" element={<LoginCliente />} />
           <Route path="/restaurante/login" element={<LoginRestaurante />} />          
         main
+          <Route path="/novocliente" element={<NovoCliente />} />
+          <Route path="/favoritos" element={<Favoritos />} />
+          <Route path="/clientes/editar/:id" element={<EditarCliente />} />
+          <Route path="/cadastrostaurante" element={<CadastroRestaurante />} />
+          <Route path="/restaurante" element={<HomeRestaurante/>}/>
+          <Route path="/restaurante/cardapio" element={<Cardapio />} />
+          <Route path="/restaurante/cardapio/cliente" element={<CardCardapioCliente />} />
+          <Route path="/restaurante/cardapio/nova" element={<AdicionarAtualizarComida />} />         {/* Adicionar nova comida ao cardapio*/}
+          <Route path="/restaurante/cardapio/item/:id" element={<AdicionarAtualizarComida/>}/>       {/* Atualizar comida no cardapio*/}
+          <Route path="/restaurantes" element={<Restaurantes />} />
+          <Route path="/restaurantes/:id" element={<PerfilRestaurante />} />
+          <Route path="/editar/restaurante/:id" element={<EditaRestaurante />} />
+          <Route path="/editarrestaurante/:id" element={<EditaRestaurante />} />
+
 
           <Route path="/cliente/home" element={<HomeCliente />} />
           <Route path="/cliente/cadastro" element={<CadastroCliente />} />
