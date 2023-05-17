@@ -12,6 +12,8 @@ import {
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { CustomInputIconNone } from "../../components/CustomInputIconNone/CustomInputIconNone";
+import { CustomInput } from "../../components/CustomInput/CustomInput";
 
 export function CadastroRestaurante() {
   const [senha, setSenha] = useState("password");
@@ -45,6 +47,8 @@ export function CadastroRestaurante() {
     getValues,
   } = useForm();
   const navigate = useNavigate();
+  const dayjs = require("dayjs");
+  const today = dayjs();
 
   function onSubmit(data) {
     console.log(data);
@@ -67,303 +71,217 @@ export function CadastroRestaurante() {
   }
 
   return (
-    <>
-      <div className="container mt-2 ">
-        <Card className="mt-3 mb-3" border="warning">
-          <Card.Body>
-            <h1 className="text-center">Cadastro</h1>
-            <Form onSubmit={handleSubmit(onSubmit)}>
-              <Form.Group className="mt-2 mb-3">
-                <Form.Label>Nome Fantasia</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Restaurante da Maria"
-                  className={errors.nomeFantasia && "is-invalid"}
-                  {...register("nomeFantasia", {
-                    required: "O Nome Fantasia é obrigatório.",
-                    maxLength: {
-                      value: 130,
-                      message: "Limite de 130 caracteres.",
-                    },
-                  })}
-                />
-                {errors.nomeFantasia && (
-                  <Form.Text className="invalid-feedback">
-                    {errors.nomeFantasia.message}
-                  </Form.Text>
-                )}
-              </Form.Group>
+    <section id="pagina">
+      <div data-theme="white-content" className="container body-content py-5">
+        <div className="row justify-content-center">
+          <div className="col-12 col-md-8">
+            <Card className="shadow-2-strong radius-2 mb-4">
+              <Card.Body className="p-4">
+                <h1 className="text-center">Cadastro Restaurante</h1>
+                <Form onSubmit={handleSubmit(onSubmit)}>
+                  <CustomInputIconNone
+                    label="Nome Fantasia"
+                    className="input-web"
+                    type="text"
+                    placeholder="Informe o nome fantasia do estabelecimento"
+                    icon=""
+                    register={register("nomeFantasia", {
+                      required: "O nome fantasia é obrigatório", maxLength: {
+                        value: 130,
+                        message: "Limite de 130 caracteres.",
+                      },
+                    })}
+                    error={errors.nomeFantasia}
+                  />
 
-              <Form.Group>
-                <Form.Label>Razão Social</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Maria Comércio de Alimentos Ltda."
-                  className={errors.razaoSocial && "is-invalid"}
-                  {...register("razaoSocial", {
-                    required: "A Razão Social é obrigatória.",
-                  })}
-                />
-                {errors.razaoSocial && (
-                  <Form.Text className="invalid-feedback">
-                    {errors.razaoSocial.message}
-                  </Form.Text>
-                )}
-              </Form.Group>
+                  <CustomInput
+                    label="Razão Social"
+                    className="input-web"
+                    type="text"
+                    placeholder="Informe a razão social do seu estabelecimento"
+                    icon="bi bi-envelope-at-fill white"
+                    register={register("razaoSocial", { required: "A razão social é obrigatória" })}
+                    error={errors.razaoSocial}
+                  />
 
-              <Form.Group>
-                <Form.Label>Telefone</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="(99)99999-9999"
-                  className={errors.telefone && "is-invalid"}
-                  {...register("telefone", {
-                    required: "O telefone é obrigatório.",
-                  })}
-                />
-                {errors.telefone && (
-                  <Form.Text className="invalid-feedback">
-                    {errors.telefone.message}
-                  </Form.Text>
-                )}
-              </Form.Group>
+                  <CustomInput
+                    label="Telefone"
+                    small="Formato do telefone: (99)99999-9999 ou 1212345-1234"
+                    type="tel"
+                    icon="bi bi-telephone white"
+                    className="input-web"
+                    pattern="^\(?\d{2}\)?[-.\s]?\d{4,5}[-.\s]?\d{4}$"
+                    placeholder="Informe seu telefone no formato: "
+                    register={register("telefone", {
+                      pattern: "Formato do telefone: (99)99999-9999 ou 1212345-1234",
+                      required: "O telefone é obrigatório.",
+                      maxLength: {
+                        value: 14,
+                        message: "Limite de 14 caracteres.",
+                      },
+                    })}
+                    error={errors.telefone}
+                  />
 
-              <Form.Group>
-                <Form.Label>CNPJ</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="12.345.678/0001-00"
-                  className={errors.cnpj && "is-invalid"}
-                  {...register("cnpj", {
-                    required: "O CNPJ é obrigatório.",
-                    maxLength: {
-                      value: 18,
-                      message: "Limite de 18 caracteres.",
-                    },
-                  })}
-                />
-                {errors.cnpj && (
-                  <Form.Text className="invalid-feedback">
-                    {errors.cnpj.message}
-                  </Form.Text>
-                )}
-              </Form.Group>
+                  <CustomInputIconNone
+                    label="CNPJ"
+                    small="Formato do CNPJ: 12.345.678/0001-00"
+                    className="input-web"
+                    type="text"
+                    pattern="[0-9]{2}.[0-9]{3}.[0-9]{3}/[0-9]{4}-[0-9]{2}|[0-9]{15}-[0-9]{2}"
+                    placeholder="Informe seu CNPJ"
+                    icon=""
+                    register={register("cnpj", { required: "O CNPJ é obrigatório." })}
+                    error={errors.cnpj}
+                  />
 
-              <Form.Group>
-                <Form.Label>E-mail</Form.Label>
-                <Form.Control
-                  type="email"
-                  placeholder="restaurantedamaria@email.com"
-                  className={errors.email && "is-invalid"}
-                  {...register("email", {
-                    required: "O email é obrigatório.",
-                  })}
-                />
-                {errors.email && (
-                  <Form.Text className="invalid-feedback">
-                    {errors.email.message}
-                  </Form.Text>
-                )}
-              </Form.Group>
+                  <CustomInput
+                    label="Email"
+                    className="input-web"
+                    type="email"
+                    placeholder="Informe seu e-mail"
+                    icon="bi bi-envelope-at-fill white"
+                    register={register("email", { required: "O email é obrigatório" })}
+                    error={errors.email}
+                  />
 
-              <Form.Group>
-                <Form.Label>Senha</Form.Label>
-                <InputGroup>
-                  <FormControl
+                  <CustomInput
+                    label="Senha"
+                    className="input-web"
                     type={senha}
-                    placeholder="Insira sua senha aqui"
-                    className={errors.senha && "is-invalid"}
-                    {...register("senha", {
+                    placeholder="Crie sua senha"
+                    icon={icone}
+                    register={register("senha", {
                       required: "A senha é obrigatória",
                     })}
+                    error={errors.senha}
+                    toggleType={mudarTipo}
+                    iconType={icone}
                   />
-                  <InputGroup.Text
-                    className="password-toggle"
-                    onClick={mudarTipo}
-                  >
-                    <i className={icone}></i>
-                  </InputGroup.Text>
-                </InputGroup>
-                {errors.senha && (
-                  <Form.Text className="invalid-feedback">
-                    {errors.senha.message}
-                  </Form.Text>
-                )}
-              </Form.Group>
 
-              <Form.Group>
-                <Form.Label>Confirme a senha</Form.Label>
-                <InputGroup>
-                  <FormControl
+                  <CustomInput
+                    label="Confirmação de senha"
+                    className="input-web"
                     type={senha2}
                     placeholder="Confirme sua senha"
-                    className={errors.confirmarSenha && "is-invalid"}
-                    {...register("confirmarSenha", {
+                    icon={icone2}
+                    register={register("confirmarSenha", {
                       required: "As senhas devem ser iguais",
                       validate: (value) =>
                         value === getValues("senha") ||
                         "As senhas devem ser iguais",
                     })}
+                    error={errors.confirmarSenha}
+                    toggleType={mudarTipo2}
+                    iconType={icone2}
                   />
-                  <InputGroup.Text
-                    className="password-toggle"
-                    onClick={mudarTipo2}
-                  >
-                    <i className={icone2}></i>
-                  </InputGroup.Text>
-                </InputGroup>
-                {errors.confirmarSenha && (
-                  <Form.Text className="invalid-feedback">
-                    {errors.confirmarSenha.message}
-                  </Form.Text>
-                )}
-              </Form.Group>
 
-              <Row>
-                <Col>
+                  <CustomInputIconNone
+                    label="Cidade"
+                    className="input-web"
+                    type="text"
+                    placeholder="Informe sua cidade"
+                    register={register("endereco.cidade", { required: "A Cidade é obrigatória" })}
+                    error={errors.endereco?.cidade}
+                  />
+
                   <Form.Group className="mb-3">
-                    <Form.Label>Cidade</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="Alabasta"
-                      className={errors.endereco?.cidade && "is-invalid"}
-                      {...register("endereco.cidade", {
-                        required: "A cidade é obrigatória.",
+                    <Form.Label className="d-flex">UF</Form.Label>
+                    <Form.Select
+                      className="input-web"
+                      {...register("endereco.uf", {
+                        required: "O UF é obrigatório.",
                         maxLength: {
-                          value: 255,
-                          message: "Limite de 255 caracteres.",
+                          value: 2,
+                          message: "Limite de 2 caracteres.",
                         },
                       })}
-                    />
-                    {errors.endereco?.cidade && (
+                    >
+                      <option value="default">Unidade Federativa</option>
+                      <option value="1">AC</option>
+                      <option value="2">AL</option>
+                      <option value="3">AP</option>
+                      <option value="4">AM</option>
+                      <option value="5">BA</option>
+                      <option value="6">CE</option>
+                      <option value="7">DF</option>
+                      <option value="8">ES</option>
+                      <option value="9">GO</option>
+                      <option value="10">MA</option>
+                      <option value="11">MT</option>
+                      <option value="12">MS</option>
+                      <option value="13">MG</option>
+                      <option value="14">PA</option>
+                      <option value="15">PB</option>
+                      <option value="16">PR</option>
+                      <option value="17">PE</option>
+                      <option value="18">PI</option>
+                      <option value="19">RJ</option>
+                      <option value="20">RN</option>
+                      <option value="21">RS</option>
+                      <option value="22">RO</option>
+                      <option value="23">RR</option>
+                      <option value="24">SC</option>
+                      <option value="25">SP</option>
+                      <option value="26">SE</option>
+                      <option value="27">TO</option>
+                    </Form.Select>
+                    {errors.endereco?.uf && (
                       <Form.Text className="invalid-feedback">
-                        {errors.endereco?.cidade.message}
+                        {errors.endereco?.uf.message}
                       </Form.Text>
                     )}
                   </Form.Group>
-                </Col>
 
-                <Form.Group as={Col} className="mb-3">
-                  <Form.Label>UF</Form.Label>
-                  <Form.Select
-                    aria-label="Default select example"
-                    className={errors.endereco?.uf && "is-invalid"}
-                    {...register("endereco.uf", {
-                      required: "O UF é obrigatório.",
-                      maxLength: {
-                        value: 2,
-                        message: "Limite de 2 caracteres",
-                      },
-                    })}
-                  >
-                    <option value="default">Unidade Federativa</option>
-                    <option value="1">PE</option>
-                    <option value="2">SP</option>
-                    <option value="3">RJ</option>
-                    <option value="4">CE</option>
-                  </Form.Select>
-                  {errors.endereco?.uf && (
-                    <Form.Text className="invalid-feedback">
-                      {errors.endereco?.uf.message}
-                    </Form.Text>
-                  )}
-                </Form.Group>
-
-                <Form.Group className="mb-3">
-                  <Form.Label>CEP</Form.Label>
-                  <Form.Control
+                  <CustomInputIconNone
+                    label="CEP"
+                    small="Formato do CEP: 99999-999"
+                    className="input-web"
                     type="text"
-                    placeholder="99999-999"
+                    placeholder="Informe seu CEP"
                     pattern="[0-9]{5}-[0-9]{3}|[0-9]{8}"
-                    title="Formato: 123.456.789-12"
-                    className={errors.endereco?.cep && "is-invalid"}
-                    {...register("endereco.cep", {
-                      required: "O CEP é obrigatório.",
-                      maxLength: {
-                        value: 9,
-                        message: "Limite de 9 caracteres.",
-                      },
-                    })}
+                    register={register("endereco.cep", { required: "O CEP é obrigatório" })}
+                    error={errors.endereco?.cep}
                   />
-                  {errors.endereco?.cep && (
-                    <Form.Text className="invalid-feedback">
-                      {errors.endereco?.cep.message}
-                    </Form.Text>
-                  )}
-                </Form.Group>
-              </Row>
-              <Row>
-                <Form.Group as={Col} className="mb-3">
-                  <Form.Label>Rua</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="Avenida Paulista"
-                    className={errors.endereco?.rua && "is-invalid"}
-                    {...register("endereco.rua", {
-                      required: "A rua é obrigatória.",
-                      maxLength: {
-                        value: 100,
-                        message: "Limite de 100 caracteres.",
-                      },
-                    })}
-                  />
-                  {errors.endereco?.rua && (
-                    <Form.Text className="invalid-feedback">
-                      {errors.endereco?.rua.message}
-                    </Form.Text>
-                  )}
-                </Form.Group>
 
-                <Form.Group as={Col} className="mb-3">
-                  <Form.Label>Numero</Form.Label>
-                  <Form.Control
+                  <CustomInputIconNone
+                    label="Logradouro"
+                    className="input-web"
                     type="text"
-                    placeholder="5"
-                    className={errors.endereco?.numero && "is-invalid"}
-                    {...register("endereco.numero", {
-                      required: "O número é obrigatório.",
-                      maxLength: {
-                        value: 100,
-                        message: "Limite de 100 caracteres.",
-                      },
-                    })}
+                    placeholder="Informe seu logradouro"
+                    register={register("endereco.rua", { required: "A rua é obrigatória." })}
+                    error={errors.endereco?.rua}
                   />
-                  {errors.endereco?.numero && (
-                    <Form.Text className="invalid-feedback">
-                      {errors.endereco?.numero.message}
-                    </Form.Text>
-                  )}
-                </Form.Group>
 
-                <Form.Group as={Col} className="mb-3">
-                  <Form.Label>Complemento</Form.Label>
-                  <Form.Control
+                  <CustomInputIconNone
+                    label="Número"
+                    className="input-web"
                     type="text"
-                    placeholder="Complemento"
-                    className={errors.endereco?.complemento && "is-invalid"}
-                    {...register("endereco.complemento", {
-                      maxLength: {
-                        value: 100,
-                        message: "Limite de 100 caracteres.",
-                      },
-                    })}
+                    placeholder="Informe seu número residencial"
+                    register={register("endereco.numero", { required: "O número é obrigatório." })}
+                    error={errors.endereco?.numero}
                   />
-                  {errors.endereco?.complemento && (
-                    <Form.Text className="invalid-feedback">
-                      {errors.endereco?.complemento.message}
-                    </Form.Text>
-                  )}
-                </Form.Group>
-              </Row>
-              <div className="d-flex justify-content-center">
-                <Button variant="warning" type="submit" color="light">
-                  Cadastrar
-                </Button>
-              </div>
-            </Form>
-          </Card.Body>
-        </Card>
+
+                  <CustomInputIconNone
+                    label="Complemento"
+                    className="input-web"
+                    type="text"
+                    placeholder="Informe um complemento"
+                    register={register("endereco.complemento")}
+                    error={errors.endereco?.complemento}
+                  />
+
+                  <div className="d-flex justify-content-center">
+                    <Button variant="warning" type="submit" color="light">
+                      Cadastrar
+                    </Button>
+                  </div>
+                </Form>
+              </Card.Body>
+            </Card>
+          </div>
+        </div>
       </div>
-    </>
+    </section>
   );
 }
