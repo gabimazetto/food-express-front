@@ -23,6 +23,7 @@ import { useContext, useEffect } from "react";
 import { ContextLogin } from "./contexts/LoginContext";
 import { ContextClient } from "./contexts/ClientContext";
 import { ContextRestaurant } from "./contexts/RestaurantContext";
+import { FaleConosco } from "./pages/FaleConosco/FaleConosco";
 
 
 
@@ -54,6 +55,8 @@ function App() {
           <Route path="/" element={<Home />} />
 
           <Route path="*" element={<NotFound />} />
+          <Route path="/contato" element={<FaleConosco />} />
+
           <Route path="/cliente/login" element={<LoginCliente />} />
           <Route path="/restaurante/login" element={<LoginRestaurante />} />
 
