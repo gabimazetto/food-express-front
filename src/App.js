@@ -25,6 +25,7 @@ import { ContextClient } from "./contexts/ClientContext";
 import { ContextRestaurant } from "./contexts/RestaurantContext";
 import { FaleConosco } from "./pages/FaleConosco/FaleConosco";
 import { FAQ } from "./pages/FAQ/FAQ";
+import { DescricaoPedidoCliente } from "./pages/DescricaoPedidoCliente/DescricaoPedidoCliente";
 
 
 
@@ -73,6 +74,7 @@ function App() {
           <Route path="/cliente/restaurante/cardapio/:id" element={<CardapioCliente />} />
           <Route path="/cliente/listar/favoritos" element={<Favoritos />} />
           <Route path="/cliente/pedidos" element={<PedidosCliente />} />
+          <Route path="/cliente/pedidos/:id" element={<DescricaoPedidoCliente />} />
             
           <Route path="/restaurante/cadastro" element={<CadastroRestaurante />} />
           <Route path="/restaurante/home" element={<HomeRestaurante />}/>
