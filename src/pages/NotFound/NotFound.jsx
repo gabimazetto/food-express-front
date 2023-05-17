@@ -1,16 +1,31 @@
+
+import {Button,ButtonGroup,Form, InputGroup,} from "react-bootstrap";
+import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/ContainerCenterMobile";
+import noteFood from "../../assets/images/noteFood.png";
 import { FooterLogout } from "../../components/FooterLogout/FooterLogout";
-import noteFood from "../../assets/images/noteFood.png"
-import { Button, ButtonGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
+
 export function NotFound() {
-    return(
+
+
+    return (
         <>
-    
-            <main>
-        <div className="container text-center mt-3">
-            <h1>404 - Página não encontrada</h1>
+            <ContainerCenterMobile className="background-gradient">
+                <main className="border container rounded-5 ">
+                    <div className="grid" >
+                        <div className="colTwo" >
+                            <div className="text-center">
+                                <img
+                                    src={noteFood}
+                                    class="mt-4 "
+                                    alt="Imagem de uma mulher confusa"
+                                />
+                            </div>
+                        </div>
+                        <div className="colOne">
+                            <div className="px-3 py-4">
+                                <h1>404 - Página não encontrada</h1>
             <p>Desculpe, a página que você está procurando não foi encontrada.</p>
-            <img src={noteFood} alt="" /> <br />
             
             <ButtonGroup className="mt-1 mb-5">
                 <Button as={Link} to="/" variant="primary">
@@ -20,11 +35,13 @@ export function NotFound() {
                     Login
                 </Button>
             </ButtonGroup>
-        </div>    
-        </main>    
-        <footer>
-            <FooterLogout />
-        </footer>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                </main>
+            </ContainerCenterMobile>
+            <FooterLogout/>
         </>
     );
 }
