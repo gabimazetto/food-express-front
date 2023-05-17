@@ -90,7 +90,7 @@ export function CardCardapioRestaurante({ className, comidas, updateData }) {
                                         <p className="zerando-margin"><b>Categoria: </b>{comida.categoria}</p>
                                     </div>
                                     <div className="preco-card-restaurante">
-                                        <h1 className="d-flex align-items-center zerando-margin">R$ {comida.preco}</h1>
+                                    <h1 className="d-flex align-items-center zerando-margin">R$ {comida.preco.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</h1>
                                         <button className="cards-botoes" onClick={() => handleShow(comida.id)} style={{ cursor: 'pointer' }}>
                                             <i className="bi bi-trash3"></i>
                                         </button>
