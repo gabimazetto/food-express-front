@@ -13,7 +13,7 @@
 .article-cards-pedidos {
     width: 450px;
     height: 250px;
-    min-width: 350px;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
     border: 1px solid #f2f2f2;
@@ -34,6 +34,7 @@
     justify-content: space-between;
     color: #F06000 !important;
     font-weight: 700;
+    font-size: 1.2em;
 }
 
 .botao-cards-detalhes{
@@ -119,4 +120,24 @@
     display: flex;
     align-self: center;
     border-top: 0.5px solid #f2f2f2;
+}
+
+
+@media (max-width: 480px) {
+    .foto-cards-pedidos h1 {
+        font-size: 1em !important;
+    }
+
+    .items-cards-pedidos .itens-cards-container{
+        display: flex;
+        flex-direction: column;
+        line-height: 30px;
+        font-size: 17px;
+    }
+
+    .items-cards-pedidos div{
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+    }
 }

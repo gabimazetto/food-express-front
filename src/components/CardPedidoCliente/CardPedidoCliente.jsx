@@ -10,9 +10,6 @@ import { Link } from "react-router-dom";
 
 export function CardPedidoCliente() {
     const [pedidos, setPedidos] = useState([]);
-
-
-
     useEffect(() => {
         initializeTable();
     }, []);
@@ -41,7 +38,7 @@ export function CardPedidoCliente() {
                                     <div className="foto-cards-pedidos">
                                         <img src={fotoTesteLogo} className="card-foto-pedido" alt="" />
                                         <h1>{pedido.restaurante.nomeFantasia}</h1>
-                                        <Button className="botao-cards-detalhes"><i className="bi bi-arrow-right"></i>
+                                        <Button as={Link} to={`/cliente/pedidos/${pedido.id}`}className="botao-cards-detalhes"><i className="bi bi-arrow-right"></i>
                                         </Button>
                                     </div>
                                     <div className="vertical-row-pedidos"></div>
@@ -67,7 +64,7 @@ export function CardPedidoCliente() {
                                     <div className="refazer-cards-pedidos">
                                         <div>
                                             {/* <Button className="botoes-card-pedidos">Ajuda</Button> */}
-                                            <Button className="botoes-card-pedidos">Refazer pedido</Button>
+                                            <Button className="botoes-card-pedidos" >Refazer pedido</Button>
                                         </div>
                                     </div>
                                 </article>
