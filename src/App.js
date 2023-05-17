@@ -15,6 +15,7 @@ import { LoginRestaurante } from "./pages/LoginRestaurante/LoginRestaurante";
 import { Restaurantes } from "./pages/Restaurantes/Restaurantes";
 import { PedidosCliente } from "./pages/PedidosCliente/PedidosCliente";
 import { Favoritos } from "./pages/Favoritos/Favoritos";
+import { NotFound } from "./pages/NotFound/NotFound";
 
 
 function App() {
@@ -24,11 +25,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Root />}>
           <Route path="/" element={<Home />} />
-          dev
+          <Route path="*" element={<NotFound />} />
           <Route path="/cliente/login" element={<LoginCliente />} />
           <Route path="/restaurante/login" element={<LoginRestaurante />} />
-          main
-
           <Route path="/cliente/home" element={<HomeCliente />} />
           <Route path="/cliente/cadastro" element={<CadastroCliente />} />
           <Route path="/cliente/perfil/:id" element={<EditarCliente />} />
