@@ -15,7 +15,7 @@ function onSubmit(data) {
     axios.put(`http://localhost:3001/restaurantes/${id}`, data)
     .then(response => {
         toast.success(response.data.message, {position:"bottom-right", duration:2000})
-        navigate("/restaurantes")
+        navigate(`/restaurante/${id}`)
     })
 
 .catch(error => {
@@ -270,10 +270,9 @@ return (
                                     <Form.Label>Complemento</Form.Label>
                                     <Form.Control
                                         type="text"
-                                        placeholder="Casa ou Apt"
+                                        placeholder="Complemento"
                                         className={errors.endereco?.complemento && "is-invalid"}
                                         {...register("endereco.complemento", {
-                                            required: "O complemento é obrigatório.",
                                             maxLength: {
                                                 value: 100,
                                                 message: "Limite de 100 caracteres.",

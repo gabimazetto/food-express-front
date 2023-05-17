@@ -76,7 +76,7 @@ return (
                             <td>{restaurante.endereco.cidade}</td>
                             <td>{restaurante.endereco.rua}</td>
                             <td>
-                                <Button as={Link} to={`/restaurantes/${restaurante.id}`}>
+                                <Button as={Link} to={`/restaurante/${restaurante.id}`}>
                                         <i className="bi bi-list-ul"></i>
                                 </Button>
                             </td>

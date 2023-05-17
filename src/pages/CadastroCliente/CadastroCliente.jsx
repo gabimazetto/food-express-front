@@ -3,7 +3,7 @@ import { Button, Card, Col, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
-export function NovoCliente() {
+export function CadastroCliente() {
   const {
     register,
     handleSubmit,
@@ -15,7 +15,7 @@ export function NovoCliente() {
     axios
       .post("http://localhost:3001/clientes", data)
       .then((response) => {
-        navigate("/");
+        navigate("/cliente/login");
       })
       .catch((error) => {
         console.log(error);
@@ -246,7 +246,6 @@ export function NovoCliente() {
                   placeholder="Casa ou Apt"
                   className={errors.endereco?.complemento && "is-invalid"}
                   {...register("endereco.complemento", {
-                    required: "O complemento é obrigatório.",
                     maxLength: {
                       value: 100,
                       message: "Limite de 100 caracteres.",

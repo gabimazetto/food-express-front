@@ -28,7 +28,7 @@ export function EditarCliente() {
           position: "bottom-right",
           duration: 2000,
         });
-        navigate("/");
+        navigate("/cliente/home");
       })
       .catch((error) => {
         toast.error(error.response.data.message, {
@@ -249,7 +249,6 @@ export function EditarCliente() {
                     type="text"
                     className="input-web"
                     register={register("endereco.complemento", {
-                      required: "O complemento é obrigatório.",
                       maxLength: {
                         value: 100,
                         message: "Limite de 100 caracteres.",

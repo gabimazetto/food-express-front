@@ -19,7 +19,7 @@ export function Home() {
                   <div>
                     <p>Já é nosso cliente?<br /> Faça seu Login</p>
                   </div>
-                  <Button as={Link} to="/login" className="text-light" variant="primary">
+                  <Button as={Link} to="/cliente/login" className="text-light" variant="primary">
                     Login
                   </Button>
                 </div>
@@ -27,7 +27,7 @@ export function Home() {
                   <div>
                     <p>Ainda não é nosso cliente?<br /> Faça seu cadastro</p>
                   </div>
-                  <Button as={Link} to="/cadastrocliente" className="text-light" variant="primary">
+                  <Button as={Link} to="/cliente/cadastro" className="text-light" variant="primary">
                     Cadastro
                   </Button>
                 </div>
@@ -43,7 +43,7 @@ export function Home() {
                   <div>
                     <p>Já é nosso parceiro?<br /> Faça seu login</p>
                   </div>
-                  <Button as={Link} to="/login" className="text-light" variant="primary">
+                  <Button as={Link} to="/restaurante/login" className="text-light" variant="primary">
                     Login
                   </Button>
                 </div>
@@ -51,7 +51,7 @@ export function Home() {
                   <div>
                     <p>Ainda não é um parceiro?<br /> Faça seu cadastro</p>
                   </div>
-                  <Button as={Link} to="/cadastrocliente" className="text-light" variant="primary">
+                  <Button as={Link} to="/restaurante/cadastro" className="text-light" variant="primary">
                     Cadastro
                   </Button>
                 </div>
