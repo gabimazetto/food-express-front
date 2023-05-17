@@ -14,6 +14,7 @@ import { Clientes } from "./pages/Clientes/Clientes";
 import { CadastroRestaurante } from "./pages/CadastroRestaurante/CadastroRestaurante";
 import { Restaurantes } from "./pages/Restaurantes/Restaurantes";
 import { CardCardapioCliente } from "./components/CardCardapioCliente/CardCardapioCliente";
+import { Favoritos } from "./pages/Favoritos/Favoritos";
 
 function App() {
   // const clienteId = JWT.getLoggedInClientId(); => ver como isso acontece no jwt ===== clienteId={clienteId}
@@ -28,6 +29,7 @@ function App() {
 
         main
           <Route path="/novocliente" element={<NovoCliente />} />
+          <Route path="/favoritos" element={<Favoritos />} />
           <Route path="/clientes/editar/:id" element={<EditarCliente />} />
           <Route path="/cadastrostaurante" element={<CadastroRestaurante />} />
           <Route path="/restaurante" element={<HomeRestaurante/>}/>
