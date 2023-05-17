@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Button, Form, InputGroup } from "react-bootstrap";
 import { useForm } from "react-hook-form";
@@ -7,12 +7,14 @@ import { useNavigate, useParams } from "react-router-dom";
 import "./AdicionarAtualizarComida.css";
 import imagemLogo from "../../assets/icons/prato.svg";
 import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/ContainerCenterMobile";
+import { ContextRestaurant } from "../../contexts/RestaurantContext";
 
 export function AdicionarAtualizarComida() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const { id } = useParams();
     const navigate = useNavigate();
     const [imagemComida, setimagemComida] = useState(null);
+    const { idRes } = useContext(ContextRestaurant);
 
     function convertPrice(price) {
         const formattedPrice = price.replace(",", ".");
@@ -39,7 +41,7 @@ export function AdicionarAtualizarComida() {
         formData.append("preco", convertPrice(data.preco)); // Convert the price before appending
         formData.append("peso", data.peso);
         formData.append("imagem", data.imagem[0]);
-        formData.append("restauranteId", data.restauranteId);
+        formData.append("restauranteId", idRes);
 
         if (!id) {
             await axios.post("http://localhost:3001/comidas", formData);
@@ -55,7 +57,7 @@ export function AdicionarAtualizarComida() {
                 duration: 2000,
             });
         }
-        navigate("/restaurante/id/cardapio");
+        navigate(`/restaurante/cardapio/${idRes}`);
     }
 
     useEffect(() => {
@@ -190,19 +192,17 @@ export function AdicionarAtualizarComida() {
                             </InputGroup>
                         </Form.Group>
 
-
-                        {/*  É PRECISO AGUARDAR O LOGIN, PARA LINKAR O RESTAURANTE COM O restauranteId*/}
-                        {!id ?
+                        {/* {!idRes ?
                             <Form.Group className="mb-2">
                                 <InputGroup className="custon-input-group formulario">
                                     <Form.Label>RestauranteId:</Form.Label>
-                                    <Form.Control className={`formulario borda-direita forms-comidas-component secondary ${errors.preco && "is-invalid"}`} type="text" placeholder="Digite o código da comida:" {...register("restauranteId")} />
+                                    <Form.Control disabled value={idRes} className={`formulario borda-direita forms-comidas-component secondary ${errors.preco && "is-invalid"}`} type="text" placeholder="Digite o código da comida:" {...register("restauranteId")} />
                                     {errors.restauranteId && <Form.Text className="invalid-feedback">{errors.restauranteId.message}</Form.Text>}
                                 </InputGroup>
                             </Form.Group>
                             :
                             <div className="invisible"></div>
-                        }
+                        } */}
                         <div className="d-flex flex-row justify-content-evenly mt-3 mb-4 forms-container-botoes">
                             {!id ?
                                 <Button variant="primary" className="botao-form-card" type="submit">
