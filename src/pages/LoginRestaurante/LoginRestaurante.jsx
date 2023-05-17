@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Form,
 } from "react-bootstrap";
@@ -9,8 +9,22 @@ import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/Co
 import loginImg from "../../assets/images/meninaNoteFood.png";
 import logo from "../../assets/images/logoTemaClaro.png";
 import "./LoginRestaurante.css";
+import { useForm } from "react-hook-form";
+import { ContextRestaurant } from "../../contexts/RestaurantContext";
+import { useNavigate } from "react-router-dom";
+
 
 export function LoginRestaurante() {
+  const { handleLogin } = useContext(ContextRestaurant);
+  const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
+
+  function onSubmit(data){
+    handleLogin(data).then(() => {
+      navigate(`/restaurante/home`);
+    });
+  }
+
   return (
     <>
       <ContainerCenterMobile className="background-gradient">
@@ -30,15 +44,21 @@ export function LoginRestaurante() {
                   <div className="px-3 py-4">
                   <img src={logo} class="img-fluid" alt="Logo do FoodExpress" />
                   
-                    <Form>
+                    <Form onSubmit={handleSubmit(onSubmit)}>
                       <CustomInput
                         className="input-web"
                         type="email"
+                        register={register("email", {
+                          required: "Email é obrigatório"
+                        })}
                         placeholder="Digite seu e-mail"
                         icon="bi bi-envelope-at-fill white "
                       />
                       <CustomInput
                         type="password"
+                        register={register("senha", {
+                          required: "Senha é obrigatório"
+                        })}
                         placeholder="Digite sua senha"
                         icon="bi bi-eye-fill white "
                       />
@@ -46,7 +66,7 @@ export function LoginRestaurante() {
                       <div class="d-grid gap-2 mt-4">
                         <ButtonNavigation
                           text="Login"
-                          route="/cliente/home"
+                          type="submit"
                           className="white"
                         />
                       </div>

@@ -16,25 +16,19 @@ export function AdicionarAtualizarComida() {
 
     function convertPrice(price) {
         const formattedPrice = price.replace(",", ".");
-
         // Check if the price has a decimal point
         if (formattedPrice.indexOf(".") === -1) {
             // If there is no decimal point, append .00 to the end
             return `${formattedPrice}.00`;
         }
-
         // Check if the decimal part has less than two digits
         const decimalPart = formattedPrice.split(".")[1];
         if (decimalPart.length < 2) {
             // If there are less than two digits, append a zero
             return `${formattedPrice}0`;
         }
-
         return formattedPrice;
     }
-
-
-
 
     async function onSubmit(data) {
         const formData = new FormData();
@@ -84,7 +78,7 @@ export function AdicionarAtualizarComida() {
                     position: "bottom-center",
                     duration: 2000,
                 });
-                navigate('/restaurante/cardapio');
+                navigate('/restaurante/id/cardapio');
             }).catch((error) => {
                 console.log(error);
                 toast.error(error.response.data.message, {

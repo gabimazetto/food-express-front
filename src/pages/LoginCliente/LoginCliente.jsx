@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Form,
 } from "react-bootstrap";
@@ -9,66 +9,85 @@ import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/Co
 import loginImg from "../../assets/images/meninaNoteFood.png";
 import logo from "../../assets/images/logoTemaClaro.png";
 import "./LoginCliente.css";
+import { useForm } from "react-hook-form";
+import { ContextClient } from "../../contexts/ClientContext";
+import { useNavigate } from "react-router-dom";
 
 export function LoginCliente() {
+  const { handleLogin } = useContext(ContextClient);
+  const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
+
+  function onSubmit(data){
+    handleLogin(data).then(() => {
+      navigate(`/cliente/home`);
+    });
+  }
+
   return (
     <>
       <ContainerCenterMobile className="background-gradient">
         <main className="border container rounded-5 ">
-          <div className="grid" >
-            <div className="colTwo" >
-
-              <div className="text-center">
-                <img
-                  src={loginImg}
-                  className="mt-4 "
-                  alt="Imagem de uma mulher no computador vendo imagens de comidas"
-                />
+      <div className="grid" >
+          <div className="colTwo" >
+            
+                <div class="text-center">
+                  <img
+                    src={loginImg}
+                    class="mt-4 "
+                    alt="Imagem de uma mulher no computador vendo imagens de comidas"
+                  />
+                </div>
               </div>
-            </div>
-            <div className="colOne">
-              <div className="px-3 py-4">
-                <img src={logo} className="img-fluid" alt="Logo do FoodExpress" />
+                <div className="colOne">
+                  <div className="px-3 py-4">
+                  <img src={logo} class="img-fluid" alt="Logo do FoodExpress" />
+                  
+                    <Form onSubmit={handleSubmit(onSubmit)}>
+                      <CustomInput
+                        className="input-web"
+                        type="email"
+                        register={register("email", {
+                          required: "Email é obrigatório"
+                        })}
+                        placeholder="Digite seu e-mail"
+                        icon="bi bi-envelope-at-fill white "
+                      />
+                      <CustomInput
+                        type="password"
+                        register={register("senha", {
+                          required: "Senha é obrigatório"
+                        })}
+                        placeholder="Digite sua senha"
+                        icon="bi bi-eye-fill white "
+                      />
 
-                <Form>
-                  <CustomInput
-                    className="input-web"
-                    type="email"
-                    placeholder="Digite seu e-mail"
-                    icon="bi bi-envelope-at-fill white "
-                  />
-                  <CustomInput
-                    type="password"
-                    placeholder="Digite sua senha"
-                    icon="bi bi-eye-fill white "
-                  />
+                      <div class="d-grid gap-2 mt-4">
+                        <ButtonNavigation
+                          text="Login"
+                          type="submit"
+                          className="white"
+                        />
+                      </div>
+                    </Form>
+                    <Divider>OU</Divider>
 
-                  <div className="d-grid gap-2 mt-4">
                     <ButtonNavigation
-                      text="Login"
-                      route="/cliente/home"
-                      className="white"
+                      text="Seja nosso cliente, cadastre-se aqui"
+                      route="/cliente/cadastro"
+                      className="my-button-not-filled"
+                    />
+
+                    <ButtonNavigation
+                      text="Seja nosso parceiro, cadastre-se aqui"
+                      route="/restaurante/cadastro"
+                      className="my-button-not-filled"
                     />
                   </div>
-                </Form>
-                <Divider>OU</Divider>
-
-                <ButtonNavigation
-                  text="Seja nosso cliente, cadastre-se aqui"
-                  route="/cliente/cadastro"
-                  className="my-button-not-filled"
-                />
-
-                <ButtonNavigation
-                  text="Seja nosso parceiro, cadastre-se aqui"
-                  route="/restaurante/cadastro"
-                  className="my-button-not-filled"
-                />
-              </div>
-            </div>
-
+                </div>               
+              
           </div>
-
+      
         </main>
       </ContainerCenterMobile>
     </>

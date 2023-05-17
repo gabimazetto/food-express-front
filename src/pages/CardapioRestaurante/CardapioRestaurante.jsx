@@ -2,12 +2,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button, Form, InputGroup } from "react-bootstrap";
 import { Loader } from "../../components/Loader/Loader";
-import "./Cardapio.css"
+import "./CardapioRestaurante.css"
 import { CardCardapioRestaurante } from "../../components/CardCardapioRestaurante/CardCardapioRestaurante";
 import { Link } from "react-router-dom";
 
 
-export function Cardapio() {
+export function CardapioRestaurante() {
   const [comidas, setComidas] = useState(null);
   const [pesquisa, setPesquisa] = useState("");
   const [comidasFiltradas, setComidasFiltradas] = useState(comidas);
