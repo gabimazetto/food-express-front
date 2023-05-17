@@ -108,6 +108,24 @@ export function CadastroCliente() {
                   />
 
                   <CustomInput
+                    label="Confirmação de senha"
+                    className="input-web"
+                    type={senha2}
+                    placeholder="Confirme sua senha"
+                    icon={icone2}
+                    register={register("confirmarSenha", {
+                      required: "As senhas devem ser iguais",
+                      validate: (value) =>
+                        value === getValues("senha") ||
+                        "As senhas devem ser iguais",
+                    })}
+                    error={errors.confirmarSenha}
+                    toggleType={mudarTipo2}
+                    iconType={icone2}
+                  />
+
+
+                  <CustomInput
                     label="Telefone"
                     small="Formato do telefone: (99)99999-9999 ou 1212345-1234"
                     type="tel"
