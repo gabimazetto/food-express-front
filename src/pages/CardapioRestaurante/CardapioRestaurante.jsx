@@ -136,9 +136,6 @@ export function CardapioRestaurante() {
                 aria-describedby="basic-addon2"
               />
             </InputGroup>
-            <Button variant="primary" as={Link} to="/restaurante/home" className="button-add-itens">
-              Voltar para a Home
-            </Button>
             <Button as={Link} to="/restaurante/cardapio/cadastro" className="button-add-itens" variant="primary">Adicionar novo item</Button>
           </Form>
         </div>
