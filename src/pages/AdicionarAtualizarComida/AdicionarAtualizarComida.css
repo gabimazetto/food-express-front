@@ -28,7 +28,7 @@
 }
 
 .forms-select-comida {
-    width: 94%;
+    width: 95%;
 }
 
 .custon-input-group {
@@ -175,6 +175,13 @@
         border-radius: 15px;
         margin: 10px 0;
     }
+
+    .form-peso{
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
+    }
+
 
     .forms-comidas .vertical-row {
         width: 100%;

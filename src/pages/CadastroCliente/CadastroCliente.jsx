@@ -11,8 +11,7 @@ import "./CadastroCliente.css";
 import { ButtonNavigation } from "../../components/ButtonNavigation/ButtonNavigation";
 import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/ContainerCenterMobile";
 import logo from "../../assets/images/logoTemaClaro.png";
-import Divider from "../../components/Divider/Divider";
-import { Smartwatch } from "react-bootstrap-icons";
+
 
 export function CadastroCliente() {
   const [senha, setSenha] = useState("password");

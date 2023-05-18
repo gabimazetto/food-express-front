@@ -4,6 +4,7 @@ import { Button, Table } from "react-bootstrap";
 import { Loader } from "../../components/Loader/Loader";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import "./style.css";
 
 
 export function Restaurantes() {
@@ -77,7 +78,7 @@ export function Restaurantes() {
                                 <th>Nome Fantasia</th>
                                 <th>Cidade</th>
                                 <th>Rua</th>
-                                <th>Cardápio</th>
+                                <th>Mais Detalhes</th>
                                 <th>Adicionar aos Favotitos</th>
                             </tr>
                         </thead>
@@ -111,11 +112,10 @@ export function Restaurantes() {
                                             <Button type="submit" onClick={() => FavRestaurante(restaurante.id)}>
                                                 <i className="bi bi-heart"></i>
                                             </Button>
-
-                                        </td>
-                                    </tr>
-                                )
-                            })}
+                                            </td>
+                                        </tr>
+                                    )
+                                })}
                         </tbody>
                     </Table>
             }
