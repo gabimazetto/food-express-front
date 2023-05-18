@@ -76,9 +76,8 @@ export function CadastroCliente() {
       <ContainerCenterMobile className="background-gradient">
         <div className="background-gradient-escuro">
           <main className="border container rounded-5 ">
-            <div className="grid" >
-              <div className="colTwo" >
-
+            <div className="grid">
+              <div className="colTwo">
                 <div class="text-center">
                   <img
                     src={cadastroClienteImg}
@@ -86,7 +85,6 @@ export function CadastroCliente() {
                     alt="Imagem de uma menina com uma fatia de pizza"
                   />
                 </div>
-
               </div>
               <div className="colOne">
                 <div className="px-3 py-4">
@@ -100,7 +98,9 @@ export function CadastroCliente() {
                         className="input-web input-cadastro"
                         type="text"
                         placeholder="Informe seu nome"
-                        register={register("nome", { required: "O nome é obrigatório" })}
+                        register={register("nome", {
+                          required: "O nome é obrigatório",
+                        })}
                         error={errors.nome}
                       />
                     </div>
@@ -112,7 +112,9 @@ export function CadastroCliente() {
                         type="email"
                         placeholder="Informe seu e-mail"
                         icon="bi bi-envelope-at-fill white"
-                        register={register("email", { required: "O email é obrigatório" })}
+                        register={register("email", {
+                          required: "O email é obrigatório",
+                        })}
                         error={errors.email}
                       />
                     </div>
@@ -173,7 +175,7 @@ export function CadastroCliente() {
 
                     <div className="mb-3">
                       <label className="form-label">Data de nascimento</label>
-                      <CustomInput
+                      <CustomInputIconNone
                         type="date"
                         icon="bi bi-calendar-date white"
                         min={dayjs("1920-01-01").format("YYYY-MM-DD")}
@@ -191,7 +193,9 @@ export function CadastroCliente() {
                         pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}|[0-9]{9}-[0-9]{2}"
                         placeholder="Informe seu CPF: 123.456.789-12"
                         icon=""
-                        register={register("cpf", { required: "O CPF é obrigatório." })}
+                        register={register("cpf", {
+                          required: "O CPF é obrigatório.",
+                        })}
                         error={errors.cpf}
                       />
                     </div>
@@ -202,11 +206,12 @@ export function CadastroCliente() {
                         className="input-web input-cadastro"
                         type="text"
                         placeholder="Informe sua cidade"
-                        register={register("endereco.cidade", { required: "A Cidade é obrigatória" })}
+                        register={register("endereco.cidade", {
+                          required: "A Cidade é obrigatória",
+                        })}
                         error={errors.endereco?.cidade}
                       />
                     </div>
-
 
                     <Form.Group className="mb-3">
                       <Form.Label className="d-flex">UF</Form.Label>
@@ -263,7 +268,9 @@ export function CadastroCliente() {
                         type="text"
                         placeholder="Informe seu CEP: 99999-999"
                         pattern="[0-9]{5}-[0-9]{3}|[0-9]{8}"
-                        register={register("endereco.cep", { required: "O CEP é obrigatório" })}
+                        register={register("endereco.cep", {
+                          required: "O CEP é obrigatório",
+                        })}
                         error={errors.endereco?.cep}
                       />
                     </div>
@@ -274,7 +281,9 @@ export function CadastroCliente() {
                         className="input-web input-cadastro"
                         type="text"
                         placeholder="Informe seu logradouro"
-                        register={register("endereco.rua", { required: "A rua é obrigatória." })}
+                        register={register("endereco.rua", {
+                          required: "A rua é obrigatória.",
+                        })}
                         error={errors.endereco?.rua}
                       />
                     </div>
@@ -285,7 +294,9 @@ export function CadastroCliente() {
                         className="input-web input-cadastro"
                         type="text"
                         placeholder="Informe seu número residencial"
-                        register={register("endereco.numero", { required: "O número é obrigatório." })}
+                        register={register("endereco.numero", {
+                          required: "O número é obrigatório.",
+                        })}
                         error={errors.endereco?.numero}
                       />
                     </div>
@@ -301,26 +312,20 @@ export function CadastroCliente() {
                       />
                     </div>
 
-
                     <div className="d-grid gap-2 mt-4">
                       <ButtonNavigation
                         text="Cadastrar"
                         type="submit"
                         className="white"
                       />
-
                     </div>
                   </Form>
-
                 </div>
               </div>
-
             </div>
-
           </main>
         </div>
       </ContainerCenterMobile>
     </>
-
   );
 }
