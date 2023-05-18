@@ -38,12 +38,13 @@
     font-weight: 500 !important;
 }
 
-@media (max-width: 770px) {
-    .colOne img {
-        display: none;
+@media (max-width: 480px) {
+    .colTwo img {
+      max-width: 100%; /* Defina o valor desejado para o tamanho da imagem */
+      height: auto; /* Mantém a proporção da imagem */
     }
-}
-
+  }
+  
 @media (min-width: 780px) {
     .background-gradient {
         background: linear-gradient(270deg, rgba(255,255,255,1) 27%, rgba(240,96,0,1) 95%);

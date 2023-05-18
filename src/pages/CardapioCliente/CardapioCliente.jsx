@@ -129,8 +129,8 @@ export function CardapioCliente() {
                     <Loader />
                 ) : (
                     <CardCardapioCliente
-                    // comidas={comidasFiltradas}
-                    // updateData={handleUpdateData}
+                    comidas={comidasFiltradas}
+                    updateData={handleUpdateData}
                     />
                 )}
             </div>
