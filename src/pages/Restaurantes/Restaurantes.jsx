@@ -4,12 +4,14 @@ import { Button, Table } from "react-bootstrap";
 import { Loader } from "../../components/Loader/Loader";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import "./style.css";
 
 
 export function Restaurantes() {
 
     const [restaurantes, setRestaurantes] = useState(null);
     const navigate = useNavigate();
+    const [busca, setBusca] = useState("");
 
     const clienteId = 1;
 
@@ -52,7 +54,21 @@ export function Restaurantes() {
 
     return (
         <div className="container">
-            <h1> Restaurantes </h1>
+            {/* Busca inicio */}
+            <div className="navbar navbar-light bg-light">
+                <h1> Restaurantes </h1>
+                <div className="search-wrapper">
+                    <i className="bi bi-search"></i>
+                    <input
+                        type="text"
+                        value={busca}
+                        onChange={(e) => setBusca(e.target.value)}
+                        placeholder="Nome/Cidade/Rua"
+                    />
+                </div>
+            </div>
+            {/* Busca Fim */}
+
             {
                 restaurantes === null ?
                     <Loader />
@@ -63,32 +79,45 @@ export function Restaurantes() {
                                 <th>Nome Fantasia</th>
                                 <th>Cidade</th>
                                 <th>Rua</th>
-                                <th>Cardápio</th>
+                                <th>Mais Detalhes</th>
                                 <th>Adicionar aos Favotitos</th>
 
                             </tr>
                         </thead>
                         <tbody>
-                            {restaurantes.map(restaurante => {
-                                return (
-                                    <tr key={restaurante.id}>
-                                        <td>{restaurante.nomeFantasia}</td>
-                                        <td>{restaurante.endereco.cidade}</td>
-                                        <td>{restaurante.endereco.rua}</td>
-                                        <td>
-                                            <Button as={Link} to={`/cliente/restaurante/cardapio/${restaurante.id}`}>
-                                                <i className="bi bi-book"></i>
-                                            </Button>
-                                        </td>
-                                        <td>
-                                            <Button type="submit" onClick={() => FavRestaurante(restaurante.id)}>
-                                                <i className="bi bi-heart"></i>
-                                            </Button>
+                            {restaurantes
+                                .filter((restaurante) => { //campo de busca2 inicio
+                                    const nomeFantasia = restaurante.nomeFantasia.toLowerCase();
+                                    const cidade = restaurante.endereco.cidade.toLowerCase();
+                                    const rua = restaurante.endereco.rua.toLowerCase();
+                                    const termoBusca = busca.toLowerCase();
 
-                                        </td>
-                                    </tr>
-                                )
-                            })}
+                                    return (
+                                        nomeFantasia.includes(termoBusca) ||
+                                        cidade.includes(termoBusca) ||
+                                        rua.includes(termoBusca)
+                                    );
+                                }) // campo de busca2 fim
+                                .map((restaurante) => {
+                                    return (
+                                        <tr key={restaurante.id}>
+                                            <td>{restaurante.nomeFantasia}</td>
+                                            <td>{restaurante.endereco.cidade}</td>
+                                            <td>{restaurante.endereco.rua}</td>
+                                            <td>
+                                                <Button as={Link} to={`/restaurante/${restaurante.id}`}>
+                                                    <i className="bi bi-list-ul"></i>
+                                                </Button>
+                                            </td>
+                                            <td>
+                                                <Button type="submit" onClick={() => FavRestaurante(restaurante.id)}>
+                                                    <i className="bi bi-heart"></i>
+                                                </Button>
+
+                                            </td>
+                                        </tr>
+                                    )
+                                })}
                         </tbody>
                     </Table>
             }
