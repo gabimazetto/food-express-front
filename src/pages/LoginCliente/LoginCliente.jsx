@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import {
   Form,
 } from "react-bootstrap";
@@ -9,8 +9,33 @@ import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/Co
 import loginImg from "../../assets/images/meninaNoteFood.png";
 import logo from "../../assets/images/logoTemaClaro.png";
 import "./LoginCliente.css";
+import { useForm } from "react-hook-form";
+import { ContextClient } from "../../contexts/ClientContext";
+import { useNavigate } from "react-router-dom";
 
 export function LoginCliente() {
+  const { handleLogin } = useContext(ContextClient);
+  const { register, handleSubmit, formState:{errors} } = useForm();
+  const navigate = useNavigate();
+  const [senha, setSenha] = useState("password");
+  const [icone, setIcone] = useState("bi bi-eye-slash text-light");
+  
+  function mudarTipo() {
+    if (senha === "password") {
+      setIcone("bi bi-eye-fill text-light");
+      setSenha("text");
+    } else {
+      setIcone("bi bi-eye-slash text-light");
+      setSenha("password");
+    }
+  }
+
+  function onSubmit(data) {
+    handleLogin(data).then(() => {
+      navigate(`/cliente/home`);
+    });
+  }
+
   return (
     <>
       <ContainerCenterMobile className="background-gradient">
@@ -18,35 +43,46 @@ export function LoginCliente() {
           <div className="grid" >
             <div className="colTwo" >
 
-              <div className="text-center">
+              <div class="text-center">
                 <img
                   src={loginImg}
-                  className="mt-4 "
+                  class="mt-4 "
                   alt="Imagem de uma mulher no computador vendo imagens de comidas"
                 />
               </div>
             </div>
             <div className="colOne">
               <div className="px-3 py-4">
-                <img src={logo} className="img-fluid" alt="Logo do FoodExpress" />
+                <img src={logo} class="img-fluid" alt="Logo do FoodExpress" />
 
-                <Form>
+                <Form onSubmit={handleSubmit(onSubmit)}>
                   <CustomInput
                     className="input-web"
                     type="email"
+                    register={register("email", {
+                      required: "Email é obrigatório"
+                    })}
                     placeholder="Digite seu e-mail"
                     icon="bi bi-envelope-at-fill white "
                   />
-                  <CustomInput
-                    type="password"
+
+                  <CustomInput                    
+                    className="input-web"
+                    type={senha}
                     placeholder="Digite sua senha"
-                    icon="bi bi-eye-fill white "
+                    icon={icone}
+                    register={register("senha", {
+                      required: "A senha é obrigatória",
+                    })}
+                    error={errors.senha}
+                    toggleType={mudarTipo}
+                    iconType={icone}
                   />
 
-                  <div className="d-grid gap-2 mt-4">
+                  <div class="d-grid gap-2 mt-4">
                     <ButtonNavigation
                       text="Login"
-                      route="/cliente/home"
+                      type="submit"
                       className="white"
                     />
                   </div>

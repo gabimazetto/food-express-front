@@ -109,9 +109,6 @@ export function Favoritos() {
             )
         }
 
-                <Button variant="primary" as={Link} to="/">
-                    Voltar
-                </Button>
         </div>
         </>
     );

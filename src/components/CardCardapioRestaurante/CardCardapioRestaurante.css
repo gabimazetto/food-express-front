@@ -11,6 +11,7 @@
         display: flex;
         flex-flow: row wrap;
         justify-content: center;
+        width: 100%;
     }
 
     .article-home-restaurante {
@@ -104,4 +105,4 @@
         background-color: transparent;
         margin: 0px !important;
         border: none;
-      }
+    }

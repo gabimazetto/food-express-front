@@ -1,34 +1,19 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Form, InputGroup } from "react-bootstrap";
+import { Button, Form, InputGroup } from "react-bootstrap";
 import { Loader } from "../../components/Loader/Loader";
 import "./CardapioCliente.css"
 import { CardCardapioCliente } from "../../components/CardCardapioCliente/CardCardapioCliente";
+import { Link, useParams } from "react-router-dom";
 
 
-export function Cardapio() {
+export function CardapioCliente() {
     const [comidas, setComidas] = useState(null);
     const [pesquisa, setPesquisa] = useState("");
     const [comidasFiltradas, setComidasFiltradas] = useState(comidas);
     const [avaliacao, setAvaliacao] = useState(null);
     const [comentario, setComentario] = useState("");
-
-    // INICIAR TABELA DE CARDÁPIO
-    useEffect(() => {
-        initializeTable();
-    }, []);
-
-    // FUNÇÃO INICIAR TABELA DE CARDÁPIO
-    function initializeTable() {
-        axios.get("http://localhost:3001/comidas")
-            .then((response) => {
-                setComidas(response.data);
-                setComidasFiltradas(response.data);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }
+    const { id } = useParams();
 
     function handleUpdateData() {
         initializeTable();
@@ -42,7 +27,7 @@ export function Cardapio() {
     // FUNÇÃO INICIAR TABELA DE CARDÁPIO
     function initializeTable() {
         axios
-            .get("http://localhost:3001/comidas")
+            .get(`http://localhost:3001/comidas/restaurante/${id}`)
             .then((response) => {
                 setComidas(response.data);
                 setComidasFiltradas(response.data);
@@ -135,14 +120,17 @@ export function Cardapio() {
                                 aria-describedby="basic-addon2"
                             />
                         </InputGroup>
+                        <Button variant="primary" as={Link} to="/cliente/listar/restaurantes" className="button-voltar-restaurantes">
+                            Voltar
+                        </Button>
                     </Form>
                 </div>
                 {comidasFiltradas === null ? (
                     <Loader />
                 ) : (
                     <CardCardapioCliente
-                        // comidas={comidasFiltradas}
-                        // updateData={handleUpdateData}
+                    // comidas={comidasFiltradas}
+                    // updateData={handleUpdateData}
                     />
                 )}
             </div>

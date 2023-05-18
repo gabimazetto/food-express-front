@@ -73,11 +73,12 @@ export function CardCardapioCliente({ className }) {
                                     </div>
                                     <div className="infos-card">
                                         <p className="descricao zerando-margin">{comida.descricao}</p>
-                                        <p className="zerando-margin"><b>Peso:</b> {comida.peso}</p>
+                                        <p className="zerando-margin"><b>Peso (gramas):</b> {comida.peso}</p>
                                         <p className="zerando-margin"><b>Categoria: </b>{comida.categoria}</p>
                                     </div>
                                     <div className="preco-card-restaurante">
-                                        <h1 className="d-flex align-items-center zerando-margin">R$ {comida.preco}</h1>
+                                    <h1 className="d-flex align-items-center zerando-margin">R$ {comida.preco.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</h1>
+
                                         <button className="cards-botoes" onClick={() => FavComida(comida.id)} style={{ cursor: 'pointer' }}>
                                         <i className="bi bi-heart"></i>
                                         </button>

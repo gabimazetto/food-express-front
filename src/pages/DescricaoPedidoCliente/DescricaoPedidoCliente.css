@@ -1,0 +1,160 @@
+.container-desc-cliente {
+    width: 100vw;
+    height: 100vh;
+
+}
+
+.section-desc-cliente {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.article-desc-cliente {
+    width: 650px;
+    min-width: 320px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin-top: 30px;
+    padding: 2px 30px;
+}
+
+.article-desc-cliente div {
+    width: 100%;
+}
+
+.button-desc-cliente {
+    width: 100px !important;
+    height: 40px !important;
+    color: #F06000 !important;
+    background-color: white !important;
+    border: none !important;
+    margin: 10px 0 0 0px;
+}
+
+.button-desc-cardapio{
+    width: 150px !important;
+    height: 40px !important;
+    color: #F06000 !important;
+    background-color: white !important;
+    border: none !important;
+    margin-top: 0 !important;
+
+}
+
+.desc-nome-restaurante {
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    align-self: center;
+    align-content: center;
+}
+
+.desc-nome-restaurante h1 {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    line-height: 40px;
+    margin: 0px !important;
+}
+
+.article-desc-cliente div span {
+    display: flex;
+    align-items: center;
+    margin: 0 0px 15px 15px !important;
+    color: #F06000;
+    font-size: 15px;
+}
+
+.desc-comida-pedido-item{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 20px;
+    font-size: 20px;
+}
+
+.desc-comida-pedido-item p{
+    display: flex;
+    padding-left: 15px !important;
+}
+
+.desc-item-pedido p{
+    margin: 10px 0px 0 0 !important;
+}
+
+.desc-comida-pedido{
+    display: flex;
+    justify-content: space-between;
+    height: 26px;
+    font-size: 16px;
+}
+
+.desc-comida-pedido-total{
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    font-size: 20px;
+}
+
+.desc-end-pedido p{
+    font-size: 19px;
+    padding-left: 15px;
+}
+
+
+.desc-foto-pedido {
+    width: 85px;
+    height: 80px;
+
+}
+
+.desc-infos-pedido{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    font-size: 18px;
+}
+
+.desc-infos-pedido h4{
+    display: flex;
+    align-items: center;
+    margin-right: 10px !important;
+}
+
+.desc-infos-pedido h4, .desc-infos-pedido p{
+    margin: 0 0 0 0;
+}
+
+.vertical-row-desc {
+    width: 100% !important;
+    border-top: 0.5px solid #f2f2f2;
+}
+
+@media (max-width: 480px){
+    .article-desc-cliente{
+        width: 90%;
+    }
+
+    .desc-nome-restaurante h1{
+        text-align: start;
+    }
+
+    .desc-nome-restaurante{
+        font-size: 26px;
+    }
+
+    .desc-comida-pedido-item p, .desc-comida-pedido-total, .desc-end-pedido h3, .desc-end-pedido p, .desc-infos-pedido {
+        font-size: 17px;
+    }
+
+    .desc-comida-pedido{
+        font-size: 14px;
+    }
+}

@@ -3,6 +3,8 @@ import { Form, InputGroup } from "react-bootstrap";
 import "./CustomInput.css";
 
 export function CustomInput({
+  label,
+  small,
   type,
   placeholder,
   icon,
@@ -18,6 +20,10 @@ export function CustomInput({
   return (
     <Form.Group className="mb-3">
       <InputGroup className="custon-input-group">
+        <Form.Label>{label}</Form.Label>
+        <small className="form-text text-muted">
+          {small}
+        </small>
         <Form.Control
           className={className || (error && "is-invalid")}
           type={type}
@@ -26,7 +32,7 @@ export function CustomInput({
           onChange={onChange}
           {...register}
         />
-        <InputGroup.Text onClick={toggleType}>
+        <InputGroup.Text onClick={toggleType} className="input-custom-label">
           <i className={icon} style={{ backgroundColor: "transparent" }}></i>
         </InputGroup.Text>
         <Form.Text className="invalid-feedback">{error?.message}</Form.Text>
