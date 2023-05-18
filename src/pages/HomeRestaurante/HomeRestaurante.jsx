@@ -3,12 +3,14 @@ import imagemLogo from "../../assets/icons/prato.svg"
 import "./HomeRestaurante.css"
 import { CardCardapioRestaurante } from "../../components/CardCardapioRestaurante/CardCardapioRestaurante"
 import { Link } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import axios from "axios"
 import { toast } from "react-hot-toast"
+import { ContextRestaurant } from "../../contexts/RestaurantContext"
 
 export function HomeRestaurante() {
     const [comidas, setComidas] = useState([]);
+    const { idRes } = useContext(ContextRestaurant);
 
 
     // INICIAR TABELA DE CARDÁPIO
@@ -18,9 +20,11 @@ export function HomeRestaurante() {
 
     // FUNÇÃO INICIAR TABELA DE CARDÁPIO
     function initializeTable() {
-        axios.get(`http://localhost:3001/comidas`)
+        axios.get(`http://localhost:3001/restaurantes/${idRes}/cardapio/`)
             .then((response) => {
                 setComidas(response.data)
+                console.log(`Login ${idRes}`);
+                console.log(response.data)
             })
             .catch((error) => {
                 toast.error("Erro ao carregar dados.");
@@ -38,8 +42,8 @@ export function HomeRestaurante() {
                     <div className="titulo-home-restaurante">
                         <h1>Cardápio</h1>
                         <div className="button-header invisivel-mobile ">
-                            <Button as={Link} to="/restaurante/id/cardapio" className="button-meus-itens" variant="primary">Meus itens</Button>
-                            <Button as={Link} to="/restaurante/cardapio/cadastro" className="button-add-itens" variant="primary">Adicionar novo item</Button>
+                            <Button as={Link} to="/restaurante/cardapio/" className="button-meus-itens" variant="primary">Meus itens</Button>
+                            <Button as={Link} to="/restaurante/cardapio/cadastro" className="button-add-itens" variant="primary">Adicionar novo</Button>
                         </div>
                     </div>
                     <div className="imagem-home-restaurante">
