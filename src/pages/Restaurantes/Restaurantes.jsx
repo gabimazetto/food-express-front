@@ -10,6 +10,7 @@ export function Restaurantes() {
 
     const [restaurantes, setRestaurantes] = useState(null);
     const navigate = useNavigate();
+    const [busca, setBusca] = useState("");
 
     const clienteId = 1;
 
@@ -52,7 +53,20 @@ export function Restaurantes() {
 
     return (
         <div className="container">
-            <h1> Restaurantes </h1>
+            {/* Busca inicio */}
+            <div className="navbar navbar-light bg-light">
+                <h1> Restaurantes </h1>
+                <div className="search-wrapper">
+                    <i className="bi bi-search"></i>
+                    <input
+                        type="text"
+                        value={busca}
+                        onChange={(e) => setBusca(e.target.value)}
+                        placeholder="Nome/Cidade/Rua"
+                    />
+                </div>
+            </div>
+            {/* Busca Fim */}
             {
                 restaurantes === null ?
                     <Loader />
@@ -65,11 +79,24 @@ export function Restaurantes() {
                                 <th>Rua</th>
                                 <th>Cardápio</th>
                                 <th>Adicionar aos Favotitos</th>
-
                             </tr>
                         </thead>
                         <tbody>
-                            {restaurantes.map(restaurante => {
+                            {
+                            restaurantes
+                            .filter((restaurante) => { //campo de busca2 inicio
+                                const nomeFantasia = restaurante.nomeFantasia.toLowerCase();
+                                const cidade = restaurante.endereco.cidade.toLowerCase();
+                                const rua = restaurante.endereco.rua.toLowerCase();
+                                const termoBusca = busca.toLowerCase();
+
+                                return (
+                                    nomeFantasia.includes(termoBusca) ||
+                                    cidade.includes(termoBusca) ||
+                                    rua.includes(termoBusca)
+                                );
+                            }) // campo de busca2 fim
+                            .map(restaurante => {
                                 return (
                                     <tr key={restaurante.id}>
                                         <td>{restaurante.nomeFantasia}</td>
