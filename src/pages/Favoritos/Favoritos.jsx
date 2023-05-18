@@ -61,7 +61,7 @@ export function Favoritos() {
                                 <tr key={favorito.id}>
                                     <td>{favorito.nomeFantasia}</td>
                                     <td>
-                                        <Button as={Link} to={`/restaurantes/${favorito.id}`}>
+                                        <Button as={Link} to={`http://localhost:3000/cliente/restaurante/cardapio/${favorito.id}`}>
                                         <i className="bi bi-list"></i>
                                         </Button>
                                     </td>
@@ -97,7 +97,7 @@ export function Favoritos() {
                                 <td>{comidafavorita.descricao}</td>
 
                                 <td>
-                                    <Button as={Link} to={`/restaurante/cardapio/cliente`}>
+                                    <Button as={Link} to={`http://localhost:3000/cliente/restaurante/cardapio/${comidafavorita.id}`}>
                                     <i className="bi bi-list"></i>
                                     </Button>
                                 </td>
@@ -108,7 +108,9 @@ export function Favoritos() {
             </Table>
             )
         }
-
+            <Button as={Link} to="/cliente/home">
+                Voltar
+            </Button>
         </div>
         </>
     );
