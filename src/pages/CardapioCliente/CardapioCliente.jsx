@@ -15,14 +15,16 @@ export function CardapioCliente() {
     const [comentario, setComentario] = useState("");
     const { id } = useParams();
 
-    function handleUpdateData() {
-        initializeTable();
-    }
 
     // INICIAR TABELA DE CARDÁPIO
     useEffect(() => {
         initializeTable();
     }, []);
+
+    
+    function handleUpdateData() {
+        initializeTable();
+    }
 
     // FUNÇÃO INICIAR TABELA DE CARDÁPIO
     function initializeTable() {
@@ -129,8 +131,8 @@ export function CardapioCliente() {
                     <Loader />
                 ) : (
                     <CardCardapioCliente
-                    comidas={comidasFiltradas}
-                    updateData={handleUpdateData}
+                        comidas={comidasFiltradas}
+                        updateData={handleUpdateData}
                     />
                 )}
             </div>

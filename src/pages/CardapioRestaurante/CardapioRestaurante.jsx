@@ -19,7 +19,7 @@ export function CardapioRestaurante() {
   // INICIAR TABELA DE CARDÁPIO
   useEffect(() => {
     initializeTable();
-  }, []);
+  }, [idRes]);
 
   // FUNÇÃO INICIAR TABELA DE CARDÁPIO
   function initializeTable() {
@@ -36,13 +36,6 @@ export function CardapioRestaurante() {
   function handleUpdateData() {
     initializeTable();
   }
-
-  // INICIAR TABELA DE CARDÁPIO
-  useEffect(() => {
-    initializeTable();
-  }, []);
-
-
 
   // FUNÇÃO PESQUISAR POR NOME, CATEGORIA, DESCRIÇÃO E CODIGO
   const handlePesquisa = (event) => {
