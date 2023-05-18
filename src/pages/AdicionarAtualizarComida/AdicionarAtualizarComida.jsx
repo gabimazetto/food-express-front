@@ -185,7 +185,7 @@ export function AdicionarAtualizarComida() {
                         </Form.Group>
 
                         <Form.Group className="mb-2">
-                            <InputGroup className="custon-input-group formulario">
+                            <InputGroup className="custon-input-group form-peso formulario">
                                 <Form.Label>Peso:</Form.Label>
                                 <Form.Control className={`formulario borda-direita forms-comidas-component secondary ${errors.preco && "is-invalid"}`} type="text" placeholder="Digite o peso da comida" {...register("peso", { required: "O peso da comida é obrigatório", maxLength: { value: 10, message: "Limite de 10 numeros." } })} />
                                 {errors.peso && <Form.Text className="invalid-feedback">{errors.peso.message}</Form.Text>}

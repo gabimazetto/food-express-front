@@ -6,7 +6,6 @@ import "./DescricaoPedidoCliente.css";
 import { Button } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import { Loader } from "../../components/Loader/Loader";
-import { ContextRestaurant } from "../../contexts/RestaurantContext";
 import { ContextClient } from "../../contexts/ClientContext";
 
 
