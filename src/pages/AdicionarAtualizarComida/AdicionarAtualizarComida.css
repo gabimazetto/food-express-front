@@ -202,14 +202,15 @@
         align-items: center;
         justify-content: space-around;
         width: 70%;
+        height: 100% !important;
     }
 
     .forms-header-desktop {
-        height: 100% !important;
+        height: 100vh;
         display: flex;
         flex-flow: nowrap column;
-        justify-content: space-around;
-        padding-bottom: 60px;
+        justify-content: space-between;
+        padding-bottom: 75px;
     }
 
     .forms-container-group {

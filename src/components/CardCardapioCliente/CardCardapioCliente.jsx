@@ -7,26 +7,19 @@ import { Loader } from "../Loader/Loader";
 import { Link } from "react-router-dom"
 
 
-export function CardCardapioCliente({ className }) {
+export function CardCardapioCliente({ className, comidas, updateData }) {
     const [cardapio, setCardapio] = useState([])
     const clienteId = 1;
 
 
     useEffect(() => {
         initializeTable();
-    }, []);
+    }, [updateData]);
 
 
     function initializeTable() {
-        axios.get(`http://localhost:3001/comidas`)
-            .then((response) => {
-                setCardapio(response.data)
-            })
-            .catch((error) => {
-                toast.error("Erro ao carregar dados.");
-            });
+        setCardapio(comidas)
     }
-
 
     function FavComida(comidaId) {
         const data = {
@@ -47,36 +40,34 @@ export function CardCardapioCliente({ className }) {
     }
 
     return (
-        <main className={`main-home-restaurante invisivel-desktop  d-flex flex-column align-items-center ${className}`}>
-            <div className="container-cards">
+        <main className={`main-card-cliente invisivel-desktop  d-flex flex-column align-items-center ${className}`}>
+            <div className="container-cards-cliente">
                 {cardapio === null ? (
                     <Loader />
                 ) : (
 
                     cardapio.map((comida) => {
                         return (
-                            <article className={`article-home-restaurante ${className}`} key={comida.id}>
-                                <div className="header-cards-restaurante">
+                            <article className={`article-home-cliente ${className}`} key={comida.id}>
+                                <div className="header-cards-cliente">
                                     <img src={comida.imagem} alt="" />
                                 </div>
-                                <div className="article-body">
-                                    <div className="">
-                                        <span className="d-flex zerando-margin"><b>Cod.:  </b>{comida.codigo}</span>
-                                    </div>
-                                    <div className="titulo-card-restaurante d-flex justify-content-around">
+                                <div className="article-body-cliente">
+
+                                    <div className="titulo-card-cliente d-flex justify-content-around">
                                         <h1 className="d-flex zerando-margin">{comida.nome}</h1>
                                         <Link to={`/restaurante/cardapio/item/${comida.id}`}>
-                                            {/* <button className="cards-botoes" style={{ cursor: 'pointer' }}>
-                                                <i className="bi bi-pencil-fill d-flex align-items-center"></i>
-                                            </button> */}
+                                            <button className="cards-botoes" >
+                                                <i className="bi bi-bag-plus-fill d-flex align-items-center"></i>
+                                            </button>
                                         </Link>
                                     </div>
-                                    <div className="infos-card">
-                                        <p className="descricao zerando-margin">{comida.descricao}</p>
+                                    <div className="infos-card-cliente">
+                                        <p className="descricao-cliente zerando-margin">{comida.descricao}</p>
                                         <p className="zerando-margin"><b>Peso (gramas):</b> {comida.peso}</p>
                                         <p className="zerando-margin"><b>Categoria: </b>{comida.categoria}</p>
                                     </div>
-                                    <div className="preco-card-restaurante">
+                                    <div className="preco-card-cliente">
                                     <h1 className="d-flex align-items-center zerando-margin">R$ {comida.preco.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</h1>
 
                                         <button className="cards-botoes" onClick={() => FavComida(comida.id)} style={{ cursor: 'pointer' }}>
