@@ -9,7 +9,7 @@
     margin-left: 80px;
 }
 
-.cardapio-titulo{
+.cardapio-titulo {
     color: #f06000;
     font-family: 'Signika Negative';
     font-style: normal;
@@ -21,6 +21,40 @@
     width: 100%;
 }
 
+.min-input {
+    min-width: 166px !important;
+}
+
+.button-add-cardapio{
+    color: white !important;
+}
+
 .rating-stars {
-    color: #ffd700; /* Cor das estrelas preenchidas */
-  }
+    color: #ffd700;
+    /* Cor das estrelas preenchidas */
+}
+
+.container-titulo-cardapio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media (max-width: 480px) {
+    .container-titulo-cardapio {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .container-titulo-cardapio form{
+        width: 100%;
+    }
+
+    .button-add-cardapio{
+        width: 100%;
+    }
+}
