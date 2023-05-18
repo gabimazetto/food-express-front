@@ -14,17 +14,6 @@
     max-width: -webkit-fill-available;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Define duas colunas com largura igual */
-    align-items: center; /* Centraliza verticalmente os elementos */
-  }
-
-  .colTwo {
-  display: flex;
-  justify-content: center; /* Centraliza horizontalmente os elementos */
-}
-
 .container{
     width: 85% !important;
     background-color: #fff;
