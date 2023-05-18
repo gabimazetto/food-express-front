@@ -1,7 +1,96 @@
 import React from 'react';
 import "./HomeCliente.css"
+import imgMoto from "../../assets/images/moto.png";
+import imgLivro from "../../assets/images/cardapio.png";
 
 export function HomeCliente() {
+
+  const categorias = [
+    {
+      id: 1,
+      titulo: 'Açaí',
+      imagem: require('../../assets/images/1.png')
+    },
+
+    {
+      id: 2,
+      titulo: 'Lanche',
+      imagem: require('../../assets/images/2.png')
+    },
+
+    {
+      id: 3,
+      titulo: 'Pizza',
+      imagem: require('../../assets/images/3.png')
+    },
+
+    {
+      id: 4,
+      titulo: 'Brasileira',
+      imagem: require('../../assets/images/4.png')
+    },
+
+    {
+      id: 5,
+      titulo: 'Italiana',
+      imagem: require('../../assets/images/5.png')
+    },
+
+    {
+      id: 6,
+      titulo: 'Sobremesa',
+      imagem: require('../../assets/images/6.png')
+    },
+
+    {
+      id: 7,
+      titulo: 'Japonesa',
+      imagem: require('../../assets/images/7.png')
+    },
+
+    {
+      id: 8,
+      titulo: 'Chinesa',
+      imagem: require('../../assets/images/8.png')
+    },
+
+    {
+      id: 9,
+      titulo: 'Vegetariana',
+      imagem: require('../../assets/images/9.png')
+    },
+
+    {
+      id: 10,
+      titulo: 'Padaria',
+      imagem: require('../../assets/images/10.png')
+    },
+
+    {
+      id: 11,
+      titulo: 'Marmita',
+      imagem: require('../../assets/images/11.png')
+    },
+
+    {
+      id: 12,
+      titulo: 'Carne',
+      imagem: require('../../assets/images/12.png')
+    },
+
+    {
+      id: 13,
+      titulo: 'Fit',
+      imagem: require('../../assets/images/13.png')
+    },
+
+    {
+      id: 14,
+      titulo: 'Árabe',
+      imagem: require('../../assets/images/14.png')
+    }
+  ]
+
   return (
     <div>
       <section className='sectionRestaurante'>
@@ -12,7 +101,6 @@ export function HomeCliente() {
               <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M29.8288 32.056L19.8391 22.0875C19.1033 22.694 18.2394 23.1682 17.2474 23.5101C16.2555 23.8519 15.189 24.0228 14.0478 24.0228C11.2449 24.0228 8.87155 23.05 6.92793 21.1044C4.98428 19.1587 4.01245 16.8114 4.01245 14.0625C4.01245 11.3136 4.98529 8.9663 6.93096 7.02065C8.87661 5.075 11.2302 4.10217 13.9916 4.10217C16.753 4.10217 19.1003 5.075 21.0334 7.02065C22.9666 8.9663 23.9332 11.3155 23.9332 14.0681C23.9332 15.1676 23.7688 16.2068 23.44 17.1856C23.1111 18.1644 22.6179 19.0843 21.9603 19.9451L31.9875 29.8973L29.8288 32.056ZM14.0178 21.0522C15.9593 21.0522 17.6021 20.3705 18.9462 19.0072C20.2904 17.6439 20.9625 15.9957 20.9625 14.0625C20.9625 12.1294 20.2893 10.4811 18.9431 9.11783C17.5969 7.75451 15.9551 7.07285 14.0178 7.07285C12.0596 7.07285 10.3977 7.75451 9.03186 9.11783C7.66606 10.4811 6.98316 12.1294 6.98316 14.0625C6.98316 15.9957 7.66503 17.6439 9.02875 19.0072C10.3925 20.3705 12.0555 21.0522 14.0178 21.0522Z" fill="#F06000" />
               </svg>
-
             </span>
           </div>
           <div className='searchBoxFilter'>
@@ -37,38 +125,103 @@ export function HomeCliente() {
               </defs>
             </svg>
           </div>
-          <div>
-            <p className='melhoresRestaurantesTxt'>Os melhores restaurantes na sua casa</p>
+          <div className='melhoresRestaurantesTxt'>
+            <p className='melhoresRestaurantesTxtP'>Os melhores restaurantes na sua casa</p>
           </div>
         </div>
       </section>
+      <section className='sectionRestauranteDesktop'>
+        <div className='divRestauranteDesktop'>
+          <div className='melhoresRestaurantesDesktop'>
+            <p className='melhoresRestaurantesTxtDesktop'>Os melhores restaurantes na sua casa</p>
+          </div>
+          <div className='melhoresRestaurantesLoremDesktop'>
+            <p className='melhoresRestaurantesLoremTxtDesktop'>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Rerum nobis ducimus cupiditate molestiae dolores, reiciendis expedita!</p>
+          </div>
+          <div className='searchBoxDesktop'>
+            <div className='searchBoxDesktopInput'>
+              <input className='searchBoxRestauranteInputDesktop' placeholder='pesquise o restaurante'></input>
+              <span>
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M29.8288 32.056L19.8391 22.0875C19.1033 22.694 18.2394 23.1682 17.2474 23.5101C16.2555 23.8519 15.189 24.0228 14.0478 24.0228C11.2449 24.0228 8.87155 23.05 6.92793 21.1044C4.98428 19.1587 4.01245 16.8114 4.01245 14.0625C4.01245 11.3136 4.98529 8.9663 6.93096 7.02065C8.87661 5.075 11.2302 4.10217 13.9916 4.10217C16.753 4.10217 19.1003 5.075 21.0334 7.02065C22.9666 8.9663 23.9332 11.3155 23.9332 14.0681C23.9332 15.1676 23.7688 16.2068 23.44 17.1856C23.1111 18.1644 22.6179 19.0843 21.9603 19.9451L31.9875 29.8973L29.8288 32.056ZM14.0178 21.0522C15.9593 21.0522 17.6021 20.3705 18.9462 19.0072C20.2904 17.6439 20.9625 15.9957 20.9625 14.0625C20.9625 12.1294 20.2893 10.4811 18.9431 9.11783C17.5969 7.75451 15.9551 7.07285 14.0178 7.07285C12.0596 7.07285 10.3977 7.75451 9.03186 9.11783C7.66606 10.4811 6.98316 12.1294 6.98316 14.0625C6.98316 15.9957 7.66503 17.6439 9.02875 19.0072C10.3925 20.3705 12.0555 21.0522 14.0178 21.0522Z" fill="#F06000" />
+                </svg>
+              </span>
+            </div>
+            <span className='searchBoxRestauranteButtonDesktop'>
+              <button className='searchBoxRestauranteButtonStyleDesktop'>
+                Busca Detalhada
+              </button>
+            </span>
+          </div>
+        </div>
+        <div className='divRestauranteDesktopLeft'>
+          <img className='divRestauranteDesktopImg' src={imgMoto} alt='Imagem Restaurante'></img>
+        </div>
+      </section>
       <section className='sectionComida'>
-        <div className='BoxComida'>
-        <div className='searchBoxComida'>
-          <input className='searchBoxComidaInput' placeholder='pesquise por comida'></input>
-          <span>
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M29.8288 32.056L19.8391 22.0875C19.1033 22.694 18.2394 23.1682 17.2474 23.5101C16.2555 23.8519 15.189 24.0228 14.0478 24.0228C11.2449 24.0228 8.87155 23.05 6.92793 21.1044C4.98428 19.1587 4.01245 16.8114 4.01245 14.0625C4.01245 11.3136 4.98529 8.9663 6.93096 7.02065C8.87661 5.075 11.2302 4.10217 13.9916 4.10217C16.753 4.10217 19.1003 5.075 21.0334 7.02065C22.9666 8.9663 23.9332 11.3155 23.9332 14.0681C23.9332 15.1676 23.7688 16.2068 23.44 17.1856C23.1111 18.1644 22.6179 19.0843 21.9603 19.9451L31.9875 29.8973L29.8288 32.056ZM14.0178 21.0522C15.9593 21.0522 17.6021 20.3705 18.9462 19.0072C20.2904 17.6439 20.9625 15.9957 20.9625 14.0625C20.9625 12.1294 20.2893 10.4811 18.9431 9.11783C17.5969 7.75451 15.9551 7.07285 14.0178 7.07285C12.0596 7.07285 10.3977 7.75451 9.03186 9.11783C7.66606 10.4811 6.98316 12.1294 6.98316 14.0625C6.98316 15.9957 7.66503 17.6439 9.02875 19.0072C10.3925 20.3705 12.0555 21.0522 14.0178 21.0522Z" fill="#F06000" />
-            </svg>
-          </span>
+        <div className='searchBox'>
+          <div className='searchBoxComida'>
+            <input className='searchBoxComidaInput' placeholder='pesquise por comida'></input>
+            <span>
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M29.8288 32.056L19.8391 22.0875C19.1033 22.694 18.2394 23.1682 17.2474 23.5101C16.2555 23.8519 15.189 24.0228 14.0478 24.0228C11.2449 24.0228 8.87155 23.05 6.92793 21.1044C4.98428 19.1587 4.01245 16.8114 4.01245 14.0625C4.01245 11.3136 4.98529 8.9663 6.93096 7.02065C8.87661 5.075 11.2302 4.10217 13.9916 4.10217C16.753 4.10217 19.1003 5.075 21.0334 7.02065C22.9666 8.9663 23.9332 11.3155 23.9332 14.0681C23.9332 15.1676 23.7688 16.2068 23.44 17.1856C23.1111 18.1644 22.6179 19.0843 21.9603 19.9451L31.9875 29.8973L29.8288 32.056ZM14.0178 21.0522C15.9593 21.0522 17.6021 20.3705 18.9462 19.0072C20.2904 17.6439 20.9625 15.9957 20.9625 14.0625C20.9625 12.1294 20.2893 10.4811 18.9431 9.11783C17.5969 7.75451 15.9551 7.07285 14.0178 7.07285C12.0596 7.07285 10.3977 7.75451 9.03186 9.11783C7.66606 10.4811 6.98316 12.1294 6.98316 14.0625C6.98316 15.9957 7.66503 17.6439 9.02875 19.0072C10.3925 20.3705 12.0555 21.0522 14.0178 21.0522Z" fill="#F06000" />
+              </svg>
+            </span>
+          </div>
         </div>
         <div className='escolhaComida'>
           <p className='escolhaComidaTxt'>Escolha por categoria</p>
-          <span>
-          <svg width="71" height="71" viewBox="0 0 71 71" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0_155_427)">
-              <path d="M4.4375 12.5493C8.36469 10.9074 13.9959 9.13682 19.4718 8.58657C25.3736 7.99194 30.3791 8.86613 33.2812 11.9236V55.1714C29.1322 52.8196 23.8738 52.4956 19.0236 52.9838C13.7873 53.5163 8.50669 55.0294 4.4375 56.5826V12.5493ZM37.7188 11.9236C40.6209 8.86613 45.6264 7.99194 51.5283 8.58657C57.0041 9.13682 62.6353 10.9074 66.5625 12.5493V56.5826C62.4889 55.0294 57.2127 53.5118 51.9764 52.9882C47.1218 52.4956 41.8678 52.8151 37.7188 55.1714V11.9236ZM35.5 7.91207C31.1291 4.15351 24.7923 3.59438 19.0236 4.17126C12.3052 4.85019 5.52469 7.15326 1.30019 9.07469C0.912567 9.25099 0.583865 9.5351 0.353318 9.89311C0.122771 10.2511 0.000117911 10.6679 0 11.0938L0 59.9063C0.000102781 60.2775 0.0933523 60.6428 0.271207 60.9686C0.449062 61.2945 0.705836 61.5705 1.01801 61.7714C1.33018 61.9723 1.68778 62.0917 2.05804 62.1186C2.4283 62.1455 2.79939 62.079 3.13731 61.9253C7.05119 60.1503 13.3569 58.0159 19.4673 57.3991C25.7198 56.7689 30.9604 57.7851 33.7694 61.2908C33.9773 61.5499 34.2407 61.759 34.5403 61.9027C34.8398 62.0464 35.1678 62.1211 35.5 62.1211C35.8322 62.1211 36.1602 62.0464 36.4597 61.9027C36.7593 61.759 37.0227 61.5499 37.2306 61.2908C40.0396 57.7851 45.2803 56.7689 51.5283 57.3991C57.6431 58.0159 63.9533 60.1503 67.8627 61.9253C68.2006 62.079 68.5717 62.1455 68.942 62.1186C69.3122 62.0917 69.6698 61.9723 69.982 61.7714C70.2942 61.5705 70.5509 61.2945 70.7288 60.9686C70.9066 60.6428 70.9999 60.2775 71 59.9063V11.0938C70.9999 10.6679 70.8772 10.2511 70.6467 9.89311C70.4161 9.5351 70.0874 9.25099 69.6998 9.07469C65.4753 7.15326 58.6948 4.85019 51.9764 4.17126C46.2077 3.58994 39.8709 4.15351 35.5 7.91207Z" fill="#F06000" />
-            </g>
-            <defs>
-              <clipPath id="clip0_155_427">
-                <rect width="71" height="71" fill="white" />
-              </clipPath>
-            </defs>
-          </svg>
-        </span>
+          <span className='escolhaComidaSvg'>
+            <svg width="71" height="71" viewBox="0 0 71 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_155_427)">
+                <path d="M4.4375 12.5493C8.36469 10.9074 13.9959 9.13682 19.4718 8.58657C25.3736 7.99194 30.3791 8.86613 33.2812 11.9236V55.1714C29.1322 52.8196 23.8738 52.4956 19.0236 52.9838C13.7873 53.5163 8.50669 55.0294 4.4375 56.5826V12.5493ZM37.7188 11.9236C40.6209 8.86613 45.6264 7.99194 51.5283 8.58657C57.0041 9.13682 62.6353 10.9074 66.5625 12.5493V56.5826C62.4889 55.0294 57.2127 53.5118 51.9764 52.9882C47.1218 52.4956 41.8678 52.8151 37.7188 55.1714V11.9236ZM35.5 7.91207C31.1291 4.15351 24.7923 3.59438 19.0236 4.17126C12.3052 4.85019 5.52469 7.15326 1.30019 9.07469C0.912567 9.25099 0.583865 9.5351 0.353318 9.89311C0.122771 10.2511 0.000117911 10.6679 0 11.0938L0 59.9063C0.000102781 60.2775 0.0933523 60.6428 0.271207 60.9686C0.449062 61.2945 0.705836 61.5705 1.01801 61.7714C1.33018 61.9723 1.68778 62.0917 2.05804 62.1186C2.4283 62.1455 2.79939 62.079 3.13731 61.9253C7.05119 60.1503 13.3569 58.0159 19.4673 57.3991C25.7198 56.7689 30.9604 57.7851 33.7694 61.2908C33.9773 61.5499 34.2407 61.759 34.5403 61.9027C34.8398 62.0464 35.1678 62.1211 35.5 62.1211C35.8322 62.1211 36.1602 62.0464 36.4597 61.9027C36.7593 61.759 37.0227 61.5499 37.2306 61.2908C40.0396 57.7851 45.2803 56.7689 51.5283 57.3991C57.6431 58.0159 63.9533 60.1503 67.8627 61.9253C68.2006 62.079 68.5717 62.1455 68.942 62.1186C69.3122 62.0917 69.6698 61.9723 69.982 61.7714C70.2942 61.5705 70.5509 61.2945 70.7288 60.9686C70.9066 60.6428 70.9999 60.2775 71 59.9063V11.0938C70.9999 10.6679 70.8772 10.2511 70.6467 9.89311C70.4161 9.5351 70.0874 9.25099 69.6998 9.07469C65.4753 7.15326 58.6948 4.85019 51.9764 4.17126C46.2077 3.58994 39.8709 4.15351 35.5 7.91207Z" fill="#F06000" />
+              </g>
+              <defs>
+                <clipPath id="clip0_155_427">
+                  <rect width="71" height="71" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </span>
         </div>
+        <div className="grid-container">
+          {categorias.map((categoria) => (
+            <div key={categoria.id} className="categoria-item">
+              <img src={categoria.imagem} alt={categoria.titulo} />
+              <h3>{categoria.titulo}</h3>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className='sectionComidaDesktop'>
+            <div className='divComidasDesktop'>
+              <div className='melhoresComidasDesktop'>
+                <p className='melhoresComidasTxtDesktop'>Escolha por Categoria</p>
+              </div>
+              <div className='melhoresComidasImgDesktop'>
+                <img className='melhoresComidasImgStyleDesktop' src={imgLivro} alt='Imagem Livro'></img>
+              </div>
+              <div className='searchBoxComidasDesktop'>
+                <input className='searchBoxComidasInputDesktop' placeholder='pesquise sua comida'></input>
+                <span className='searchBoxComidasSpanDesktop'>
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M29.8288 32.056L19.8391 22.0875C19.1033 22.694 18.2394 23.1682 17.2474 23.5101C16.2555 23.8519 15.189 24.0228 14.0478 24.0228C11.2449 24.0228 8.87155 23.05 6.92793 21.1044C4.98428 19.1587 4.01245 16.8114 4.01245 14.0625C4.01245 11.3136 4.98529 8.9663 6.93096 7.02065C8.87661 5.075 11.2302 4.10217 13.9916 4.10217C16.753 4.10217 19.1003 5.075 21.0334 7.02065C22.9666 8.9663 23.9332 11.3155 23.9332 14.0681C23.9332 15.1676 23.7688 16.2068 23.44 17.1856C23.1111 18.1644 22.6179 19.0843 21.9603 19.9451L31.9875 29.8973L29.8288 32.056ZM14.0178 21.0522C15.9593 21.0522 17.6021 20.3705 18.9462 19.0072C20.2904 17.6439 20.9625 15.9957 20.9625 14.0625C20.9625 12.1294 20.2893 10.4811 18.9431 9.11783C17.5969 7.75451 15.9551 7.07285 14.0178 7.07285C12.0596 7.07285 10.3977 7.75451 9.03186 9.11783C7.66606 10.4811 6.98316 12.1294 6.98316 14.0625C6.98316 15.9957 7.66503 17.6439 9.02875 19.0072C10.3925 20.3705 12.0555 21.0522 14.0178 21.0522Z" fill="#F06000" />
+                </svg>
+                </span>
+              </div>
+            </div>
+            <div className="grid-containerDesktop">
+          {categorias.map((categoria) => (
+            <div key={categoria.id} className="categoria-itemDesktop">
+              <img className='cetegoria-imgDesktop' src={categoria.imagem} alt={categoria.titulo} />
+              <h3 className='categoria-TxtDesktop'>{categoria.titulo}</h3>
+            </div>
+          ))}
         </div>
       </section>
     </div>
   );
 }
+
+export default HomeCliente;
