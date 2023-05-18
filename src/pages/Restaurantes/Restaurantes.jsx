@@ -79,7 +79,7 @@ export function Restaurantes() {
                                 <th>Cidade</th>
                                 <th>Rua</th>
                                 <th>Mais Detalhes</th>
-                                <th>Adicionar aos Favotitos</th>
+                                <th>Adicionar aos Favoritos</th>
                             </tr>
                         </thead>
                         <tbody>
