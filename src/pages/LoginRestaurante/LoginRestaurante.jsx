@@ -6,7 +6,7 @@ import { CustomInput } from "../../components/CustomInput/CustomInput";
 import { ButtonNavigation } from "../../components/ButtonNavigation/ButtonNavigation";
 import Divider from "../../components/Divider/Divider";
 import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/ContainerCenterMobile";
-import loginImg from "../../assets/images/meninaNoteFood.png";
+import loginImgRest from "../../assets/images/negocioCheck.png";
 import logo from "../../assets/images/logoTemaClaro.png";
 import "./LoginRestaurante.css";
 import { useForm } from "react-hook-form";
@@ -46,9 +46,9 @@ export function LoginRestaurante() {
 
               <div class="text-center">
                 <img
-                  src={loginImg}
+                  src={loginImgRest}
                   class="mt-4 "
-                  alt="Imagem de uma mulher no computador vendo imagens de comidas"
+                  alt="Imagem de 3 pessoas fazendo negócio"
                 />
               </div>
             </div>
