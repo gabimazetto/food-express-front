@@ -1,12 +1,11 @@
 import "./CardCardapioCliente.css"
 import { useContext, useEffect } from "react"
+import { ContextClient } from "../../contexts/ClientContext";
 import axios from "axios"
 import { useState } from "react"
 import { toast } from "react-hot-toast"
 import { Loader } from "../Loader/Loader";
 import { Link } from "react-router-dom"
-import { ContextClient } from "../../contexts/ClientContext"
-import { set } from "react-hook-form"
 
 
 export function CardCardapioCliente({ className, comidas, updateData }) {
@@ -26,7 +25,7 @@ export function CardCardapioCliente({ className, comidas, updateData }) {
         const data = {
             favoritar: true,
             comidaId,
-            idCli,
+            clienteId: idCli,
         }
         axios.post("http://localhost:3001/comidas/favoritos", data)
         .then((response) =>{
