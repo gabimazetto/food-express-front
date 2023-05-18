@@ -32,7 +32,7 @@ export function CustomInput({
           onChange={onChange}
           {...register}
         />
-        <InputGroup.Text onClick={toggleType}>
+        <InputGroup.Text onClick={toggleType} className="input-custom-label">
           <i className={icon} style={{ backgroundColor: "transparent" }}></i>
         </InputGroup.Text>
         <Form.Text className="invalid-feedback">{error?.message}</Form.Text>

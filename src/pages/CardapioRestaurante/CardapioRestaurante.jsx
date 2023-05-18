@@ -1,10 +1,11 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Button, Form, InputGroup } from "react-bootstrap";
 import { Loader } from "../../components/Loader/Loader";
 import "./CardapioRestaurante.css"
 import { CardCardapioRestaurante } from "../../components/CardCardapioRestaurante/CardCardapioRestaurante";
 import { Link } from "react-router-dom";
+import { ContextRestaurant } from "../../contexts/RestaurantContext";
 
 
 export function CardapioRestaurante() {
@@ -13,6 +14,7 @@ export function CardapioRestaurante() {
   const [comidasFiltradas, setComidasFiltradas] = useState(comidas);
   const [avaliacao, setAvaliacao] = useState(null);
   const [comentario, setComentario] = useState("");
+  const { idRes } = useContext(ContextRestaurant);
 
   // INICIAR TABELA DE CARDÁPIO
   useEffect(() => {
@@ -21,7 +23,7 @@ export function CardapioRestaurante() {
 
   // FUNÇÃO INICIAR TABELA DE CARDÁPIO
   function initializeTable() {
-    axios.get("http://localhost:3001/comidas")
+    axios.get(`http://localhost:3001/restaurantes/${idRes}/cardapio/`)
       .then((response) => {
         setComidas(response.data);
         setComidasFiltradas(response.data);
@@ -40,18 +42,7 @@ export function CardapioRestaurante() {
     initializeTable();
   }, []);
 
-  // FUNÇÃO INICIAR TABELA DE CARDÁPIO
-  function initializeTable() {
-    axios
-      .get("http://localhost:3001/comidas")
-      .then((response) => {
-        setComidas(response.data);
-        setComidasFiltradas(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+
 
   // FUNÇÃO PESQUISAR POR NOME, CATEGORIA, DESCRIÇÃO E CODIGO
   const handlePesquisa = (event) => {
@@ -124,7 +115,7 @@ export function CardapioRestaurante() {
   return (
     <>
       <div className="container">
-        <div className="d-flex justify-content-center align-items-center">
+        <div className="container-titulo-cardapio">
           <h1 className="cardapio-titulo">Cardápio</h1>
           <Form>
             <InputGroup className="mb-3">
@@ -134,12 +125,10 @@ export function CardapioRestaurante() {
                 placeholder="Pesquisar nome ou categoria"
                 aria-label="Pesquisar nome ou categoria"
                 aria-describedby="basic-addon2"
+                className="min-input"
               />
             </InputGroup>
-            <Button variant="primary" as={Link} to="/restaurante/home" className="button-add-itens">
-              Voltar para a Home
-            </Button>
-            <Button as={Link} to="/restaurante/cardapio/cadastro" className="button-add-itens" variant="primary">Adicionar novo item</Button>
+            <Button as={Link} to="/restaurante/cardapio/cadastro" className="min-input button-add-cardapio"> Adicionar novo</Button>
           </Form>
         </div>
         {comidasFiltradas === null ? (
