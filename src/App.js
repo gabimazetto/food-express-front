@@ -26,6 +26,7 @@ import { FAQ } from "./pages/FAQ/FAQ";
 import { PoliticadePrivacidade } from "./pages/PoliticadePrivacidade/PoliticadePrivacidade";
 
 import { DescricaoPedidoCliente } from "./pages/DescricaoPedidoCliente/DescricaoPedidoCliente";
+import { ListaPedidosRestaurante } from "./pages/ListaPedidosRestaurante/ListaPedidosRestaurante";
 
 
 
@@ -66,8 +67,6 @@ function App() {
           <Route path="/cliente/login" element={<LoginCliente />} />
           <Route path="/restaurante/login" element={<LoginRestaurante />} />
 
-          <Route path="/cliente/login" element={<LoginCliente />} />
-          <Route path="/restaurante/login" element={<LoginRestaurante />} />
 
           <Route path="/cliente/home" element={<HomeCliente />} />
           <Route path="/cliente/cadastro" element={<CadastroCliente />} />
@@ -85,6 +84,7 @@ function App() {
           <Route path="/restaurante/cardapio/item/:id" element={<AdicionarAtualizarComida />} />       {/* Atualizar comida no cardapio*/}
           <Route path="/restaurante/:id" element={<PerfilRestaurante />} />
           <Route path="/restaurante/perfil/:id" element={<EditaRestaurante />} />
+          <Route path="/restaurante/pedidos" element={<ListaPedidosRestaurante />} />
         </Route>
 
       </Routes>
