@@ -68,7 +68,6 @@ export function Restaurantes() {
                 </div>
             </div>
             {/* Busca Fim */}
-
             {
                 restaurantes === null ?
                     <Loader />
@@ -81,39 +80,38 @@ export function Restaurantes() {
                                 <th>Rua</th>
                                 <th>Mais Detalhes</th>
                                 <th>Adicionar aos Favotitos</th>
-
                             </tr>
                         </thead>
                         <tbody>
-                            {restaurantes
-                                .filter((restaurante) => { //campo de busca2 inicio
-                                    const nomeFantasia = restaurante.nomeFantasia.toLowerCase();
-                                    const cidade = restaurante.endereco.cidade.toLowerCase();
-                                    const rua = restaurante.endereco.rua.toLowerCase();
-                                    const termoBusca = busca.toLowerCase();
+                            {
+                            restaurantes
+                            .filter((restaurante) => { //campo de busca2 inicio
+                                const nomeFantasia = restaurante.nomeFantasia.toLowerCase();
+                                const cidade = restaurante.endereco.cidade.toLowerCase();
+                                const rua = restaurante.endereco.rua.toLowerCase();
+                                const termoBusca = busca.toLowerCase();
 
-                                    return (
-                                        nomeFantasia.includes(termoBusca) ||
-                                        cidade.includes(termoBusca) ||
-                                        rua.includes(termoBusca)
-                                    );
-                                }) // campo de busca2 fim
-                                .map((restaurante) => {
-                                    return (
-                                        <tr key={restaurante.id}>
-                                            <td>{restaurante.nomeFantasia}</td>
-                                            <td>{restaurante.endereco.cidade}</td>
-                                            <td>{restaurante.endereco.rua}</td>
-                                            <td>
-                                                <Button as={Link} to={`/restaurante/${restaurante.id}`}>
-                                                    <i className="bi bi-list-ul"></i>
-                                                </Button>
-                                            </td>
-                                            <td>
-                                                <Button type="submit" onClick={() => FavRestaurante(restaurante.id)}>
-                                                    <i className="bi bi-heart"></i>
-                                                </Button>
-
+                                return (
+                                    nomeFantasia.includes(termoBusca) ||
+                                    cidade.includes(termoBusca) ||
+                                    rua.includes(termoBusca)
+                                );
+                            }) // campo de busca2 fim
+                            .map(restaurante => {
+                                return (
+                                    <tr key={restaurante.id}>
+                                        <td>{restaurante.nomeFantasia}</td>
+                                        <td>{restaurante.endereco.cidade}</td>
+                                        <td>{restaurante.endereco.rua}</td>
+                                        <td>
+                                            <Button as={Link} to={`/cliente/restaurante/cardapio/${restaurante.id}`}>
+                                                <i className="bi bi-book"></i>
+                                            </Button>
+                                        </td>
+                                        <td>
+                                            <Button type="submit" onClick={() => FavRestaurante(restaurante.id)}>
+                                                <i className="bi bi-heart"></i>
+                                            </Button>
                                             </td>
                                         </tr>
                                     )
