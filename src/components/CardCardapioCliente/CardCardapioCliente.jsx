@@ -1,20 +1,21 @@
 import "./CardCardapioCliente.css"
-import { useEffect } from "react"
+import { useContext, useEffect } from "react"
 import axios from "axios"
 import { useState } from "react"
 import { toast } from "react-hot-toast"
 import { Loader } from "../Loader/Loader";
 import { Link } from "react-router-dom"
+import { ContextClient } from "../../contexts/ClientContext"
+import { set } from "react-hook-form"
 
 
 export function CardCardapioCliente({ className, comidas, updateData }) {
     const [cardapio, setCardapio] = useState([])
-    const clienteId = 1;
-
+    const { idCli } = useContext(ContextClient);
 
     useEffect(() => {
         initializeTable();
-    }, [updateData]);
+    }, [updateData, idCli ]);
 
 
     function initializeTable() {
@@ -25,7 +26,7 @@ export function CardCardapioCliente({ className, comidas, updateData }) {
         const data = {
             favoritar: true,
             comidaId,
-            clienteId,
+            idCli,
         }
         axios.post("http://localhost:3001/comidas/favoritos", data)
         .then((response) =>{
@@ -54,11 +55,11 @@ export function CardCardapioCliente({ className, comidas, updateData }) {
                                 </div>
                                 <div className="article-body-cliente">
 
-                                    <div className="titulo-card-cliente d-flex justify-content-around">
+                                    <div className="titulo-card-cliente">
                                         <h1 className="d-flex zerando-margin">{comida.nome}</h1>
-                                        <Link to={`/restaurante/cardapio/item/${comida.id}`}>
-                                            <button className="cards-botoes" >
-                                                <i className="bi bi-bag-plus-fill d-flex align-items-center"></i>
+                                        <Link>
+                                            <button className="cards-botoes" onClick={() => FavComida(comida.id)} style={{ cursor: 'pointer' }}>
+                                                <i className="bi bi-heart d-flex align-items-center"></i>
                                             </button>
                                         </Link>
                                     </div>
@@ -70,8 +71,8 @@ export function CardCardapioCliente({ className, comidas, updateData }) {
                                     <div className="preco-card-cliente">
                                     <h1 className="d-flex align-items-center zerando-margin">R$ {comida.preco.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</h1>
 
-                                        <button className="cards-botoes" onClick={() => FavComida(comida.id)} style={{ cursor: 'pointer' }}>
-                                        <i className="bi bi-heart"></i>
+                                    <button className="cards-botoes" style={{ cursor: 'pointer' }}>
+                                        <i className="bi bi-plus-circle-fill"></i>
                                         </button>
                                     </div>
                                 </div>
