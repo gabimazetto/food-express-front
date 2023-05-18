@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Button, Form, InputGroup } from "react-bootstrap";
+import { Form, InputGroup } from "react-bootstrap";
 import { Loader } from "../../components/Loader/Loader";
 import "./ClienteBuscaComida.css"
 import { CardCardapioCliente } from "../../components/CardCardapioCliente/CardCardapioCliente";
-import { Link, useParams } from "react-router-dom";
+
 
 
 export function ClienteBuscaComida() {

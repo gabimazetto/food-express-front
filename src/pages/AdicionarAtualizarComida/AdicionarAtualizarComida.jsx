@@ -99,14 +99,14 @@ export function AdicionarAtualizarComida() {
                     <div className="invisible-desktop">
                         <Button as={Link} to="/restaurante/cardapio" className="button-desc-cliente"> <i class="bi bi-arrow-left"></i> Voltar</Button>
                         <h1 className="invisible-desktop">{!id ? 'Adicionar Comida' : 'Editar Comida'}</h1>
-                        <h1 className="invisible-desktop">{!id ? <img src={imagemLogo} /> : <img src={imagemComida} alt="" />}</h1>
+                        <h1 className="invisible-desktop">{!id ? <img src={imagemLogo} alt="Uma foto de um prato com garfo e faca"/> : <img src={imagemComida} alt="Foto da comida selecionada" />}</h1>
                     </div>
 
 
                     <div className="invisible-mobile forms-header-desktop">
                         <Button as={Link} to="/restaurante/cardapio" className="button-desc-cliente"> <i class="bi bi-arrow-left"></i> Voltar</Button>
                         <h1 className="invisible-mobile">{!id ? 'Adicionar Comida' : 'Editar Comida'}</h1>
-                        <h1 className="invisible-mobile">{!id ? <img src={imagemLogo} /> : <img src={imagemComida} alt="" />}</h1>
+                        <h1 className="invisible-mobile">{!id ? <img src={imagemLogo} alt="Uma foto de um prato com garfo e faca"/> : <img src={imagemComida} alt="Foto da comida selecionada" />}</h1>
                     </div>
 
 

@@ -1,10 +1,11 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import { Loader } from "../../components/Loader/Loader";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import "./style.css";
+import { ContextClient } from "../../contexts/ClientContext";
 
 
 export function Restaurantes() {
@@ -12,12 +13,11 @@ export function Restaurantes() {
     const [restaurantes, setRestaurantes] = useState(null);
     const navigate = useNavigate();
     const [busca, setBusca] = useState("");
-
-    const clienteId = 1;
+    const { idCli } = useContext(ContextClient);
 
     useEffect(() => {
         initializeTable();
-    }, []);
+    }, [idCli]);
 
     function initializeTable() {
         axios.get("http://localhost:3001/restaurantes")
@@ -37,14 +37,14 @@ export function Restaurantes() {
         const data = {
             favoritar: true,
             restauranteId,
-            clienteId,
+            clienteId: idCli,
         }
         axios.post("http://localhost:3001/restaurantes/favoritos", data)
             .then((response) => {
                 toast.success("Adicionado aos Favoritos", {
                     position: "bottom-right", duration: 2000
                 });
-                navigate("/restaurantes")
+                navigate("/cliente/listar/restaurantes")
             }).catch((error) => {
                 toast.error("Algo deu errado", {
                     position: "bottom-right", duration: 2000
