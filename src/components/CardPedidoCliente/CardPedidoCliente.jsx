@@ -14,8 +14,15 @@ export function CardPedidoCliente() {
     const [pedidos, setPedidos] = useState([]);
 
 
+
     useEffect(() => {
         initializeTable();
+        const attPagina = setInterval(() => {
+            initializeTable();
+    }, 5000); 
+
+
+    return() => clearInterval(attPagina)
     }, [idCli]);
 
 
@@ -55,7 +62,7 @@ export function CardPedidoCliente() {
                                             <p><b>Status:</b> {pedido.status}</p>
                                         </div>
                                         <div className="itens-cards-container">
-                                            <p><b>{pedido.item.quantidade}</b>      {pedido.item.comida.nome}</p>
+                                            <p><b>{pedido.item.quantidade}</b>      {pedido.item.comida?.nome}</p>
                                         </div>
                                     </div>
                                     <div className="vertical-row-pedidos"></div>
