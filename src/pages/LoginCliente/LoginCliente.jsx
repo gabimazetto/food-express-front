@@ -41,7 +41,7 @@ export function LoginCliente() {
       <ContainerCenterMobile className="background-gradient">
         <main className="border container rounded-5 ">
           <div className="grid" >
-            <div className="colTwo" >
+            <div className="colTwoLogin" >
 
               <div class="text-center">
                 <img
@@ -51,7 +51,7 @@ export function LoginCliente() {
                 />
               </div>
             </div>
-            <div className="colOne">
+            <div className="colOneLogin">
               <div className="px-3 py-4">
                 <img src={logo} class="img-fluid" alt="Logo do FoodExpress" />
 
