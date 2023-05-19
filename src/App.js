@@ -28,6 +28,7 @@ import { PoliticadePrivacidade } from "./pages/PoliticadePrivacidade/PoliticadeP
 import { DescricaoPedidoCliente } from "./pages/DescricaoPedidoCliente/DescricaoPedidoCliente";
 import { ListaPedidosRestaurante } from "./pages/ListaPedidosRestaurante/ListaPedidosRestaurante";
 import { ClienteBuscaComida } from "./pages/ClienteBuscaComida/ClienteBuscaComida"
+import { Sobre } from "./pages/Sobre/Sobre";
 
 
 function App() {
@@ -61,6 +62,8 @@ function App() {
           <Route path="/contato" element={<FaleConosco />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/privacidade" element={<PoliticadePrivacidade />} />
+          <Route path="/sobre" element={<Sobre />} />
+
 
 
 
