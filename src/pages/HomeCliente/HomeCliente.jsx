@@ -231,7 +231,9 @@ export function HomeCliente() {
         <div className="grid-containerDesktop">
           {categorias.map((categoria) => (
             <div key={categoria.id} className="categoria-itemDesktop">
+              <Link to={`/cliente/pesquisa/${categoria.titulo}`}>
               <img className='cetegoria-imgDesktop' src={categoria.imagem} alt={categoria.titulo} />
+              </Link>
               <h3 className='categoria-TxtDesktop'>{categoria.titulo}</h3>
             </div>
           ))}

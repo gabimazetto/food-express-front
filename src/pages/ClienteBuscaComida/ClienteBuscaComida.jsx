@@ -4,6 +4,7 @@ import { Form, InputGroup } from "react-bootstrap";
 import { Loader } from "../../components/Loader/Loader";
 import "./ClienteBuscaComida.css"
 import { CardCardapioCliente } from "../../components/CardCardapioCliente/CardCardapioCliente";
+import { useParams } from "react-router-dom";
 
 
 
@@ -11,11 +12,17 @@ export function ClienteBuscaComida() {
     const [comidas, setComidas] = useState(null);
     const [pesquisa, setPesquisa] = useState("");
     const [comidasFiltradas, setComidasFiltradas] = useState(comidas);
+    const { categoria } = useParams();
 
 
 
     // INICIAR TABELA DE CARDÁPIO
-    useEffect(() => {
+    useEffect(() => { 
+        if(categoria){
+            setPesquisa(categoria);
+    }
+
+
         initializeTable();
     }, []);
 

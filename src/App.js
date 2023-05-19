@@ -77,6 +77,7 @@ function App() {
           <Route path="/cliente/listar/restaurantes" element={<Restaurantes />} />
           <Route path="/cliente/restaurante/cardapio/:id" element={<CardapioCliente />} />
           <Route path="/cliente/pesquisa" element={<ClienteBuscaComida/>} />
+          <Route path="/cliente/pesquisa/:categoria" element={<ClienteBuscaComida/>} />
           <Route path="/cliente/listar/favoritos" element={<Favoritos />} />
           <Route path="/cliente/pedidos" element={<PedidosCliente />} />
           <Route path="/cliente/pedidos/:id" element={<DescricaoPedidoCliente />} />
