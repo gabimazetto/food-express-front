@@ -44,7 +44,7 @@ function PedidoCliente({ pedido }) {
         );
         if (avaliacao) {
           setComentario(avaliacao.comentario);
-          setAvaliacao(avaliacao.avaliacao); 
+          setAvaliacao(avaliacao.avaliacao);
         }
       })
       .catch((error) => {
@@ -79,22 +79,22 @@ function PedidoCliente({ pedido }) {
         });
       });
 
-    
-    setAvaliacao(1);
+
+    setAvaliacao(0);
     setComentario("");
   }
 
   function estrelas() {
     const maxAvaliacao = 5;
     const estrelas = [];
-  
+
     if (avaliacaoExistente) {
       for (let i = 1; i <= maxAvaliacao; i++) {
         const classeEstrela =
           i <= Number(avaliacao)
             ? "bi bi-star-fill"
             : "bi bi-star";
-  
+
         estrelas.push(
           <i
             className={classeEstrela}
@@ -109,7 +109,7 @@ function PedidoCliente({ pedido }) {
           i <= Number(avaliacao)
             ? "bi bi-star-fill"
             : "bi bi-star";
-  
+
         estrelas.push(
           <i
             className={classeEstrela}
@@ -120,10 +120,10 @@ function PedidoCliente({ pedido }) {
         );
       }
     }
-  
+
     return estrelas;
   }
-  
+
 
   return (
     <Form>
@@ -147,24 +147,24 @@ function PedidoCliente({ pedido }) {
             </p>
           </div>
           <div className="mb-2">
-                                            {pedido.status === "Pendente" ? (
-                                                <p><b>Status:</b> {pedido.status}</p>
-                                            ) : pedido.status === "Aguardando confirmação" ? (
-                                                <p>Status: <b className="aguardando">{pedido.status}</b></p>
-                                            ) : pedido.status === "Confirmado" ? (
-                                                <p>Status:<b className="confirmado"> {pedido.status}</b></p>
-                                            ) : pedido.status === "A caminho" ? (
-                                                <p>Status: <b className="aCaminho">{pedido.status}</b></p>
-                                            ) : pedido.status === "Entregue" ? (
-                                                <p>Status: <b className="entregue">{pedido.status}</b></p>
-                                            ) : pedido.status === "Cancelado" ? (
-                                                <p>Status: <b className="cancelado">{pedido.status}</b></p>
-                                            ) : null}
-                                        </div>
+            {pedido.status === "Pendente" ? (
+              <p><b>Status:</b> {pedido.status}</p>
+            ) : pedido.status === "Aguardando confirmação" ? (
+              <p>Status: <b className="aguardando">{pedido.status}</b></p>
+            ) : pedido.status === "Confirmado" ? (
+              <p>Status:<b className="confirmado"> {pedido.status}</b></p>
+            ) : pedido.status === "A caminho" ? (
+              <p>Status: <b className="aCaminho">{pedido.status}</b></p>
+            ) : pedido.status === "Entregue" ? (
+              <p>Status: <b className="entregue">{pedido.status}</b></p>
+            ) : pedido.status === "Cancelado" ? (
+              <p>Status: <b className="cancelado">{pedido.status}</b></p>
+            ) : null}
+          </div>
           <div className="itens-cards-container">
-            <p>
-              <b>{pedido.item.quantidade}</b> {pedido.item.comida.nome}
-            </p>
+            {pedido.items.map(item => (
+              <p key={item.id}><b>{item.quantidade}</b> {item.comida?.nome}</p>
+            ))}
           </div>
         </div>
         <div className="vertical-row-pedidos"></div>
@@ -218,17 +218,17 @@ export function CardPedidoCliente() {
   useEffect(() => {
     initializeTable();
     const attPagina = setInterval(() => {
-        initializeTable();
+      initializeTable();
     }, 5000);
 
 
     return () => clearInterval(attPagina)
-}, [idCli]);
+  }, [idCli]);
 
-  
+
   function initializeTable() {
     axios
-      .get(`http://localhost:3001/pedidos`)
+      .get(`http://localhost:3001/pedidos/cliente/${idCli}`)
       .then((response) => {
         setPedidos(response.data);
       })
@@ -236,7 +236,6 @@ export function CardPedidoCliente() {
         toast.error("Erro ao carregar dados.");
       });
   }
-
   return (
     <>
       <main className="main-card-pedido">
