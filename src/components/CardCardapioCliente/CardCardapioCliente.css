@@ -31,8 +31,10 @@
     }
 
     .header-cards-cliente img {
-        border-radius: 10px 10px 0 0px;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
+        border-radius: 10px 10px 0 0px;
     }
 
     .article-body-cliente {
