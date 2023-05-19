@@ -13,11 +13,13 @@
 }
 
 .container{
-    width: 85% !important;
+    width: 80% !important;
     background-color: #fff;
     box-shadow: #D93F0B1a 0px 4px 12px;    
     overflow: hidden !important;
     height: 100% !important;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .white{
@@ -85,11 +87,11 @@
         background-color: #f06000;
         position: absolute;
         box-sizing: border-box !important;        
-        width: 150% !important;
+        width: 180% !important;
         border-radius: 30px;
         top: -4% !important;
         bottom: 0% !important;
-        left: 33% !important;
+        left: 50% !important;
         right: 0% !important;
     }  
      

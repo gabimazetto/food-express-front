@@ -88,8 +88,8 @@ export function CadastroCliente() {
               </div>
               <div className="colOne">
                 <div className="px-3 py-4">
-                  <img src={logo} class="img-fluid" alt="Logo do FoodExpress" />
-                  <h1 className="text-center">Cadastre-se!</h1>
+                  
+                  <h1 className="text-center">Seja nosso cliente e cadastre-se!</h1>
 
                   <Form onSubmit={handleSubmit(onSubmit)}>
                     <div className="mb-3">
