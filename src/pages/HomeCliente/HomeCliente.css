@@ -32,10 +32,15 @@
     line-height: 18px;
   }
 
+  .searchBoxA{
+    text-decoration: none;
+  }
+
   .searchBoxRestauranteInput {
     flex-grow: 1;
     border: none;
     background-color: #F5F2F2;
+    
   }
 
   .searchBoxRestauranteInput:focus {
@@ -239,6 +244,10 @@
     line-height: 18px;
   }
 
+  .searchBoxA{
+    text-decoration: none;
+  }
+
   .searchBoxRestauranteInputDesktop {
     flex-grow: 1;
     border: none;
@@ -436,6 +445,10 @@
     border-radius: 8px;
     font-size: 16px;
     line-height: 18px;
+  }
+
+  .searchBoxA{
+    text-decoration: none;
   }
 
   .searchBoxRestauranteInputDesktop {
