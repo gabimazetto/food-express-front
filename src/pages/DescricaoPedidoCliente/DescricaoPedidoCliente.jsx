@@ -44,7 +44,7 @@ export function DescricaoPedidoCliente() {
                                 <h1>{descricaoPedidos.restaurante?.nomeFantasia}</h1>
                                 <img src={fotoTesteLogo} className="desc-foto-pedido" alt="" />
                             </div>
-                            <Button as={Link} to="/cliente/pedidos/" className="button-desc-cardapio" ><span>Ver cardápio</span></Button>
+                            <Button as={Link} to={`/cliente/restaurante/cardapio/${descricaoPedidos.restauranteId}`} className="button-desc-cardapio" ><span>Ver cardápio</span></Button>
                         </div>
                         <div className="vertical-row-desc"></div>
                         <div className="desc-item-pedido">
