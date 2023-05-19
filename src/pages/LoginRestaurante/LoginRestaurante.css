@@ -1,5 +1,5 @@
 .background-gradient {
-    background: linear-gradient(34deg, rgba(255,255,255,1) 27%, rgba(240,96,0,1) 95%);
+    background: linear-gradient(34deg, rgba(255,255,255,1) 27%, rgb(217, 123, 11) 95%);
     min-height: 100vh;
 }
 
@@ -46,7 +46,7 @@
 
 @media (min-width: 780px) {
     .background-gradient {
-        background: linear-gradient(270deg, rgba(255,255,255,1) 27%, rgba(240,96,0,1) 95%);
+        background: linear-gradient(270deg, rgba(255,255,255,1) 27%, rgb(217, 123, 11) 95%);
         min-height: 100vh;
     }
     .grid {
