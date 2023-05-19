@@ -2,63 +2,151 @@ import { useContext, useEffect, useState } from "react";
 import "./CardPedidoCliente.css";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import fotoTesteLogo from "../../assets/images/10.png"
+import fotoTesteLogo from "../../assets/images/10.png";
 import { Loader } from "../Loader/Loader";
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { ContextClient } from "../../contexts/ClientContext";
 
+function PedidoCliente({ pedido }) {
+  const { idCli } = useContext(ContextClient);
+  const [avaliacao, setAvaliacao] = useState(0);
+  const [comentario, setComentario] = useState("");
+  const [avaliacaoExistente, setAvaliacaoExistente] = useState(false);
 
-export function CardPedidoCliente() {
-    const { idCli } = useContext(ContextClient);
-    const [pedidos, setPedidos] = useState([]);
+  useEffect(() => {
+    initializeAvaliacaoExistente();
+    carregarComentario();
+  }, []);
 
+  function initializeAvaliacaoExistente() {
+    axios
+      .get(`http://localhost:3001/avaliacaos/cliente/${idCli}`)
+      .then((response) => {
+        const avaliacoesCliente = response.data;
+        const avaliacaoExistente = avaliacoesCliente.some(
+          (avaliacao) => avaliacao.pedidoId === pedido.id
+        );
+        setAvaliacaoExistente(avaliacaoExistente);
+      })
+      .catch((error) => {
+        toast.error("Erro ao carregar dados.");
+      });
+  }
 
+  function carregarComentario() {
+    axios
+      .get(`http://localhost:3001/avaliacaos/cliente/${idCli}`)
+      .then((response) => {
+        const avaliacoesCliente = response.data;
+        const avaliacao = avaliacoesCliente.find(
+          (avaliacao) => avaliacao.pedidoId === pedido.id
+        );
+        if (avaliacao) {
+          setComentario(avaliacao.comentario);
+          setAvaliacao(avaliacao.avaliacao); 
+        }
+      })
+      .catch((error) => {
+        toast.error("Erro ao carregar dados.");
+      });
+  }
 
-    useEffect(() => {
-        initializeTable();
-        const attPagina = setInterval(() => {
-            initializeTable();
-        }, 5000);
+  function EnviarAvaliacao(restauranteId, pedidoId) {
+    const data = {
+      avaliacao: String(avaliacao),
+      comentario: comentario,
+      clienteId: idCli,
+      restauranteId: restauranteId,
+      pedidoId: pedidoId,
+    };
 
+    axios
+      .post(`http://localhost:3001/avaliacaos`, data)
+      .then((response) => {
+        toast.success(response.data.message, {
+          position: "bottom-right",
+          duration: 2000,
+        });
+        setAvaliacaoExistente(true);
+        carregarComentario();
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error(error.response.data.message, {
+          position: "bottom-right",
+          duration: 2000,
+        });
+      });
 
-        return () => clearInterval(attPagina)
-    }, [idCli]);
+    
+    setAvaliacao(1);
+    setComentario("");
+  }
 
-
-    function initializeTable() {
-        axios.get(`http://localhost:3001/pedidos/cliente/${idCli}`)
-            .then((response) => {
-                console.log(idCli)
-                setPedidos(response.data)
-            })
-            .catch((error) => {
-                toast.error("Erro ao carregar dados.");
-            });
+  function estrelas() {
+    const maxAvaliacao = 5;
+    const estrelas = [];
+  
+    if (avaliacaoExistente) {
+      for (let i = 1; i <= maxAvaliacao; i++) {
+        const classeEstrela =
+          i <= Number(avaliacao)
+            ? "bi bi-star-fill"
+            : "bi bi-star";
+  
+        estrelas.push(
+          <i
+            className={classeEstrela}
+            key={i}
+            style={{ cursor: "default" }}
+          ></i>
+        );
+      }
+    } else {
+      for (let i = 1; i <= maxAvaliacao; i++) {
+        const classeEstrela =
+          i <= Number(avaliacao)
+            ? "bi bi-star-fill"
+            : "bi bi-star";
+  
+        estrelas.push(
+          <i
+            className={classeEstrela}
+            key={i}
+            style={{ cursor: "pointer" }}
+            onClick={() => setAvaliacao(i)}
+          ></i>
+        );
+      }
     }
+  
+    return estrelas;
+  }
+  
 
-    return (
-        <>
-            <main className="main-card-pedido">
-                <section className="section-cards-pedidos">
-                    {pedidos === null ? (
-                        <Loader />
-                    ) : (
-                        pedidos.map((pedido) => {
-                            return (
-                                <article className="article-cards-pedidos" key={pedido.id}>
-                                    <div className="foto-cards-pedidos">
-                                        <img src={fotoTesteLogo} className="card-foto-pedido" alt="" />
-                                        <h1>{pedido.restaurante.nomeFantasia}</h1>
-                                        <Button as={Link} to={`/cliente/pedidos/${pedido.id}`} className="botao-cards-detalhes"><i className="bi bi-arrow-right"></i>
-                                        </Button>
-                                    </div>
-                                    <div className="vertical-row-pedidos"></div>
-                                    <div className="items-cards-pedidos">
-                                        <div className="mb-2">
-                                            <p><b>Data:</b> {pedido.dataRegistro}</p>
-                                        </div>
-                                        <div className="mb-2">
+  return (
+    <Form>
+      <article className="article-cards-pedidos" key={pedido.id}>
+        <div className="foto-cards-pedidos">
+          <img src={fotoTesteLogo} className="card-foto-pedido" alt="" />
+          <h1>{pedido.restaurante.nomeFantasia}</h1>
+          <Button
+            as={Link}
+            to={`/cliente/pedidos/${pedido.id}`}
+            className="botao-cards-detalhes"
+          >
+            <i className="bi bi-arrow-right"></i>
+          </Button>
+        </div>
+        <div className="vertical-row-pedidos"></div>
+        <div className="items-cards-pedidos">
+          <div className="mb-2">
+            <p>
+              <b>Data:</b> {pedido.dataRegistro}
+            </p>
+          </div>
+          <div className="mb-2">
                                             {pedido.status === "Pendente" ? (
                                                 <p><b>Status:</b> {pedido.status}</p>
                                             ) : pedido.status === "Aguardando confirmação" ? (
@@ -73,31 +161,95 @@ export function CardPedidoCliente() {
                                                 <p>Status: <b className="cancelado">{pedido.status}</b></p>
                                             ) : null}
                                         </div>
-                                        <div className="itens-cards-container">
-                                            <p><b>{pedido.item.quantidade}</b>      {pedido.item.comida?.nome}</p>
-                                        </div>
-                                    </div>
-                                    <div className="vertical-row-pedidos"></div>
-                                    <div className="rest-cards-pedidos">
-                                        <div>
-                                            <p>Avaliar:</p>
-                                            <p>Estrelinha</p>
-                                        </div>
-                                    </div>
-                                    <div className="vertical-row-pedidos"></div>
-                                    <div className="refazer-cards-pedidos">
-                                        <div>
-                                            {/* <Button className="botoes-card-pedidos">Ajuda</Button> */}
-                                            <Button className="botoes-card-pedidos" >Refazer pedido</Button>
-                                        </div>
-                                    </div>
-                                </article>
-                            )
-                        })
+          <div className="itens-cards-container">
+            <p>
+              <b>{pedido.item.quantidade}</b> {pedido.item.comida.nome}
+            </p>
+          </div>
+        </div>
+        <div className="vertical-row-pedidos"></div>
+        {avaliacaoExistente ? (
+          <div className="avaliacao-enviada">
+            <div className="avaliacao mt-2">
+              <p>
+                <b>Avaliação:</b>
+              </p>
+              <div className="rating-stars">{estrelas()}</div>
+              <div className="vertical-row-pedidos mt-2 mb-2"></div>
+            </div>
+            <p>Comentário: {comentario}</p>
+          </div>
+        ) : (
+          <div className="rest-cards-pedidos">
+            <div className="rating-stars">{estrelas()}</div>
+            <Form.Label>Avaliação</Form.Label>
+            <Form.Control
+              className="w-25"
+              type="text"
+              placeholder="Escreva aqui sua avaliação"
+              value={comentario}
+              onChange={(e) => setComentario(e.target.value)}
+            />
+            <Button
+              onClick={() => EnviarAvaliacao(pedido.restauranteId, pedido.id)}
+              variant="primary"
+              className="mt-5"
+            >
+              Enviar avaliação
+            </Button>
+          </div>
+        )}
 
-                    )}
-                </section>
-            </main >
-        </>
-    )
+        <div className="refazer-cards-pedidos">
+          <div>
+            {/* <Button className="botoes-card-pedidos">Ajuda</Button> */}
+            <Button className="botoes-card-pedidos">Refazer pedido</Button>
+          </div>
+        </div>
+      </article>
+    </Form>
+  );
+}
+
+export function CardPedidoCliente() {
+  const [pedidos, setPedidos] = useState([]);
+  const { idCli } = useContext(ContextClient);
+
+  useEffect(() => {
+    initializeTable();
+    const attPagina = setInterval(() => {
+        initializeTable();
+    }, 5000);
+
+
+    return () => clearInterval(attPagina)
+}, [idCli]);
+
+  
+  function initializeTable() {
+    axios
+      .get(`http://localhost:3001/pedidos`)
+      .then((response) => {
+        setPedidos(response.data);
+      })
+      .catch((error) => {
+        toast.error("Erro ao carregar dados.");
+      });
+  }
+
+  return (
+    <>
+      <main className="main-card-pedido">
+        <section className="section-cards-pedidos">
+          {pedidos === null ? (
+            <Loader />
+          ) : (
+            pedidos.map((pedido) => (
+              <PedidoCliente key={pedido.id} pedido={pedido} />
+            ))
+          )}
+        </section>
+      </main>
+    </>
+  );
 }

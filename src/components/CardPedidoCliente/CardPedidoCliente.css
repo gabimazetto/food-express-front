@@ -1,7 +1,17 @@
+
 .main-card-pedido {
     display: flex;
     justify-content: center;
 }
+
+.hidden {
+    display: none;
+  }
+
+  .rating-stars {
+    color: #ffd700;
+    font-size: 20px;
+  }
 
 .section-cards-pedidos {
     width: 80%;
@@ -11,8 +21,8 @@
 }
 
 .article-cards-pedidos {
-    width: 450px;
-    height: 250px;
+    width: 500px;
+    height: 350px;
     min-width: 300px;
     display: flex;
     flex-direction: column;
