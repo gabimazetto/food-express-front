@@ -85,7 +85,20 @@ export function PedidosRestaurante() {
                                         <td>{pedido.dataRegistro}</td>
                                         <td>{pedido.item.comida?.nome}</td>
                                         <td>{pedido.item.quantidade}</td>
-                                        <td>{pedido.status}</td>
+                                        <td>
+                                            {pedido.status === "Pendente" ? (
+                                                <p><b>Status:</b> {pedido.status}</p>
+                                            ) : pedido.status === "Aguardando confirmação" ? (
+                                                <p>Status: <b className="aguardando">{pedido.status}</b></p>
+                                            ) : pedido.status === "Confirmado" ? (
+                                                <p>Status:<b className="confirmado"> {pedido.status}</b></p>
+                                            ) : pedido.status === "A caminho" ? (
+                                                <p>Status: <b className="aCaminho">{pedido.status}</b></p>
+                                            ) : pedido.status === "Entregue" ? (
+                                                <p>Status: <b className="entregue">{pedido.status}</b></p>
+                                            ) : pedido.status === "Cancelado" ? (
+                                                <p>Status: <b className="cancelado">{pedido.status}</b></p>
+                                            ) : null}</td>
                                         <td>{pedido.cliente.nome}</td>
                                         <td>{pedido.enderecoPedido?.bairro}</td>
                                         <td>{pedido.enderecoPedido?.rua}</td>
