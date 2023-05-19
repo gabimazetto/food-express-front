@@ -20,13 +20,7 @@ export function CardCardapioRestaurante({ className, comidas, updateData }) {
 
 
     function initializeTable() {
-        axios.get(`http://localhost:3001/comidas`)
-            .then((response) => {
-                setCardapio(response.data)
-            })
-            .catch((error) => {
-                toast.error("Erro ao carregar dados.");
-            });
+        setCardapio(comidas)
     }
 
 
@@ -66,32 +60,33 @@ export function CardCardapioRestaurante({ className, comidas, updateData }) {
                     <Loader />
                 ) : (
 
-                    comidas.map((comida) => {
+                    cardapio.map((cardapio) => {
                         return (
-                            <article className={`article-home-restaurante ${className}`} key={comida.id}>
+                            <article className={`article-home-restaurante ${className}`} key={cardapio.id}>
                                 <div className="header-cards-restaurante">
-                                    <img src={comida.imagem} alt="" />
+                                    <img src={cardapio.imagem} alt="" />
                                 </div>
                                 <div className="article-body">
                                     <div className="">
-                                        <span className="d-flex zerando-margin"><b>Cod.:  </b>{comida.codigo}</span>
+                                        <span className="d-flex zerando-margin"><b>Cod.:  </b>{cardapio.codigo}</span>
                                     </div>
                                     <div className="titulo-card-restaurante d-flex justify-content-around">
-                                        <h1 className="d-flex zerando-margin">{comida.nome}</h1>
-                                        <Link to={`/restaurante/cardapio/item/${comida.id}`}>
+                                        <h1 className="d-flex zerando-margin">{cardapio.nome}</h1>
+                                        <Link to={`/restaurante/cardapio/item/${cardapio.id}`}>
                                             <button className="cards-botoes" style={{ cursor: 'pointer' }}>
                                                 <i className="bi bi-pencil-fill d-flex align-items-center"></i>
                                             </button>
                                         </Link>
                                     </div>
                                     <div className="infos-card">
-                                        <p className="descricao zerando-margin">{comida.descricao}</p>
-                                        <p className="zerando-margin"><b>Peso:</b> {comida.peso}</p>
-                                        <p className="zerando-margin"><b>Categoria: </b>{comida.categoria}</p>
+                                        <p className="descricao zerando-margin">{cardapio.descricao}</p>
+                                        <p className="zerando-margin"><b>Peso:</b> {cardapio.peso} g</p>
+                                        <p className="zerando-margin"><b>Categoria: </b>{cardapio.categoria}</p>
                                     </div>
                                     <div className="preco-card-restaurante">
-                                        <h1 className="d-flex align-items-center zerando-margin">R$ {comida.preco}</h1>
-                                        <button className="cards-botoes" onClick={() => handleShow(comida.id)} style={{ cursor: 'pointer' }}>
+                                        <h1 className="d-flex align-items-center zerando-margin">R$ {parseFloat(cardapio.preco).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</h1>
+
+                                        <button className="cards-botoes" onClick={() => handleShow(cardapio.id)} style={{ cursor: 'pointer' }}>
                                             <i className="bi bi-trash3"></i>
                                         </button>
                                     </div>

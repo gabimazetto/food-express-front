@@ -223,14 +223,14 @@
 
     .button-add-itens {
         width: 207.5px;
-        height: 43.75px;
+        height: 43px;
         text-align: start !important;
         color: white !important;
     }
 
     .button-meus-itens {
         width: 137.5px;
-        height: 40px;
+        height: 43px;
     }
 
     .invisivel-desktop {

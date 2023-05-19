@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./CardPedidoCliente.css";
 import axios from "axios";
 import { toast } from "react-hot-toast";
@@ -6,18 +6,23 @@ import fotoTesteLogo from "../../assets/images/10.png"
 import { Loader } from "../Loader/Loader";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { ContextClient } from "../../contexts/ClientContext";
 
 
 export function CardPedidoCliente() {
+    const { idCli } = useContext(ContextClient);
     const [pedidos, setPedidos] = useState([]);
+
+
     useEffect(() => {
         initializeTable();
-    }, []);
+    }, [idCli]);
 
 
     function initializeTable() {
-        axios.get(`http://localhost:3001/pedidos`)
+        axios.get(`http://localhost:3001/pedidos/cliente/${idCli}`)
             .then((response) => {
+                console.log(idCli)
                 setPedidos(response.data)
             })
             .catch((error) => {
