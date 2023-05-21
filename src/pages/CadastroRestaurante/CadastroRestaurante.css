@@ -9,7 +9,7 @@
     background: linear-gradient(90deg, rgba(54,54,54,0.905374649859944) 15%, rgba(217,123,11,0.8213410364145658) 43%, rgba(255,255,255,1) 100%);
 }
 
-.title-client{
+.title-restaurant{
     margin-top: 8%;
     margin-left: 5% !important;
     color: #f06000;
@@ -19,7 +19,7 @@
     max-width: 380px;
 }
 
-.container{
+.main-container{
     width: 80% !important;
     background-color: #fff;
     box-shadow: #D93F0B1a 0px 4px 12px;    
@@ -58,8 +58,9 @@ hr {
     color: #f06000;
 }
 
+
 @media (min-width: 970px) {
-    main.container{
+    .main-container{
         width: 95% !important;
         max-width: 90% !important;
     }
@@ -97,7 +98,7 @@ hr {
         justify-content: space-between;        
     }
     
-    .title-client{
+    .title-restaurant{
     margin-top: 0;
     margin-left: 3%;
     }    
@@ -111,7 +112,7 @@ hr {
 }
 
 @media (min-width: 1200px) {
-    main.container {
+    .main-container {
         min-height: 590px !important;
         max-width: 1000px !important;
     }

@@ -1,19 +1,17 @@
 import axios from "axios";
 import { useState } from "react";
-import {
-  Button,
-  Card,
-  Col,
-  Form,
-  Row,
-  InputGroup,
-  FormControl,
-} from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { CustomInputIconNone } from "../../components/CustomInputIconNone/CustomInputIconNone";
-import { CustomInput } from "../../components/CustomInput/CustomInput";
+import "./CadastroRestaurante.css";
+import cadastroRestauranteImg from "../../assets/images/cadastrorest.jpeg";
+import imgCadastroWebRest from "../../assets/images/cadastrorestweb.jpeg";
+import logo from "../../assets/images/logoTemaClaro.png";
+import { ButtonNavigation } from "../../components/ButtonNavigation/ButtonNavigation";
+import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/ContainerCenterMobile";
+import { ContainerCardImg } from "../../components/ContainerCardImg/ContainerCardImg"
 
 export function CadastroRestaurante() {
   const [senha, setSenha] = useState("password");
@@ -71,217 +69,262 @@ export function CadastroRestaurante() {
   }
 
   return (
-    <section id="pagina">
-      <div data-theme="white-content" className="container body-content py-5">
-        <div className="row justify-content-center">
-          <div className="col-12 col-md-8">
-            <Card className="shadow-2-strong radius-2 mb-4">
-              <Card.Body className="p-4">
-                <h1 className="text-center">Cadastro Restaurante</h1>
+    <>
+      <ContainerCenterMobile className="background-gradient-escuro">
+        <main className="border main-container rounded-5 ">
+          <img
+            src={logo}
+            className="mt-4 ms-5 logo-web-cadastro"
+            alt="Logo FoodExpress"
+          />
+          <h1 className="title-restaurant">Seja nosso parceiro e cadastre-se!</h1>
+          <div className="flex">
+            <div className="colTwo">
+              <ContainerCardImg className="card-web">
+                <img
+                  src={imgCadastroWebRest}
+                  className="mt-4 imagem-cadastro-web"
+                  alt="Imagem de duas pessoas fechando negócio"
+                />
+                <img
+                  src={cadastroRestauranteImg}
+                  className="mt-4 imagem-cadastro-mobile"
+                  alt="Imagem fachada de um restaurante"
+                />
+              </ContainerCardImg>
+            </div>
+
+            <div className="colOne">
+              <div className="px-3 py-4">
                 <Form onSubmit={handleSubmit(onSubmit)}>
-                  <CustomInputIconNone
-                    label="Nome Fantasia"
-                    className="input-web"
-                    type="text"
-                    placeholder="Informe o nome fantasia do estabelecimento"
-                    icon=""
-                    register={register("nomeFantasia", {
-                      required: "O nome fantasia é obrigatório", maxLength: {
-                        value: 130,
-                        message: "Limite de 130 caracteres.",
-                      },
-                    })}
-                    error={errors.nomeFantasia}
-                  />
+                  <div className="mb-3">
+                    <label className="form-label">Nome Fantasia</label>
+                    <CustomInputIconNone
+                      type="text"
+                      placeholder="Informe o nome fantasia do estabelecimento"
+                      register={register("nomeFantasia", {
+                        required: "O nome fantasia é obrigatório",
+                      })}
+                      error={errors.nomeFantasia}
+                    />
+                  </div>
 
-                  <CustomInput
-                    label="Razão Social"
-                    className="input-web"
-                    type="text"
-                    placeholder="Informe a razão social do seu estabelecimento"
-                    icon="bi bi-envelope-at-fill white"
-                    register={register("razaoSocial", { required: "A razão social é obrigatória" })}
-                    error={errors.razaoSocial}
-                  />
+                  <div className="mb-3">
+                    <label className="form-label">Razão Social</label>
+                    <CustomInputIconNone
+                      type="text"
+                      placeholder="Informe a razão social do seu estabelecimento"
+                      register={register("razaoSocial", {
+                        required: "A razão social é obrigatória",
+                      })}
+                      error={errors.razaoSocial}
+                    />
+                  </div>
 
-                  <CustomInput
-                    label="Telefone"
-                    small="Formato do telefone: (99)99999-9999 ou 1212345-1234"
-                    type="tel"
-                    icon="bi bi-telephone white"
-                    className="input-web"
-                    pattern="^\(?\d{2}\)?[-.\s]?\d{4,5}[-.\s]?\d{4}$"
-                    placeholder="Informe seu telefone no formato: "
-                    register={register("telefone", {
-                      pattern: "Formato do telefone: (99)99999-9999 ou 1212345-1234",
-                      required: "O telefone é obrigatório.",
-                      maxLength: {
-                        value: 14,
-                        message: "Limite de 14 caracteres.",
-                      },
-                    })}
-                    error={errors.telefone}
-                  />
-
-                  <CustomInputIconNone
-                    label="CNPJ"
-                    small="Formato do CNPJ: 12.345.678/0001-00"
-                    className="input-web"
-                    type="text"
-                    pattern="[0-9]{2}.[0-9]{3}.[0-9]{3}/[0-9]{4}-[0-9]{2}|[0-9]{15}-[0-9]{2}"
-                    placeholder="Informe seu CNPJ"
-                    icon=""
-                    register={register("cnpj", { required: "O CNPJ é obrigatório." })}
-                    error={errors.cnpj}
-                  />
-
-                  <CustomInput
-                    label="Email"
-                    className="input-web"
-                    type="email"
-                    placeholder="Informe seu e-mail"
-                    icon="bi bi-envelope-at-fill white"
-                    register={register("email", { required: "O email é obrigatório" })}
-                    error={errors.email}
-                  />
-
-                  <CustomInput
-                    label="Senha"
-                    className="input-web"
-                    type={senha}
-                    placeholder="Crie sua senha"
-                    icon={icone}
-                    register={register("senha", {
-                      required: "A senha é obrigatória",
-                    })}
-                    error={errors.senha}
-                    toggleType={mudarTipo}
-                    iconType={icone}
-                  />
-
-                  <CustomInput
-                    label="Confirmação de senha"
-                    className="input-web"
-                    type={senha2}
-                    placeholder="Confirme sua senha"
-                    icon={icone2}
-                    register={register("confirmarSenha", {
-                      required: "As senhas devem ser iguais",
-                      validate: (value) =>
-                        value === getValues("senha") ||
-                        "As senhas devem ser iguais",
-                    })}
-                    error={errors.confirmarSenha}
-                    toggleType={mudarTipo2}
-                    iconType={icone2}
-                  />
-
-                  <CustomInputIconNone
-                    label="Cidade"
-                    className="input-web"
-                    type="text"
-                    placeholder="Informe sua cidade"
-                    register={register("endereco.cidade", { required: "A Cidade é obrigatória" })}
-                    error={errors.endereco?.cidade}
-                  />
-
-                  <Form.Group className="mb-3">
-                    <Form.Label className="d-flex">UF</Form.Label>
-                    <Form.Select
-                      className="input-web"
-                      {...register("endereco.uf", {
-                        required: "O UF é obrigatório.",
+                  <div className="mb-3">
+                    <label className="form-label">Telefone</label>
+                    <CustomInputIconNone
+                      type="tel"
+                      icon="bi bi-telephone white"
+                      pattern="[(0-9)]{4}[0-9]{5}-[0-9]{4}|[0-9]{2}[0-9]{5}-[0-9]"
+                      placeholder="(99)99999-9999"
+                      register={register("telefone", {
+                        required: "O telefone é obrigatório.",
                         maxLength: {
-                          value: 2,
-                          message: "Limite de 2 caracteres.",
+                          value: 14,
+                          message: "Limite de 14 caracteres.",
                         },
                       })}
-                    >
-                      <option value="default">Unidade Federativa</option>
-                      <option value="1">AC</option>
-                      <option value="2">AL</option>
-                      <option value="3">AP</option>
-                      <option value="4">AM</option>
-                      <option value="5">BA</option>
-                      <option value="6">CE</option>
-                      <option value="7">DF</option>
-                      <option value="8">ES</option>
-                      <option value="9">GO</option>
-                      <option value="10">MA</option>
-                      <option value="11">MT</option>
-                      <option value="12">MS</option>
-                      <option value="13">MG</option>
-                      <option value="14">PA</option>
-                      <option value="15">PB</option>
-                      <option value="16">PR</option>
-                      <option value="17">PE</option>
-                      <option value="18">PI</option>
-                      <option value="19">RJ</option>
-                      <option value="20">RN</option>
-                      <option value="21">RS</option>
-                      <option value="22">RO</option>
-                      <option value="23">RR</option>
-                      <option value="24">SC</option>
-                      <option value="25">SP</option>
-                      <option value="26">SE</option>
-                      <option value="27">TO</option>
-                    </Form.Select>
-                    {errors.endereco?.uf && (
-                      <Form.Text className="invalid-feedback">
-                        {errors.endereco?.uf.message}
-                      </Form.Text>
-                    )}
-                  </Form.Group>
+                      error={errors.telefone}
+                    />
+                  </div>
 
-                  <CustomInputIconNone
-                    label="CEP"
-                    small="Formato do CEP: 99999-999"
-                    className="input-web"
-                    type="text"
-                    placeholder="Informe seu CEP"
-                    pattern="[0-9]{5}-[0-9]{3}|[0-9]{8}"
-                    register={register("endereco.cep", { required: "O CEP é obrigatório" })}
-                    error={errors.endereco?.cep}
-                  />
+                  <div className="mb-3">
+                    <label className="form-label">CNPJ</label>
+                    <CustomInputIconNone
+                      type="text"
+                      pattern="[0-9]{2}.[0-9]{3}.[0-9]{3}/[0-9]{4}-[0-9]{2}|[0-9]{15}-[0-9]{2}"
+                      placeholder="12.345.678/0001-00"
+                      icon=""
+                      register={register("cnpj", {
+                        required: "O CNPJ é obrigatório.",
+                      })}
+                      error={errors.cnpj}
+                    />
+                  </div>
 
-                  <CustomInputIconNone
-                    label="Logradouro"
-                    className="input-web"
-                    type="text"
-                    placeholder="Informe seu logradouro"
-                    register={register("endereco.rua", { required: "A rua é obrigatória." })}
-                    error={errors.endereco?.rua}
-                  />
+                  <div className="mb-3">
+                    <label className="form-label">Email</label>
+                    <CustomInputIconNone
+                      type="email"
+                      placeholder="Informe seu e-mail"
+                      icon="bi bi-envelope-at-fill white"
+                      register={register("email", {
+                        required: "O email é obrigatório",
+                      })}
+                      error={errors.email}
+                    />
+                  </div>
 
-                  <CustomInputIconNone
-                    label="Número"
-                    className="input-web"
-                    type="text"
-                    placeholder="Informe seu número residencial"
-                    register={register("endereco.numero", { required: "O número é obrigatório." })}
-                    error={errors.endereco?.numero}
-                  />
+                  <div className="mb-3">
+                    <label className="form-label">Senha</label>
+                    <CustomInputIconNone
+                      type={senha}
+                      placeholder="Crie sua senha"
+                      icon={icone}
+                      register={register("senha", {
+                        required: "A senha é obrigatória",
+                      })}
+                      error={errors.senha}
+                      toggleType={mudarTipo}
+                      iconType={icone}
+                    />
+                  </div>
 
-                  <CustomInputIconNone
-                    label="Complemento"
-                    className="input-web"
-                    type="text"
-                    placeholder="Informe um complemento"
-                    register={register("endereco.complemento")}
-                    error={errors.endereco?.complemento}
-                  />
+                  <div className="mb-3">
+                    <label className="form-label">Confirmação de senha</label>
+                    <CustomInputIconNone
+                      type={senha2}
+                      placeholder="Confirme sua senha"
+                      icon={icone2}
+                      register={register("confirmarSenha", {
+                        required: "As senhas devem ser iguais",
+                        validate: (value) =>
+                          value === getValues("senha") ||
+                          "As senhas devem ser iguais",
+                      })}
+                      error={errors.confirmarSenha}
+                      toggleType={mudarTipo2}
+                      iconType={icone2}
+                    />
+                  </div>
 
-                  <div className="d-flex justify-content-center">
-                    <Button variant="warning" type="submit" color="light">
-                      Cadastrar
-                    </Button>
+                  <div className="d-flex gap-4" >
+                    <div className="mb-3 flex-grow-1">
+                      <label className="form-label">Cidade</label>
+                      <CustomInputIconNone
+                        type="text"
+                        placeholder="Cidade"
+                        register={register("endereco.cidade", {
+                          required: "A Cidade é obrigatória",
+                        })}
+                        error={errors.endereco?.cidade}
+                      />
+                    </div>
+
+                    <Form.Group className="mb-3 flex-grow-1">
+                      <Form.Label className="d-flex">UF</Form.Label>
+                      <Form.Select
+                        className="select-cadastro"
+                        {...register("endereco.uf", {
+                          required: "O UF é obrigatório.",
+                          maxLength: {
+                            value: 2,
+                            message: "Limite de 2 caracteres.",
+                          },
+                        })}
+                      >
+                        <option value="default">Unidade Federativa</option>
+                        <option value="1">AC</option>
+                        <option value="2">AL</option>
+                        <option value="3">AP</option>
+                        <option value="4">AM</option>
+                        <option value="5">BA</option>
+                        <option value="6">CE</option>
+                        <option value="7">DF</option>
+                        <option value="8">ES</option>
+                        <option value="9">GO</option>
+                        <option value="10">MA</option>
+                        <option value="11">MT</option>
+                        <option value="12">MS</option>
+                        <option value="13">MG</option>
+                        <option value="14">PA</option>
+                        <option value="15">PB</option>
+                        <option value="16">PR</option>
+                        <option value="17">PE</option>
+                        <option value="18">PI</option>
+                        <option value="19">RJ</option>
+                        <option value="20">RN</option>
+                        <option value="21">RS</option>
+                        <option value="22">RO</option>
+                        <option value="23">RR</option>
+                        <option value="24">SC</option>
+                        <option value="25">SP</option>
+                        <option value="26">SE</option>
+                        <option value="27">TO</option>
+                      </Form.Select>
+                      {errors.endereco?.uf && (
+                        <Form.Text className="invalid-feedback">
+                          {errors.endereco?.uf.message}
+                        </Form.Text>
+                      )}
+                    </Form.Group>
+
+                    <div className="mb-3 flex-grow-1">
+                      <label className="form-label">CEP</label>
+                      <CustomInputIconNone
+                        type="text"
+                        placeholder="99999-999"
+                        pattern="[0-9]{5}-[0-9]{3}|[0-9]{8}"
+                        register={register("endereco.cep", {
+                          required: "O CEP é obrigatório",
+                        })}
+                        error={errors.endereco?.cep}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="mb-3">
+                    <label className="form-label">Logradouro</label>
+                    <CustomInputIconNone
+                      type="text"
+                      placeholder="Rua Ator Paulo Gustavo"
+                      register={register("endereco.rua", {
+                        required: "A rua é obrigatória.",
+                      })}
+                      error={errors.endereco?.rua}
+                    />
+                  </div>
+
+                  <div className="d-flex " >
+                    <div className="mb-3 flex-grow-1">
+                      <label className="form-label">Número</label>
+                      <CustomInputIconNone
+                        type="text"
+                        placeholder="100"
+                        register={register("endereco.numero", {
+                          required: "O número é obrigatório.",
+                        })}
+                        error={errors.endereco?.numero}
+                      />
+                    </div>
+
+                    <div className="mb-3 flex-grow-1">
+                      <label className="form-label">Complemento</label>
+                      <CustomInputIconNone
+                        type="text"
+                        placeholder="Apt/Casa"
+                        register={register("endereco.complemento")}
+                        error={errors.endereco?.complemento}
+                      />
+                    </div>
+                  </div>
+
+                  <div class="d-grid gap-2 col-12 flex-fill">
+                    <ButtonNavigation
+                      text="Cadastrar"
+                      type="submit"
+                      className="white button_cadastro mt-5"
+                    />
+                    <hr />
+
                   </div>
                 </Form>
-              </Card.Body>
-            </Card>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </main>
+      </ContainerCenterMobile>
+    </>
   );
 }

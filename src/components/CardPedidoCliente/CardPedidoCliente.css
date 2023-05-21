@@ -1,7 +1,17 @@
+
 .main-card-pedido {
     display: flex;
     justify-content: center;
 }
+
+.hidden {
+    display: none;
+  }
+
+  .rating-stars {
+    color: #ffd700;
+    font-size: 20px;
+  }
 
 .section-cards-pedidos {
     width: 80%;
@@ -11,8 +21,8 @@
 }
 
 .article-cards-pedidos {
-    width: 450px;
-    height: 250px;
+    width: 500px;
+    height: 350px;
     min-width: 300px;
     display: flex;
     flex-direction: column;
@@ -122,6 +132,28 @@
     border-top: 0.5px solid #f2f2f2;
 }
 
+
+/* CORES DOS STATUS DOS PEDIDOS */
+
+.aguardando{
+    color: #b4a7d6;
+}
+
+.confirmado{
+    color: #808005;
+}
+
+.aCaminho{
+    color: #239999;
+}
+
+.entregue{
+    color: #6aa84f;
+}
+
+.cancelado{
+    color: #e01919;
+}
 
 @media (max-width: 480px) {
     .foto-cards-pedidos h1 {

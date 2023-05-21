@@ -1,4 +1,4 @@
-import "../Footer/Footer.css"
+import "./Footer.css"
 import logo from "../../assets/images/logoTemaClaro.png"
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,7 +6,7 @@ import { faFacebookF, faGoogle, faInstagram } from '@fortawesome/free-brands-svg
 import { Col, Row } from "react-bootstrap";
 
 
-export function FooterLogin() {
+export function Footer() {
     return (
         <footer className="text-center text-lg-start text-md-start text-primary-color mt-0 mb-0 my-app-footer pt-1">
             <Row className="mt-5 no-border-row d-flex justify-content-center aligns-items-center">

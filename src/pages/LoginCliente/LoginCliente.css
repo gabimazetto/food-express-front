@@ -1,28 +1,36 @@
 .background-gradient {
-    background: linear-gradient(34deg, rgba(255,255,255,1) 27%, rgba(240,96,0,1) 95%);
+    background: linear-gradient(90deg, rgba(54,54,54,1) 0%,  rgba(240,96,0,0.38139005602240894) 49%, rgba(255,255,255,1) 77%);
     min-height: 100vh;
 }
-
-.img{
-    width: 100%;
-    max-width: -webkit-fill-available;
-}
-
-.container{
+.container-login{
     width: 85% !important;
     background-color: #fff;
     box-shadow: #D93F0B1a 0px 4px 12px;    
-    overflow: auto;
+    overflow-x: hidden;
+    margin-top: 10%;
+    margin-bottom: 10%;
 }
-
+.logo {
+    display: none;
+}
+.img-login{
+    display: block;
+    max-width: -webkit-fill-available;
+    align-items: center;
+    margin: 5% auto;
+}
+.flex {
+    display: flex;
+}
+.input-web{
+    font-size: 0.85rem !important;
+}
 .white{
     color: #fff !important;
 }
-
 .eyes {
       cursor: pointer;       
 }
-
 .my-button-not-filled {
     color: #f06000 !important;
     background-color: transparent !important;
@@ -31,119 +39,60 @@
     width: 100% !important;
     margin-top: 1rem;
 }
-
 .my-button-not-filled:hover {
     color: #fff !important;
     background-color: #f27826 !important;
     font-weight: 500 !important;
 }
 
-@media (max-width: 480px) {
-    .colTwo img {
-      max-width: 100%; /* Defina o valor desejado para o tamanho da imagem */
-      height: auto; /* Mantém a proporção da imagem */
+
+@media (min-width: 680px) {
+    .input-web{
+        font-size: 1rem !important;
     }
   }
-  
-@media (min-width: 780px) {
+@media (min-width: 970px) {
+    .container-login{
+       display: flex;
+       flex-direction: row-reverse;
+       justify-content: center;
+    }
+    .logo {
+        display: block;
+        margin-left: 5%;
+    }
     .background-gradient {
-        background: linear-gradient(270deg, rgba(255,255,255,1) 27%, rgba(240,96,0,1) 95%);
+        background: linear-gradient(90deg, rgba(54,54,54,1) 0%,  rgba(240,96,0,0.38139005602240894) 49%, rgba(255,255,255,1) 77%);
         min-height: 100vh;
     }
-    .grid {
-        display: grid;
-        grid-template-columns: 20px 1fr 1fr 1fr 60px;
-        gap: 0.625rem;
-        margin-top: 5%;
-    }  
-    .colOne {
-        grid-row: 1;
-        grid-column: 1/-3;   
-       
-    }
-    .colTwo {
-        display: grid;
-        grid-row: 1;
-        grid-column: 4/5;
-        position: relative;
-        z-index: 2;   
-    }
-    .colTwo img {
-        position: relative;
-        z-index: 3;
-        box-sizing: border-box !important;
-        max-width: 21.875rem;
-    }
-    
-    .colOne img {
-        max-width: 16.25rem;
-        margin-bottom: 1.25rem;
-    }
 
-    .colTwo::after {
-        content: "";
+    .img-login{
         display: block;
-        min-height: 36.7rem !important;
-        max-width: 62.5rem !important;
-        background-color: #f06000;
-        position: absolute;
-        box-sizing: border-box !important;
-        width: 92%;
-        z-index: 1;
-        border-radius: 30px;
-        top: -7%;
-        left: 26%;
-    }   
-    
-}
-
-@media (min-width: 840px) {
-    main.container {
-        min-height: 590px !important;
-        max-width: 1000px;
+        max-width: fit-content;
+        max-width: -webkit-fill-available;
+        align-items: center;
+        margin: 5% auto;
+    }
+    .conteudo{
+        margin-right: 12%;
     }
    
-    .colTwo img {       
-        max-width: 25.85rem;
-    }
-    
-    .colTwo::after {
-        width: 97%;       
-    }       
-}
-
-
-@media (min-width: 960px)  {
-    .colOne {
-        grid-column: 2/-4;
+    .colTwoLogin{
+        background-color: #D97B0B;
+        width: 50%;
+        /* position: absolute; */
     }
 
-    .colTwo {
-        grid-row: 1/2;
-        grid-column: 3/4;  
-    }
-
-    .colTwo img {
-        position: relative;
-        z-index: 3;
-        box-sizing: border-box !important;
-    }
-    
-    .colOne img {
-        min-width: 21.25rem;
-        margin-bottom: 1.25rem;
-    }
-
-    .colTwo::after {
-        width: 108%;
-        top: -10%;
-        left: 7.85rem;     
-    }
+     .colTwoLogin img {
+       margin: 25% auto 0 -15%
+            
+    } 
+   
 }
 
 @media (min-width: 1400px) {
-    main.container {
-        min-height: 590px !important;
-        max-width: 1000px !important;
+    .container-login {
+        min-height: 695px !important;
+        max-width: 1150px !important;
     }
 }

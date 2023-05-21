@@ -4,12 +4,13 @@ import { Button, Card, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { CustomInput } from "../../components/CustomInput/CustomInput";
 import { CustomInputIconNone } from "../../components/CustomInputIconNone/CustomInputIconNone";
-import cadastroClienteImg from "../../assets/images/meninaPizza.png";
 import "./CadastroCliente.css";
 import { ButtonNavigation } from "../../components/ButtonNavigation/ButtonNavigation";
 import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/ContainerCenterMobile";
+import { ContainerCardImg } from "../../components/ContainerCardImg/ContainerCardImg"
+import cadastroClienteImg from "../../assets/images/meninaPizza.png";
+import imgCadastroWeb from "../../assets/images/ImgCadWeb.png";
 import logo from "../../assets/images/logoTemaClaro.png";
 
 
@@ -72,29 +73,41 @@ export function CadastroCliente() {
 
   return (
     <>
-      <ContainerCenterMobile className="background-gradient">
-        <div className="background-gradient-escuro">
+      <ContainerCenterMobile className="background-gradient-escuro">
+        {/* <div className="background-gradient-escuro"> */}
           <main className="border container rounded-5 ">
-            <div className="grid">
-              <div className="colTwo">
-                <div class="text-center">
-                  <img
-                    src={cadastroClienteImg}
-                    className="mt-4 imagem-cadastro"
+          <img
+                    src={logo}
+                    className="mt-4 ms-5 logo-web-cadastro"
                     alt="Imagem de uma menina com uma fatia de pizza"
                   />
-                </div>
+          <h1 className="title-client">Seja nosso cliente e cadastre-se!</h1>
+
+            <div className="flex">
+              <div className="colTwo">
+                {/* <div class="text-center"> */}
+                  <ContainerCardImg className="card-web">
+                  <img
+                    src={imgCadastroWeb}
+                    className="mt-4 imagem-cadastro-web"
+                    alt="Imagem de uma menina com uma fatia de pizza"
+                  />
+                  <img
+                    src={cadastroClienteImg}
+                    className="mt-4 imagem-cadastro-mobile"
+                    alt="Imagem de uma menina com uma fatia de pizza"
+                  />
+                  </ContainerCardImg>
+                {/* </div> */}
               </div>
               <div className="colOne">
                 <div className="px-3 py-4">
                   
-                  <h1 className="text-center">Seja nosso cliente e cadastre-se!</h1>
 
                   <Form onSubmit={handleSubmit(onSubmit)}>
                     <div className="mb-3">
                       <label className="form-label">Nome</label>
-                      <CustomInputIconNone
-                        className="input-web input-cadastro"
+                      <CustomInputIconNone                        
                         type="text"
                         placeholder="Informe seu nome"
                         register={register("nome", {
@@ -107,7 +120,7 @@ export function CadastroCliente() {
                     <div className="mb-3">
                       <label className="form-label">Email</label>
                       <CustomInputIconNone
-                        className="input-web input-cadastro"
+                        
                         type="email"
                         placeholder="Informe seu e-mail"
                         icon="bi bi-envelope-at-fill white"
@@ -120,8 +133,8 @@ export function CadastroCliente() {
 
                     <div className="mb-3">
                       <label className="form-label">Senha</label>
-                      <CustomInput
-                        className="input-web input-cadastro"
+                      <CustomInputIconNone
+                        
                         type={senha}
                         placeholder="Crie sua senha"
                         icon={icone}
@@ -136,8 +149,7 @@ export function CadastroCliente() {
 
                     <div className="mb-3">
                       <label className="form-label">Confirmação de senha</label>
-                      <CustomInput
-                        className="input-web input-cadastro"
+                      <CustomInputIconNone
                         type={senha2}
                         placeholder="Confirme sua senha"
                         icon={icone2}
@@ -155,12 +167,12 @@ export function CadastroCliente() {
 
                     <div className="mb-3">
                       <label className="form-label">Telefone</label>
-                      <CustomInput
+                      <CustomInputIconNone
                         type="tel"
                         icon="bi bi-telephone white"
-                        className="input-web input-cadastro"
+                        
                         pattern="[(0-9)]{4}[0-9]{5}-[0-9]{4}|[0-9]{2}[0-9]{5}-[0-9]"
-                        placeholder="Informe o telefone: (99)99999-9999"
+                        placeholder="(99)99999-9999"
                         register={register("telefone", {
                           required: "O telefone é obrigatório.",
                           maxLength: {
@@ -179,7 +191,7 @@ export function CadastroCliente() {
                         icon="bi bi-calendar-date white"
                         min={dayjs("1920-01-01").format("YYYY-MM-DD")}
                         max={today.subtract(13, "year").format("YYYY-MM-DD")}
-                        className="input-web input-cadastro"
+                        className="font-data"
                         register={register("dataNascimento")}
                       />
                     </div>
@@ -187,10 +199,9 @@ export function CadastroCliente() {
                     <div className="mb-3">
                       <label className="form-label">CPF</label>
                       <CustomInputIconNone
-                        className="input-web input-cadastro"
                         type="text"
                         pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}|[0-9]{9}-[0-9]{2}"
-                        placeholder="Informe seu CPF: 123.456.789-12"
+                        placeholder="123.456.789-12"
                         icon=""
                         register={register("cpf", {
                           required: "O CPF é obrigatório.",
@@ -199,12 +210,14 @@ export function CadastroCliente() {
                       />
                     </div>
 
-                    <div className="mb-3">
+                    <div className="d-flex gap-4" >
+
+                    <div className="mb-3 flex-grow-1">
                       <label className="form-label">Cidade</label>
-                      <CustomInputIconNone
-                        className="input-web input-cadastro"
+                      <CustomInputIconNone 
+                                               
                         type="text"
-                        placeholder="Informe sua cidade"
+                        placeholder="Cidade"
                         register={register("endereco.cidade", {
                           required: "A Cidade é obrigatória",
                         })}
@@ -212,10 +225,10 @@ export function CadastroCliente() {
                       />
                     </div>
 
-                    <Form.Group className="mb-3">
+                    <Form.Group className="mb-3 flex-grow-1">
                       <Form.Label className="d-flex">UF</Form.Label>
                       <Form.Select
-                        className="input-web"
+                        className="select-cadastro"
                         {...register("endereco.uf", {
                           required: "O UF é obrigatório.",
                           maxLength: {
@@ -260,12 +273,11 @@ export function CadastroCliente() {
                       )}
                     </Form.Group>
 
-                    <div className="mb-3">
+                    <div className="mb-3 flex-grow-1">
                       <label className="form-label">CEP</label>
-                      <CustomInputIconNone
-                        className="input-web input-cadastro"
+                      <CustomInputIconNone                        
                         type="text"
-                        placeholder="Informe seu CEP: 99999-999"
+                        placeholder="99999-999"
                         pattern="[0-9]{5}-[0-9]{3}|[0-9]{8}"
                         register={register("endereco.cep", {
                           required: "O CEP é obrigatório",
@@ -273,26 +285,28 @@ export function CadastroCliente() {
                         error={errors.endereco?.cep}
                       />
                     </div>
+                    </div>
 
                     <div className="mb-3">
                       <label className="form-label">Logradouro</label>
                       <CustomInputIconNone
-                        className="input-web input-cadastro"
+                        
                         type="text"
-                        placeholder="Informe seu logradouro"
+                        placeholder="Rua Ator Paulo Gustavo"
                         register={register("endereco.rua", {
                           required: "A rua é obrigatória.",
                         })}
                         error={errors.endereco?.rua}
                       />
                     </div>
-
-                    <div className="mb-3">
+                    
+                    <div className="d-flex " >
+                    <div className="mb-3 flex-grow-1">
                       <label className="form-label">Número</label>
                       <CustomInputIconNone
-                        className="input-web input-cadastro"
+                        
                         type="text"
-                        placeholder="Informe seu número residencial"
+                        placeholder="100"
                         register={register("endereco.numero", {
                           required: "O número é obrigatório.",
                         })}
@@ -300,30 +314,33 @@ export function CadastroCliente() {
                       />
                     </div>
 
-                    <div className="mb-3">
+                    <div className="mb-3 flex-grow-1">
                       <label className="form-label">Complemento</label>
                       <CustomInputIconNone
-                        className="input-web input-cadastro"
+                       
                         type="text"
-                        placeholder="Informe um complemento"
+                        placeholder="Apt/Casa"
                         register={register("endereco.complemento")}
                         error={errors.endereco?.complemento}
                       />
                     </div>
-
-                    <div className="d-grid gap-2 mt-4">
+                    </div>
+                    <div class="d-grid gap-2 col-12 flex-fill">
                       <ButtonNavigation
                         text="Cadastrar"
                         type="submit"
-                        className="white"
+                        className="white button_cadastro mt-5"
                       />
+                      <hr />
+
                     </div>
                   </Form>
                 </div>
               </div>
             </div>
+            
           </main>
-        </div>
+        {/* </div> */}
       </ContainerCenterMobile>
     </>
   );
