@@ -17,24 +17,34 @@ export function ClienteBuscaComida() {
 
 
     // INICIAR TABELA DE CARDÁPIO
-    useEffect(() => { 
-        if(categoria){
-            setPesquisa(categoria);
-    }
+    useEffect(() => {
+        if (categoria) {
+            
+        }
 
 
         initializeTable();
     }, []);
 
-    
+
     function handleUpdateData() {
         initializeTable();
     }
 
     // FUNÇÃO INICIAR TABELA DE CARDÁPIO
     function initializeTable() {
+        const params = {};
+
+        if (pesquisa) {
+            params.nome = pesquisa;
+        }
+
+        if (categoria) {
+            params.categoria = categoria;
+        }
+
         axios
-            .get(`http://localhost:3001/comidas`)
+            .get("http://localhost:3001/comidas", { params })
             .then((response) => {
                 setComidas(response.data);
                 setComidasFiltradas(response.data);
@@ -49,7 +59,7 @@ export function ClienteBuscaComida() {
         const pesquisa = event.target.value.toLowerCase();
         const comidasFiltradas = comidas.filter((comida) => {
             return (
-                comida.nome.toLowerCase().includes(pesquisa)   ||
+                comida.nome.toLowerCase().includes(pesquisa) ||
                 comida.categoria.toLowerCase().includes(pesquisa) ||
                 comida.descricao.toLowerCase().includes(pesquisa)
             );
@@ -73,6 +83,9 @@ export function ClienteBuscaComida() {
                             />
                         </InputGroup>
                     </Form>
+                    {categoria && (
+                        <p>Buscando por categoria: {categoria}</p>
+                    )}
                 </div>
                 {comidasFiltradas === null ? (
                     <Loader />
