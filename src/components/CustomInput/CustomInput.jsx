@@ -18,7 +18,7 @@ export function CustomInput({
   iconType // e este estado
 }) {
   return (
-    <Form.Group className="mb-3">
+    <Form.Group className="mb-3 d-flex justify-content-center">
       <InputGroup className="custon-input-group">
         <Form.Label>{label}</Form.Label>
         <small className="form-text text-muted">
