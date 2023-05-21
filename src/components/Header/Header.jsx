@@ -14,8 +14,8 @@ import { ContextRestaurant } from "../../contexts/RestaurantContext";
 export function Header() {
 
     const { authenticated } = useContext(ContextLogin);
-    const { idCli, emailCli, roleCli, LogoffClient } = useContext(ContextClient);
-    const { idRes, emailRes, roleRes, LogoffRestaurant } = useContext(ContextRestaurant);
+    const { idCli, roleCli, LogoffClient } = useContext(ContextClient);
+    const { idRes, roleRes, LogoffRestaurant } = useContext(ContextRestaurant);
     const navigate = useNavigate();
     const location = useLocation();
 

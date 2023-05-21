@@ -1,40 +1,42 @@
 import axios from "axios"
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { Button, Card, Form, Row, Col } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { ContextRestaurant } from "../../contexts/RestaurantContext";
 
 export function EditaRestaurante() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
-    const {id} = useParams()
+    const { idRes } = useContext(ContextRestaurant);
     const navigate = useNavigate();
-    
 
-function onSubmit(data) {
-    axios.put(`http://localhost:3001/restaurantes/${id}`, data)
-    .then(response => {
-        toast.success(response.data.message, {position:"bottom-right", duration:2000})
-        navigate(`/restaurante/${id}`)
-    })
 
-.catch(error => {
-    toast.error(error.response.data.message, {position:"botom-right", duration: 2000})
-    console.log(error)
-})
-}
+    function onSubmit(data) {
+        axios.put(`http://localhost:3001/restaurantes/${idRes}`, data)
+            .then(response => {
+                toast.success(response.data.message, { position: "bottom-right", duration: 2000 })
+                navigate(`/restaurante/home`)
+            })
 
-useEffect( () => {
-    axios.get(`http://localhost:3001/restaurantes/${id}`)
-    .then(response => {
-        //TODO --> Tirar email e senha como obrigatório do put, tanto no front quanto no back.
-        const {nomeFantasia, razaoSocial, telefone, cnpj, email, senha, endereco: {uf, cidade, cep, rua, numero, complemento}} = response.data
-        reset ({nomeFantasia, razaoSocial, telefone, cnpj, email, senha, endereco: {uf, cidade, cep, rua, numero, complemento}})
-    })
-}, [id, reset])
+            .catch(error => {
+                toast.error(error.response.data.message, { position: "botom-right", duration: 2000 })
+                console.log(error)
+            })
+    }
 
-return (
-    <>
+    useEffect(() => {
+        axios.get(`http://localhost:3001/restaurantes/${idRes}`)
+            .then(response => {
+                //TODO --> Tirar email e senha como obrigatório do put, tanto no front quanto no back.
+                const { nomeFantasia, razaoSocial, telefone, cnpj, email, senha, endereco: { uf, cidade, cep, rua, numero, complemento } } = response.data
+                reset({ nomeFantasia, razaoSocial, telefone, cnpj, email, senha, endereco: { uf, cidade, cep, rua, numero, complemento } })
+            })
+    }, [idRes, reset])
+
+
+    return (
+        <>
             <div className="container mt-2 ">
                 <Card className="mt-3 mb-3" border="warning">
                     <Card.Body>
@@ -296,5 +298,5 @@ return (
                 </Card>
             </div>
         </>
-)
+    )
 }

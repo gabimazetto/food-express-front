@@ -2,14 +2,14 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import { Loader } from "../../components/Loader/Loader";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import "./style.css";
 import { ContextClient } from "../../contexts/ClientContext";
 
 export function Restaurantes() {
+
   const [restaurantes, setRestaurantes] = useState(null);
-  const navigate = useNavigate();
   const [busca, setBusca] = useState("");
   const { idCli } = useContext(ContextClient);
 
@@ -71,7 +71,7 @@ export function Restaurantes() {
     <div className="container">
       {/* Busca inicio */}
       <div className="navbar navbar-light bg-light">
-        <h1>Restaurantes</h1>
+        <h1> Restaurantes </h1>
         <div className="search-wrapper">
           <i className="bi bi-search"></i>
           <input
@@ -83,66 +83,67 @@ export function Restaurantes() {
         </div>
       </div>
       {/* Busca Fim */}
-      {restaurantes === null ? (
-        <Loader />
-      ) : (
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>Nome Fantasia</th>
-              <th>Cidade</th>
-              <th>Rua</th>
-              <th>Mais Detalhes</th>
-              <th>Adicionar aos Favoritos</th>
-            </tr>
-          </thead>
-          <tbody>
-            {restaurantes
-              .filter((restaurante) => {
-                //campo de busca2 inicio
-                const nomeFantasia = restaurante.nomeFantasia.toLowerCase();
-                const cidade = restaurante.endereco.cidade.toLowerCase();
-                const rua = restaurante.endereco.rua.toLowerCase();
-                const termoBusca = busca.toLowerCase();
+      {
+        restaurantes === null ?
+          <Loader />
+          :
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Nome Fantasia</th>
+                <th>Cidade</th>
+                <th>Rua</th>
+                <th>Mais Detalhes</th>
+                <th>Adicionar aos Favoritos</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                restaurantes
+                  .filter((restaurante) => { //campo de busca2 inicio
+                    const nomeFantasia = restaurante.nomeFantasia.toLowerCase();
+                    const cidade = restaurante.endereco.cidade.toLowerCase();
+                    const rua = restaurante.endereco.rua.toLowerCase();
+                    const termoBusca = busca.toLowerCase();
 
-                return (
-                  nomeFantasia.includes(termoBusca) ||
-                  cidade.includes(termoBusca) ||
-                  rua.includes(termoBusca)
-                );
-              }) // campo de busca2 fim
-              .map((restaurante) => {
-                return (
-                  <tr key={restaurante.id}>
-                    <td>{restaurante.nomeFantasia}</td>
-                    <td>{restaurante.endereco.cidade}</td>
-                    <td>{restaurante.endereco.rua}</td>
-                    <td>
-                      <Button
-                        as={Link}
-                        to={`/cliente/restaurante/cardapio/${restaurante.id}`}
-                      >
-                        <i className="bi bi-book"></i>
-                      </Button>
-                    </td>
-                    <td>
-                      <Button
-                        type="submit"
-                        onClick={() => FavRestaurante(restaurante.id)}
-                      >
-                        {restaurante.favorito ? ( // Renderização condicional do ícone de favorito
-                          <i className="bi bi-heart-fill"></i>
-                        ) : (
-                          <i className="bi bi-heart"></i>
-                        )}
-                      </Button>
-                    </td>
-                  </tr>
-                );
-              })}
-          </tbody>
-        </Table>
-      )}
+                    return (
+                      nomeFantasia.includes(termoBusca) ||
+                      cidade.includes(termoBusca) ||
+                      rua.includes(termoBusca)
+                    );
+                  }) // campo de busca2 fim
+                  .map((restaurante) => {
+                    return (
+                      <tr key={restaurante.id}>
+                        <td>{restaurante.nomeFantasia}</td>
+                        <td>{restaurante.endereco.cidade}</td>
+                        <td>{restaurante.endereco.rua}</td>
+                        <td>
+                          <Button
+                            as={Link}
+                            to={`/cliente/restaurante/cardapio/${restaurante.id}`}
+                          >
+                            <i className="bi bi-book"></i>
+                          </Button>
+                        </td>
+                        <td>
+                          <Button
+                            type="submit"
+                            onClick={() => FavRestaurante(restaurante.id)}
+                          >
+                            {restaurante.favorito ? ( // Renderização condicional do ícone de favorito
+                              <i className="bi bi-heart-fill"></i>
+                            ) : (
+                              <i className="bi bi-heart"></i>
+                            )}
+                          </Button>
+                        </td>
+                      </tr>
+                    )})
+              }
+            </tbody>
+          </Table>
+        }
     </div>
   );
 }

@@ -2,7 +2,6 @@ import React from 'react';
 import "./HomeCliente.css"
 import imgMoto from "../../assets/images/moto.png";
 import imgLivro from "../../assets/images/cardapio.png";
-import { Restaurantes } from '../Restaurantes/Restaurantes';
 import { Link } from "react-router-dom";
 
 export function HomeCliente() {

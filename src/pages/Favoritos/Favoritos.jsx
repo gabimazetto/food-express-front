@@ -10,7 +10,7 @@ export function Favoritos() {
 
     const [favoritos, setFavoritos] = useState([]);
     const [comidasFavoritas, setComidasFavoritas] = useState([]);
-
+    
     useEffect(() =>{
         initializeTable();
         initializeComidasTable();
@@ -34,8 +34,6 @@ export function Favoritos() {
             console.log(error);
         });
     }
-
-
 
     return(
         <>

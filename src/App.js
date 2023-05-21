@@ -17,81 +17,94 @@ import { PedidosCliente } from "./pages/PedidosCliente/PedidosCliente";
 import { Favoritos } from "./pages/Favoritos/Favoritos";
 import { NotFound } from "./pages/NotFound/NotFound";
 import { CardapioCliente } from "./pages/CardapioCliente/CardapioCliente";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { ContextLogin } from "./contexts/LoginContext";
 import { ContextClient } from "./contexts/ClientContext";
 import { ContextRestaurant } from "./contexts/RestaurantContext";
 import { FaleConosco } from "./pages/FaleConosco/FaleConosco";
 import { FAQ } from "./pages/FAQ/FAQ";
 import { PoliticadePrivacidade } from "./pages/PoliticadePrivacidade/PoliticadePrivacidade";
-
 import { DescricaoPedidoCliente } from "./pages/DescricaoPedidoCliente/DescricaoPedidoCliente";
 import { PedidosRestaurante } from "./pages/PedidosRestaurante/PedidosRestaurante";
 import { ClienteBuscaComida } from "./pages/ClienteBuscaComida/ClienteBuscaComida"
 import { Sobre } from "./pages/Sobre/Sobre";
+import { PublicOnlyRoute } from "./components/PublicOnlyRoute/PublicOnlyRoute";
+import { PrivateRouteRestaurant } from "./components/PrivateRouteRestaurant/PrivateRouteRestaurant";
+import { PrivateRouteClient } from "./components/PrivateRouteClient/PrivateRouteClient";
 
 
 function App() {
-  const { idCli, emailCli, roleCli, handleDecodeCliente } = useContext(ContextClient);
-  const { idRes, emailRes, roleRes, handleDecodeRestaurante } = useContext(ContextRestaurant);
-  const { authenticated, setAuthenticated } = useContext(ContextLogin);
-
-
-
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-
-    if (token && authenticated === false){
-      if(idCli !== null && emailCli !== null && roleCli === "cliente"){
-        handleDecodeCliente(token);
-        setAuthenticated(true);
-      } else if(idRes !== null && emailRes !== null && roleRes === "restaurante"){
-        handleDecodeRestaurante(token);
-        setAuthenticated(true);
+  const { roleCli, handleDecodeCliente } = useContext(ContextClient);
+  const { handleDecodeRestaurante } = useContext(ContextRestaurant);
+  const { authenticated, setAuthenticated, token } = useContext(ContextLogin);
+  function isAuthenticated(){
+    if(token){
+      if(authenticated === false){
+        try{
+          handleDecodeCliente(token).then(() => setAuthenticated(true))
+        }catch(error){
+          console.log(error);
+        }
+        try{
+          if(!roleCli){
+            handleDecodeRestaurante(token).then(() => setAuthenticated(true));
+          }
+        }catch(error){
+          console.log(error);
+        }
       }
-    } 
-  }, []);
+    }
+  }
+  isAuthenticated();
+
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Root />}>
-          <Route path="/" element={<Home />} />
 
-          <Route path="*" element={<NotFound />} />
+          {/* Rotas públicas apenas para quem não está logado na aplicação */}
+          <Route element={<PublicOnlyRoute />}>
+            <Route path="/" element={<Home />} />
+
+            <Route path="/cliente/login" element={<LoginCliente />} />
+            <Route path="/cliente/cadastro" element={<CadastroCliente />} />
+
+            <Route path="/restaurante/login" element={<LoginRestaurante />} />
+            <Route path="/restaurante/cadastro" element={<CadastroRestaurante />} />
+          </Route>
+
+          {/* Rotas de comum acesso entre qualquer contextos */}
           <Route path="/contato" element={<FaleConosco />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/privacidade" element={<PoliticadePrivacidade />} />
           <Route path="/sobre" element={<Sobre />} />
+          <Route path="*" element={<NotFound />} />
+          
+          {/* Rotas privadas acessíveis apenas para o Cliente */}
+          <Route element={<PrivateRouteClient />}>
+            <Route path="/cliente/home" element={<HomeCliente />} />
+            <Route path="/cliente/perfil/:idC" element={<EditarCliente />} />
+            <Route path="/cliente/listar/restaurantes" element={<Restaurantes />} />
+            <Route path="/restaurante/:id" element={<PerfilRestaurante />} />
+            <Route path="/cliente/restaurante/cardapio/:id" element={<CardapioCliente />} />
+            <Route path="/cliente/pesquisa" element={<ClienteBuscaComida/>} />
+            <Route path="/cliente/pesquisa/:categoria" element={<ClienteBuscaComida/>} />
+            <Route path="/cliente/listar/favoritos" element={<Favoritos />} />
+            <Route path="/cliente/pedidos" element={<PedidosCliente />} />
+            <Route path="/cliente/pedidos/:id" element={<DescricaoPedidoCliente />} />
+          </Route>
 
-
-
-
-          <Route path="/cliente/login" element={<LoginCliente />} />
-          <Route path="/restaurante/login" element={<LoginRestaurante />} />
-
-
-          <Route path="/cliente/home" element={<HomeCliente />} />
-          <Route path="/cliente/cadastro" element={<CadastroCliente />} />
-          <Route path="/cliente/perfil/:id" element={<EditarCliente />} />
-          <Route path="/cliente/listar/restaurantes" element={<Restaurantes />} />
-          <Route path="/cliente/restaurante/cardapio/:id" element={<CardapioCliente />} />
-          <Route path="/cliente/pesquisa" element={<ClienteBuscaComida/>} />
-          <Route path="/cliente/pesquisa/:categoria" element={<ClienteBuscaComida/>} />
-          <Route path="/cliente/listar/favoritos" element={<Favoritos />} />
-          <Route path="/cliente/pedidos" element={<PedidosCliente />} />
-          <Route path="/cliente/pedidos/:id" element={<DescricaoPedidoCliente />} />
-            
-          <Route path="/restaurante/cadastro" element={<CadastroRestaurante />} />
-          <Route path="/restaurante/home" element={<HomeRestaurante />}/>
-          <Route path="/restaurante/cardapio/" element={<CardapioRestaurante />} />  {/* Alterar a rota também no adicionar/atualizar comida*/}
-          <Route path="/restaurante/cardapio/cadastro" element={<AdicionarAtualizarComida />} />         {/* Adicionar nova comida ao cardapio*/}
-          <Route path="/restaurante/cardapio/item/:id" element={<AdicionarAtualizarComida />} />       {/* Atualizar comida no cardapio*/}
-          <Route path="/restaurante/:id" element={<PerfilRestaurante />} />
-          <Route path="/restaurante/perfil/:id" element={<EditaRestaurante />} />
-          <Route path="/restaurante/pedidos" element={<PedidosRestaurante />} />
+          {/* Rotas privadas acessíveis apenas para Restaurante */}
+          <Route element={<PrivateRouteRestaurant />}>
+              <Route path="/restaurante/home" element={<HomeRestaurante />}/>
+              <Route path="/restaurante/cardapio/" element={<CardapioRestaurante />} />  {/* Alterar a rota também no adicionar/atualizar comida*/}
+              <Route path="/restaurante/cardapio/cadastro" element={<AdicionarAtualizarComida />} />         {/* Adicionar nova comida ao cardapio*/}
+              <Route path="/restaurante/cardapio/item/:id" element={<AdicionarAtualizarComida />} />       {/* Atualizar comida no cardapio*/}
+              <Route path="/restaurante/perfil/:idR" element={<EditaRestaurante />} />
+              <Route path="/restaurante/pedidos" element={<PedidosRestaurante />} />
+          </Route>
         </Route>
-
       </Routes>
     </BrowserRouter>
   );
