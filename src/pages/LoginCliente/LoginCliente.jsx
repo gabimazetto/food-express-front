@@ -39,21 +39,19 @@ export function LoginCliente() {
   return (
     <>
       <ContainerCenterMobile className="background-gradient">
-        <main className="border container rounded-5 ">
-          <div className="grid" >
+        <main className="border container-login rounded-5 ">
+          
             <div className="colTwoLogin" >
-
-              <div class="text-center">
+             
                 <img
                   src={loginImg}
-                  class="mt-4 "
+                  className="img-login"
                   alt="Imagem de uma mulher no computador vendo imagens de comidas"
-                />
-              </div>
+                />              
             </div>
             <div className="colOneLogin">
-              <div className="px-3 py-4">
-                <img src={logo} class="img-fluid" alt="Logo do FoodExpress" />
+              <div className="px-3 py-4 conteudo">
+                <img src={logo} class="img-fluid logo" alt="Logo do FoodExpress" />
 
                 <Form onSubmit={handleSubmit(onSubmit)}>
                   <CustomInput
@@ -79,7 +77,7 @@ export function LoginCliente() {
                     iconType={icone}
                   />
 
-                  <div class="d-grid gap-2 mt-4">
+                  <div className="d-grid gap-2 mt-4">
                     <ButtonNavigation
                       text="Login"
                       type="submit"
@@ -103,7 +101,7 @@ export function LoginCliente() {
               </div>
             </div>
 
-          </div>
+          
 
         </main>
       </ContainerCenterMobile>
