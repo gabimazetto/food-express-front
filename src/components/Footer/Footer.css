@@ -1,0 +1,32 @@
+.link-footer {
+    text-decoration: none !important;
+    color: #d97b0b !important;
+  }
+  .link-footer:hover {
+    color: #41474a !important;
+  }
+  
+  .my-app-footer {
+    color: #d97b0b !important;
+    background-color: rgb(250, 231, 206) !important;
+    width: 100% !important;
+    margin-left: 0;
+    margin-right: 0;
+    border: none !important;
+  }
+  
+  .logo-footer {
+    width: 80% !important;
+  }
+  
+  .no-border-row {
+    border: none !important;
+  }
+  
+  .row-copy {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    background-color: #f8a80c, !important;
+  }
+  

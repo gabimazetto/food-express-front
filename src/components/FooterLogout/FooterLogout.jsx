@@ -1,38 +1,73 @@
-import "./FooterLogout.css"
-import logo from "../../assets/images/TemaEscuro.png"
+import "../Footer/Footer.css"
+import logo from "../../assets/images/logoTemaClaro.png"
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF, faGoogle, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { Col, Row } from "react-bootstrap";
+
 
 export function FooterLogout() {
     return (
-        <>
-            <footer className=" footer py-2">
-                <div className="divGeral">
-                    <div className="div1">
-                        <img src={logo} alt="logo" className="ms-1"/> 
-                        <h3 className= "ms-3 mt-2"> 
-                            Os melhores <br/> restaurantes na <br/> sua casa
-                        </h3>
+        <footer className="text-center text-lg-start text-md-start text-primary-color mt-0 mb-0 my-app-footer pt-1">
+            <Row className="mt-5 no-border-row d-flex justify-content-center aligns-items-center">
+                <Col md="3" lg="5" xl="3" className="mb-4 mx-5">
+                    <Link to="/" className="linkApp">
+                        <img src={logo} alt="logo" className="logo-footer me-3" />
+                    </Link>
+                    <h3 className="text-center text-md-start mt-5">
+                        Os melhores restaurantes na sua casa!
+                    </h3>
+                </Col>
+                <Col md="3" lg="4" xl="2" className="mb-4 mx-5">
+                    <p>
+                        <Link to="/" className="link-footer" ><p>Home</p> </Link>
+                    </p>
+                    <p>
+                        <Link to="/sobre" className="link-footer" ><p>Sobre nós</p> </Link>
+                    </p>
+                    <p>
+                        <Link to="/faq" className="link-footer" ><p>FAQ</p> </Link>
+                    </p>
+                    <p>
+                        <Link to="/privacidade" className="link-footer" ><p>Política de privacidade</p> </Link>
+                    </p>
+                    <p>
+                        <Link to="/contato" className="link-footer" ><p>Contato</p> </Link>
+                    </p>
+                </Col>
+                <Col md="3" lg="4" xl="2" className="mb-md-0 mb-4 mt-4">
+                    <p>
+                        <FontAwesomeIcon icon={['fas', 'home']} />
+                        São Paulo, SP, BR
+                    </p>
+                    <p>
+                        <FontAwesomeIcon icon={['fas', 'envelope']} />
+                        contato@foodexpress.com
+                    </p>
+                    <p>
+                        <FontAwesomeIcon icon={['fas', 'phone']} /> 99 99999-9999
+                    </p>
+                </Col>
+            </Row>
+            <Row className="mt-0 mb-0 row-copy">
+                <div className="text-center p-1 text-dark" style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
+                    <Link to="https://www.facebook.com/julia.gascho" target="_blank" className="me-4 text-reset">
+                        <FontAwesomeIcon icon={faFacebookF} />
+                    </Link>
+                    <Link to="" className="me-4 text-reset" target="_blank">
+                        <FontAwesomeIcon icon={faGoogle} />
+                    </Link>
+                    <Link to="https://www.instagram.com/jugascho/" target="_blank" className="me-5 text-reset">
+                        <FontAwesomeIcon icon={faInstagram} />
+                    </Link>
+                    <div>
+                        © 2023. Todos os direitos reservados: {" "}
+                        <Link className="text-reset fw-bold" to="/">
+                            foodexpress.com
+                        </Link>
                     </div>
-                    <div className="div2">
-                        <h3>
-                            Contato
-                        </h3>
-                        <p>
-                            Rua: Rio de Janeiro, 01 Niterói - RJ
-                        </p>
-                        <hr className="me-3"></hr>
-                        <p>
-                            contato@foodexpress.com
-                        </p>
-                        <p>
-                            +55 21 9999-9999
-                        </p>
-                    </div>
-                    </div>
-                    <div className="divGeral2">
-                    <hr className="hr1 ms-3 me-3"></hr>
-                    <p className="p1 ms-3">Copyrigth © 2023. Todos os direitos reservados.</p>
-                    </div>
-            </footer>
-        </>
+                </div>
+            </Row>
+        </footer>
     )
 };
