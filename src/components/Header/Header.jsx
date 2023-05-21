@@ -146,7 +146,6 @@ export function Header() {
                                                     <Nav.Link><Button variant="primary" onClick={Deslogar}><i className={temaEscuro === false ? "bi bi-box-arrow-right text-light icones-atalho-grandes" : "bi bi-box-arrow-right text-dark icones-atalho-grandes"}></i></Button></Nav.Link>
                                                 </>
                                             )}
-                                            <Nav.Link as={Link} to={`/cliente/pesquisa`}><Button variant="primary"><i className="bi bi-search text-light icones-atalho-grandes"> DELETAR DEPOIS</i></Button></Nav.Link>
                                             {/* <button onClick={() => trocaTema()}>Trocar Tema</button> */}
 
                                         </Nav>
