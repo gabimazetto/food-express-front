@@ -15,14 +15,8 @@ export function ClienteBuscaComida() {
     const { categoria } = useParams();
 
 
-
     // INICIAR TABELA DE CARDÁPIO
     useEffect(() => {
-        if (categoria) {
-            
-        }
-
-
         initializeTable();
     }, []);
 

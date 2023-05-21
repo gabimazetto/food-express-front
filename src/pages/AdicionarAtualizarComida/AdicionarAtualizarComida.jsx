@@ -9,12 +9,13 @@ import imagemLogo from "../../assets/icons/prato.svg";
 import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/ContainerCenterMobile";
 import { ContextRestaurant } from "../../contexts/RestaurantContext";
 
+
 export function AdicionarAtualizarComida() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const { id } = useParams();
-    const navigate = useNavigate();
     const [imagemComida, setimagemComida] = useState(null);
     const { idRes } = useContext(ContextRestaurant);
+    const navigate = useNavigate();
 
     function convertPrice(price) {
         const formattedPrice = price.replace(",", ".");
@@ -57,7 +58,7 @@ export function AdicionarAtualizarComida() {
                 duration: 2000,
             });
         }
-        navigate(`/restaurante/cardapio/`);
+        navigate('/restaurante/cardapio/');
     }
 
     useEffect(() => {
@@ -70,7 +71,6 @@ export function AdicionarAtualizarComida() {
                 });
         }
     }, [id, reset]);
-
 
 
     function onDelete() {
@@ -89,7 +89,6 @@ export function AdicionarAtualizarComida() {
                 });
             });
     }
-
 
 
     return (

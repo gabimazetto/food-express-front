@@ -1,11 +1,12 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Button, Card, Form, Col, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import editImg from "../../assets/images/surprised-girl1.png";
 import { CustomInputIconNone } from "../../components/CustomInputIconNone/CustomInputIconNone";
+import { ContextClient } from "../../contexts/ClientContext";
 
 export function EditarCliente() {
   const {
@@ -14,7 +15,7 @@ export function EditarCliente() {
     formState: { errors },
     reset,
   } = useForm();
-  const { id } = useParams();
+  const { idCli } = useContext(ContextClient);
   const navigate = useNavigate();
   const [lock, setLock] = useState(true);
   const dayjs = require("dayjs");
@@ -22,7 +23,7 @@ export function EditarCliente() {
 
   function onSubmit(data) {
     axios
-      .put(`http://localhost:3001/clientes/${id}`, data)
+      .put(`http://localhost:3001/clientes/${idCli}`, data)
       .then((response) => {
         toast.success(response.data.message, {
           position: "bottom-right",
@@ -40,7 +41,7 @@ export function EditarCliente() {
   }
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/clientes/${id}`).then((response) => {
+    axios.get(`http://localhost:3001/clientes/${idCli}`).then((response) => {
       const {
         nome,
         email,
@@ -60,7 +61,7 @@ export function EditarCliente() {
         endereco: { uf, cidade, cep, rua, numero, complemento },
       });
     });
-  }, [id, reset]);
+  }, [idCli, reset]);
 
   return (
     <>

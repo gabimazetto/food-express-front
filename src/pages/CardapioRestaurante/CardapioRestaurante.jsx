@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { ContextRestaurant } from "../../contexts/RestaurantContext";
 
 
+
 export function CardapioRestaurante() {
   const [comidas, setComidas] = useState(null);
   const [pesquisa, setPesquisa] = useState("");
@@ -52,7 +53,7 @@ export function CardapioRestaurante() {
     setComidasFiltradas(comidasFiltradas);
   };
 
-  //Jogar depois para a listagem de pedidos
+  // Jogar depois para a listagem de pedidos
 
   //   function EnviarAvaliacao() {
   //     axios

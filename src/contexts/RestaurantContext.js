@@ -7,7 +7,6 @@ const ContextRestaurant = createContext();
 function RestaurantContext({ children }){
     
     const { setAuthenticated } = useContext(ContextLogin);
-    // const [authenticated, setAuthenticated] = useState(false);
     const [idRes, setIdRes] = useState(null);
     const [emailRes, setEmailRes] = useState(null);
     const [roleRes, setRoleRes] = useState(null);

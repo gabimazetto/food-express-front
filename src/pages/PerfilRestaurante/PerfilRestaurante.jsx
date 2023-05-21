@@ -3,10 +3,6 @@ import { useEffect, useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 
-
-
-
-
 export function PerfilRestaurante() {
 
     const [restaurante, setRestaurante] = useState([]);
@@ -26,11 +22,6 @@ export function PerfilRestaurante() {
         };
         detalhe();
     }, [id]);
-
-
-
-
-
 
     return (
         <div className="container">
@@ -56,7 +47,7 @@ export function PerfilRestaurante() {
                                 <Button variant="primary" as={Link} to="/restaurante/home" className="button-add-itens">
                                     Voltar para a Home
                                 </Button>
-                                <Button as={Link} to="/restaurante/cardapio/cadastro" className="button-add-itens" variant="primary">Adicionar novo item</Button>
+                                {/* <Button as={Link} to="/restaurante/cardapio/cadastro" className="button-add-itens" variant="primary">Adicionar novo item</Button> */}
                             </>
                         </Card.Text>
                     </Card.Body>

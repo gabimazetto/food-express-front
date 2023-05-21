@@ -10,7 +10,6 @@ function ClientContext({ children }){
     const [idCli, setIdCli] = useState(null);
     const [emailCli, setEmailCli] = useState(null);
     const [roleCli, setRoleCli] = useState(null);
-    
 
     async function handleLogin(data){
         try{
@@ -27,7 +26,6 @@ function ClientContext({ children }){
         } catch(error){
             console.log(error);
         }
-
     }
 
     async function handleDecodeCliente(token){
@@ -53,7 +51,6 @@ function ClientContext({ children }){
         setEmailCli(null);
         setRoleCli(null);
     }
-
     return(
         <ContextClient.Provider value={{ idCli, emailCli, roleCli, handleDecodeCliente, handleLogin, LogoffClient }}>
             {children}
