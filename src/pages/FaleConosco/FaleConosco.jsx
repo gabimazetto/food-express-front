@@ -2,13 +2,12 @@
 import { Form } from "react-bootstrap";
 import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/ContainerCenterMobile";
 import contatoimg from "../../assets/images/noteContato.png";
-import { FooterLogout } from "../../components/FooterLogout/FooterLogout";
 import "./FaleConosco.css";
 import logo from "../../assets/images/logoTemaClaro.png";
 import { CustomInput } from "../../components/CustomInput/CustomInput";
 import { ButtonNavigation } from "../../components/ButtonNavigation/ButtonNavigation";
 
-export function FaleConosco() {    
+export function FaleConosco() {
 
     return (
         <>
@@ -29,10 +28,10 @@ export function FaleConosco() {
 
                             <img src={logo} class="img-fluid logo-fale pb-5" alt="Logo do FoodExpress" />
 
-                            
+
 
                             <Form>
-                            <h1 className="pb-2">Fale Conosco</h1>
+                                <h1 className="pb-2">Fale Conosco</h1>
                                 <CustomInput
                                     className="input-web"
                                     type="email"
@@ -46,7 +45,7 @@ export function FaleConosco() {
                                     placeholder="Escreva sua mensagem aqui..."
                                     icon="bi bi-pencil-square white"
                                 />
-                                
+
 
                                 <ButtonNavigation
                                     text="Enviar"
@@ -60,7 +59,6 @@ export function FaleConosco() {
 
                 </main>
             </ContainerCenterMobile>
-            <FooterLogout />
         </>
     );
 }
