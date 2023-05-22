@@ -1,0 +1,24 @@
+.form-container {
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  .form-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-container label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  
+  .form-container textarea {
+    height: 100px;
+  }
+  
+  .form-container button {
+    margin-top: 20px;
+    align-self: flex-end;
+  }
+  

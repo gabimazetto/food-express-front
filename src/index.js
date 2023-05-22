@@ -6,6 +6,7 @@ import "./index.css";
 import { ClientContext } from "./contexts/ClientContext";
 import { RestaurantContext } from "./contexts/RestaurantContext";
 import { LoginContext } from "./contexts/LoginContext";
+import 'react-toastify/dist/ReactToastify.css';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

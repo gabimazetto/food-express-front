@@ -2,6 +2,8 @@ import { Accordion } from "react-bootstrap";
 import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/ContainerCenterMobile";
 import faqimg from "../../assets/images/meninaDuvida.png";
 
+import { FooterLogout } from "../../components/FooterLogout/FooterLogout";
+
 
 export function FAQ() {
 
