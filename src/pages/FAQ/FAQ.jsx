@@ -3,7 +3,6 @@ import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/Co
 import faqimg from "../../assets/images/meninaDuvida.png";
 
 import "./FAQ.css"
-import { Footer } from "../../components/Footer/Footer";
 
 export function FAQ() {
 
@@ -62,7 +61,6 @@ export function FAQ() {
                     </div>
                 </main>
             </ContainerCenterMobile>
-            <Footer/>
         </>
     );
 }
