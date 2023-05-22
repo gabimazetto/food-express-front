@@ -10,7 +10,7 @@
     margin-top: 10%;
     margin-bottom: 10%;
 }
-.logo {
+.logo-login {
     display: none;
 }
 .img-login{
@@ -57,7 +57,7 @@
        flex-direction: row-reverse;
        justify-content: center;
     }
-    .logo {
+    .logo-login {
         display: block;
         margin-left: 5%;
     }
@@ -73,7 +73,7 @@
         align-items: center;
         margin: 5% auto;
     }
-    .conteudo{
+    .conteudo-login{
         margin-right: 12%;
     }
    
