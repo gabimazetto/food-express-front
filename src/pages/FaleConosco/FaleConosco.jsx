@@ -1,18 +1,19 @@
 
-import {Button,Form, InputGroup,} from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/ContainerCenterMobile";
 import contatoimg from "../../assets/images/noteContato.png";
 import { FooterLogout } from "../../components/FooterLogout/FooterLogout";
 import "./FaleConosco.css";
 import { Contato } from "../../components/Contato/Contato";
 
-export function FaleConosco() {
 
+export function FaleConosco() {
 
     return (
         <>
             <ContainerCenterMobile className="background-gradient">
                 <main className="border container-fale rounded-5 ">
+
                     <div className="flex" >
                         <div className="colTwo" >
                             <div className="text-center">
@@ -26,10 +27,9 @@ export function FaleConosco() {
                         <div className="colOne">
                         <Contato/>                   
                         </div>
-                    </div>
+                    </div>                   
                 </main>
             </ContainerCenterMobile>
-            <FooterLogout/>
         </>
     );
 }

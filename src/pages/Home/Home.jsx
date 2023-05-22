@@ -2,7 +2,6 @@ import { Button } from "react-bootstrap";
 import imgMulherNotebook from "../../assets/images/meninoNote1.png";
 import imgRestaurante from "../../assets/images/restaurante.png";
 import { Link } from "react-router-dom";
-import { FooterLogout } from "../../components/FooterLogout/FooterLogout";
 import "./Home.css";
 
 export function Home() {
@@ -58,7 +57,6 @@ export function Home() {
           </div>
         </div>
       </div>
-      <FooterLogout />
     </>
   );
 }

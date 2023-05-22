@@ -12,6 +12,7 @@ import logo from "../../assets/images/logoTemaClaro.png";
 import { useForm } from "react-hook-form";
 import { ContextRestaurant } from "../../contexts/RestaurantContext";
 import { useNavigate } from "react-router-dom";
+import "./LoginRestaurante.css";
 
 
 export function LoginRestaurante() {
@@ -40,21 +41,22 @@ export function LoginRestaurante() {
   return (
     <>
       <ContainerCenterMobile className="background-gradient">
-        <main className="border container rounded-5 ">
-          <div className="grid" >
+        <main className="border container-login rounded-5 ">
+          
             <div className="colTwoLogin" >
 
-              <div class="text-center">
+              
                 <img
                   src={loginImgRest}
-                  class="mt-4 "
+                  class="img-login"
                   alt="Imagem de 3 pessoas fazendo negócio"
                 />
-              </div>
+              
             </div>
+
             <div className="colOneLogin">
-              <div className="px-3 py-4">
-                <img src={logo} class="img-fluid" alt="Logo do FoodExpress" />
+              <div className="px-3 py-4 conteudo-login">
+                <img src={logo} class="img-fluid logo-login pb-5" alt="Logo do FoodExpress" />
 
                 <Form onSubmit={handleSubmit(onSubmit)}>
                   <CustomInput
@@ -105,7 +107,7 @@ export function LoginRestaurante() {
               </div>
             </div>
 
-          </div>
+       
 
         </main>
       </ContainerCenterMobile>

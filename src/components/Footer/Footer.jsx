@@ -1,12 +1,30 @@
-import "./Footer.css"
+import "../Footer/Footer.css"
 import logo from "../../assets/images/logoTemaClaro.png"
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faGoogle, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { Col, Row } from "react-bootstrap";
+import { useContext } from "react";
+import { ContextClient } from "../../contexts/ClientContext";
+import { ContextRestaurant } from "../../contexts/RestaurantContext";
 
 
 export function Footer() {
+
+    const { roleCli } = useContext(ContextClient);
+    const { roleRes } = useContext(ContextRestaurant);
+
+    const getHomeLink = () => {
+        if (roleCli === "cliente") {
+            return "/cliente/home";
+        } else if (roleRes === "restaurante") {
+            return "/restaurante/home";
+        } else {
+            return "/";
+        }
+    };
+
+
     return (
         <footer className="text-center text-lg-start text-md-start text-primary-color mt-0 mb-0 my-app-footer pt-1">
             <Row className="mt-5 no-border-row d-flex justify-content-center aligns-items-center">
@@ -20,7 +38,7 @@ export function Footer() {
                 </Col>
                 <Col md="3" lg="4" xl="2" className="mb-4 mx-5">
                     <p>
-                        <Link to="/" className="link-footer" ><p>Home</p> </Link>
+                        <Link to={getHomeLink()} className="link-footer" ><p>Home</p> </Link>
                     </p>
                     <p>
                         <Link to="/sobre" className="link-footer" ><p>Sobre nós</p> </Link>

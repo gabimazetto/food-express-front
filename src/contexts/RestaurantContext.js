@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createContext, useContext, useState  } from "react";
 import { ContextLogin } from "./LoginContext";
+import jwtDecode from "jwt-decode";
 
 const ContextRestaurant = createContext();
 
@@ -32,14 +33,10 @@ function RestaurantContext({ children }){
 
     async function handleDecodeRestaurante(token){
         try{
-            const decoded = await axios.get(`http://localhost:3001/restaurantes/home`, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
-            setIdRes(decoded.data.id);
-            setEmailRes(decoded.data.email);
-            setRoleRes(decoded.data.role);
+            const decoded = jwtDecode(token);
+            setIdRes(decoded.id);
+            setEmailRes(decoded.email);
+            setRoleRes(decoded.role);
 
         }catch(error){
             console.log(error);

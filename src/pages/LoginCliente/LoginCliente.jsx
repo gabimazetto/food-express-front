@@ -50,8 +50,8 @@ export function LoginCliente() {
                 />              
             </div>
             <div className="colOneLogin">
-              <div className="px-3 py-4 conteudo">
-                <img src={logo} class="img-fluid logo" alt="Logo do FoodExpress" />
+              <div className="px-3 py-4 conteudo-login">
+                <img src={logo} class="img-fluid logo-login pb-5" alt="Logo do FoodExpress" />
 
                 <Form onSubmit={handleSubmit(onSubmit)}>
                   <CustomInput
@@ -102,6 +102,7 @@ export function LoginCliente() {
             </div>
 
           
+
 
         </main>
       </ContainerCenterMobile>

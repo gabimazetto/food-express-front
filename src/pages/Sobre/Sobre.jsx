@@ -1,5 +1,4 @@
 import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/ContainerCenterMobile";
-import { FooterLogout } from "../../components/FooterLogout/FooterLogout";
 import meninaNoteFood from "../../assets/images/meninaNoteFood.png";
 
 
@@ -38,7 +37,6 @@ export function Sobre() {
                         </div>
                 </main>
             </ContainerCenterMobile>
-            <FooterLogout/>
         </>
     );
 }
