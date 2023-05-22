@@ -19,6 +19,12 @@
     margin: 5% auto;
 }
 
+@media (max-width: 919px){
+    .my-app-footer {
+        display: none;
+    }
+}
+
 @media (min-width: 920px) {
     .flex   {
         flex-direction: row-reverse;
