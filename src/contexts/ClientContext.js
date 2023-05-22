@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createContext, useContext, useState  } from "react";
 import { ContextLogin } from "./LoginContext";
+import jwtDecode from "jwt-decode";
 
 const ContextClient = createContext();
 
@@ -10,6 +11,7 @@ function ClientContext({ children }){
     const [idCli, setIdCli] = useState(null);
     const [emailCli, setEmailCli] = useState(null);
     const [roleCli, setRoleCli] = useState(null);
+    
 
     async function handleLogin(data){
         try{
@@ -30,14 +32,10 @@ function ClientContext({ children }){
 
     async function handleDecodeCliente(token){
         try{
-            const decoded = await axios.get(`http://localhost:3001/clientes/home`, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
-            setIdCli(decoded.data.id);
-            setEmailCli(decoded.data.email);
-            setRoleCli(decoded.data.role);
+            const decoded = jwtDecode(token);
+            setIdCli(decoded.id);
+            setEmailCli(decoded.email);
+            setRoleCli(decoded.role);
 
         }catch(error){
             console.log(error);
