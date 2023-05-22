@@ -7,11 +7,13 @@ import { Button } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import { Loader } from "../../components/Loader/Loader";
 import { ContextClient } from "../../contexts/ClientContext";
+import { ContextLogin } from "../../contexts/LoginContext";
 
 
 export function DescricaoPedidoCliente() {
     const [descricaoPedidos, setdescricaoPedidos] = useState(null);
     const { idCli } = useContext(ContextClient);
+    const { config } = useContext(ContextLogin);
     const { id } = useParams();
     const frete = 7.50;
     const cupom = 4.50;
@@ -22,7 +24,7 @@ export function DescricaoPedidoCliente() {
 
     function initializeTable() {
         axios
-            .get(`http://localhost:3001/pedidos/cliente/${idCli}/${id}`)
+            .get(`http://localhost:3001/pedidos/cliente/${idCli}/${id}`, config)
             .then((response) => {
                 const { cliente, enderecoPedido, items, restaurante, ...pedido } = response.data;
 

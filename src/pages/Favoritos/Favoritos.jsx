@@ -1,8 +1,9 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Loader } from "../../components/Loader/Loader";
 import { Button, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { ContextLogin } from "../../contexts/LoginContext";
 
 
 
@@ -10,6 +11,7 @@ export function Favoritos() {
 
     const [favoritos, setFavoritos] = useState([]);
     const [comidasFavoritas, setComidasFavoritas] = useState([]);
+    const { config } = useContext(ContextLogin);
     
     useEffect(() =>{
         initializeTable();
@@ -18,7 +20,7 @@ export function Favoritos() {
 
 
     function initializeTable(){
-        axios.get("http://localhost:3001/favoritos/restaurantes")
+        axios.get("http://localhost:3001/favoritos/restaurantes", config)
         .then((response) =>{
             setFavoritos(response.data);
         }).catch((error) =>{
@@ -27,7 +29,7 @@ export function Favoritos() {
     }
 
     function initializeComidasTable(){
-        axios.get("http://localhost:3001/favoritos/comidas")
+        axios.get("http://localhost:3001/favoritos/comidas", config)
         .then((response) =>{
             setComidasFavoritas(response.data);
         }).catch((error) =>{

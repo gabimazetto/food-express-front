@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import editImg from "../../assets/images/surprised-girl1.png";
 import { CustomInputIconNone } from "../../components/CustomInputIconNone/CustomInputIconNone";
 import { ContextClient } from "../../contexts/ClientContext";
+import { ContextLogin } from "../../contexts/LoginContext";
 
 export function EditarCliente() {
   const {
@@ -15,6 +16,7 @@ export function EditarCliente() {
     formState: { errors },
     reset,
   } = useForm();
+  const { config } = useContext(ContextLogin);
   const { idCli } = useContext(ContextClient);
   const navigate = useNavigate();
   const [lock, setLock] = useState(true);
@@ -23,7 +25,7 @@ export function EditarCliente() {
 
   function onSubmit(data) {
     axios
-      .put(`http://localhost:3001/clientes/${idCli}`, data)
+      .put(`http://localhost:3001/clientes/${idCli}`, data, config)
       .then((response) => {
         toast.success(response.data.message, {
           position: "bottom-right",
@@ -41,7 +43,7 @@ export function EditarCliente() {
   }
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/clientes/${idCli}`).then((response) => {
+    axios.get(`http://localhost:3001/clientes/${idCli}`, config).then((response) => {
       const {
         nome,
         email,

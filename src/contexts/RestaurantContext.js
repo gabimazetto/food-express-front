@@ -33,7 +33,7 @@ function RestaurantContext({ children }){
 
     async function handleDecodeRestaurante(token){
         try{
-            const decoded = jwtDecode(token);
+            const decoded =  await jwtDecode(token);
             setIdRes(decoded.id);
             setEmailRes(decoded.email);
             setRoleRes(decoded.role);

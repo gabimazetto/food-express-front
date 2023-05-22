@@ -4,10 +4,12 @@ import { Button, Container, Table } from "react-bootstrap";
 import { Loader } from "../../components/Loader/Loader";
 import { ContextRestaurant } from "../../contexts/RestaurantContext";
 import { toast } from "react-hot-toast";
+import { ContextLogin } from "../../contexts/LoginContext";
 
 export function PedidosRestaurante() {
     const [pedidos, setPedidos] = useState(null);
     const { idRes } = useContext(ContextRestaurant);
+    const { config } = useContext(ContextLogin);
 
     useEffect(() => {
         initializeTable();
@@ -20,7 +22,7 @@ export function PedidosRestaurante() {
 
     function initializeTable() {
         axios
-            .get(`http://localhost:3001/pedidos/restaurante/${idRes}`)
+            .get(`http://localhost:3001/pedidos/restaurante/${idRes}`, config)
             .then((response) => {
                 const listaPedidos = response.data.map((pedido) => {
                     const {
@@ -49,7 +51,7 @@ export function PedidosRestaurante() {
 
     function updateStatus(pedidoId, status) {
         axios
-            .put(`http://localhost:3001/pedidos/${pedidoId}`, { status: status })
+            .put(`http://localhost:3001/pedidos/${pedidoId}`, { status: status }, config)
             .then(() => {
                 initializeTable();
                 toast.success("Pedido atualizado!", {

@@ -1,19 +1,21 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
+import { ContextLogin } from "../../contexts/LoginContext";
 
 export function PerfilRestaurante() {
 
     const [restaurante, setRestaurante] = useState([]);
     const [busca, setBusca] = useState(true);
+    const { config } = useContext(ContextLogin);
     const { id } = useParams();
 
     useEffect(() => {
         const detalhe = async () => {
             try {
                 const detalhes = await
-                    axios.get(`http://localhost:3001/restaurantes/${id}`)
+                    axios.get(`http://localhost:3001/restaurantes/${id}`, config)
                 setRestaurante(detalhes.data);
                 setBusca(false);
             } catch (error) {

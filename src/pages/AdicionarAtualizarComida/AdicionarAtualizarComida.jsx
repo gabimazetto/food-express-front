@@ -8,6 +8,7 @@ import "./AdicionarAtualizarComida.css";
 import imagemLogo from "../../assets/icons/prato.svg";
 import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/ContainerCenterMobile";
 import { ContextRestaurant } from "../../contexts/RestaurantContext";
+import { ContextLogin } from "../../contexts/LoginContext";
 
 
 export function AdicionarAtualizarComida() {
@@ -15,6 +16,7 @@ export function AdicionarAtualizarComida() {
     const { id } = useParams();
     const [imagemComida, setimagemComida] = useState(null);
     const { idRes } = useContext(ContextRestaurant);
+    const { config } = useContext(ContextLogin);
     const navigate = useNavigate();
 
     function convertPrice(price) {
@@ -44,14 +46,16 @@ export function AdicionarAtualizarComida() {
         formData.append("imagem", data.imagem[0]);
         formData.append("restauranteId", idRes);
 
+        
+
         if (!id) {
-            await axios.post("http://localhost:3001/comidas", formData);
+            await axios.post("http://localhost:3001/comidas", formData, config);
             toast.success("Comida adicionada com sucesso!", {
                 position: "bottom-right",
                 duration: 2000,
             });
         } else {
-            await axios.put(`http://localhost:3001/comidas/${id}`, formData);
+            await axios.put(`http://localhost:3001/comidas/${id}`, formData, config);
 
             toast.success("Comida atualizada com sucesso!", {
                 position: "bottom-right",
@@ -63,7 +67,7 @@ export function AdicionarAtualizarComida() {
 
     useEffect(() => {
         if (id) {
-            axios.get(`http://localhost:3001/comidas/${id}`)
+            axios.get(`http://localhost:3001/comidas/${id}`, config)
                 .then((response) => {
                     setimagemComida(response.data.imagem)
                     const { codigo, nome, descricao, categoria, preco, peso, imagem, restauranteId } = response.data;
@@ -74,7 +78,7 @@ export function AdicionarAtualizarComida() {
 
 
     function onDelete() {
-        axios.delete(`http://localhost:3001/comidas/${id}`)
+        axios.delete(`http://localhost:3001/comidas/${id}`, config)
             .then(() => {
                 toast.success('Comida deletada com sucesso!', {
                     position: "bottom-center",

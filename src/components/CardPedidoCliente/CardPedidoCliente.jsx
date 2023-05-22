@@ -7,9 +7,11 @@ import { Loader } from "../Loader/Loader";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { ContextClient } from "../../contexts/ClientContext";
+import { ContextLogin } from "../../contexts/LoginContext";
 
 function PedidoCliente({ pedido }) {
   const { idCli } = useContext(ContextClient);
+  const { config } = useContext(ContextLogin);
   const [avaliacao, setAvaliacao] = useState(0);
   const [comentario, setComentario] = useState("");
   const [avaliacaoExistente, setAvaliacaoExistente] = useState(false);
@@ -21,7 +23,7 @@ function PedidoCliente({ pedido }) {
 
   function initializeAvaliacaoExistente() {
     axios
-      .get(`http://localhost:3001/avaliacaos/cliente/${idCli}`)
+      .get(`http://localhost:3001/avaliacaos/cliente/${idCli}`, config)
       .then((response) => {
         const avaliacoesCliente = response.data;
         const avaliacaoExistente = avaliacoesCliente.some(
@@ -36,7 +38,7 @@ function PedidoCliente({ pedido }) {
 
   function carregarComentario() {
     axios
-      .get(`http://localhost:3001/avaliacaos/cliente/${idCli}`)
+      .get(`http://localhost:3001/avaliacaos/cliente/${idCli}`, config)
       .then((response) => {
         const avaliacoesCliente = response.data;
         const avaliacao = avaliacoesCliente.find(
@@ -62,7 +64,7 @@ function PedidoCliente({ pedido }) {
     };
 
     axios
-      .post(`http://localhost:3001/avaliacaos`, data)
+      .post(`http://localhost:3001/avaliacaos`, data, config)
       .then((response) => {
         toast.success(response.data.message, {
           position: "bottom-right",
@@ -214,6 +216,7 @@ function PedidoCliente({ pedido }) {
 export function CardPedidoCliente() {
   const [pedidos, setPedidos] = useState([]);
   const { idCli } = useContext(ContextClient);
+  const { config } = useContext(ContextLogin);
 
   useEffect(() => {
     initializeTable();
@@ -228,7 +231,7 @@ export function CardPedidoCliente() {
 
   function initializeTable() {
     axios
-      .get(`http://localhost:3001/pedidos/cliente/${idCli}`)
+      .get(`http://localhost:3001/pedidos/cliente/${idCli}`, config)
       .then((response) => {
         setPedidos(response.data);
       })

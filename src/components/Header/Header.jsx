@@ -131,7 +131,7 @@ export function Header() {
                                                         <Nav.Link as={Link} to={`/cliente/listar/favoritos`} className="d-flex"><i className="bi bi-heart text-primary icones-atalho"></i><p className="textos-icones align-self-center text-primary mb-0 ms-1">Favoritos</p></Nav.Link>
                                                     )}
                                                     <Nav.Link as={Link} to={`/contato`} className="d-flex"><i className="bi bi-telephone-fill text-primary icones-atalho"></i><p className="textos-icones align-self-center text-primary mb-0 ms-1">Fale Conosco</p></Nav.Link>
-                                                    <Nav.Link as={Link} onClick={Deslogar} to={`/`} className="d-flex"><i className="bi bi-box-arrow-right text-primary icones-atalho"></i><p className="textos-icones align-self-center text-primary mb-0 ms-1">Sair</p></Nav.Link>
+                                                    <Nav.Link as={Link} onClick={Deslogar} className="d-flex"><i className="bi bi-box-arrow-right text-primary icones-atalho"></i><p className="textos-icones align-self-center text-primary mb-0 ms-1">Sair</p></Nav.Link>
                                                 </>
                                             ) : (
                                                 <>
