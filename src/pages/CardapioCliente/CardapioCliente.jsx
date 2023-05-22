@@ -1,13 +1,15 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Button, Form, InputGroup } from "react-bootstrap";
 import { Loader } from "../../components/Loader/Loader";
 import "./CardapioCliente.css"
 import { CardCardapioCliente } from "../../components/CardCardapioCliente/CardCardapioCliente";
 import { Link, useParams } from "react-router-dom";
+import { ContextLogin } from "../../contexts/LoginContext";
 
 
 export function CardapioCliente() {
+    const { config } = useContext(ContextLogin);
     const [comidas, setComidas] = useState(null);
     const [pesquisa, setPesquisa] = useState("");
     const [comidasFiltradas, setComidasFiltradas] = useState(comidas);
@@ -29,7 +31,7 @@ export function CardapioCliente() {
     // FUNÇÃO INICIAR TABELA DE CARDÁPIO
     function initializeTable() {
         axios
-            .get(`http://localhost:3001/comidas/restaurante/${id}`)
+            .get(`http://localhost:3001/comidas/restaurante/${id}`, config)
             .then((response) => {
                 setComidas(response.data);
                 setComidasFiltradas(response.data);

@@ -5,15 +5,17 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { ContextRestaurant } from "../../contexts/RestaurantContext";
+import { ContextLogin } from "../../contexts/LoginContext";
 
 export function EditaRestaurante() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const { idRes } = useContext(ContextRestaurant);
+    const { config } = useContext(ContextLogin);
     const navigate = useNavigate();
 
 
     function onSubmit(data) {
-        axios.put(`http://localhost:3001/restaurantes/${idRes}`, data)
+        axios.put(`http://localhost:3001/restaurantes/${idRes}`, data, config)
             .then(response => {
                 toast.success(response.data.message, { position: "bottom-right", duration: 2000 })
                 navigate(`/restaurante/home`)
@@ -26,7 +28,7 @@ export function EditaRestaurante() {
     }
 
     useEffect(() => {
-        axios.get(`http://localhost:3001/restaurantes/${idRes}`)
+        axios.get(`http://localhost:3001/restaurantes/${idRes}`, config)
             .then(response => {
                 //TODO --> Tirar email e senha como obrigatório do put, tanto no front quanto no back.
                 const { nomeFantasia, razaoSocial, telefone, cnpj, email, senha, endereco: { uf, cidade, cep, rua, numero, complemento } } = response.data

@@ -17,7 +17,7 @@ import { PedidosCliente } from "./pages/PedidosCliente/PedidosCliente";
 import { Favoritos } from "./pages/Favoritos/Favoritos";
 import { NotFound } from "./pages/NotFound/NotFound";
 import { CardapioCliente } from "./pages/CardapioCliente/CardapioCliente";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ContextLogin } from "./contexts/LoginContext";
 import { ContextClient } from "./contexts/ClientContext";
 import { ContextRestaurant } from "./contexts/RestaurantContext";
@@ -34,8 +34,8 @@ import { PrivateRouteClient } from "./components/PrivateRouteClient/PrivateRoute
 
 
 function App() {
-  const { roleCli, handleDecodeCliente } = useContext(ContextClient);
-  const { handleDecodeRestaurante } = useContext(ContextRestaurant);
+  const { idCli, roleCli, handleDecodeCliente } = useContext(ContextClient);
+  const { idRes, roleRes, handleDecodeRestaurante } = useContext(ContextRestaurant);
   const { authenticated, setAuthenticated, token } = useContext(ContextLogin);
   function isAuthenticated(){
     if(token){
@@ -55,7 +55,19 @@ function App() {
       }
     }
   }
-  isAuthenticated();
+  useEffect(() => {
+    isAuthenticated();
+    if(roleCli){
+      console.log("id Cliente: ", idCli)
+      console.log("role Cliente: ", roleCli)
+    }else{
+      console.log("id Restaurante: ", idRes)
+      console.log("role Restaurante: ", roleRes)
+    }
+    
+    
+  }, [roleCli, roleRes]);
+  
 
 
   return (

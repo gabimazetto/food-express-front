@@ -3,6 +3,7 @@ import "./HomeCliente.css"
 import imgMoto from "../../assets/images/moto.png";
 import imgLivro from "../../assets/images/cardapio.png";
 import { Link } from "react-router-dom";
+import { Button } from 'react-bootstrap';
 
 export function HomeCliente() {
 
@@ -102,6 +103,7 @@ export function HomeCliente() {
 
   return (
     <div>
+      <Button as={Link} to="/cliente/listar/restaurantes" />
       <section className='sectionRestaurante'>
         <div className='searchBox'>
             <div className='searchBoxRestaurante'>

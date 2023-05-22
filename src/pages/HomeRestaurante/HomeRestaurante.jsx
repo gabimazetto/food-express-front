@@ -8,10 +8,12 @@ import axios from "axios"
 import { toast } from "react-hot-toast"
 import { ContextRestaurant } from "../../contexts/RestaurantContext"
 import { Loader } from "../../components/Loader/Loader"
+import { ContextLogin } from "../../contexts/LoginContext"
 
 export function HomeRestaurante() {
     const [comidas, setComidas] = useState([]);
     const { idRes } = useContext(ContextRestaurant);
+    const { config } = useContext(ContextLogin);
 
 
     // INICIAR TABELA DE CARDÁPIO
@@ -22,7 +24,7 @@ export function HomeRestaurante() {
 
     // FUNÇÃO INICIAR TABELA DE CARDÁPIO
     function initializeTable() {
-        axios.get(`http://localhost:3001/restaurantes/${idRes}/cardapio/`)
+        axios.get(`http://localhost:3001/restaurantes/${idRes}/cardapio/`, config)
             .then((response) => {
                 setComidas(response.data)
             })
