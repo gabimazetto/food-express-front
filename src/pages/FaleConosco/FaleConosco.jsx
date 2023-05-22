@@ -2,9 +2,9 @@
 import { Form } from "react-bootstrap";
 import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/ContainerCenterMobile";
 import contatoimg from "../../assets/images/noteContato.png";
-import { FooterLogout } from "../../components/FooterLogout/FooterLogout";
 import "./FaleConosco.css";
 import { Contato } from "../../components/Contato/Contato";
+import { Footer } from "../../components/Footer/Footer";
 
 
 export function FaleConosco() {
@@ -30,6 +30,7 @@ export function FaleConosco() {
                     </div>                   
                 </main>
             </ContainerCenterMobile>
-        </>
+           <Footer/>
+           </>
     );
 }
