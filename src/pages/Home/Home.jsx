@@ -1,6 +1,6 @@
 import { Button } from "react-bootstrap";
-import imgMulherNotebook from "../../assets/icons/Design sem nome 1.svg";
-import imgRestaurante from "../../assets/icons/Design sem nome56 1.svg";
+import imgMulherNotebook from "../../assets/images/meninoNote1.png";
+import imgRestaurante from "../../assets/images/restaurante.png";
 import { Link } from "react-router-dom";
 import { FooterLogout } from "../../components/FooterLogout/FooterLogout";
 import "./Home.css";

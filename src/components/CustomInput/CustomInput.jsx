@@ -17,6 +17,9 @@ export function CustomInput({
   toggleType, // adicionamos esta função
   iconType // e este estado
 }) {
+
+  const ControlType = type === 'textarea' ? 'textarea' : 'input';
+
   return (
     <Form.Group className="mb-3 d-flex justify-content-center">
       <InputGroup className="custon-input-group">
@@ -25,6 +28,8 @@ export function CustomInput({
           {small}
         </small>
         <Form.Control
+          as={ControlType}
+          maxLength={type === 'textarea' ? 255 : undefined} 
           className={className || (error && "is-invalid")}
           type={type}
           placeholder={placeholder}
@@ -33,7 +38,7 @@ export function CustomInput({
           {...register}
         />
         <InputGroup.Text onClick={toggleType} className="input-custom-label">
-          <i className={icon} style={{ backgroundColor: "transparent" }}></i>
+          <i className={icon} style={{ backgroundColor: "transparent", color: "#ffffff"}}></i>
         </InputGroup.Text>
         <Form.Text className="invalid-feedback">{error?.message}</Form.Text>
       </InputGroup>
