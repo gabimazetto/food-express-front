@@ -1,0 +1,146 @@
+.imagem-perfil-web {
+  display: none;
+}
+
+.background-gradient-escuro {
+  background: linear-gradient(
+    90deg,
+    rgba(54, 54, 54, 0.905374649859944) 15%,
+    rgba(217, 123, 11, 0.8213410364145658) 43%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
+.title-perfil {
+  margin-top: 8%;
+  margin-left: 5% !important;
+  color: #f06000;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: start;
+  max-width: 380px;
+}
+
+.container-perfil {
+  width: 80% !important;
+  background-color: #fff !important;
+  box-shadow: #d93f0b1a 0px 4px 12px;
+  overflow: auto !important;
+  margin-top: 7%;
+  margin-bottom: 8%;
+}
+
+.font-data {
+  font-size: 1rem;
+  color: #555555 !important;
+}
+
+.select-perfil {
+  overflow: visible !important;
+  border-color: #f06000 !important;
+  border-width: 1.5px !important;
+  padding: 0.375rem 1.25rem 0.35rem 0.75rem !important;
+}
+
+.white {
+  color: #fff !important;
+}
+
+.button-perfil {
+  margin-right: 5% !important;
+}
+
+hr {
+  color: #f06000;
+}
+
+@media (max-width: 969px) {
+  main.container-perfil {
+    flex-direction: column !important;
+  }
+
+  .imagem-perfil-web {
+    display: none;
+  }
+
+  .imagem-perfil-mobile {
+    display: block;
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  .form-perfil {
+    width: 100%;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 919px){
+  .my-app-footer {
+      display: none;
+  }
+}
+
+@media (min-width: 970px) {
+  main.container-perfil {
+    width: 95% !important;
+    max-width: 90% !important;
+  }
+
+  .logo-web-perfil {
+    display: block;
+    max-width: 250px;
+    margin-left: 1rem !important;
+  }
+
+  .title-perfil {
+    max-width: 300px;
+  }
+
+  .card-web {
+    background-color: #d97b0b;
+    position: relative;
+    height: 122% !important;
+    min-width: 380px !important;
+    overflow: auto;
+    bottom: 22%;
+    left: 3.2%;
+    border-radius: 30px;
+  }
+
+  .imagem-perfil-web {
+    display: block;
+    width: 100%;
+    right: 18% !important;
+    margin-top: 60%;
+  }
+
+  .imagem-perfil-mobile {
+    display: none;
+  }
+
+  .flex-perfil {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .title-perfil {
+    margin-top: 0;
+    margin-left: 3%;
+  }
+}
+
+@media (min-width: 1020px) {
+  .card-web {
+    min-width: 480px !important;
+    left: 2.3%;
+  }
+}
+
+@media (min-width: 1200px) {
+  main.container-perfil {
+    min-height: 590px !important;
+    max-width: 1000px !important;
+  }
+}
