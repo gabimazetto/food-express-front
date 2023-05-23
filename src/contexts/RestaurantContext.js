@@ -1,49 +1,56 @@
 import axios from "axios";
-import { createContext, useContext, useState  } from "react";
+import { createContext, useContext, useState } from "react";
 import { ContextLogin } from "./LoginContext";
 import jwtDecode from "jwt-decode";
+import { toast } from "react-hot-toast";
 
 const ContextRestaurant = createContext();
 
-function RestaurantContext({ children }){
-    
+function RestaurantContext({ children }) {
+
     const { setAuthenticated } = useContext(ContextLogin);
     const [idRes, setIdRes] = useState(null);
     const [emailRes, setEmailRes] = useState(null);
     const [roleRes, setRoleRes] = useState(null);
-    
 
-    async function handleLogin(data){
-        try{
+
+    async function handleLogin(data) {
+        try {
             await axios.post(`http://localhost:3001/restaurantes/login`, data)
-                .then( async (response) => {
+                .then(async (response) => {
+                    toast.success("Bem-Vindo(a)", {
+                        position: "bottom-right",
+                        duration: 4000,
+                    });
                     const { token } = response.data;
                     localStorage.setItem("token", token);
                     handleDecodeRestaurante(token);
                     setAuthenticated(true);
                 })
                 .catch((error) => {
+                    toast.error(`Um erro ocorreu: ${error.response.data.msg}`, {
+                        position: "bottom-right",
+                        duration: 4000,
+                    });
                     console.log(error);
                 });
-        } catch(error){
+        } catch (error) {
             console.log(error);
         }
-
     }
 
-    async function handleDecodeRestaurante(token){
-        try{
-            const decoded =  await jwtDecode(token);
+    async function handleDecodeRestaurante(token) {
+        try {
+            const decoded = await jwtDecode(token);
             setIdRes(decoded.id);
             setEmailRes(decoded.email);
             setRoleRes(decoded.role);
-
-        }catch(error){
+        } catch (error) {
             console.log(error);
         }
     }
 
-    function LogoffRestaurant(){
+    function LogoffRestaurant() {
         localStorage.removeItem("token");
         setAuthenticated(false);
         setIdRes(null);
@@ -51,7 +58,7 @@ function RestaurantContext({ children }){
         setRoleRes(null);
     }
 
-    return(
+    return (
         <ContextRestaurant.Provider value={{ idRes, emailRes, roleRes, handleDecodeRestaurante, handleLogin, LogoffRestaurant }}>
             {children}
         </ContextRestaurant.Provider>
