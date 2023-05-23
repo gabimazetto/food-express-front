@@ -8,25 +8,53 @@
   
   .my-app-footer {
     color: #d97b0b !important;
+    box-shadow: #D93F0B1a 0px -4px 12px;   
     background-color: F5F2F2 !important;
     width: 100% !important;
     margin-left: 0;
     margin-right: 0;
     border: none !important;
   }
+  .container-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1rem;
+    margin: 4% 5%;
+  }
   
   .logo-footer {
     width: 80% !important;
   }
   
-  .no-border-row {
-    border: none !important;
+   .col-one-footer{
+    margin-left: 15% !important;
+    margin-top: 1.5rem;
+   }
+
+   .col-two-footer{
+    margin-top: 1.5rem;
+   }
+
+   .footer-copy{
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    margin: 6px 0;
+    box-shadow: #D93F0B1a 0px -4px 12px;   
+    color: #41474a;
+   }
+
+   .footer-site{
+    color: #41474a;
+    margin-left: 10px;
+    /* text-decoration: none; */
+   }
+
+   @media (min-width: 1400px) {
+    .container-footer {
+        min-height: 320px !important;
+        max-width: 1150px !important;
+        margin: 5% auto;
   }
-  
-  .row-copy {
-    width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    background-color: #f8a80c, !important;
-  }
-  
+}
