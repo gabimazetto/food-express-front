@@ -14,7 +14,7 @@ export function ClienteBuscaComida() {
     const [pesquisa, setPesquisa] = useState("");
     const [comidasFiltradas, setComidasFiltradas] = useState(comidas);
     const { categoria } = useParams();
-    const { config } = useContext(ContextLogin);
+    const { token } = useContext(ContextLogin);
 
 
     // INICIAR TABELA DE CARDÁPIO
@@ -40,7 +40,12 @@ export function ClienteBuscaComida() {
         }
 
         axios
-            .get("http://localhost:3001/comidas", { params }, config)
+            .get("http://localhost:3001/comidas", { 
+                params, 
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+        })
             .then((response) => {
                 setComidas(response.data);
                 setComidasFiltradas(response.data);
