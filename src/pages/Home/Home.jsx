@@ -6,57 +6,79 @@ import "./Home.css";
 
 export function Home() {
   return (
-    <>
-      <div className="container text-center mt-3 mb-3">
-        <div className="row align-items-center justify-content-center custom-row-spacing">
-          <div className="col-sm-6">
-            <div className="image-container">
-              <img className="w-50 mt-3 h-100" src={imgMulherNotebook} alt="" />
+    
+    <div className="principal">
+      <section className="section-cliente">
+            <div className="cliente-img">
+              <img className="cliente-img-mulher" src={imgMulherNotebook} alt="" />
             </div>
-            <div className="button-container">
-              <Button
-                variant="success"
-                as={Link}
-                to="/cliente/login"
-                className="text-light botao-home"
-              >
-                Já é nosso cliente?<br /> Faça seu Login
-              </Button>
-              <Button
-                variant="success"
-                as={Link}
-                to="/cliente/cadastro"
-                className="text-light botao-home"
-              >
-                Ainda não é nosso cliente?<br /> Faça seu cadastro
-              </Button>
+            <div className="cliente-box">
+              <div className="cliente-box-login">
+                <p className="cliente-box-paragrafo">
+                  Já é nosso cliente?<br/> Faça seu login
+                </p>
+                <Button
+                  variant="primary"
+                  as={Link}
+                  to="/cliente/login"
+                  className="cliente-box-botao"
+                >
+                  Login
+                </Button>
+              </div>
+              <div className="cliente-box-cadstro">
+                <p className="cliente-box-paragrafo">
+                  Ainda não é nosso cliente?<br/> Faça seu cadastro
+                </p>
+                <Button
+                  variant="primary"
+                  as={Link}
+                  to="/cliente/cadastro"
+                  className="cliente-box-botao"
+                >
+                  Cadastro
+                </Button>
+              </div>
             </div>
-          </div>
-          <div className="col-sm-6">
-            <div className="image-container">
-              <img className="w-50 mt-3 h-100" src={imgRestaurante} alt="" />
+          </section>
+
+          <section className="section-cliente">
+            <div className="cliente-img">
+              <img className="cliente-img-mulher" src={imgRestaurante} alt="" />
             </div>
-            <div className="button-container">
+            <div className="cliente-box">
+              <div className="cliente-box-login">
+              <p className="cliente-box-paragrafo">
+                Já é nosso parceiro?
+                <br /> Faça seu login
+              </p>
               <Button
-                variant="success"
+                variant="primary"
                 as={Link}
                 to="/restaurante/login"
-                className="text-light botao-home"
+                className="cliente-box-botao"
               >
-                Já é nosso parceiro?<br /> Faça seu login
-              </Button>
-              <Button
-                variant="success"
-                as={Link}
-                to="/restaurante/cadastro"
-                className="text-light botao-home"
-              >
-                Ainda não é um parceiro?<br /> Faça seu cadastro
+                Login
               </Button>
             </div>
-          </div>
+            <div className="cliente-box-cadstro">
+              <p className="cliente-box-paragrafo">
+                Ainda não é um parceiro? <br /> Faça seu cadastro
+              </p>
+              <Button
+                variant="primary"
+                as={Link}
+                to="/restaurante/cadastro"
+                className="cliente-box-botao"
+              >
+                Cadastro
+              </Button>
+              </div>
+            </div>
+          </section>
         </div>
-      </div>
-    </>
+      
+      
+    
   );
 }
