@@ -29,6 +29,12 @@ export function Restaurantes() {
   function initializeTable() {
     axios.get("http://localhost:3001/restaurantes", config)
       .then((response) => {
+        const favoritos = localStorage.getItem('favoritos');
+          if (favoritos) {
+            favoritos = JSON.parse(favoritos);
+          } else {
+            favoritos = [];
+          }
         const restaurantes = response.data.map((restaurante) => {
           const {
             endereco: { uf, cidade, cep, rua, numero, complemento },
@@ -36,7 +42,7 @@ export function Restaurantes() {
           return {
             ...restaurante,
             endereco: { uf, cidade, cep, rua, numero, complemento },
-            favorito: false,
+            favorito:  favoritos.includes(restaurante.id),
             media: 0,
           };
         });
@@ -45,6 +51,10 @@ export function Restaurantes() {
       })
       .catch((error) => {
         console.log(error);
+        toast.error("Erro ao carregar os restaurantes", {
+          position: "bottom-right",
+          duration: 2000,
+        });
       });
   }
 
@@ -83,6 +93,15 @@ export function Restaurantes() {
               : restaurante
           )
         );
+        // Adicione o restaurante ao Local Storage
+        const favoritos = localStorage.getItem('favoritos');
+        if (favoritos) {
+          favoritos = JSON.parse(favoritos);
+        } else {
+          favoritos = [];
+        }
+        favoritos.push(restauranteId);
+        localStorage.setItem('favoritos', JSON.stringify(favoritos));
       })
       .catch((error) => {
         toast.error("Algo deu errado", {
