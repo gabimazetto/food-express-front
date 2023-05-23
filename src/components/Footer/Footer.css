@@ -20,7 +20,7 @@
     flex-direction: row;
     justify-content: center;
     padding: 1rem;
-    margin: 4% 5%;
+    margin: 2% 5%;
   }
   
   .logo-footer {
@@ -55,6 +55,6 @@
     .container-footer {
         min-height: 320px !important;
         max-width: 1150px !important;
-        margin: 5% auto;
+        margin: 2% auto;
   }
 }
