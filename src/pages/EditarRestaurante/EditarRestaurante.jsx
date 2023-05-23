@@ -66,7 +66,7 @@ export function EditaRestaurante() {
 
                         <div className="colOne-perfil-rest">
                             <div className="px-3 py-4">
-                                <h1 className="title-perfil-rest">Editar Restaurante</h1>
+                                <h1 className="title-perfil-rest">Perfil</h1>
                                 <Form className="form-perfil" onSubmit={handleSubmit(onSubmit)}>
 
                                     <div className="mb-3">
