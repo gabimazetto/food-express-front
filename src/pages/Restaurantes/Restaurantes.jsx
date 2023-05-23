@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { Button, Table } from "react-bootstrap";
+import { Card, Button, Container, Row, Col } from 'react-bootstrap';
+// import { Button, Table } from "react-bootstrap";
 import { Loader } from "../../components/Loader/Loader";
 import { Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
@@ -8,6 +9,7 @@ import "./style.css";
 import { ContextClient } from "../../contexts/ClientContext";
 import { ContextLogin } from "../../contexts/LoginContext";
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import ReactStars from "react-stars";
 
 
 export function Restaurantes() {
@@ -58,22 +60,6 @@ export function Restaurantes() {
       });
   }
 
-
-  async function buscarMediaRestaurantes(restaurantes) {
-    try {
-      const medias = {};
-      for (const restaurante of restaurantes) {
-        const response = await axios.get(`http://localhost:3001/avaliacaos/media/${restaurante.id}`, config);
-        const media = response.data.media;
-        medias[restaurante.id] = media;
-      }
-      setMediasAvaliacoes(medias);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-
   function FavRestaurante(restauranteId) {
     const data = {
       favoritar: true,
@@ -111,6 +97,22 @@ export function Restaurantes() {
       });
   }
 
+  async function buscarMediaRestaurantes(restaurantes) {
+    try {
+      const medias = {};
+      for (const restaurante of restaurantes) {
+        const response = await axios.get(`http://localhost:3001/avaliacaos/media/${restaurante.id}`, config);
+        const media = response.data.media;
+        medias[restaurante.id] = media;
+      }
+      setMediasAvaliacoes(medias);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
+
   async function buscarComentariosAvaliacoes(restauranteId) {
     try {
       const response = await axios.get(`http://localhost:3001/avaliacaos/${restauranteId}`, config);
@@ -126,62 +128,49 @@ export function Restaurantes() {
   }
 
   return (
-    <div className="container">
-      <div className="navbar navbar-light bg-light">
-        <h1>Restaurantes</h1>
-        <div className="search-wrapper">
-          <i className="bi bi-search"></i>
-          <input
-            type="text"
-            value={busca}
-            onChange={(e) => setBusca(e.target.value)}
-            placeholder="Nome/Cidade/Rua"
-          />
-        </div>
-      </div>
-      {restaurantes === null ? (
-        <Loader />
-      ) : (
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>Nome Fantasia</th>
-              <th>Cidade</th>
-              <th>Rua</th>
-              <th>Mais Detalhes</th>
-              <th>Adicionar aos Favoritos</th>
-              <th>Avaliações</th>
-            </tr>
-          </thead>
-          <tbody>
-            {restaurantes
-              .filter((restaurante) => {
-                const nomeFantasia = restaurante.nomeFantasia.toLowerCase();
-                const cidade = restaurante.endereco.cidade.toLowerCase();
-                const rua = restaurante.endereco.rua.toLowerCase();
-                const termoBusca = busca.toLowerCase();
-                return (
-                  nomeFantasia.includes(termoBusca) ||
-                  cidade.includes(termoBusca) ||
-                  rua.includes(termoBusca)
-                );
-              })
-              .map((restaurante) => {
-                return (
-                  <tr key={restaurante.id}>
-                    <td>{restaurante.nomeFantasia}</td>
-                    <td>{restaurante.endereco.cidade}</td>
-                    <td>{restaurante.endereco.rua}</td>
-                    <td>
-                      <Button
+    <Container>
+    <div className="navbar nav-rest">
+      <h1>Restaurantes</h1>
+      <form className="form-rest form-inline">
+        <input type="text" className="search-rest"
+        value={busca}
+        onChange={(e) => setBusca(e.target.value)} placeholder="Pesquise por nome ou cidade" />
+      </form>
+     
+    </div>
+
+    {restaurantes === null ? (
+      <Loader />
+    ) : (
+      <Row>
+        {restaurantes
+          .filter((restaurante) => {
+            const nomeFantasia = restaurante.nomeFantasia.toLowerCase();
+            const cidade = restaurante.endereco.cidade.toLowerCase();
+            const termoBusca = busca.toLowerCase();
+            return (
+              nomeFantasia.includes(termoBusca) ||
+              cidade.includes(termoBusca)
+            );
+          })
+          .map((restaurante) => {
+            return (
+              <Col md={4} key={restaurante.id}>
+                <Card className="mb-4 py-4 card-principal">
+                  <Card.Body className="card-rest">
+                    <Card.Title className="fs-3 title-rest">{restaurante.nomeFantasia}</Card.Title>
+                    
+                    <Card.Subtitle className="mb-2 text-muted">
+                     Cidade: {restaurante.endereco.cidade}
+                    </Card.Subtitle>
+                    <div className="icons-rest">
+                      <Button className="detalhes my-button-not-filled-rest"
                         as={Link}
                         to={`/cliente/restaurante/cardapio/${restaurante.id}`}
                       >
-                        <i className="bi bi-book"></i>
+                        <i className="bi bi-book"></i> Mais Detalhes
                       </Button>
-                    </td>
-                    <td>
-                      <Button
+                      <Button       className="my-button-not-filled-rest"
                         type="submit"
                         onClick={() => FavRestaurante(restaurante.id)}
                       >
@@ -190,16 +179,23 @@ export function Restaurantes() {
                         ) : (
                           <i className="bi bi-heart"></i>
                         )}
+                        
                       </Button>
-                    </td>
-                    {/* Inicio OffCanvas */}
-                    <Button onClick={() => {
-                      handleShow();
-                      buscarComentariosAvaliacoes(restaurante.id);
-                    }}>
-                      <td>{mediasAvaliacoes[restaurante.id]}</td>
-                    </Button>
-                    <Offcanvas show={show} onHide={handleClose}>
+                      
+                      <Button className="my-button-not-filled-rest" onClick={() => {
+                        handleShow();
+                        buscarComentariosAvaliacoes(restaurante.id);
+                      }}>
+                        <ReactStars
+                          count={5}
+                          value={mediasAvaliacoes[restaurante.id]}
+                          size={24}
+                          color2={'#f06000'}
+                          edit={false}  // Isso desabilita a possibilidade do usuário alterar o valor
+                        />
+                      </Button>
+                                          
+                      <Offcanvas show={show} onHide={handleClose}>
                       <Offcanvas.Header closeButton>
                         <Offcanvas.Title>Avaliações</Offcanvas.Title>
                       </Offcanvas.Header>
@@ -213,14 +209,112 @@ export function Restaurantes() {
                         ))}
                       </Offcanvas.Body>
                     </Offcanvas>
-                    {/* Final OffCanvas */}
-                  </tr>
-                );
-              })}
-          </tbody>
-        </Table>
-      )
-      }
-    </div >
+                    </div>
+                  </Card.Body>
+                </Card>
+              </Col>
+            );
+          })}
+      </Row>
+    )}
+  </Container>
+
+
+    // <div className="container">
+    //   <div className="navbar navbar-light bg-light">
+    //     <h1>Restaurantes</h1>
+    //     <div className="search-wrapper">
+    //       <i className="bi bi-search"></i>
+    //       <input
+    //         type="text"
+    //         value={busca}
+    //         onChange={(e) => setBusca(e.target.value)}
+    //         placeholder="Nome/Cidade/Rua"
+    //       />
+    //     </div>
+    //   </div>
+    //   {restaurantes === null ? (
+    //     <Loader />
+    //   ) : (
+    //     <Table striped bordered hover>
+    //       <thead>
+    //         <tr>
+    //           <th>Nome Fantasia</th>
+    //           <th>Cidade</th>
+    //           <th>Rua</th>
+    //           <th>Mais Detalhes</th>
+    //           <th>Adicionar aos Favoritos</th>
+    //           <th>Avaliações</th>
+    //         </tr>
+    //       </thead>
+    //       <tbody>
+    //         {restaurantes
+    //           .filter((restaurante) => {
+    //             const nomeFantasia = restaurante.nomeFantasia.toLowerCase();
+    //             const cidade = restaurante.endereco.cidade.toLowerCase();
+    //             const rua = restaurante.endereco.rua.toLowerCase();
+    //             const termoBusca = busca.toLowerCase();
+    //             return (
+    //               nomeFantasia.includes(termoBusca) ||
+    //               cidade.includes(termoBusca) ||
+    //               rua.includes(termoBusca)
+    //             );
+    //           })
+    //           .map((restaurante) => {
+    //             return (
+    //               <tr key={restaurante.id}>
+    //                 <td>{restaurante.nomeFantasia}</td>
+    //                 <td>{restaurante.endereco.cidade}</td>
+    //                 <td>{restaurante.endereco.rua}</td>
+    //                 <td>
+    //                   <Button
+    //                     as={Link}
+    //                     to={`/cliente/restaurante/cardapio/${restaurante.id}`}
+    //                   >
+    //                     <i className="bi bi-book"></i>
+    //                   </Button>
+    //                 </td>
+    //                 <td>
+    //                   <Button
+    //                     type="submit"
+    //                     onClick={() => FavRestaurante(restaurante.id)}
+    //                   >
+    //                     {restaurante.favorito ? (
+    //                       <i className="bi bi-heart-fill"></i>
+    //                     ) : (
+    //                       <i className="bi bi-heart"></i>
+    //                     )}
+    //                   </Button>
+    //                 </td>
+    //                 {/* Inicio OffCanvas */}
+    //                 <Button onClick={() => {
+    //                   handleShow();
+    //                   buscarComentariosAvaliacoes(restaurante.id);
+    //                 }}>
+    //                   <td>{mediasAvaliacoes[restaurante.id]}</td>
+    //                 </Button>
+    //                 <Offcanvas show={show} onHide={handleClose}>
+    //                   <Offcanvas.Header closeButton>
+    //                     <Offcanvas.Title>Avaliações</Offcanvas.Title>
+    //                   </Offcanvas.Header>
+    //                   <Offcanvas.Body>
+    //                     {comentariosAvaliacoes.map((comentario, index) => (
+    //                       <div key={index}>
+    //                         <p>Cliente: {comentario.nomeCliente}</p>
+    //                         <p>Comentário: {comentario.comentario}</p>
+    //                         <p>Nota: {comentario.nota}</p>
+    //                       </div>
+    //                     ))}
+    //                   </Offcanvas.Body>
+    //                 </Offcanvas>
+    //                 {/* Final OffCanvas */}
+    //               </tr>
+    //             );
+    //           })}
+    //       </tbody>
+    //     </Table>
+    //   )
+    //   }
+    // </div >
   );
 }
