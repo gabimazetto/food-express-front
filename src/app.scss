@@ -48,5 +48,11 @@ h6,
 .bg-input {
   background-color: #ffffff !important;
 }
+.btn-primary {
+  --bs-btn-color: #ffffff !important;
+ }
 
+.btn:hover {
+    color: #ffffff !important;
+  }
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
