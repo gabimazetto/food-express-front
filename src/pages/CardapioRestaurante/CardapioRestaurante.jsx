@@ -6,6 +6,7 @@ import "./CardapioRestaurante.css"
 import { CardCardapioRestaurante } from "../../components/CardCardapioRestaurante/CardCardapioRestaurante";
 import { Link } from "react-router-dom";
 import { ContextRestaurant } from "../../contexts/RestaurantContext";
+import { ContextLogin } from "../../contexts/LoginContext";
 
 
 
@@ -16,6 +17,7 @@ export function CardapioRestaurante() {
   const [avaliacao, setAvaliacao] = useState(null);
   const [comentario, setComentario] = useState("");
   const { idRes } = useContext(ContextRestaurant);
+  const { config } = useContext(ContextLogin);
 
   // INICIAR TABELA DE CARDÁPIO
   useEffect(() => {
@@ -24,7 +26,7 @@ export function CardapioRestaurante() {
 
   // FUNÇÃO INICIAR TABELA DE CARDÁPIO
   function initializeTable() {
-    axios.get(`http://localhost:3001/restaurantes/${idRes}/cardapio/`)
+    axios.get(`http://localhost:3001/restaurantes/${idRes}/cardapio/`, config)
       .then((response) => {
         setComidas(response.data);
         setComidasFiltradas(response.data);

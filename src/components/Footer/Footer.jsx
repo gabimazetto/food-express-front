@@ -27,8 +27,8 @@ export function Footer() {
 
     return (
         <footer className="text-center text-lg-start text-md-start text-primary-color mt-0 mb-0 my-app-footer pt-1">
-            <Row className="mt-5 no-border-row d-flex justify-content-center aligns-items-center">
-                <Col md="3" lg="5" xl="3" className="mb-4 mx-5">
+            <section className="container-footer">
+                <Col  >
                     <Link to="/" className="linkApp">
                         <img src={logo} alt="logo" className="logo-footer me-3" />
                     </Link>
@@ -36,7 +36,7 @@ export function Footer() {
                         Os melhores restaurantes na sua casa!
                     </h3>
                 </Col>
-                <Col md="3" lg="4" xl="2" className="mb-4 mx-5">
+                <Col className="col-one-footer" >
                     <p>
                         <Link to={getHomeLink()} className="link-footer" ><p>Home</p> </Link>
                     </p>
@@ -53,7 +53,7 @@ export function Footer() {
                         <Link to="/contato" className="link-footer" ><p>Contato</p> </Link>
                     </p>
                 </Col>
-                <Col md="3" lg="4" xl="2" className="mb-md-0 mb-4 mt-4">
+                <Col  className="col-two-footer" >
                     <p>
                         <FontAwesomeIcon icon={['fas', 'home']} />
                         São Paulo, SP, BR
@@ -66,10 +66,10 @@ export function Footer() {
                         <FontAwesomeIcon icon={['fas', 'phone']} /> 99 99999-9999
                     </p>
                 </Col>
-            </Row>
-            <Row className="mt-0 mb-0 row-copy">
-                <div className="text-center p-1 text-dark" style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
-                    <Link to="https://www.facebook.com/julia.gascho" target="_blank" className="me-4 text-reset">
+            </section>
+            <span className="mt-1 mb-1 footer-copy ">
+                {/* <div className="text-center p-1 text-dark" style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}> */}
+                    {/* <Link to="https://www.facebook.com/julia.gascho" target="_blank" className="me-4 text-reset">
                         <FontAwesomeIcon icon={faFacebookF} />
                     </Link>
                     <Link to="" className="me-4 text-reset" target="_blank">
@@ -77,15 +77,15 @@ export function Footer() {
                     </Link>
                     <Link to="https://www.instagram.com/jugascho/" target="_blank" className="me-5 text-reset">
                         <FontAwesomeIcon icon={faInstagram} />
-                    </Link>
-                    <div>
-                        © 2023. Todos os direitos reservados: {" "}
-                        <Link className="text-reset fw-bold" to="/">
-                            foodexpress.com
+                    </Link> */}
+                    
+                        © 2023. Todos os direitos reservados:  {" "}
+                        <Link className="fw-bold footer-site" to="/">
+                         foodexpress.com
                         </Link>
-                    </div>
-                </div>
-            </Row>
+                    
+                {/* </div> */}
+            </span>
         </footer>
     )
 };

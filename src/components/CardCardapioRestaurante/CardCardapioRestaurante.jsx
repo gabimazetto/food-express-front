@@ -1,17 +1,19 @@
 import "./CardCardapioRestaurante.css"
-import { useEffect } from "react"
+import { useContext, useEffect } from "react"
 import axios from "axios"
 import { useState } from "react"
 import { toast } from "react-hot-toast"
 import { Loader } from "../../components/Loader/Loader";
 import { Button, Modal } from "react-bootstrap"
 import { Link } from "react-router-dom"
+import { ContextLogin } from "../../contexts/LoginContext"
 
 
 export function CardCardapioRestaurante({ className, comidas, updateData }) {
     const [cardapio, setCardapio] = useState([])
     const [show, setShow] = useState(false);
     const [idComida, setIdComida] = useState(null);
+    const { config } = useContext(ContextLogin);
 
 
     useEffect(() => {
@@ -25,7 +27,7 @@ export function CardCardapioRestaurante({ className, comidas, updateData }) {
 
 
     function onDelete() {
-        axios.delete(`http://localhost:3001/comidas/${idComida}`)
+        axios.delete(`http://localhost:3001/comidas/${idComida}`, config)
             .then((response) => {
                 toast.success(response.data.message, {
                     position: "bottom-right",

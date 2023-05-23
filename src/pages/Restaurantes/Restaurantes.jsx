@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import "./style.css";
 import { ContextClient } from "../../contexts/ClientContext";
+import { ContextLogin } from "../../contexts/LoginContext";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
 
@@ -13,6 +14,7 @@ export function Restaurantes() {
   const [restaurantes, setRestaurantes] = useState(null);
   const [busca, setBusca] = useState("");
   const { idCli } = useContext(ContextClient);
+  const { config } = useContext(ContextLogin);
   const [mediasAvaliacoes, setMediasAvaliacoes] = useState({});
   const [comentariosAvaliacoes, setComentariosAvaliacoes] = useState([]);
   const [show, setShow] = useState(false);
@@ -25,8 +27,7 @@ export function Restaurantes() {
 
 
   function initializeTable() {
-    axios
-      .get("http://localhost:3001/restaurantes")
+    axios.get("http://localhost:3001/restaurantes", config)
       .then((response) => {
         const restaurantes = response.data.map((restaurante) => {
           const {
@@ -52,9 +53,7 @@ export function Restaurantes() {
     try {
       const medias = {};
       for (const restaurante of restaurantes) {
-        const response = await axios.get(
-          `http://localhost:3001/avaliacaos/media/${restaurante.id}`
-        );
+        const response = await axios.get(`http://localhost:3001/avaliacaos/media/${restaurante.id}`, config);
         const media = response.data.media;
         medias[restaurante.id] = media;
       }
@@ -71,8 +70,7 @@ export function Restaurantes() {
       restauranteId,
       clienteId: idCli,
     };
-    axios
-      .post("http://localhost:3001/restaurantes/favoritos", data)
+    axios.post("http://localhost:3001/restaurantes/favoritos", data, config)
       .then((response) => {
         toast.success("Adicionado aos Favoritos", {
           position: "bottom-right",
@@ -96,7 +94,7 @@ export function Restaurantes() {
 
   async function buscarComentariosAvaliacoes(restauranteId) {
     try {
-      const response = await axios.get(`http://localhost:3001/avaliacaos/${restauranteId}`);
+      const response = await axios.get(`http://localhost:3001/avaliacaos/${restauranteId}`, config);
       const comentarios = response.data.map((avaliacao) => ({
         comentario: avaliacao.comentario,
         nota: avaliacao.avaliacao,

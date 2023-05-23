@@ -6,10 +6,12 @@ import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { Loader } from "../Loader/Loader";
 import { Link } from "react-router-dom";
+import { ContextLogin } from "../../contexts/LoginContext";
 
 export function CardCardapioCliente({ className, comidas, updateData }) {
   const [cardapio, setCardapio] = useState([]);
   const { idCli } = useContext(ContextClient);
+  const { config } = useContext(ContextLogin);
 
   useEffect(() => {
     initializeTable();
@@ -26,7 +28,7 @@ export function CardCardapioCliente({ className, comidas, updateData }) {
       clienteId: idCli,
     };
     axios
-      .post("http://localhost:3001/comidas/favoritos", data)
+      .post("http://localhost:3001/comidas/favoritos", data, config)
       .then((response) => {
         toast.success("Adicionado aos Favoritos", {
           position: "bottom-right",
