@@ -1,6 +1,13 @@
+.imagem-cadastro-mobile{
+    display: block;
+  max-width: -webkit-fill-available;
+  align-items: center;
+}
+
 .logo-web-cadastro{
     display: none;
 }
+
 .imagem-cadastro-web{
     display: none;
 }
@@ -9,8 +16,8 @@
     background: linear-gradient(90deg, rgba(54,54,54,0.905374649859944) 15%, rgba(217,123,11,0.8213410364145658) 43%, rgba(255,255,255,1) 100%);
 }
 
-.title-client{
-    margin-top: 8%;
+.title-client-cad{
+    margin-top: 5% !important;
     margin-left: 5% !important;
     color: #f06000;
     font-size: 2.5rem;
@@ -19,11 +26,11 @@
     max-width: 380px;
 }
 
-.container{
-    width: 80% !important;
+.container-cli-cad{
+    width: 100% !important;
     background-color: #fff;
     box-shadow: #D93F0B1a 0px 4px 12px;    
-    overflow: auto !important;
+    overflow: hidden !important;
     margin-top: 7%;
     margin-bottom: 8%;
 }
@@ -59,7 +66,19 @@ hr {
 }
 
 @media (min-width: 970px) {
-    main.container{
+
+    .container-cadas-cli{    
+        height: 100% !important;
+}
+
+    .container-cli-cad{
+        width: 80% !important;
+        max-width: 900px !important;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    main.container-cli-cad{
         width: 95% !important;
         max-width: 90% !important;
     }
@@ -69,50 +88,58 @@ hr {
         max-width: 250px;
         margin-left: 1rem !important;
     }    
-    .title-client {
-        max-width: 300px;
+    .title-client-cad {
+        margin-top: 5%;
+        margin-left: 3%;
     }
-    .card-web{
-        background-color: #D97B0B;
-        position: relative;    
-        height: 122%!important;   
-        min-width: 380px !important;   
-        overflow: auto;
-        bottom: 22%;
-        left: 3.2%;
-        border-radius: 30px;       
+    .card-web-cli-cad{
+        background-color: #d97b0b;
+    position: relative;
+    border-radius: 30px;
+    padding: 2rem;
+    height: 100% !important;
+    margin-top: 0 !important;      
     }
+
     .imagem-cadastro-web{
         display: block;
-        width: 100%;
-        right: 18% !important;
-        margin-top: 60%;
+    width: 100%;
+    margin-top: 2rem;
     }
+
     .imagem-cadastro-mobile{
         display: none;
     }
-    .flex {
+
+    .flex-cli-cad {
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-between;        
     }
     
-    .title-client{
+    .title-client-cad{
     margin-top: 0;
     margin-left: 3%;
     }    
 }
 
 @media (min-width: 1020px) {
-    .card-web{
-        min-width: 480px !important;
+    .card-web-cli-cad{
+        /* min-width: 480px !important; */
         left: 2.3%;
     }
 }
 
 @media (min-width: 1200px) {
-    main.container {
+    .container-cadas-cli{
+        height: 100% !important;
+        overflow-y: hidden !important;
+        max-height: none !important;
+    }
+    
+    main.container-cli-cad {
         min-height: 590px !important;
         max-width: 1000px !important;
+        /* overflow: hidden !important;  */
     }
 } 
