@@ -1,4 +1,68 @@
-.search-wrapper {
+.nav-rest h1{
+  color: #f06000;
+  font-weight: bold;
+  font-size: 3rem;
+  text-align: center;
+}
+input.search-rest {
+  padding: 2px 50px 5px 40px;
+  border-radius: 8px;
+  border: 1px solid #f06000;
+  width: 300px;
+  font-size: 17px;
+}
+
+form.form-rest {
+  position: relative;
+}
+
+form.form-rest:before {
+  content:'';
+  display: block;
+  width: 14px;
+  height: 14px;
+  background-image: url(http://getbootstrap.com/2.3.2/assets/img/glyphicons-halflings.png);
+  background-position: -48px 0;
+  position: absolute;
+  top:11px;
+  left:8px;
+  opacity: .5;
+  z-index: 1000;
+}
+
+.card-principal{
+  border: 1px solid #f06000 !important;
+
+}
+  .card-rest{
     display: flex;
-    align-items: center;
+    gap: 1rem;
+    flex-direction: column;
+
   }
+
+.icons-rest {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  flex-wrap: wrap;
+    justify-content: space-around
+}
+
+.detalhes {
+  align-items: stretch;
+}
+
+.my-button-not-filled-rest {
+  color: #f06000 !important;
+    background-color: transparent !important;
+    font-size: 0.9rem !important;
+    font-weight: 300 !important;
+    /* width: 100% !important; */
+    margin-top: 1rem;
+}
+.my-button-not-filled-rest:hover {
+  color: #fff !important;
+  background-color: #f27826 !important;
+  font-weight: 500 !important;
+}

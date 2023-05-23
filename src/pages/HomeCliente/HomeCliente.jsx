@@ -4,7 +4,6 @@ import imgMoto from "../../assets/images/moto.png";
 import imgLivro from "../../assets/images/cardapio.png";
 import { Link } from "react-router-dom";
 import { Button } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
 
 export function HomeCliente() {
 
