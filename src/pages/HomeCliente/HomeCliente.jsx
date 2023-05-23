@@ -3,6 +3,7 @@ import "./HomeCliente.css"
 import imgMoto from "../../assets/images/moto.png";
 import imgLivro from "../../assets/images/cardapio.png";
 import { Link } from "react-router-dom";
+import { Button } from 'react-bootstrap';
 
 export function HomeCliente() {
 
@@ -92,35 +93,15 @@ export function HomeCliente() {
     }
   ]
 
-  function redirecionarParaLink() {
-    window.location.href = "http://localhost:3000/cliente/listar/restaurantes"; // Substitua o URL pelo seu link desejado
-  }
-
-  function redirecionarParaLinkPesquisa() {
-    window.location.href = "http://localhost:3000/cliente/pesquisa"; // Substitua o URL pelo seu link desejado
-  }
-
   return (
     <div>
+
+      {/* Mobile inicio */}
       <section className='sectionRestaurante'>
         <div className='searchBox'>
-            <div className='searchBoxRestaurante'>
-              <input className='searchBoxRestauranteInput' placeholder='pesquise o restaurante' onClick={redirecionarParaLink}></input>
-              <span onClick={redirecionarParaLink}>
-                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M29.8288 32.056L19.8391 22.0875C19.1033 22.694 18.2394 23.1682 17.2474 23.5101C16.2555 23.8519 15.189 24.0228 14.0478 24.0228C11.2449 24.0228 8.87155 23.05 6.92793 21.1044C4.98428 19.1587 4.01245 16.8114 4.01245 14.0625C4.01245 11.3136 4.98529 8.9663 6.93096 7.02065C8.87661 5.075 11.2302 4.10217 13.9916 4.10217C16.753 4.10217 19.1003 5.075 21.0334 7.02065C22.9666 8.9663 23.9332 11.3155 23.9332 14.0681C23.9332 15.1676 23.7688 16.2068 23.44 17.1856C23.1111 18.1644 22.6179 19.0843 21.9603 19.9451L31.9875 29.8973L29.8288 32.056ZM14.0178 21.0522C15.9593 21.0522 17.6021 20.3705 18.9462 19.0072C20.2904 17.6439 20.9625 15.9957 20.9625 14.0625C20.9625 12.1294 20.2893 10.4811 18.9431 9.11783C17.5969 7.75451 15.9551 7.07285 14.0178 7.07285C12.0596 7.07285 10.3977 7.75451 9.03186 9.11783C7.66606 10.4811 6.98316 12.1294 6.98316 14.0625C6.98316 15.9957 7.66503 17.6439 9.02875 19.0072C10.3925 20.3705 12.0555 21.0522 14.0178 21.0522Z" fill="#F06000" />
-                </svg>
-              </span>
-
-            </div>
-          
-          <div className='searchBoxFilter'>
-            <span onClick={redirecionarParaLink}>
-              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3.375 3.375C3.375 3.07663 3.49353 2.79048 3.7045 2.5795C3.91548 2.36853 4.20163 2.25 4.5 2.25H31.5C31.7984 2.25 32.0845 2.36853 32.2955 2.5795C32.5065 2.79048 32.625 3.07663 32.625 3.375V7.875C32.625 8.15244 32.5224 8.42008 32.337 8.6265L22.5 19.557V30.375C22.4998 30.611 22.4254 30.841 22.2873 31.0324C22.1492 31.2238 21.9544 31.3669 21.7305 31.4415L14.9805 33.6915C14.8115 33.7478 14.6315 33.7631 14.4554 33.7363C14.2792 33.7094 14.112 33.6411 13.9674 33.537C13.8229 33.4328 13.7051 33.2958 13.6238 33.1373C13.5426 32.9787 13.5001 32.8032 13.5 32.625V19.557L3.663 8.6265C3.47762 8.42008 3.37505 8.15244 3.375 7.875V3.375Z" fill="#F06000" />
-              </svg>
-            </span>
-          </div>
+        <Link to={`/cliente/listar/restaurantes`}>
+            <Button className='searchBoxButton'>Veja os Restaurantes Disponíveis</Button>
+        </Link>
         </div>
         <div className='melhoresRestaurantes'>
           <div className='melhoresRestaurantesSvg'>
@@ -141,45 +122,14 @@ export function HomeCliente() {
           </div>
         </div>
       </section>
-      <section className='sectionRestauranteDesktop'>
-        <div className='divRestauranteDesktop'>
-          <div className='melhoresRestaurantesDesktop'>
-            <p className='melhoresRestaurantesTxtDesktop'>Os melhores restaurantes na sua casa</p>
-          </div>
-          <div className='melhoresRestaurantesLoremDesktop'>
-            <p className='melhoresRestaurantesLoremTxtDesktop'>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Rerum nobis ducimus cupiditate molestiae dolores, reiciendis expedita!</p>
-          </div>
-          <div className='searchBoxDesktop'>
-            <div className='searchBoxDesktopInput'>
-              <input className='searchBoxRestauranteInputDesktop' placeholder='pesquise o restaurante' onClick={redirecionarParaLink}></input>
-              <span onClick={redirecionarParaLink}>
-                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M29.8288 32.056L19.8391 22.0875C19.1033 22.694 18.2394 23.1682 17.2474 23.5101C16.2555 23.8519 15.189 24.0228 14.0478 24.0228C11.2449 24.0228 8.87155 23.05 6.92793 21.1044C4.98428 19.1587 4.01245 16.8114 4.01245 14.0625C4.01245 11.3136 4.98529 8.9663 6.93096 7.02065C8.87661 5.075 11.2302 4.10217 13.9916 4.10217C16.753 4.10217 19.1003 5.075 21.0334 7.02065C22.9666 8.9663 23.9332 11.3155 23.9332 14.0681C23.9332 15.1676 23.7688 16.2068 23.44 17.1856C23.1111 18.1644 22.6179 19.0843 21.9603 19.9451L31.9875 29.8973L29.8288 32.056ZM14.0178 21.0522C15.9593 21.0522 17.6021 20.3705 18.9462 19.0072C20.2904 17.6439 20.9625 15.9957 20.9625 14.0625C20.9625 12.1294 20.2893 10.4811 18.9431 9.11783C17.5969 7.75451 15.9551 7.07285 14.0178 7.07285C12.0596 7.07285 10.3977 7.75451 9.03186 9.11783C7.66606 10.4811 6.98316 12.1294 6.98316 14.0625C6.98316 15.9957 7.66503 17.6439 9.02875 19.0072C10.3925 20.3705 12.0555 21.0522 14.0178 21.0522Z" fill="#F06000" />
-                </svg>
-              </span>
-            </div>
-            <span className='searchBoxRestauranteButtonDesktop' onClick={redirecionarParaLink}>
-              <button className='searchBoxRestauranteButtonStyleDesktop' onClick={redirecionarParaLink} >
-                Busca Detalhada
-              </button>
-            </span>
-            
-          </div>
-        </div>
-        <div className='divRestauranteDesktopLeft'>
-          <img className='divRestauranteDesktopImg' src={imgMoto} alt='Imagem Restaurante'></img>
-        </div>
-      </section>
+
       <section className='sectionComida'>
         <div className='searchBox'>
           <div className='searchBoxComida'>
-            <input className='searchBoxComidaInput' placeholder='pesquise por comida' onClick={redirecionarParaLinkPesquisa}></input>
-            <span onClick={redirecionarParaLinkPesquisa}>
-              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M29.8288 32.056L19.8391 22.0875C19.1033 22.694 18.2394 23.1682 17.2474 23.5101C16.2555 23.8519 15.189 24.0228 14.0478 24.0228C11.2449 24.0228 8.87155 23.05 6.92793 21.1044C4.98428 19.1587 4.01245 16.8114 4.01245 14.0625C4.01245 11.3136 4.98529 8.9663 6.93096 7.02065C8.87661 5.075 11.2302 4.10217 13.9916 4.10217C16.753 4.10217 19.1003 5.075 21.0334 7.02065C22.9666 8.9663 23.9332 11.3155 23.9332 14.0681C23.9332 15.1676 23.7688 16.2068 23.44 17.1856C23.1111 18.1644 22.6179 19.0843 21.9603 19.9451L31.9875 29.8973L29.8288 32.056ZM14.0178 21.0522C15.9593 21.0522 17.6021 20.3705 18.9462 19.0072C20.2904 17.6439 20.9625 15.9957 20.9625 14.0625C20.9625 12.1294 20.2893 10.4811 18.9431 9.11783C17.5969 7.75451 15.9551 7.07285 14.0178 7.07285C12.0596 7.07285 10.3977 7.75451 9.03186 9.11783C7.66606 10.4811 6.98316 12.1294 6.98316 14.0625C6.98316 15.9957 7.66503 17.6439 9.02875 19.0072C10.3925 20.3705 12.0555 21.0522 14.0178 21.0522Z" fill="#F06000" />
-              </svg>
-            </span>
+          <Link to={`/cliente/pesquisa/`}>
+            <Button className='searchBoxButton'>Consulte o Cardápio</Button>
+          </Link>
+          
           </div>
         </div>
         <div className='escolhaComida'>
@@ -200,12 +150,43 @@ export function HomeCliente() {
         <div className="grid-container">
           {categorias.map((categoria) => (
             <div key={categoria.id} className="categoria-item">
+              <Link to={`/cliente/pesquisa/${categoria.titulo}`}>
               <img src={categoria.imagem} alt={categoria.titulo} />
+              </Link>
               <h3>{categoria.titulo}</h3>
             </div>
           ))}
         </div>
       </section>
+       {/* Mobile fim */}
+
+
+
+
+      {/* Desktop Inicio */}
+      <section className='sectionRestauranteDesktop'>
+        <div className='divRestauranteDesktop'>
+          <div className='melhoresRestaurantesDesktop'>
+            <p className='melhoresRestaurantesTxtDesktop'>Os melhores restaurantes na sua casa</p>
+          </div>
+          <div className='melhoresRestaurantesLoremDesktop'>
+          </div>
+          <div className='searchBoxDesktop'>
+            <div className='searchBoxRestauranteButtonDesktop'>
+            <Link to={`/cliente/listar/restaurantes`}>
+              <Button className='searchBoxRestauranteButtonStyleDesktop'>
+              Veja os Restaurantes Disponíveis
+              </Button>
+            </Link>
+            </div>
+            
+          </div>
+        </div>
+        <div className='divRestauranteDesktopLeft'>
+          <img className='divRestauranteDesktopImg' src={imgMoto} alt='Imagem Restaurante'></img>
+        </div>
+      </section>
+
       <section className='sectionComidaDesktop'>
         <div className='divComidasDesktop'>
           <div className='melhoresComidasDesktop'>
@@ -214,18 +195,13 @@ export function HomeCliente() {
           <div className='melhoresComidasImgDesktop'>
             <img className='melhoresComidasImgStyleDesktop' src={imgLivro} alt='Imagem Livro'></img>
           </div>
-          <div className='searchBoxComidasDesktop'>
-            <input 
-            className='searchBoxComidasInputDesktop' 
-            placeholder='pesquise sua comida' 
-            onClick={redirecionarParaLinkPesquisa}
-            ></input>
-            <span className='searchBoxComidasSpanDesktop' onClick={redirecionarParaLinkPesquisa}>
-              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M29.8288 32.056L19.8391 22.0875C19.1033 22.694 18.2394 23.1682 17.2474 23.5101C16.2555 23.8519 15.189 24.0228 14.0478 24.0228C11.2449 24.0228 8.87155 23.05 6.92793 21.1044C4.98428 19.1587 4.01245 16.8114 4.01245 14.0625C4.01245 11.3136 4.98529 8.9663 6.93096 7.02065C8.87661 5.075 11.2302 4.10217 13.9916 4.10217C16.753 4.10217 19.1003 5.075 21.0334 7.02065C22.9666 8.9663 23.9332 11.3155 23.9332 14.0681C23.9332 15.1676 23.7688 16.2068 23.44 17.1856C23.1111 18.1644 22.6179 19.0843 21.9603 19.9451L31.9875 29.8973L29.8288 32.056ZM14.0178 21.0522C15.9593 21.0522 17.6021 20.3705 18.9462 19.0072C20.2904 17.6439 20.9625 15.9957 20.9625 14.0625C20.9625 12.1294 20.2893 10.4811 18.9431 9.11783C17.5969 7.75451 15.9551 7.07285 14.0178 7.07285C12.0596 7.07285 10.3977 7.75451 9.03186 9.11783C7.66606 10.4811 6.98316 12.1294 6.98316 14.0625C6.98316 15.9957 7.66503 17.6439 9.02875 19.0072C10.3925 20.3705 12.0555 21.0522 14.0178 21.0522Z" fill="#F06000" />
-              </svg>
-            </span>
-          </div>
+          <div className='searchBoxComidasButtonDesktop'>
+            <Link to={`/cliente/pesquisa`}>
+              <Button className='searchBoxComidasButtonStyleDesktop'>
+              Consulte o Cardápio
+              </Button>
+            </Link>
+            </div>
         </div>
         <div className="grid-containerDesktop">
           {categorias.map((categoria) => (
@@ -238,6 +214,9 @@ export function HomeCliente() {
           ))}
         </div>
       </section>
+      {/* Desktop Fim */}
+
+
     </div>
   );
 }

@@ -1,3 +1,4 @@
+/* Mobile Inicio */
 @media (max-width: 480px) {
 
   .sectionRestauranteDesktop, .sectionComidaDesktop {
@@ -9,9 +10,6 @@
   }
 
   .searchBox {
-    width: 100%;
-    height: 100%;
-    max-width: 480px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,8 +19,6 @@
     display: flex;
     align-items: center;
     margin-left: 18px;
-    width: 100%;
-    max-width: 283px;
     height: 38px;
     background-color: #F5F2F2;
     border: none;
@@ -36,15 +32,9 @@
     text-decoration: none;
   }
 
-  .searchBoxRestauranteInput {
-    flex-grow: 1;
-    border: none;
-    background-color: #F5F2F2;
-    
-  }
-
-  .searchBoxRestauranteInput:focus {
-    outline: none;
+  .searchBoxButton{
+    color: #ffffff !important;
+    padding: 15px !important;
   }
 
   .searchBoxRestauranteSvg {
@@ -61,7 +51,7 @@
 
   .melhoresRestaurantes {
     display: flex;
-    margin-top: 14px;
+    margin-top: 30px;
     margin-left: 10px;
     align-items: center;
     justify-content: center;
@@ -88,57 +78,42 @@
     padding-top: 30px;
   }
 
-  .searchBoxComida {
-    display: block;
-    justify-content: center;
-  }
 
   .sectionComida {
-    margin-top: 30px;
+    margin-top: 20px;
     background-color: #F5F2F2;
     width: 100%;
     max-width: 480px;
+    padding-bottom: 20px;
   }
 
 
   .searchBoxComida {
     display: flex;
     align-items: center;
-    width: 100%;
-    max-width: 283px;
     height: 38px;
-    background-color: #FFFFFF;
     border: none;
-    padding: 10px;
     border-radius: 8px;
     font-size: 15px;
     line-height: 18px;
-    margin-top: 20px;
+    margin-top: 30px;
+  
   }
 
   .escolhaComida {
     display: flex;
-    padding-left: 24px;
-    padding-top: 20px;
+    margin-left: 10px;
+    margin-top: 30px;
     width: 100%;
     align-items: center;
     justify-content: center;
   }
 
-  .searchBoxComidaInput {
-    flex-grow: 1;
-    border: none;
-    background-color: #FFFFFF;
-  }
-
-  .searchBoxComidaInput:focus {
-    outline: none;
-  }
 
   .escolhaComidaTxt {
     color: #f06000;
     font-size: 36px;
-    padding-right: 20px;
+    margin-right: 20px;
     line-height: 44px;
     max-width: 210px;
     font-weight: bold;
@@ -174,11 +149,13 @@
   }
 
 }
+/* mobile fim */
 
+/* Desktop Inicio */
 @media screen and (min-width: 481px) and (max-width: 786px) {
-  .sectionRestaurante, .searchBox, .searchBoxRestaurante, .searchBoxRestauranteInput,
+  .sectionRestaurante, .searchBox, .searchBoxRestaurante,
   .searchBoxFilter, .melhoresRestaurantes, .melhoresRestaurantesSvg, .melhoresRestaurantesTxt
-  .melhoresRestaurantesTxtP, .sectionComida, .searchBox, .searchBoxComida, .searchBoxComidaInput,
+  .melhoresRestaurantesTxtP, .sectionComida, .searchBox, .searchBoxComida,
   .escolhaComida, .escolhaComidaTxt, .escolhaComidaSvg, .grid-container, .categoria-item {
     display: none;
   }
@@ -225,14 +202,6 @@
     text-align: initial;
   }
 
-  .searchBoxDesktop {
-    display: inline-flex;
-    align-items: initial;
-    justify-content: initial;
-    width: 100%;
-    max-width: 500px;
-  }
-
   .searchBoxDesktopInput {
     display: flex;
     width: 100%;
@@ -259,20 +228,16 @@
   }
 
   .searchBoxRestauranteButtonDesktop {
-    width: 100%;
-    max-width: 200px;
     display: flex;
     justify-content: center;
     border: none;
-    margin-left: 20px;
   }
 
   .searchBoxRestauranteButtonStyleDesktop {
-    border: none;
-    background-color: #F06000;
-    color: #FFFFFF;
-    font-weight: bold;
-    border-radius: 8px;
+    border: none !important;
+    color: #FFFFFF !important;
+    border-radius: 8px !important;
+    padding: 15px !important;
   }
   
   .divRestauranteDesktopLeft {
@@ -295,6 +260,7 @@
     display: grid;
     width: 100%;
     justify-content: center;
+    margin-bottom: 20px;
   }
 
   .melhoresComidasDesktop {
@@ -323,20 +289,22 @@
     margin: 0px 0px 40px 80px;
   }
 
-  .searchBoxComidasInputDesktop {
-    display: flex;
-    width: 100%;
-    max-width: 300px;
-    background-color: #ffffff;
-    padding: 10px;
-    font-size: 20px;
-    line-height: 18px;
-    border: none;
-  }
-
   .melhoresComidasImgDesktop {
     text-align: center;
     height: auto;
+  }
+
+  .searchBoxComidasButtonDesktop {
+    display: flex;
+    justify-content: center;
+    border: none;
+  }
+
+  .searchBoxComidasButtonStyleDesktop {
+    border: none !important;
+    color: #FFFFFF !important;
+    border-radius: 8px !important;
+    padding: 20px !important;
   }
 
   .melhoresComidasImgStyleDesktop {
@@ -346,9 +314,6 @@
     margin-right: 50px;
   }
 
-  .searchBoxComidasInputDesktop:hover {
-    outline: none;
-  }
 
   .divGridComidaDesktop {
     display: grid;
@@ -379,9 +344,9 @@
 }
 
 @media (min-width: 786px) {
-  .sectionRestaurante, .searchBox, .searchBoxRestaurante, .searchBoxRestauranteInput,
+  .sectionRestaurante, .searchBox, .searchBoxRestaurante,
   .searchBoxFilter, .melhoresRestaurantes, .melhoresRestaurantesSvg, .melhoresRestaurantesTxt
-  .melhoresRestaurantesTxtP, .sectionComida, .searchBox, .searchBoxComida, .searchBoxComidaInput,
+  .melhoresRestaurantesTxtP, .sectionComida, .searchBox, .searchBoxComida,
   .escolhaComida, .escolhaComidaTxt, .escolhaComidaSvg, .grid-container, .categoria-item {
     display: none;
   }
@@ -429,53 +394,21 @@
   }
 
   .searchBoxDesktop {
-    display: inline-flex;
-    align-items: initial;
-    justify-content: initial;
-    width: 100%;
-    max-width: 500px;
-  }
-
-  .searchBoxDesktopInput {
     display: flex;
-    width: 100%;
-    max-width: 300px;
-    background-color: #F5F2F2;
-    padding: 10px;
-    border-radius: 8px;
-    font-size: 16px;
-    line-height: 18px;
-  }
-
-  .searchBoxA{
-    text-decoration: none;
-  }
-
-  .searchBoxRestauranteInputDesktop {
-    flex-grow: 1;
-    border: none;
-    background-color: #F5F2F2;
-  }
-
-  .searchBoxRestauranteInputDesktop:hover {
-    outline: none;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
   }
 
   .searchBoxRestauranteButtonDesktop {
-    width: 100%;
-    max-width: 200px;
-    display: flex;
-    justify-content: center;
     border: none;
-    margin-left: 20px;
   }
 
   .searchBoxRestauranteButtonStyleDesktop {
-    border: none;
-    background-color: #F06000;
-    color: #FFFFFF;
-    font-weight: bold;
-    border-radius: 8px;
+    border: none !important;
+    color: #FFFFFF !important;
+    border-radius: 8px !important;
+    padding: 20px !important;
   }
   
   .divRestauranteDesktopLeft {
@@ -523,17 +456,6 @@
     border-radius: 8px;
   }
   
-  .searchBoxComidasInputDesktop {
-    display: flex;
-    width: 100%;
-    border-radius: 8px 0 0 8px;
-    max-width: 300px;
-    background-color: #ffffff;
-    padding: 10px;
-    font-size: 16px;
-    line-height: 18px;
-    border: none;
-  }
   
   .searchBoxComidasSpanDesktop {
     background-color: #ffffff;
@@ -550,14 +472,23 @@
     height: auto;
   }
 
+  .searchBoxComidasButtonDesktop {
+    display: flex;
+    justify-content: center;
+    border: none;
+  }
+
+  .searchBoxComidasButtonStyleDesktop {
+    border: none !important;
+    color: #FFFFFF !important;
+    border-radius: 8px !important;
+    padding: 15px !important;
+  }
+
   .melhoresComidasImgStyleDesktop {
     max-width: 60%;
     height: auto;
     margin-bottom: 30px;
-  }
-
-  .searchBoxComidasInputDesktop:hover {
-    outline: none;
   }
 
   .divGridComidaDesktop {
@@ -586,3 +517,5 @@
     font-size: 18px;
   }
 }
+
+/* Desktop fim */
