@@ -73,20 +73,16 @@ export function CadastroCliente() {
 
   return (
     <>
-      <ContainerCenterMobile className="background-gradient-escuro">
+      <ContainerCenterMobile className="background-gradient-escuro container-cadas-cli">
         {/* <div className="background-gradient-escuro"> */}
-          <main className="border container rounded-5 ">
-          <img
-                    src={logo}
-                    className="mt-4 ms-5 logo-web-cadastro"
-                    alt="Imagem de uma menina com uma fatia de pizza"
-                  />
-          <h1 className="title-client">Seja nosso cliente e cadastre-se!</h1>
+          <main className="container-cli-cad rounded-5 ">
 
-            <div className="flex">
-              <div className="colTwo">
+          
+
+            <div className="flex-cli-cad">
+              <div className="colTwo-cli-cad">
                 {/* <div class="text-center"> */}
-                  <ContainerCardImg className="card-web">
+                  <ContainerCardImg className="card-web-cli-cad">
                   <img
                     src={imgCadastroWeb}
                     className="mt-4 imagem-cadastro-web"
@@ -100,11 +96,15 @@ export function CadastroCliente() {
                   </ContainerCardImg>
                 {/* </div> */}
               </div>
-              <div className="colOne">
+              <div className="colOne-cli-card">
                 <div className="px-3 py-4">
-                  
-
-                  <Form onSubmit={handleSubmit(onSubmit)}>
+                <img
+                    src={logo}
+                    className="mt-4 ms-5 logo-web-cadastro"
+                    alt="Imagem de uma menina com uma fatia de pizza"
+                  />
+                <h1 className="title-client-cad">Seja nosso cliente e cadastre-se!</h1>
+                  <Form className="form-cad" onSubmit={handleSubmit(onSubmit)}>
                     <div className="mb-3">
                       <label className="form-label">Nome</label>
                       <CustomInputIconNone                        
