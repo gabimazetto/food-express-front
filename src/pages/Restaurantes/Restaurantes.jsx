@@ -92,8 +92,6 @@ export function Restaurantes() {
     }
   }
 
-
-
   async function buscarComentariosAvaliacoes(restauranteId) {
     try {
       const response = await axios.get(`http://localhost:3001/avaliacaos/${restauranteId}`, config);
