@@ -5,7 +5,7 @@ import { Card, Button, Container, Row, Col } from 'react-bootstrap';
 import { Loader } from "../../components/Loader/Loader";
 import { Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
-import "./style.css";
+import "./Restaurante.css";
 import { ContextClient } from "../../contexts/ClientContext";
 import { ContextLogin } from "../../contexts/LoginContext";
 import Offcanvas from 'react-bootstrap/Offcanvas';
@@ -31,12 +31,6 @@ export function Restaurantes() {
   function initializeTable() {
     axios.get("http://localhost:3001/restaurantes", config)
       .then((response) => {
-        const favoritos = localStorage.getItem('favoritos');
-          if (favoritos) {
-            favoritos = JSON.parse(favoritos);
-          } else {
-            favoritos = [];
-          }
         const restaurantes = response.data.map((restaurante) => {
           const {
             endereco: { uf, cidade, cep, rua, numero, complemento },
@@ -44,7 +38,7 @@ export function Restaurantes() {
           return {
             ...restaurante,
             endereco: { uf, cidade, cep, rua, numero, complemento },
-            favorito:  favoritos.includes(restaurante.id),
+            favorito: false,
             media: 0,
           };
         });
@@ -53,10 +47,6 @@ export function Restaurantes() {
       })
       .catch((error) => {
         console.log(error);
-        toast.error("Erro ao carregar os restaurantes", {
-          position: "bottom-right",
-          duration: 2000,
-        });
       });
   }
 
@@ -79,15 +69,6 @@ export function Restaurantes() {
               : restaurante
           )
         );
-        // Adicione o restaurante ao Local Storage
-        const favoritos = localStorage.getItem('favoritos');
-        if (favoritos) {
-          favoritos = JSON.parse(favoritos);
-        } else {
-          favoritos = [];
-        }
-        favoritos.push(restauranteId);
-        localStorage.setItem('favoritos', JSON.stringify(favoritos));
       })
       .catch((error) => {
         toast.error("Algo deu errado", {
@@ -175,7 +156,7 @@ export function Restaurantes() {
                         onClick={() => FavRestaurante(restaurante.id)}
                       >
                         {restaurante.favorito ? (
-                          <i className="bi bi-heart-fill"></i>
+                          <i className="bi bi-heart-fill icon-list-rest"></i>
                         ) : (
                           <i className="bi bi-heart"></i>
                         )}
@@ -196,15 +177,16 @@ export function Restaurantes() {
                       </Button>
                                           
                       <Offcanvas show={show} onHide={handleClose}>
-                      <Offcanvas.Header closeButton>
-                        <Offcanvas.Title>Avaliações</Offcanvas.Title>
+                      <Offcanvas.Header closeButton className="offcanvas-header">
+                        <Offcanvas.Title className="offcanvas-title">Avaliações</Offcanvas.Title>
                       </Offcanvas.Header>
-                      <Offcanvas.Body>
+                      <Offcanvas.Body className="offcanvas-body">
                         {comentariosAvaliacoes.map((comentario, index) => (
                           <div key={index}>
                             <p>Cliente: {comentario.nomeCliente}</p>
                             <p>Comentário: {comentario.comentario}</p>
                             <p>Nota: {comentario.nota}</p>
+                            <hr />
                           </div>
                         ))}
                       </Offcanvas.Body>

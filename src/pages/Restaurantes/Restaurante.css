@@ -8,7 +8,8 @@ input.search-rest {
   padding: 2px 50px 5px 40px;
   border-radius: 8px;
   border: 1px solid #f06000;
-  width: 300px;
+  width: 350px;
+  height: 40px;
   font-size: 17px;
 }
 
@@ -32,7 +33,7 @@ form.form-rest:before {
 
 .card-principal{
   border: 1px solid #f06000 !important;
-
+  max-height: 370px;
 }
   .card-rest{
     display: flex;
@@ -66,3 +67,41 @@ form.form-rest:before {
   background-color: #f27826 !important;
   font-weight: 500 !important;
 }
+.icon-list-rest .bi::before, [class^=bi-]::before, [class*=" bi-"]::before {
+ line-height: revert !important;
+}
+
+
+.offcanvas-backdrop {  
+  background-color: rgba(255, 255, 255, 0) !important; 
+}
+.modal-backdrop.show {
+  opacity: none; /* Ajuste este valor para mudar a transparência */
+}
+
+.body-offcanvas-open {
+  background-color: rgba(255,255,255,0.5) !important;
+}
+.offcanvas-header {
+  background-color: #fcfcfc;
+  color: #f06000 !important;
+  border-bottom: 1px solid #f06000;
+}
+.offcanvas-title{
+  font-size: 2rem !important;
+  font-weight: bolder !important;
+}
+.offcanvas-body {
+  font-size: 1.2em;
+  line-height: 1.5;
+
+}
+
+@media (max-width: 1025px) {
+  .card-principal{
+    max-height: 530px;
+  }
+}
+/* .offcanvas-backdrop {
+  background-color: rgba(0,0,0,0.5) !important;
+} */
