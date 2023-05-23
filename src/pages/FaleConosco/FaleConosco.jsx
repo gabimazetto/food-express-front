@@ -4,7 +4,6 @@ import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/Co
 import contatoimg from "../../assets/images/noteContato.png";
 import "./FaleConosco.css";
 import { Contato } from "../../components/Contato/Contato";
-import { Footer } from "../../components/Footer/Footer";
 
 
 export function FaleConosco() {
@@ -30,7 +29,6 @@ export function FaleConosco() {
                     </div>                   
                 </main>
             </ContainerCenterMobile>
-           <Footer/>
            </>
     );
 }

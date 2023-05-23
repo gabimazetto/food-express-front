@@ -6,8 +6,8 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { CustomInputIconNone } from "../../components/CustomInputIconNone/CustomInputIconNone";
 import "./CadastroRestaurante.css";
-import cadastroRestauranteImg from "../../assets/images/cadastrorest.jpeg";
-import imgCadastroWebRest from "../../assets/images/cadastrorestweb.jpeg";
+import cadastroRestauranteImg from "../../assets/images/chefe.png";
+import imgCadastroWebRest from "../../assets/images/garconete.png";
 import logo from "../../assets/images/logoTemaClaro.png";
 import { ButtonNavigation } from "../../components/ButtonNavigation/ButtonNavigation";
 import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/ContainerCenterMobile";
@@ -79,7 +79,7 @@ export function CadastroRestaurante() {
           />
           <h1 className="title-restaurant">Seja nosso parceiro e cadastre-se!</h1>
           <div className="flex">
-            <div className="colTwo">
+            <div className="colTwo-rest">
               <ContainerCardImg className="card-web">
                 <img
                   src={imgCadastroWebRest}
@@ -94,7 +94,7 @@ export function CadastroRestaurante() {
               </ContainerCardImg>
             </div>
 
-            <div className="colOne">
+            <div className="colOne-rest">
               <div className="px-3 py-4">
                 <Form onSubmit={handleSubmit(onSubmit)}>
                   <div className="mb-3">
