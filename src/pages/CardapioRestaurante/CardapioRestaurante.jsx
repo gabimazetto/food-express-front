@@ -1,12 +1,13 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { Button, Form, InputGroup } from "react-bootstrap";
+import { Button, Form, InputGroup, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Loader } from "../../components/Loader/Loader";
 import "./CardapioRestaurante.css"
 import { CardCardapioRestaurante } from "../../components/CardCardapioRestaurante/CardCardapioRestaurante";
 import { Link } from "react-router-dom";
 import { ContextRestaurant } from "../../contexts/RestaurantContext";
 import { ContextLogin } from "../../contexts/LoginContext";
+import { ButtonNavigation } from "../../components/ButtonNavigation/ButtonNavigation";
 
 
 
@@ -113,6 +114,7 @@ export function CardapioRestaurante() {
       <div className="containerCardRest">
         <div className="container-titulo-cardapio">
           <h1 className="cardapio-titulo">Cardápio</h1>
+          <div className="d-flex flex-column">
           <Form>
             <InputGroup className="mb-3">
               <Form.Control
@@ -124,8 +126,22 @@ export function CardapioRestaurante() {
                 className="cardapio-input"
               />
             </InputGroup>
-            <Button as={Link} to="/restaurante/cardapio/cadastro" className="min-input button-add-cardapio"> Adicionar novo</Button>
           </Form>
+          <div className="d-flex justify-content-evenly align-items-end mt-3 mb-3">
+
+              <ButtonNavigation
+                type="submit"
+                route="/restaurante/home"
+                icon="white bi bi-arrow-left-circle-fill"
+                className="botao-voltar-editar"
+                tooltipContent="Voltar para a home"
+              />
+            
+            <Button as={Link} to="/restaurante/cardapio/cadastro" className="min-input button-add-cardapio">
+              Adicionar novo
+            </Button>
+          </div>
+        </div>
         </div>
         {comidasFiltradas === null ? (
           <Loader />
