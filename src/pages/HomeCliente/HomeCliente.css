@@ -6,7 +6,8 @@
   }
 
   .sectionRestaurante {
-    padding-top: 50px;
+    padding-top: 75px;
+    min-height: 280px;
   }
 
   .searchBox {
@@ -85,6 +86,8 @@
     width: 100%;
     max-width: 480px;
     padding-bottom: 20px;
+    box-shadow: #D93F0B1a 0px -4px 12px;   
+
   }
 
 
@@ -152,7 +155,7 @@
 /* mobile fim */
 
 /* Desktop Inicio */
-@media screen and (min-width: 481px) and (max-width: 786px) {
+@media screen and (min-width: 481px) and (max-width: 920px) {
   .sectionRestaurante, .searchBox, .searchBoxRestaurante,
   .searchBoxFilter, .melhoresRestaurantes, .melhoresRestaurantesSvg, .melhoresRestaurantesTxt
   .melhoresRestaurantesTxtP, .sectionComida, .searchBox, .searchBoxComida,
@@ -164,7 +167,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    max-height: 620px;
+    min-height: 500px;
     height: 100%;
     justify-content: center;
   }
@@ -189,6 +192,7 @@
     color: #f06000;
     font-weight: bold;
     text-align: initial;
+    margin: 7% 18%;
   }
 
   .melhoresRestaurantesLoremDesktop {
@@ -250,10 +254,16 @@
   }
 
   .sectionComidaDesktop {
-    display: block;
+    display: flex;
     width: 100%;
     height: auto;
     background-color: #F5F2F2;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    box-shadow: #D93F0B1a 0px 4px 12px;   
+    box-shadow: #D93F0B1a 0px -4px 12px;   
+
   }
 
   .divComidasDesktop {
@@ -269,6 +279,7 @@
     justify-content: initial;
     margin-top: 30px;
     width: 100%;
+    
   }
   
   .melhoresComidasTxtDesktop {
@@ -277,6 +288,7 @@
     color: #f06000;
     font-weight: bold;
     text-align: initial;
+    
   }
 
   .searchBoxComidasDesktop {
@@ -324,9 +336,10 @@
 
   .grid-containerDesktop {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     /* Exibe 3 categorias por linha */
     width: 100%;
+    padding: 30px 16px;
   }
 
   .categoria-itemDesktop {
@@ -343,7 +356,7 @@
   
 }
 
-@media (min-width: 786px) {
+@media (min-width: 920px) {
   .sectionRestaurante, .searchBox, .searchBoxRestaurante,
   .searchBoxFilter, .melhoresRestaurantes, .melhoresRestaurantesSvg, .melhoresRestaurantesTxt
   .melhoresRestaurantesTxtP, .sectionComida, .searchBox, .searchBoxComida,
@@ -355,7 +368,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    max-height: 620px;
+    min-height: 690px;
     height: 100%;
     justify-content: center;
   }
@@ -396,8 +409,8 @@
   .searchBoxDesktop {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-top: 10px;
+    /* justify-content: center; */
+    margin-top: 75px;
   }
 
   .searchBoxRestauranteButtonDesktop {
@@ -429,6 +442,11 @@
     width: 100%;
     height: 100%;
     justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-bottom: 30px;
+    box-shadow: #D93F0B1a 0px -4px 12px;   
+
   }
 
   .divComidasDesktop {
@@ -439,10 +457,11 @@
 
   .melhoresComidasDesktop {
     width: 100%;
+    
   }
   
   .melhoresComidasTxtDesktop {
-    font-size: 38px;
+    font-size: 2.7rem;
     line-height: 46px;
     color: #f06000;
     font-weight: bold;
@@ -516,6 +535,11 @@
   .categoria-TxtDesktop {
     font-size: 18px;
   }
+}
+@media (min-width: 1400px) {
+  .sectionComidaDesktop {
+    padding: 1% 3%;
+}
 }
 
 /* Desktop fim */
