@@ -16,16 +16,13 @@ export function CustomInputIconNone({
   title,
   min,
   max,
-
   as,
 }) {
   return (
     <Form.Group as={as} className="mb-3">
       <InputGroup className="custon-input-group formulario">
         <Form.Label>{label}</Form.Label>
-        <small className="form-text text-muted">
-          {small}
-        </small>
+        <small className="form-text text-muted">{small}</small>
         <Form.Control
           className={className || (error && "is-invalid")}
           type={type}
