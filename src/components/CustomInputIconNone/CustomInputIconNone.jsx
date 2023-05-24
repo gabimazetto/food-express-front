@@ -16,6 +16,7 @@ export function CustomInputIconNone({
   title,
   min,
   max,
+  disabled,
 
   as,
 }) {
@@ -23,9 +24,7 @@ export function CustomInputIconNone({
     <Form.Group as={as} className="mb-3">
       <InputGroup className="custon-input-group formulario">
         <Form.Label>{label}</Form.Label>
-        <small className="form-text text-muted">
-          {small}
-        </small>
+        <small className="form-text text-muted">{small}</small>
         <Form.Control
           className={className || (error && "is-invalid")}
           type={type}
@@ -37,6 +36,7 @@ export function CustomInputIconNone({
           title={title}
           min={min}
           max={max}
+          disabled={disabled}
         />
       </InputGroup>
       <Form.Text className="invalid-feedback">{error?.message}</Form.Text>

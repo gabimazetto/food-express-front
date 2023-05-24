@@ -9,6 +9,8 @@ import { useEffect } from "react";
 import { ContextLogin } from "../../contexts/LoginContext";
 import { ContextClient } from "../../contexts/ClientContext";
 import { ContextRestaurant } from "../../contexts/RestaurantContext";
+import { CarrinhoCompras } from "../CarrinhoCompras/CarrinhoCompras";
+
 
 
 
@@ -162,40 +164,92 @@ export function Header() {
                             {authenticated === false ? (
                                 //verifica qual tema está sendo aplicado para mostrar a melhor logo
                                 temaEscuro === false ? (
-                                    <Link to="/">
-                                        <img src={logoDeslogadoWhiteImg} width={"100%"} alt="Logo Food Express" />
-                                    </Link>
+                                    <OverlayTrigger
+                                        key='bottom'
+                                        placement='bottom'
+                                        overlay={
+                                            <Tooltip id={`tooltip-bottom`} style={{ backgroundColor: "#f8a80c" }}>
+                                                Voltar para a home
+                                            </Tooltip>
+                                        }
+                                    >
+                                        <Link to="/">
+                                            <img src={logoDeslogadoWhiteImg} width={"100%"} alt="Logo Food Express" />
+                                        </Link>
+                                    </OverlayTrigger>
                                 ) : (
-                                    <Link to="/">
-                                        <img src={logoDeslogadoDarkImg} width={"100%"} alt="Logo Food Express" />
-                                    </Link>
+                                    <OverlayTrigger
+                                        key='bottom'
+                                        placement='bottom'
+                                        overlay={
+                                            <Tooltip id={`tooltip-bottom`} style={{ backgroundColor: "#f8a80c" }}>
+                                                Voltar para a home
+                                            </Tooltip>
+                                        }
+                                    >
+                                        <Link to="/">
+                                            <img src={logoDeslogadoDarkImg} width={"100%"} alt="Logo Food Express" />
+                                        </Link>
+                                    </OverlayTrigger>
                                 )
                             ) : (
                                 // Se caso estiver logado aí verifica o tamanho da logo, se for para tamanhos de tela até grande
                                 // mostra a logo compacta
                                 telaPequena || telaMedia || telaGrande ? (
-                                    <Link to={authenticated === true && roleCli === "cliente" ? `/cliente/home` : (authenticated === true && roleRes === "restaurante" ? `/restaurante/home` : "/")}>
-                                        <img className="logo-logado" src={logoLogadoImg} alt="Logo Food Express" />
-                                    </Link>
+                                    <OverlayTrigger
+                                        key='bottom'
+                                        placement='bottom'
+                                        overlay={
+                                            <Tooltip id={`tooltip-bottom`} variant="warning">
+                                                Voltar para a home
+                                            </Tooltip>
+                                        }
+                                    >
+                                        <Link to={authenticated === true && roleCli === "cliente" ? `/cliente/home` : (authenticated === true && roleRes === "restaurante" ? `/restaurante/home` : "/")}>
+                                            <img className="logo-logado" src={logoLogadoImg} alt="Logo Food Express" />
+                                        </Link>
+                                    </OverlayTrigger>
                                 ) : (
                                     // Se tiver bastante espaço na tela mostra a logo completa dependendo do tema do usuário
                                     telaGigante && temaEscuro === false ? (
-                                        <Link to={authenticated === true && roleCli === "cliente" ? `/cliente/home` : (authenticated === true && roleRes === "restaurante" ? `/restaurante/home` : "/")}>
-                                            <img className="logo-logado" src={logoDeslogadoWhiteImg} alt="Logo Food Express" />
-                                        </Link>
+                                        <OverlayTrigger
+                                            key='bottom'
+                                            placement='bottom'
+                                            overlay={
+                                                <Tooltip id={`tooltip-bottom`}>
+                                                    Voltar para a home
+                                                </Tooltip>
+                                            }
+                                        >
+                                            <Link to={authenticated === true && roleCli === "cliente" ? `/cliente/home` : (authenticated === true && roleRes === "restaurante" ? `/restaurante/home` : "/")}>
+                                                <img className="logo-logado" src={logoDeslogadoWhiteImg} alt="Logo Food Express" />
+                                            </Link>
+                                        </OverlayTrigger>
                                     ) : (
-                                        <Link to={authenticated === true && roleCli === "cliente" ? `/cliente/home` : (authenticated === true && roleRes === "restaurante" ? `/restaurante/home` : "/")}>
-                                            <img className="logo-logado" src={logoDeslogadoDarkImg} alt="Logo Food Express" />
-                                        </Link>
+                                        <OverlayTrigger
+                                            key='bottom'
+                                            placement='bottom'
+                                            overlay={
+                                                <Tooltip id={`tooltip-bottom`}>
+                                                    Voltar para a home
+                                                </Tooltip>
+                                            }
+                                        >
+                                            <Link to={authenticated === true && roleCli === "cliente" ? `/cliente/home` : (authenticated === true && roleRes === "restaurante" ? `/restaurante/home` : "/")}>
+                                                <img className="logo-logado" src={logoDeslogadoDarkImg} alt="Logo Food Express" />
+                                            </Link>
+                                        </OverlayTrigger>
                                     )
                                 )
-
                             )}
                         </Navbar.Brand>
+
                         {authenticated === false ? (
                             <></>
                         ) : (
                             <>
+                            {location.pathname !== "/cliente/pesquisa/" && location.pathname !== "/cliente/listar/restaurantes" ? (<></>): (<CarrinhoCompras />) }
+                                
                                 <Navbar.Toggle className="navbar-primary bg-primary" aria-controls={`offcanvasNavbar-expand-lg`} />
                                 <Navbar.Offcanvas
                                     className={temaEscuro === false ? "bg-light" : "bg-dark"}
@@ -221,15 +275,102 @@ export function Header() {
                                                 </>
                                             ) : (
                                                 <>
-                                                    {authenticated === true && roleCli === "cliente" ? <Nav.Link as={Link} to={`/cliente/perfil/${idCli}`} ><Button variant="primary"><i className={temaEscuro === false ? "bi bi-person-circle text-light icones-atalho-grandes" : "bi bi-person-circle text-dark icones-atalho-grandes"}></i></Button></Nav.Link> : <></>}
-                                                    <Nav.Link as={Link} to={authenticated === true && roleCli === "cliente" ? `/cliente/pedidos` : (authenticated === true && roleRes === "restaurante" ? `/restaurante/pedidos` : null)}><Button variant="primary"><i className={temaEscuro === false ? "bi bi-file-text-fill text-light icones-atalho-grandes" : "bi bi-file-text-fill text-dark icones-atalho-grandes"}></i></Button></Nav.Link>
+                                                    {authenticated === true && roleCli === "cliente" ?
+                                                        <Nav.Link as={Link} to={`/cliente/perfil/${idCli}`} >
+                                                            <Button variant="primary">
+                                                                <OverlayTrigger
+                                                                    key='bottom'
+                                                                    placement='bottom'
+                                                                    overlay={
+                                                                        <Tooltip id={`tooltip-icon-bottom`}>
+                                                                            Visualizar/Editar perfil
+                                                                        </Tooltip>
+                                                                    }
+                                                                >
+                                                                    <i className={temaEscuro === false ? "bi bi-person-circle text-light icones-atalho-grandes" : "bi bi-person-circle text-dark icones-atalho-grandes"}></i>
+                                                                </OverlayTrigger>
+                                                            </Button>
+                                                        </Nav.Link> : <></>}
+                                                    <Nav.Link as={Link} to={authenticated === true && roleCli === "cliente" ? `/cliente/pedidos` : (authenticated === true && roleRes === "restaurante" ? `/restaurante/pedidos` : null)}>
+                                                        <Button variant="primary">
+                                                            <OverlayTrigger
+                                                                key='bottom'
+                                                                placement='bottom'
+                                                                overlay={
+                                                                    <Tooltip id={`tooltip-icon-bottom`}>
+                                                                        Histórico de pedidos
+                                                                    </Tooltip>
+                                                                }
+                                                            >
+                                                                <i className={temaEscuro === false ? "bi bi-file-text-fill text-light icones-atalho-grandes" : "bi bi-file-text-fill text-dark icones-atalho-grandes"}></i>
+                                                            </OverlayTrigger>
+                                                        </Button>
+                                                    </Nav.Link>
                                                     {authenticated === true && roleRes === "restaurante" ? (
-                                                        <Nav.Link as={Link} to={`/restaurante/perfil/${idRes}`} className="d-flex"><Button variant="primary" ><i className={temaEscuro === false ? "bi bi-building-fill-gear text-light icones-atalho-grandes" : "bi bi-building-fill-gear text-dark icones-atalho-grandes"}></i></Button></Nav.Link>
+                                                        <Nav.Link as={Link} to={`/restaurante/perfil/${idRes}`} className="d-flex">
+                                                            <Button variant="primary" >
+                                                                <OverlayTrigger
+                                                                    key='bottom'
+                                                                    placement='bottom'
+                                                                    overlay={
+                                                                        <Tooltip id={`tooltip-icon-bottom`}>
+                                                                            Visualizar/Editar perfil
+                                                                        </Tooltip>
+                                                                    }
+                                                                >
+                                                                    <i className={temaEscuro === false ? "bi bi-building-fill-gear text-light icones-atalho-grandes" : "bi bi-building-fill-gear text-dark icones-atalho-grandes"}>
+                                                                    </i>
+                                                                </OverlayTrigger>
+                                                            </Button>
+                                                        </Nav.Link>
                                                     ) : (
-                                                        <Nav.Link as={Link} to={`/cliente/listar/favoritos`}><Button variant="primary"><i className={temaEscuro === false ? "bi bi-heart text-light icones-atalho-grandes" : "bi bi-heart text-dark icones-atalho-grandes"}></i></Button></Nav.Link>
+                                                        <Nav.Link as={Link} to={`/cliente/listar/favoritos`}>
+                                                            <Button variant="primary">
+                                                                <OverlayTrigger
+                                                                    key='bottom'
+                                                                    placement='bottom'
+                                                                    overlay={
+                                                                        <Tooltip id={`tooltip-icon-bottom`}>
+                                                                            Favoritos
+                                                                        </Tooltip>
+                                                                    }
+                                                                >
+                                                                    <i className={temaEscuro === false ? "bi bi-heart text-light icones-atalho-grandes" : "bi bi-heart text-dark icones-atalho-grandes"}></i>
+                                                                </OverlayTrigger>
+                                                            </Button>
+                                                        </Nav.Link>
                                                     )}
-                                                    <Nav.Link as={Link} to={`/contato`}><Button variant="primary"><i className={temaEscuro === false ? "bi bi-telephone-fill text-light icones-atalho-grandes" : "bi bi-telephone-fill text-dark icones-atalho-grandes"}></i></Button></Nav.Link>
-                                                    <Nav.Link><Button variant="primary" onClick={Deslogar}><i className={temaEscuro === false ? "bi bi-box-arrow-right text-light icones-atalho-grandes" : "bi bi-box-arrow-right text-dark icones-atalho-grandes"}></i></Button></Nav.Link>
+                                                    <Nav.Link as={Link} to={`/contato`}>
+                                                        <Button variant="primary">
+                                                            <OverlayTrigger
+                                                                key='bottom'
+                                                                placement='bottom'
+                                                                overlay={
+                                                                    <Tooltip id={`tooltip-icon-bottom`}>
+                                                                        Fale conosco
+                                                                    </Tooltip>
+                                                                }
+                                                            >
+                                                                <i className={temaEscuro === false ? "bi bi-telephone-fill text-light icones-atalho-grandes" : "bi bi-telephone-fill text-dark icones-atalho-grandes"}></i>
+                                                            </OverlayTrigger>
+                                                        </Button>
+                                                    </Nav.Link>
+                                                    <Nav.Link>
+                                                        <Button variant="primary" onClick={Deslogar}>
+                                                            <OverlayTrigger
+                                                                key='bottom'
+                                                                placement='bottom'
+                                                                overlay={
+                                                                    <Tooltip id={`tooltip-icon-bottom`}>
+                                                                        Sair
+                                                                    </Tooltip>
+                                                                }
+                                                            >
+                                                                <i className={temaEscuro === false ? "bi bi-box-arrow-right text-light icones-atalho-grandes" : "bi bi-box-arrow-right text-dark icones-atalho-grandes"}>
+                                                                </i>
+                                                            </OverlayTrigger>
+                                                        </Button>
+                                                    </Nav.Link>
                                                 </>
                                             )}
                                             {/* <button onClick={() => trocaTema()}>Trocar Tema</button> */}

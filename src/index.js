@@ -6,6 +6,7 @@ import "./index.css";
 import { ClientContext } from "./contexts/ClientContext";
 import { RestaurantContext } from "./contexts/RestaurantContext";
 import { LoginContext } from "./contexts/LoginContext";
+import { SacolaComprasContext } from "./contexts/SacolaComprasContext";
 import 'react-toastify/dist/ReactToastify.css';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -14,7 +15,9 @@ root.render(
     <LoginContext>
       <ClientContext>
         <RestaurantContext>
-          <App />
+          <SacolaComprasContext>
+            <App />
+          </SacolaComprasContext>
         </RestaurantContext>
       </ClientContext>
     </LoginContext>
