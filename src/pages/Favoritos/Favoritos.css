@@ -1,0 +1,87 @@
+@media (min-width: 786px){
+.section-fav{
+    max-width: 850px !important;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+.titulo-fav{
+    color: #f06000;
+}
+
+.div-fav{
+    display: inline-block;
+    justify-content: space-around;
+    width: 80%;
+}
+
+
+.row-fav-rest {
+    display: inline-block !important;
+    text-align: center;
+}
+
+.row-fav-comida{
+    display: inline-block !important;
+    text-align: center;
+    max-width: 860px !important;
+    width: 80%;
+}
+
+.title-fav{
+    text-align: center;
+}
+
+.botao-voltar-fav{
+    text-align: center;
+    padding-bottom: 30px;
+
+}
+
+.card-fav-principal{
+    border: 1px solid #f06000 !important;
+    max-height: 370px;
+} 
+
+.card-fav{
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    }
+}
+
+@media (max-width:785px) {
+    .section-fav{
+        max-width: 100% !important;
+        display: inline-grid;
+        justify-content: space-around;
+    }
+
+    .botao-voltar-fav{
+        text-align: center;
+        padding-bottom: 30px;
+    }
+
+    .row-fav-rest {
+        max-width: 360px;
+    }
+
+    .row-fav-comida{
+        max-width: 360px;
+    }
+
+    .titulo-fav{
+        color: #f06000;
+    }
+
+    .card-fav-principal{
+        border: 1px solid #f06000 !important;
+        max-height: 370px;
+    } 
+    
+    .card-fav{
+        display: flex;
+        gap: 1rem;
+        flex-direction: column;
+        }
+}
