@@ -3,12 +3,13 @@ import axios from "axios";
 import { Button, Form, InputGroup } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./AdicionarAtualizarComida.css";
 import imagemLogo from "../../assets/icons/prato.svg";
 import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/ContainerCenterMobile";
 import { ContextRestaurant } from "../../contexts/RestaurantContext";
 import { ContextLogin } from "../../contexts/LoginContext";
+import { ButtonNavigation } from "../../components/ButtonNavigation/ButtonNavigation";
 
 
 export function AdicionarAtualizarComida() {
@@ -46,7 +47,7 @@ export function AdicionarAtualizarComida() {
         formData.append("imagem", data.imagem[0]);
         formData.append("restauranteId", idRes);
 
-        
+
 
         if (!id) {
             await axios.post("http://localhost:3001/comidas", formData, config);
@@ -100,19 +101,14 @@ export function AdicionarAtualizarComida() {
             <main className="container-forms-comidas">
                 <Form onSubmit={handleSubmit(onSubmit)} className="forms-comidas">
                     <div className="invisible-desktop icon-voltar-comida">
-                        <Button as={Link} to="/restaurante/cardapio" className="button-desc-cliente"> <i class="bi bi-arrow-left"></i> Voltar</Button>
-                        <h1 className="invisible-desktop">{!id ? 'Adicionar Comida' : 'Editar Comida'}</h1>
-                        <h1 className="invisible-desktop">{!id ? <img src={imagemLogo} alt="Uma foto de um prato com garfo e faca"/> : <img src={imagemComida} alt="Foto da comida selecionada" />}</h1>
+                        <h1 className="invisible-desktop ms-2 mt-5">{!id ? 'Adicionar item ao Cardápio' : 'Atualizar item do Cardápio'}</h1>
+                        <h1 className="invisible-desktop ms-2 mt-5">{!id ? <img src={imagemLogo} alt="Uma foto de um prato com garfo e faca" /> : <img src={imagemComida} alt="Foto da comida selecionada" />}</h1>
                     </div>
-
 
                     <div className="invisible-mobile forms-header-desktop">
-                        <Button as={Link} to="/restaurante/cardapio" className="button-desc-cliente"> <i class="bi bi-arrow-left"></i> Voltar</Button>
-                        <h1 className="invisible-mobile">{!id ? 'Adicionar Comida' : 'Editar Comida'}</h1>
-                        <h1 className="invisible-mobile">{!id ? <img src={imagemLogo} alt="Uma foto de um prato com garfo e faca"/> : <img src={imagemComida} alt="Foto da comida selecionada" />}</h1>
+                        <h1 className="invisible-mobile ms-2 mt-5">{!id ? 'Adicionar item ao Cardápio' : 'Atualizar item do Cardápio'}</h1>
+                        <h1 className="invisible-mobile ms-2 mt-5">{!id ? <img src={imagemLogo} alt="Uma foto de um prato com garfo e faca" /> : <img src={imagemComida} alt="Foto da comida selecionada" />}</h1>
                     </div>
-
-
 
                     <div className="horizontal-row invisible-mobile"></div>
 
@@ -167,8 +163,8 @@ export function AdicionarAtualizarComida() {
                         <Form.Group className="mb-2 input-preco">
                             <Form.Label>Preço:</Form.Label>
                             <InputGroup className="custon-input-group mt-2">
-                                <InputGroup.Text className="">
-                                    R$
+                                <InputGroup.Text className="white me-1">
+                                    <i class="bi bi-currency-dollar"></i>
                                 </InputGroup.Text>
                                 <Form.Control
                                     placeholder="Digite o preço da comida"
@@ -198,7 +194,7 @@ export function AdicionarAtualizarComida() {
                         <Form.Group className="mb-2">
                             <InputGroup className="custon-input-group formulario">
                                 <Form.Label>Imagem:</Form.Label>
-                                <Form.Control className={`formulario borda-direita forms-comidas-component secondary ${errors.preco && "is-invalid"}`} type="file" placeholder="Adicione uma imagem" {...register("imagem",)} />
+                                <Form.Control className={`formulario borda-direita forms-comidas-component secondary rounded ${errors.preco && "is-invalid"}`} type="file" placeholder="Adicione uma imagem" {...register("imagem",)} />
                             </InputGroup>
                         </Form.Group>
 
@@ -213,7 +209,14 @@ export function AdicionarAtualizarComida() {
                             :
                             <div className="invisible"></div>
                         } */}
-                        <div className="d-flex flex-row justify-content-evenly mt-3 mb-4 forms-container-botoes">
+                        <div className="d-flex justify-content-evenly align-items-end mt-3 mb-3">
+                            <ButtonNavigation
+                                type="submit"
+                                route="/restaurante/cardapio"
+                                icon="white bi bi-arrow-left-circle-fill"
+                                className="botao-voltar-editar"
+                            />
+
                             {!id ?
                                 <Button variant="primary" className="botao-form-card" type="submit">
                                     Cadastrar
