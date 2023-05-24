@@ -118,10 +118,10 @@ export function CardapioRestaurante() {
               <Form.Control
                 value={pesquisa}
                 onChange={handlePesquisa}
-                placeholder="Pesquisar nome ou categoria"
+                placeholder="Pesquisar"
                 aria-label="Pesquisar nome ou categoria"
                 aria-describedby="basic-addon2"
-                className="min-input"
+                className="cardapio-input"
               />
             </InputGroup>
             <Button as={Link} to="/restaurante/cardapio/cadastro" className="min-input button-add-cardapio"> Adicionar novo</Button>
