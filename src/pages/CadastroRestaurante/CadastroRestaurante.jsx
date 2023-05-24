@@ -70,7 +70,7 @@ export function CadastroRestaurante() {
 
   return (
     <>
-      <ContainerCenterMobile className="background-gradient-escuro container-cadas-rest">
+      <ContainerCenterMobile className="background-gradient-escuro container-cadas-rest justify-content-center">
         <main className="border main-container rounded-5 ">
          
           <div className="flex">
