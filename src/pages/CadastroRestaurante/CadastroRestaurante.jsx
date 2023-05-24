@@ -70,14 +70,9 @@ export function CadastroRestaurante() {
 
   return (
     <>
-      <ContainerCenterMobile className="background-gradient-escuro">
+      <ContainerCenterMobile className="background-gradient-escuro container-cadas-rest">
         <main className="border main-container rounded-5 ">
-          <img
-            src={logo}
-            className="mt-4 ms-5 logo-web-cadastro"
-            alt="Logo FoodExpress"
-          />
-          <h1 className="title-restaurant">Seja nosso parceiro e cadastre-se!</h1>
+         
           <div className="flex">
             <div className="colTwo-rest">
               <ContainerCardImg className="card-web">
@@ -96,6 +91,12 @@ export function CadastroRestaurante() {
 
             <div className="colOne-rest">
               <div className="px-3 py-4">
+              <img
+            src={logo}
+            className="mt-4 ms-5 logo-web-cadastro"
+            alt="Logo FoodExpress"
+          />
+          <h1 className="title-restaurant">Cadastre-se e seja nosso parceiro!</h1>
                 <Form onSubmit={handleSubmit(onSubmit)}>
                   <div className="mb-3">
                     <label className="form-label">Nome Fantasia</label>
