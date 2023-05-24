@@ -1,12 +1,13 @@
-
-
+.container-addComida {
+    min-height: 140vh !important;
+}
 .container-forms-comidas {
     width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(90.09deg, #363636 0.08%, rgba(240, 96, 0, 0) 97.08%);
+    /* background: linear-gradient(90.09deg, #363636 0.08%, rgba(240, 96, 0, 0) 97.08%); */
 }
 
 .forms-comidas {
@@ -58,16 +59,16 @@
 }
 
 .forms-comidas div .exluir-form-card {
-    width: 140px !important;
-    height: 40px !important;
+    /* width: 140px !important;
+    height: 40px !important; */
     background-color: white;
     color: #f06000;
 }
 
 
 .forms-comidas div .botao-form-card {
-    width: 140px !important;
-    height: 38px !important;
+    /* width: 140px !important;
+    height: 38px !important; */
     color: white;
 }
 
@@ -107,7 +108,7 @@
 
     .forms-comidas div .botao-form-card {
         width: 112px !important;
-        height: 40px !important;
+        /* height: 40px !important; */
         color: white;
     }
 
@@ -115,7 +116,13 @@
         width: 100%;
         border-top: 1px solid rgba(240, 96, 0, 0.8);
     }
+    a .button-desc-cliente {
+        padding-bottom: 100px !important;
+    }
 
+    .icon-voltar-comida a{
+        display: flex;
+    }
     .invisible-mobile {
         display: none;
     }
@@ -142,7 +149,10 @@
         width: 100%;
         border-top: 1px solid rgba(240, 96, 0, 0.8);
     }
-
+    
+    .icon-voltar-comida a{
+        display: flex;
+    }
     .invisible-mobile {
         display: none;
     }

@@ -96,10 +96,10 @@ export function AdicionarAtualizarComida() {
 
 
     return (
-        <ContainerCenterMobile className="background-gradient">
+        <ContainerCenterMobile className="background-gradient container-addComida">
             <main className="container-forms-comidas">
                 <Form onSubmit={handleSubmit(onSubmit)} className="forms-comidas">
-                    <div className="invisible-desktop">
+                    <div className="invisible-desktop icon-voltar-comida">
                         <Button as={Link} to="/restaurante/cardapio" className="button-desc-cliente"> <i class="bi bi-arrow-left"></i> Voltar</Button>
                         <h1 className="invisible-desktop">{!id ? 'Adicionar Comida' : 'Editar Comida'}</h1>
                         <h1 className="invisible-desktop">{!id ? <img src={imagemLogo} alt="Uma foto de um prato com garfo e faca"/> : <img src={imagemComida} alt="Foto da comida selecionada" />}</h1>
@@ -118,10 +118,10 @@ export function AdicionarAtualizarComida() {
 
                     <div className="forms-container-group">
 
-                        <Form.Group className="mb-2">
+                        <Form.Group className="mb-2 ">
                             <InputGroup className="custon-input-group formulario">
                                 <Form.Label>Código:</Form.Label>
-                                <Form.Control className={`formulario borda-direita forms-comidas-component secondary ${errors.codigo && "is-invalid"}`} type="text" placeholder="Digite o código da comida"{...register("codigo", { required: "O código da comida é obrigatório", maxLength: { value: 22, message: "Limite de 22 caracteres." } })} />
+                                <Form.Control className={`formulario borda-direita forms-comidas-component secondary rounded rounded${errors.codigo && "is-invalid"}`} type="text" placeholder="Digite o código da comida"{...register("codigo", { required: "O código da comida é obrigatório", maxLength: { value: 22, message: "Limite de 22 caracteres." } })} />
                                 {errors.codigo && <Form.Text className="invalid-feedback">{errors.codigo.message}</Form.Text>}
                             </InputGroup>
                         </Form.Group>
@@ -129,7 +129,7 @@ export function AdicionarAtualizarComida() {
                         <Form.Group className="mb-2">
                             <InputGroup className="custon-input-group formulario">
                                 <Form.Label>Nome:</Form.Label>
-                                <Form.Control className={`formulario borda-direita forms-comidas-component secondary ${errors.nome && "is-invalid"}`} type="text" placeholder="Digite o nome da comida"  {...register("nome", { required: "O nome da comida é obrigatória.", maxLength: { value: 131, message: "Limite de 131 caracteres." }, minLength: { value: 3, message: "É preciso digitar 3 caracteres ou mais." } })} />
+                                <Form.Control className={`formulario borda-direita forms-comidas-component secondary rounded ${errors.nome && "is-invalid"}`} type="text" placeholder="Digite o nome da comida"  {...register("nome", { required: "O nome da comida é obrigatória.", maxLength: { value: 131, message: "Limite de 131 caracteres." }, minLength: { value: 3, message: "É preciso digitar 3 caracteres ou mais." } })} />
                                 {errors.nome && <Form.Text className="invalid-feedback">{errors.nome.message}</Form.Text>}
                             </InputGroup>
                         </Form.Group>
@@ -137,7 +137,7 @@ export function AdicionarAtualizarComida() {
                         <Form.Group className="mb-2">
                             <InputGroup className="custon-input-group formulario">
                                 <Form.Label>Descrição:</Form.Label>
-                                <Form.Control className={`formulario borda-direita forms-comidas-component secondary ${errors.descricao && "is-invalid"}`} type="text" placeholder="Digite o descrição da comida" {...register("descricao", { required: "A descrição da comida é obrigatória", maxLength: { value: 255, message: "Limite de 255 caracteres." }, minLength: { value: 8, message: "É preciso digitar 8 caracteres ou mais." } })} />
+                                <Form.Control className={`formulario borda-direita forms-comidas-component secondary rounded ${errors.descricao && "is-invalid"}`} type="text" placeholder="Digite o descrição da comida" {...register("descricao", { required: "A descrição da comida é obrigatória", maxLength: { value: 255, message: "Limite de 255 caracteres." }, minLength: { value: 8, message: "É preciso digitar 8 caracteres ou mais." } })} />
                                 {errors.descricao && <Form.Text className="invalid-feedback">{errors.descricao.message}</Form.Text>}
                             </InputGroup>
                         </Form.Group>
@@ -173,7 +173,7 @@ export function AdicionarAtualizarComida() {
                                 <Form.Control
                                     placeholder="Digite o preço da comida"
                                     type="text"
-                                    className={`forms-borda ${errors.codigo && "is-invalid"}`}
+                                    className={`forms-borda rounded-end ${errors.codigo && "is-invalid"}`}
                                     {...register("preco", {
                                         required: "O preço é obrigatório.",
                                         pattern: {
@@ -190,7 +190,7 @@ export function AdicionarAtualizarComida() {
                         <Form.Group className="mb-2">
                             <InputGroup className="custon-input-group form-peso formulario">
                                 <Form.Label>Peso:</Form.Label>
-                                <Form.Control className={`formulario borda-direita forms-comidas-component secondary ${errors.preco && "is-invalid"}`} type="text" placeholder="Digite o peso da comida" {...register("peso", { required: "O peso da comida é obrigatório", maxLength: { value: 10, message: "Limite de 10 numeros." } })} />
+                                <Form.Control className={`formulario borda-direita forms-comidas-component secondary rounded ${errors.preco && "is-invalid"}`} type="text" placeholder="Digite o peso da comida" {...register("peso", { required: "O peso da comida é obrigatório", maxLength: { value: 10, message: "Limite de 10 numeros." } })} />
                                 {errors.peso && <Form.Text className="invalid-feedback">{errors.peso.message}</Form.Text>}
                             </InputGroup>
                         </Form.Group>
@@ -198,7 +198,7 @@ export function AdicionarAtualizarComida() {
                         <Form.Group className="mb-2">
                             <InputGroup className="custon-input-group formulario">
                                 <Form.Label>Imagem:</Form.Label>
-                                <Form.Control className={`formulario borda-direita forms-comidas-component secondary ${errors.preco && "is-invalid"}`} type="file" placeholder="Adicione uma imagem" {...register("imagem",)} />
+                                <Form.Control className={`formulario borda-direita forms-comidas-component secondary rounded ${errors.preco && "is-invalid"}`} type="file" placeholder="Adicione uma imagem" {...register("imagem",)} />
                             </InputGroup>
                         </Form.Group>
 
@@ -206,7 +206,7 @@ export function AdicionarAtualizarComida() {
                             <Form.Group className="mb-2">
                                 <InputGroup className="custon-input-group formulario">
                                     <Form.Label>RestauranteId:</Form.Label>
-                                    <Form.Control disabled value={idRes} className={`formulario borda-direita forms-comidas-component secondary ${errors.preco && "is-invalid"}`} type="text" placeholder="Digite o código da comida:" {...register("restauranteId")} />
+                                    <Form.Control disabled value={idRes} className={`formulario borda-direita forms-comidas-component secondary rounded ${errors.preco && "is-invalid"}`} type="text" placeholder="Digite o código da comida:" {...register("restauranteId")} />
                                     {errors.restauranteId && <Form.Text className="invalid-feedback">{errors.restauranteId.message}</Form.Text>}
                                 </InputGroup>
                             </Form.Group>
