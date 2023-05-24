@@ -1,5 +1,5 @@
 import { Button } from "react-bootstrap"
-import imagemLogo from "../../assets/icons/prato.svg"
+import imagemLogo from "../../assets/images/cardapio2.png"
 import "./HomeRestaurante.css"
 import { CardCardapioRestaurante } from "../../components/CardCardapioRestaurante/CardCardapioRestaurante"
 import { Link } from "react-router-dom"
@@ -38,10 +38,10 @@ export function HomeRestaurante() {
     }
 
     return (
-        <div className="container-home-restaurante">
+        <div className="container-home-restaurante ">
             <header className="header-home-restaurante ">
-                <div className="container-header">
-                    <div className="titulo-home-restaurante">
+                <div className="container-header ">
+                    <div className="titulo-home-restaurante ">
                         <h1>Cardápio</h1>
                         <div className="button-header invisivel-mobile ">
                             <Button as={Link} to="/restaurante/cardapio/" className="button-meus-itens" variant="primary">Meus itens</Button>

@@ -5,6 +5,7 @@ import { Loader } from "../../components/Loader/Loader";
 import { ContextRestaurant } from "../../contexts/RestaurantContext";
 import { toast } from "react-hot-toast";
 import { ContextLogin } from "../../contexts/LoginContext";
+import "./PedidosRestaurante.css";
 
 export function PedidosRestaurante() {
     const [pedidos, setPedidos] = useState(null);
@@ -65,7 +66,7 @@ export function PedidosRestaurante() {
     }
 
     return (
-        <Container>
+        <Container className="container-pedidos" >
             <h1>Pedidos</h1>
             {pedidos === null ? (
                 <Loader />
