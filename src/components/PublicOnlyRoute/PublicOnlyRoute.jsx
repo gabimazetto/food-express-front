@@ -12,6 +12,7 @@ export function PublicOnlyRoute(){
 
     if(authenticated && token){
         if(idCli){
+            console.log(idCli);
             return <Navigate to='/cliente/home' replace />
         }else if(idRes){
             return <Navigate to='/restaurante/home' replace />

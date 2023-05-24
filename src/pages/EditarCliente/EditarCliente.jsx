@@ -133,7 +133,7 @@ export function EditarCliente() {
                       <label className="form-label">Telefone</label>
                       <CustomInputIconNone
                         type="tel"
-                        pattern="[(0-9)]{4}[0-9]{5}-[0-9]{4}|[0-9]{2}[0-9]{5}-[0-9]"
+                        pattern="[(0-9)]{4}[0-9]{5}-[0-9]{4}|[0-9]{2}[0-9]{5}-[0-9]{4}"
                         title="(99)99999-9999 ou 1212345-1234"
                         register={register("telefone", {
                           required: "O telefone é obrigatório.",
@@ -302,7 +302,6 @@ export function EditarCliente() {
                       </div>
 
                     </div>
-
                                     <div class="d-flex justify-content-between ">
 
                                         <ButtonNavigation

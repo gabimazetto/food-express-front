@@ -198,7 +198,7 @@ export function AdicionarAtualizarComida() {
                         <Form.Group className="mb-2">
                             <InputGroup className="custon-input-group formulario">
                                 <Form.Label>Imagem:</Form.Label>
-                                <Form.Control className={`formulario borda-direita forms-comidas-component secondary rounded ${errors.preco && "is-invalid"}`} type="file" placeholder="Adicione uma imagem" {...register("imagem",)} />
+                                <Form.Control className={`formulario borda-direita forms-comidas-component secondary ${errors.preco && "is-invalid"}`} type="file" placeholder="Adicione uma imagem" {...register("imagem",)} />
                             </InputGroup>
                         </Form.Group>
 
