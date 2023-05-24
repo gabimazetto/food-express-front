@@ -12,8 +12,20 @@ function LoginContext({ children }){
         }
     };
 
+    async function isAuthenticated(funcaoA, funcaoB){
+        if(token && !authenticated){
+            try{
+                funcaoA();
+                funcaoB();
+                setAuthenticated(true)
+            } catch(error){
+                console.log(error);
+            }
+        }
+    }
+
     return(
-        <ContextLogin.Provider value={{ authenticated, setAuthenticated, token, config }}>
+        <ContextLogin.Provider value={{ authenticated, setAuthenticated, token, config, isAuthenticated }}>
             {children}
         </ContextLogin.Provider>
     );
