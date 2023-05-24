@@ -3,12 +3,13 @@ import logoLogadoImg from "../../assets/images/LogoMini.png";
 import logoDeslogadoWhiteImg from "../../assets/images/TemaClaro.png";
 import logoDeslogadoDarkImg from "../../assets/images/TemaEscuro.png";
 import "./style.css";
-import { Button, Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
+import { Button, Container, Nav, Navbar, Offcanvas, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { useContext, useState } from "react";
 import { useEffect } from "react";
 import { ContextLogin } from "../../contexts/LoginContext";
 import { ContextClient } from "../../contexts/ClientContext";
 import { ContextRestaurant } from "../../contexts/RestaurantContext";
+
 
 
 export function Header() {
@@ -71,6 +72,91 @@ export function Header() {
             {location.pathname !== "/cliente/login" && location.pathname !== "/cliente/cadastro" && location.pathname !== "/restaurante/cadastro" && location.pathname !== "/restaurante/login" && (
                 <Navbar bg={temaEscuro === false ? "light" : "dark"} expand="lg" className="">
                     <Container fluid className=" d-flex justify-content-between align-items-center" >
+                    <Navbar.Brand >
+  {/* Verifica se está logado para apresentar as informações */}
+  {authenticated === false ? (
+    //verifica qual tema está sendo aplicado para mostrar a melhor logo
+    temaEscuro === false ? (
+      <OverlayTrigger
+        key='bottom'
+        placement='bottom'
+        overlay={
+          <Tooltip id={`tooltip-bottom`}>
+            Clique para ir para a home
+          </Tooltip>
+        }
+      >
+        <Link to="/">
+          <img src={logoDeslogadoWhiteImg} width={"100%"} alt="Logo Food Express" />
+        </Link>
+      </OverlayTrigger>
+    ) : (
+      <OverlayTrigger
+        key='bottom'
+        placement='bottom'
+        overlay={
+          <Tooltip id={`tooltip-bottom`}>
+            Clique para ir para a home
+          </Tooltip>
+        }
+      >
+        <Link to="/">
+          <img src={logoDeslogadoDarkImg} width={"100%"} alt="Logo Food Express" />
+        </Link>
+      </OverlayTrigger>
+    )
+  ) : (
+    // Se caso estiver logado aí verifica o tamanho da logo, se for para tamanhos de tela até grande
+    // mostra a logo compacta
+    telaPequena || telaMedia || telaGrande ? (
+      <OverlayTrigger
+        key='bottom'
+        placement='bottom'
+        overlay={
+          <Tooltip id={`tooltip-bottom`}>
+            Clique para ir para a home
+          </Tooltip>
+        }
+      >
+        <Link to={authenticated === true && roleCli === "cliente" ? `/cliente/home` : (authenticated === true && roleRes === "restaurante" ? `/restaurante/home` : "/")}>
+          <img className="logo-logado" src={logoLogadoImg} alt="Logo Food Express" />
+        </Link>
+      </OverlayTrigger>
+    ) : (
+      // Se tiver bastante espaço na tela mostra a logo completa dependendo do tema do usuário
+      telaGigante && temaEscuro === false ? (
+        <OverlayTrigger
+          key='bottom'
+          placement='bottom'
+          overlay={
+            <Tooltip id={`tooltip-bottom`}>
+              Clique para ir para a home
+            </Tooltip>
+          }
+        >
+          <Link to={authenticated === true && roleCli === "cliente" ? `/cliente/home` : (authenticated === true && roleRes === "restaurante" ? `/restaurante/home` : "/")}>
+            <img className="logo-logado" src={logoDeslogadoWhiteImg} alt="Logo Food Express" />
+          </Link>
+        </OverlayTrigger>
+      ) : (
+        <OverlayTrigger
+          key='bottom'
+          placement='bottom'
+          overlay={
+            <Tooltip id={`tooltip-bottom`}>
+              Clique para ir para a home
+            </Tooltip>
+          }
+        >
+          <Link to={authenticated === true && roleCli === "cliente" ? `/cliente/home` : (authenticated === true && roleRes === "restaurante" ? `/restaurante/home` : "/")}>
+            <img className="logo-logado" src={logoDeslogadoDarkImg} alt="Logo Food Express" />
+          </Link>
+        </OverlayTrigger>
+      )
+    )
+
+  )}
+</Navbar.Brand>
                         <Navbar.Brand >
                             {/* Verifica se está logado para apresentar as informações */}
                             {authenticated === false ? (

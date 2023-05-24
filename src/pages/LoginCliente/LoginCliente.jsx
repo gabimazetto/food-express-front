@@ -84,6 +84,7 @@ export function LoginCliente() {
                 text="Seja nosso cliente, cadastre-se aqui"
                 route="/cliente/cadastro"
                 className="my-button-not-filled"
+                
               />
 
               <ButtonNavigation
