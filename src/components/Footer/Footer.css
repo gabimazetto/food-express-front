@@ -54,8 +54,10 @@
 
    @media (min-width: 1400px) {
     .container-footer {
+
         /* min-height: 320px !important; */
         max-width: 1150px !important;
         margin: 0 auto !important;
+
   }
 }
