@@ -110,7 +110,7 @@ export function CardapioRestaurante() {
 
   return (
     <>
-      <div className="container">
+      <div className="containerCardRest">
         <div className="container-titulo-cardapio">
           <h1 className="cardapio-titulo">Cardápio</h1>
           <Form>

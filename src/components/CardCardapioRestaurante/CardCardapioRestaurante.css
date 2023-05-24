@@ -9,9 +9,13 @@
 
     .container-cards {
         display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
+        /* flex-flow: row wrap; */
+        justify-content: flex-start;
         width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        column-gap: 10px;
+        row-gap: 195px;
     }
 
     .article-home-restaurante {
@@ -41,8 +45,15 @@
 
     .article-body {
         background-color: #D97B0B;
-        height: 187px;
+        min-height: 85%;
         border-radius: 0px 0px 10px 10px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 4px;
     }
 
     .article-body div span {
@@ -77,11 +88,12 @@
         color: #000000;
         font-style: normal;
         font-weight: 400;
+        padding: 12px 0px;
     }
 
-    .infos-card .descricao {
+    /* .infos-card .descricao {
         height: 45px;
-    }
+    } */
 
     .preco-card-restaurante {
         width: 215px;
