@@ -28,17 +28,17 @@
 }
 
 .button-desc-cliente {
-    width: 100px !important;
-    height: 40px !important;
+    /* width: 100px !important;
+    height: 40px !important; */
     color: #F06000 !important;
     background-color: white !important;
     border: none !important;
-    margin: 10px 0 0 0px;
+    margin: 10% 0 0 0px;
 }
 
 .button-desc-cardapio{
-    width: 150px !important;
-    height: 40px !important;
+    /* width: 150px !important;
+    height: 40px !important; */
     color: #F06000 !important;
     background-color: white !important;
     border: none !important;
