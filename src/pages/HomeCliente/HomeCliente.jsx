@@ -1,6 +1,6 @@
 import React from 'react';
 import "./HomeCliente.css"
-import imgMoto from "../../assets/images/moto.png";
+import imgMoto from "../../assets/images/motoFoodExpress.png";
 import imgLivro from "../../assets/images/cardapio.png";
 import { Link } from "react-router-dom";
 import { Button } from 'react-bootstrap';
