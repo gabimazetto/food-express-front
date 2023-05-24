@@ -104,7 +104,7 @@ export function CardCardapioRestaurante({ className, comidas, updateData }) {
                 </Modal.Header>
                 <Modal.Body>Tem certeza que deseja excluir o Produto?</Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={onDelete} variant="danger">
+                    <Button onClick={onDelete} variant="primary">
                         Excluir
                     </Button>
                     <Button onClick={handleClose} variant="primary">
