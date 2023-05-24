@@ -74,13 +74,14 @@ export function ClienteBuscaComida() {
             <div className="container">
                 <div className="d-flex justify-content-between align-items-center header-pesquisa">
                     <Form>
-                        <InputGroup className="mb-3 campo-pesquisa">
+                        <InputGroup className="mb-3 campo-pesquisa ">
                             <Form.Control
                                 value={pesquisa}
                                 onChange={handlePesquisa}
                                 placeholder="Pesquisar nome ou categoria ou descrição"
                                 aria-label="Pesquisar nome ou categoria ou descrição"
                                 aria-describedby="basic-addon2"
+                                className="rounded mt-4"
                             />
                         </InputGroup>
                     </Form>

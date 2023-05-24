@@ -10,6 +10,9 @@
     width: 100%;
 }
 
+form .input-cardapio-cliente{
+    border-radius: 8px !important;
+}
 .rating-stars {
     color: #ffd700; /* Cor das estrelas preenchidas */
   }

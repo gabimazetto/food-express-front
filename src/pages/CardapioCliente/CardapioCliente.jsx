@@ -115,13 +115,14 @@ export function CardapioCliente() {
                 <div className="d-flex justify-content-between align-items-center">
                     <h1 className="cardapio-titulo">Cardápio</h1>
                     <Form>
-                        <InputGroup className="mb-3">
+                        <InputGroup className="mb-3 mt-4 ">
                             <Form.Control
                                 value={pesquisa}
                                 onChange={handlePesquisa}
-                                placeholder="Pesquisar nome ou categoria"
+                                placeholder="Pesquisar "
                                 aria-label="Pesquisar nome ou categoria"
                                 aria-describedby="basic-addon2"
+                                className="input-cardapio-cliente"
                             />
                         </InputGroup>
                         <Button variant="primary" as={Link} to="/cliente/listar/restaurantes" className="button-voltar-restaurantes">

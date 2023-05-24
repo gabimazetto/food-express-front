@@ -39,7 +39,7 @@ export function Favoritos() {
 
     return(
         <>
-        <div className="container">
+        <div className="container mt-4 mb-4">
         <h1>Restaurantes Favoritos</h1>
         {
             favoritos === null ?
