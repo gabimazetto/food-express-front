@@ -22,7 +22,8 @@
 
 .article-cards-pedidos {
     width: 500px;
-    height: 350px;
+    /* height: 350px; */
+    min-height: 440px;
     min-width: 300px;
     display: flex;
     flex-direction: column;
