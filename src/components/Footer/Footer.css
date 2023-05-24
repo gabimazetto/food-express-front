@@ -20,7 +20,7 @@
     flex-direction: row;
     justify-content: center;
     padding: 1rem;
-    margin: 2% 5%;
+    margin: 2% 2%;
   }
   
   .logo-footer {
@@ -43,6 +43,7 @@
     margin: 6px 0;
     box-shadow: #D93F0B1a 0px -4px 12px;   
     color: #41474a;
+    background-color: #F5F2F2 !important;
    }
 
    .footer-site{
@@ -53,8 +54,8 @@
 
    @media (min-width: 1400px) {
     .container-footer {
-        min-height: 320px !important;
+        /* min-height: 320px !important; */
         max-width: 1150px !important;
-        margin: 2% auto;
+        margin: 0 auto !important;
   }
 }
