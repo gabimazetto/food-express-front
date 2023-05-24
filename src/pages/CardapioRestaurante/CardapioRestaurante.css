@@ -1,3 +1,8 @@
+.containerCardRest{
+    min-height: 150vh;
+    margin: 3% 10% !important;
+}
+
 .cardapio-titulo {
     color: #f06000;
     font-family: 'Signika Negative';
@@ -9,7 +14,9 @@
     margin-left: 50px;
     width: 100%;
 }
-
+form .cardapio-input {
+    border-radius: 8px !important;
+}
 .min-input {
     min-width: 166px !important;
 }

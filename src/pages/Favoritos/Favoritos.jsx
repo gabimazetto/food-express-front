@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { Loader } from "../../components/Loader/Loader";
-import { Button, Table } from "react-bootstrap";
+import { Button, Card, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { ContextLogin } from "../../contexts/LoginContext";
+import "./Favoritos.css";
 
 
 
@@ -39,79 +40,74 @@ export function Favoritos() {
 
     return(
         <>
-        <div className="container">
-        <h1>Restaurantes Favoritos</h1>
-        {
+        <section className="container mt-4 mb-4 section-fav">
+            <div className="div-fav">
+                <div className="titulo-fav">
+                <h2>Restaurantes Favoritos</h2>
+                </div>
+                <Row className="row-fav-rest">
+                <div>
+            {
             favoritos === null ?
             (
                 <Loader />
             ):
-            (            
-            <Table striped bordered hover>
-                    <thead>
-                        <tr>
-                            <th>Restaurantes</th>
-                            <th>Ir para Restaurante</th>  
-                        </tr>
-                        
-                    </thead>
-                    <tbody>
-                        {favoritos.map(favorito =>{
-                            return(
-                                <tr key={favorito.id}>
-                                    <td>{favorito.nomeFantasia}</td>
-                                    <td>
-                                        <Button as={Link} to={`http://localhost:3000/cliente/restaurante/cardapio/${favorito.id}`}>
-                                        <i className="bi bi-list"></i>
-                                        </Button>
-                                    </td>
-                                </tr>
-                            )
-                        })}
-                    </tbody>
-                </Table>
-        )}
-                
-                <h1>Comidas Favoritas</h1>
-        
-        {
-            comidasFavoritas === null ? 
-            (
-                <Loader />
-            ) :
-            (
-                <Table striped bordered hover>
-                <thead>
-                    <tr>
-                        <th>Comida</th>
-                        <th>Descrição</th>
-                        <th>Ir para Cardápio</th> 
-                    </tr>
-                    
-                </thead>
-                <tbody>
-                    {comidasFavoritas.map(comidafavorita =>{
+            (  
+                <div>
+                    <Col >
+                    {favoritos.map(favorito =>{
                         return(
-                            <tr key={comidafavorita.id}>
-                                <td>{comidafavorita.nome}</td>
-                                <td>{comidafavorita.descricao}</td>
-
-                                <td>
-                                    <Button as={Link} to={`http://localhost:3000/cliente/restaurante/cardapio/${comidafavorita.id}`}>
-                                    <i className="bi bi-list"></i>
-                                    </Button>
-                                </td>
-                            </tr>
+                            <Card  className="mb-4 py-4 card-fav-principal">
+                                <Card.Body className="card-fav">
+                                    <Card.Title className="fs-3 title-fav">{favorito.nomeFantasia}</Card.Title>
+                                        <Card.Subtitle className="mb-2 text-muted">{favorito.razaoSocial}</Card.Subtitle>
+                                        <Button as={Link} to={`http://localhost:3000/cliente/restaurante/cardapio/${favorito.id}`}>
+                                            Ir para Restaurante
+                                        </Button>
+                    </Card.Body>
+                </Card>
                         )
                     })}
-                </tbody>
-            </Table>
-            )
-        }
-            <Button as={Link} to="/cliente/home">
+                </Col>
+                </div>)}
+                </div>
+            </Row>
+            </div>
+            <div className="div-fav">
+                <div className="titulo-fav">
+                <h2>Comidas Favoritas</h2>
+                </div>
+            <Row className="row-fav-comida">
+                {
+                    comidasFavoritas === null ?
+                    (<Loader/>):(
+                        <div>
+                            <Col>
+                            {comidasFavoritas.map(comidafavorita =>{
+                                return(
+                                <Card  className="mb-4 py-4 card-fav-principal">
+                                <Card.Body className="card-fav">
+                                    <Card.Title className="fs-3 title-fav">{comidafavorita.nome}</Card.Title>
+                                        <Card.Subtitle className="mb-2 text-muted">Descrição: {comidafavorita.descricao}</Card.Subtitle>
+                                        <Button as={Link} to={`http://localhost:3000/cliente/restaurante/cardapio/${comidafavorita.id}`}>
+                                            Ir para Cardápio
+                                        </Button>
+                    </Card.Body>
+                </Card>
+                                )
+                            })}
+                            </Col>
+                        </div>
+                    )
+                }
+            </Row>
+            </div>
+        </section>
+            <div className="botao-voltar-fav">
+                <Button as={Link} to="/cliente/home">
                 Voltar
-            </Button>
-        </div>
+                </Button>
+            </div>
         </>
     );
 }

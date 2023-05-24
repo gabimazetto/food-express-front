@@ -1,17 +1,17 @@
-import axios from "axios";
-import { useContext, useEffect, useState } from "react";
+import axios from "axios"
+import { useContext, useEffect } from "react";
 import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { CustomInputIconNone } from "../../components/CustomInputIconNone/CustomInputIconNone";
 import { ContextClient } from "../../contexts/ClientContext";
 import { ContextLogin } from "../../contexts/LoginContext";
 import perfilClienteMobile from "../../assets/images/meninaDuvida.png";
 import perfilClienteWeb from "../../assets/images/surpresa2.png";
 import { ButtonNavigation } from "../../components/ButtonNavigation/ButtonNavigation";
 import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/ContainerCenterMobile";
-import { ContainerCardImg } from "../../components/ContainerCardImg/ContainerCardImg"
+import { ContainerCardImg } from "../../components/ContainerCardImg/ContainerCardImg";
+import { CustomInputIconNone } from "../../components/CustomInputIconNone/CustomInputIconNone";
 import "./EditarCliente.css";
 
 
@@ -25,9 +25,9 @@ export function EditarCliente() {
   const { config } = useContext(ContextLogin);
   const { idCli } = useContext(ContextClient);
   const navigate = useNavigate();
-  const [lock, setLock] = useState(true);
   const dayjs = require("dayjs");
   const today = dayjs();
+
 
   function onSubmit(data) {
     axios
@@ -71,13 +71,13 @@ export function EditarCliente() {
     });
   }, [idCli, reset]);
 
-  return (
-    <>
-      <ContainerCenterMobile className="background-gradient-escuro">
-        <main className="border container-perfil rounded-5 ">
-          <div className="flex-perfil">
-            <div className="colTwo-perfil">
-              <ContainerCardImg className="card-web">
+    return (
+        <>
+            <ContainerCenterMobile className="background-gradient-escuro container-edit-cli">
+                <main className="container-perfil-cli rounded-5">
+                    <div className="flex-perfil-cli ms-3">
+                        <div className="colTwo-perfil-cli">
+                            <ContainerCardImg className="card-web-cli">
                 <img
                   src={perfilClienteWeb}
                   className="mt-4 imagem-perfil-web"
@@ -88,17 +88,15 @@ export function EditarCliente() {
                   className="mt-4 imagem-perfil-mobile"
                   alt="Imagem de uma menina"
                 />
-              </ContainerCardImg>
-            </div>
+                            </ContainerCardImg>
+                        </div>
 
-            <div className="colOne-perfil">
-              <div className="px-3 py-4">
-                <h1 className="title-perfil">Perfil</h1>
-                <Form className="form-perfil" onSubmit={handleSubmit(onSubmit)}>
+                        <div className="colOne-perfil-cli">
+                            <div className="px-3 py-4">
+                                <h1 className="title-perfil-cli">Perfil</h1>
+                                <Form className="form-perfil" onSubmit={handleSubmit(onSubmit)}>
 
-                  <fieldset disabled={lock}>
-
-                    <div className="mb-3">
+                                <div className="mb-3">
                       <label className="form-label">Nome Completo</label>
                       <CustomInputIconNone
                         type="text"
@@ -135,7 +133,7 @@ export function EditarCliente() {
                       <label className="form-label">Telefone</label>
                       <CustomInputIconNone
                         type="tel"
-                        pattern="[(0-9)]{4}[0-9]{5}-[0-9]{4}|[0-9]{2}[0-9]{5}-[0-9]"
+                        pattern="[(0-9)]{4}[0-9]{5}-[0-9]{4}|[0-9]{2}[0-9]{5}-[0-9]{4}"
                         title="(99)99999-9999 ou 1212345-1234"
                         register={register("telefone", {
                           required: "O telefone é obrigatório.",
@@ -304,30 +302,32 @@ export function EditarCliente() {
                       </div>
 
                     </div>
-                  </fieldset>
-                  <div class="d-grid gap-2 col-12 flex-fill">
-                    <ButtonNavigation
-                      text="Confirmar"
-                      type="submit"
-                      className="white button-perfil mt-3"
-                      disabled={lock ? "" : "true"}
-                    />
-                    <hr />
-                    <ButtonNavigation
-                      text="Editar"
-                      type="submit"
-                      className="white button-perfil mt-1 mb-3"
-                      onClick={() => setLock(!lock)}
-                      disabled={lock ? "Editar Perfil" : "Salvar"}
-                    />
+                                    <div class="d-flex justify-content-between ">
 
-                  </div>
-                </Form>
-              </div>
-            </div>
-          </div>
-        </main>
-      </ContainerCenterMobile>
-    </>
-  );
+                                        <ButtonNavigation
+                                            
+                                            type="submit"
+                                            route="/cliente/home"
+                                            icon="white bi bi-arrow-left-circle-fill"
+                                            className="botao-voltar-editar"
+                                        />
+
+                                        <ButtonNavigation
+                                            text="Salvar alterações"
+                                            type="submit"
+                                            className="white button-perfil mt-1 mb-3"
+
+                                        />
+
+                                    </div>
+                                </Form>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </ContainerCenterMobile>
+        </>
+    );
 }
+
+

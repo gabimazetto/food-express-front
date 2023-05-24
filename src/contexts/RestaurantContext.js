@@ -8,7 +8,7 @@ const ContextRestaurant = createContext();
 
 function RestaurantContext({ children }) {
 
-    const { setAuthenticated } = useContext(ContextLogin);
+    const { token, authenticated, setAuthenticated } = useContext(ContextLogin);
     const [idRes, setIdRes] = useState(null);
     const [emailRes, setEmailRes] = useState(null);
     const [roleRes, setRoleRes] = useState(null);
@@ -42,9 +42,11 @@ function RestaurantContext({ children }) {
     async function handleDecodeRestaurante(token) {
         try {
             const decoded = await jwtDecode(token);
-            setIdRes(decoded.id);
-            setEmailRes(decoded.email);
-            setRoleRes(decoded.role);
+            if(decoded.role === "restaurante"){
+                setIdRes(decoded.id);
+                setEmailRes(decoded.email);
+                setRoleRes(decoded.role);
+            }
         } catch (error) {
             console.log(error);
         }
@@ -58,8 +60,18 @@ function RestaurantContext({ children }) {
         setRoleRes(null);
     }
 
+    async function checkRestaurantAuthentication(){
+        if(token && authenticated === false){
+            try{
+                await handleDecodeRestaurante(token);
+            } catch (error){
+                console.log(error);
+            }
+        }
+    }
+
     return (
-        <ContextRestaurant.Provider value={{ idRes, emailRes, roleRes, handleDecodeRestaurante, handleLogin, LogoffRestaurant }}>
+        <ContextRestaurant.Provider value={{ idRes, emailRes, roleRes, handleDecodeRestaurante, handleLogin, LogoffRestaurant, checkRestaurantAuthentication }}>
             {children}
         </ContextRestaurant.Provider>
     );

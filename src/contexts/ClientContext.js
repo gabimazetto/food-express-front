@@ -8,7 +8,7 @@ const ContextClient = createContext();
 
 function ClientContext({ children }) {
 
-    const { setAuthenticated } = useContext(ContextLogin);
+    const { token, authenticated, setAuthenticated } = useContext(ContextLogin);
     const [idCli, setIdCli] = useState(null);
     const [emailCli, setEmailCli] = useState(null);
     const [roleCli, setRoleCli] = useState(null);
@@ -42,9 +42,11 @@ function ClientContext({ children }) {
     async function handleDecodeCliente(token) {
         try {
             const decoded = jwtDecode(token);
-            setIdCli(decoded.id);
-            setEmailCli(decoded.email);
-            setRoleCli(decoded.role);
+            if(decoded.role === "cliente"){
+                setIdCli(decoded.id);
+                setEmailCli(decoded.email);
+                setRoleCli(decoded.role);
+            }
         } catch (error) {
             console.log(error);
         }
@@ -57,8 +59,19 @@ function ClientContext({ children }) {
         setEmailCli(null);
         setRoleCli(null);
     }
+
+    async function checkClientAuthentication(){
+        if(token && authenticated === false){
+            try{
+                await handleDecodeCliente(token);
+            } catch (error){
+                console.log(error);
+            }
+        }
+    }
+
     return (
-        <ContextClient.Provider value={{ idCli, emailCli, roleCli, handleDecodeCliente, handleLogin, LogoffClient }}>
+        <ContextClient.Provider value={{ idCli, emailCli, roleCli, handleDecodeCliente, handleLogin, LogoffClient, checkClientAuthentication }}>
             {children}
         </ContextClient.Provider>
     );

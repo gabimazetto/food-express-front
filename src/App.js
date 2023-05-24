@@ -34,39 +34,13 @@ import { PrivateRouteClient } from "./components/PrivateRouteClient/PrivateRoute
 
 
 function App() {
-  const { idCli, roleCli, handleDecodeCliente } = useContext(ContextClient);
-  const { idRes, roleRes, handleDecodeRestaurante } = useContext(ContextRestaurant);
-  const { authenticated, setAuthenticated, token } = useContext(ContextLogin);
-  function isAuthenticated(){
-    if(token){
-      if(authenticated === false){
-        try{
-          handleDecodeCliente(token).then(() => setAuthenticated(true))
-        }catch(error){
-          console.log(error);
-        }
-        try{
-          if(!roleCli){
-            handleDecodeRestaurante(token).then(() => setAuthenticated(true));
-          }
-        }catch(error){
-          console.log(error);
-        }
-      }
-    }
-  }
+  const { checkClientAuthentication } = useContext(ContextClient);
+  const { checkRestaurantAuthentication } = useContext(ContextRestaurant);
+  const { authenticated, token, isAuthenticated } = useContext(ContextLogin);
+
   useEffect(() => {
-    isAuthenticated();
-    if(roleCli){
-      console.log("id Cliente: ", idCli)
-      console.log("role Cliente: ", roleCli)
-    }else{
-      console.log("id Restaurante: ", idRes)
-      console.log("role Restaurante: ", roleRes)
-    }
-    
-    
-  }, [roleCli, roleRes]);
+    isAuthenticated(checkClientAuthentication, checkRestaurantAuthentication);
+  }, [authenticated, token]);
   
 
 

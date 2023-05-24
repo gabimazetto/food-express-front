@@ -48,5 +48,39 @@ h6,
 .bg-input {
   background-color: #ffffff !important;
 }
+.btn-primary {
+  --bs-btn-color: #ffffff !important;
+ }
+
+.btn:hover {
+    color: #ffffff !important;
+  }
+
+  .tooltip .tooltip-inner {
+    background-color: #F5F2F2;
+    color: #d97b0b;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.tooltip.bs-tooltip-auto[x-placement^=top] .tooltip-arrow::before,
+.tooltip.bs-tooltip-top .tooltip-arrow::before {
+    border-top-color: #F5F2F2;
+}
+
+.tooltip.bs-tooltip-auto[x-placement^=right] .tooltip-arrow::before,
+.tooltip.bs-tooltip-right .tooltip-arrow::before {
+    border-right-color: #F5F2F2;
+}
+
+.tooltip.bs-tooltip-auto[x-placement^=bottom] .tooltip-arrow::before,
+.tooltip.bs-tooltip-bottom .tooltip-arrow::before {
+    border-bottom-color: #F5F2F2;
+}
+
+.tooltip.bs-tooltip-auto[x-placement^=left] .tooltip-arrow::before,
+.tooltip.bs-tooltip-left .tooltip-arrow::before {
+    border-left-color:#F5F2F2;
+}
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";

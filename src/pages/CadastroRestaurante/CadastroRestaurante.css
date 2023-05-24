@@ -70,18 +70,17 @@ hr {
         max-width: 250px;
         margin-left: 1rem !important;
     }    
-    .title-client {
-        max-width: 300px;
-    }
+
     .card-web{
         background-color: #D97B0B;
         position: relative;    
-        height: 122%!important;   
+        height: 100% !important; 
         min-width: 380px !important;   
-        overflow: auto;
-        bottom: 22%;
-        left: 3.2%;
-        border-radius: 30px;       
+        /* overflow: auto; */
+        /* bottom: 22%;
+        left: 3.2%; */
+        border-radius: 30px;
+        margin-top: 0 !important;         
     }
     .imagem-cadastro-web{
         display: block;
@@ -99,21 +98,26 @@ hr {
     }
     
     .title-restaurant{
-    margin-top: 0;
+    margin-top: 5%;
     margin-left: 3%;
     }    
 }
 
-@media (min-width: 1020px) {
-    .card-web{
-        min-width: 480px !important;
-        left: 2.3%;
-    }
-}
+
 
 @media (min-width: 1200px) {
+
+    .container-cadas-rest{
+        height: 100% !important;
+        overflow-y: hidden !important;
+        max-height: none !important;
+    }
+
     .main-container {
         min-height: 590px !important;
         max-width: 1000px !important;
+        
     }
+
+
 } 

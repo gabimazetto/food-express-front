@@ -195,8 +195,8 @@ function PedidoCliente({ pedido }) {
             <Button
               onClick={() => EnviarAvaliacao(pedido.restauranteId, pedido.id)}
               variant="primary"
-              className="mt-5"
-            >
+            className="mb-2"
+             >
               Enviar avaliação
             </Button>
           </div>

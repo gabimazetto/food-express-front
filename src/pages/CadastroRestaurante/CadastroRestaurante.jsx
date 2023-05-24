@@ -11,7 +11,7 @@ import imgCadastroWebRest from "../../assets/images/garconete.png";
 import logo from "../../assets/images/logoTemaClaro.png";
 import { ButtonNavigation } from "../../components/ButtonNavigation/ButtonNavigation";
 import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/ContainerCenterMobile";
-import { ContainerCardImg } from "../../components/ContainerCardImg/ContainerCardImg"
+import { ContainerCardImg } from "../../components/ContainerCardImg/ContainerCardImg";
 
 export function CadastroRestaurante() {
   const [senha, setSenha] = useState("password");
@@ -45,8 +45,6 @@ export function CadastroRestaurante() {
     getValues,
   } = useForm();
   const navigate = useNavigate();
-  const dayjs = require("dayjs");
-  const today = dayjs();
 
   function onSubmit(data) {
     console.log(data);
@@ -70,14 +68,8 @@ export function CadastroRestaurante() {
 
   return (
     <>
-      <ContainerCenterMobile className="background-gradient-escuro">
+      <ContainerCenterMobile className="background-gradient-escuro container-cadas-rest justify-content-center">
         <main className="border main-container rounded-5 ">
-          <img
-            src={logo}
-            className="mt-4 ms-5 logo-web-cadastro"
-            alt="Logo FoodExpress"
-          />
-          <h1 className="title-restaurant">Seja nosso parceiro e cadastre-se!</h1>
           <div className="flex">
             <div className="colTwo-rest">
               <ContainerCardImg className="card-web">
@@ -96,6 +88,14 @@ export function CadastroRestaurante() {
 
             <div className="colOne-rest">
               <div className="px-3 py-4">
+                <img
+                  src={logo}
+                  className="mt-4 ms-5 logo-web-cadastro"
+                  alt="Logo FoodExpress"
+                />
+                <h1 className="title-restaurant">
+                  Cadastre-se e seja nosso parceiro!
+                </h1>
                 <Form onSubmit={handleSubmit(onSubmit)}>
                   <div className="mb-3">
                     <label className="form-label">Nome Fantasia</label>
@@ -125,9 +125,10 @@ export function CadastroRestaurante() {
                     <label className="form-label">Telefone</label>
                     <CustomInputIconNone
                       type="tel"
-                      icon="bi bi-telephone white"
-                      pattern="[(0-9)]{4}[0-9]{5}-[0-9]{4}|[0-9]{2}[0-9]{5}-[0-9]"
+                      /*  icon="bi bi-telephone white" */
+                      pattern="[(0-9)]{4}[0-9]{5}-[0-9]{4}|[0-9]{11}"
                       placeholder="(99)99999-9999"
+                      title="formato:(XX)XXXXX-XXXX ou XXXXXXXXXXX"
                       register={register("telefone", {
                         required: "O telefone é obrigatório.",
                         maxLength: {
@@ -145,7 +146,6 @@ export function CadastroRestaurante() {
                       type="text"
                       pattern="[0-9]{2}.[0-9]{3}.[0-9]{3}/[0-9]{4}-[0-9]{2}|[0-9]{15}-[0-9]{2}"
                       placeholder="12.345.678/0001-00"
-                      icon=""
                       register={register("cnpj", {
                         required: "O CNPJ é obrigatório.",
                       })}
@@ -158,7 +158,7 @@ export function CadastroRestaurante() {
                     <CustomInputIconNone
                       type="email"
                       placeholder="Informe seu e-mail"
-                      icon="bi bi-envelope-at-fill white"
+                      /* icon="bi bi-envelope-at-fill white" */
                       register={register("email", {
                         required: "O email é obrigatório",
                       })}
@@ -199,7 +199,7 @@ export function CadastroRestaurante() {
                     />
                   </div>
 
-                  <div className="d-flex gap-4" >
+                  <div className="d-flex gap-4">
                     <div className="mb-3 flex-grow-1">
                       <label className="form-label">Cidade</label>
                       <CustomInputIconNone
@@ -224,34 +224,34 @@ export function CadastroRestaurante() {
                           },
                         })}
                       >
-                        <option value="default">Unidade Federativa</option>
-                        <option value="1">AC</option>
-                        <option value="2">AL</option>
-                        <option value="3">AP</option>
-                        <option value="4">AM</option>
-                        <option value="5">BA</option>
-                        <option value="6">CE</option>
-                        <option value="7">DF</option>
-                        <option value="8">ES</option>
-                        <option value="9">GO</option>
-                        <option value="10">MA</option>
-                        <option value="11">MT</option>
-                        <option value="12">MS</option>
-                        <option value="13">MG</option>
-                        <option value="14">PA</option>
-                        <option value="15">PB</option>
-                        <option value="16">PR</option>
-                        <option value="17">PE</option>
-                        <option value="18">PI</option>
-                        <option value="19">RJ</option>
-                        <option value="20">RN</option>
-                        <option value="21">RS</option>
-                        <option value="22">RO</option>
-                        <option value="23">RR</option>
-                        <option value="24">SC</option>
-                        <option value="25">SP</option>
-                        <option value="26">SE</option>
-                        <option value="27">TO</option>
+                        <option value="default"></option>
+                        <option value="AC">AC</option>
+                        <option value="AL">AL</option>
+                        <option value="AP">AP</option>
+                        <option value="AM">AM</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="DF">DF</option>
+                        <option value="ES">ES</option>
+                        <option value="GO">GO</option>
+                        <option value="MA">MA</option>
+                        <option value="MT">MT</option>
+                        <option value="MS">MS</option>
+                        <option value="MG">MG</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PR">PR</option>
+                        <option value="PE">PE</option>
+                        <option value="PI">PI</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RN">RN</option>
+                        <option value="RS">RS</option>
+                        <option value="RO">RO</option>
+                        <option value="RR">RR</option>
+                        <option value="SC">SC</option>
+                        <option value="SP">SP</option>
+                        <option value="SE">SE</option>
+                        <option value="TO">TO</option>
                       </Form.Select>
                       {errors.endereco?.uf && (
                         <Form.Text className="invalid-feedback">
@@ -266,6 +266,7 @@ export function CadastroRestaurante() {
                         type="text"
                         placeholder="99999-999"
                         pattern="[0-9]{5}-[0-9]{3}|[0-9]{8}"
+                        title="formato: XXXXX-XXX OU XXXXXXXX"
                         register={register("endereco.cep", {
                           required: "O CEP é obrigatório",
                         })}
@@ -286,7 +287,7 @@ export function CadastroRestaurante() {
                     />
                   </div>
 
-                  <div className="d-flex " >
+                  <div className="d-flex ">
                     <div className="mb-3 flex-grow-1">
                       <label className="form-label">Número</label>
                       <CustomInputIconNone
@@ -317,7 +318,6 @@ export function CadastroRestaurante() {
                       className="white button_cadastro mt-5"
                     />
                     <hr />
-
                   </div>
                 </Form>
               </div>
