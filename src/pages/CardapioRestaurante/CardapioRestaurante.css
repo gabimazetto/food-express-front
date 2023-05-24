@@ -1,6 +1,6 @@
 .containerCardRest{
     min-height: 150vh;
-    margin: 3% 10% !important;
+    margin: 3% 15% !important;
 }
 
 .cardapio-titulo {
@@ -12,7 +12,7 @@
     line-height: 45px;
     text-align: start;
     margin-left: 50px;
-    width: 100%;
+    width: 90%;
 }
 form .cardapio-input {
     border-radius: 8px !important;
@@ -36,6 +36,15 @@ form .cardapio-input {
     align-items: center;
 }
 
+.botao-voltar-editar {
+    height: 38px !important;
+    margin-right: 5px;
+    width: 38px !important;
+    padding: 1% !important;
+    margin-top: 0 !important;
+    
+  }
+
 
 @media (max-width: 480px) {
     .container-titulo-cardapio {
@@ -43,7 +52,7 @@ form .cardapio-input {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 100%;
+        width: 80%;
     }
 
     .container-titulo-cardapio form{
