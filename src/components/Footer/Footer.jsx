@@ -67,7 +67,8 @@ export function Footer() {
                     </p>
                 </Col>
             </section>
-            <span className="mt-1 mb-1 footer-copy ">
+        
+        <span className="mt-1 mb-1 footer-copy">
                 {/* <div className="text-center p-1 text-dark" style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}> */}
                     {/* <Link to="https://www.facebook.com/julia.gascho" target="_blank" className="me-4 text-reset">
                         <FontAwesomeIcon icon={faFacebookF} />
@@ -86,6 +87,7 @@ export function Footer() {
                     
                 {/* </div> */}
             </span>
+        
         </footer>
     )
 };
