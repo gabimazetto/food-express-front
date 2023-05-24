@@ -103,7 +103,7 @@ export function CadastroCliente() {
                     className="mt-4 ms-5 logo-web-cadastro"
                     alt="Imagem de uma menina com uma fatia de pizza"
                   />
-                <h1 className="title-client-cad">Seja nosso cliente e cadastre-se!</h1>
+                <h1 className="title-client-cad">Cadastre-se e seja nosso cliente!</h1>
                   <Form className="form-cad" onSubmit={handleSubmit(onSubmit)}>
                     <div className="mb-3">
                       <label className="form-label">Nome</label>
