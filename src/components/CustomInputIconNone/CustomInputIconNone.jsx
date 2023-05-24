@@ -16,6 +16,7 @@ export function CustomInputIconNone({
   title,
   min,
   max,
+  disabled,
 
   as,
 }) {
@@ -37,6 +38,7 @@ export function CustomInputIconNone({
           title={title}
           min={min}
           max={max}
+          disabled={disabled}
         />
       </InputGroup>
       <Form.Text className="invalid-feedback">{error?.message}</Form.Text>

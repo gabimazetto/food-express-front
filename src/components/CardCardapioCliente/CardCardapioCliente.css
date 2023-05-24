@@ -118,3 +118,10 @@
         margin: 0px !important;
         border: none;
     }
+
+
+    .button-cancelar-modal{
+        color: #f8260c !important;
+        border: 1px solid #f8260c  !important;
+        background: white !important;
+    }

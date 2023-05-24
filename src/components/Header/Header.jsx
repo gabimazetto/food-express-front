@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { ContextLogin } from "../../contexts/LoginContext";
 import { ContextClient } from "../../contexts/ClientContext";
 import { ContextRestaurant } from "../../contexts/RestaurantContext";
+import { CarrinhoCompras } from "../CarrinhoCompras/CarrinhoCompras";
 
 
 export function Header() {
@@ -110,6 +111,8 @@ export function Header() {
                             <></>
                         ) : (
                             <>
+                            {location.pathname !== "/cliente/pesquisa/" && location.pathname !== "/cliente/listar/restaurantes" ? (<></>): (<CarrinhoCompras />) }
+                                
                                 <Navbar.Toggle className="navbar-primary bg-primary" aria-controls={`offcanvasNavbar-expand-lg`} />
                                 <Navbar.Offcanvas
                                     className={temaEscuro === false ? "bg-light" : "bg-dark"}
