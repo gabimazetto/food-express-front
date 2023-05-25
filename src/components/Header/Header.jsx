@@ -22,23 +22,21 @@ export function Header() {
     const navigate = useNavigate();
     const location = useLocation();
 
-    //tudo aqui para baixo até o próximo comentário é experimental
-    //para testar o tema dark, contexto logado e o contexto de Cliente/Restaurante
-    const [temaEscuro, setTemaEscuro] = useState(false);
+    
+    const [showOffcanvas, setShowOffcanvas] = useState(false);
 
     const [telaPequena, setTelaPequena] = useState(false);
     const [telaMedia, setTelaMedia] = useState(false);
     const [telaGrande, setTelaGrande] = useState(false);
     const [telaGigante, setTelaGigante] = useState(false);
 
-    function trocaTema() {
-        if (temaEscuro === false) {
-            setTemaEscuro(true);
-        } else {
-            setTemaEscuro(false);
-        }
+    function handleCloseOffcanvas(){
+        setShowOffcanvas(false);
     }
-    // fim da parte experimental
+
+    function handleToggleOffcanvas(){
+        setShowOffcanvas(!showOffcanvas);
+    }
 
     function Deslogar() {
         if (authenticated) {
@@ -52,6 +50,24 @@ export function Header() {
         }
     }
 
+    function handleCloseOffcanvasLogoff(){
+        setShowOffcanvas(false);
+        setTimeout(() => {
+            Deslogar();
+        }, 500);
+        
+    }
+
+    const [temaEscuro, setTemaEscuro] = useState(false);
+    function trocaTema() {
+        if (temaEscuro === false) {
+            setTemaEscuro(true);
+        } else {
+            setTemaEscuro(false);
+        }
+    }
+
+
     useEffect(() => {
         function verificaTamanhoTela() {
             setTelaPequena(window.innerWidth < 480);
@@ -61,11 +77,13 @@ export function Header() {
         }
         window.addEventListener('resize', verificaTamanhoTela);
         verificaTamanhoTela();
-
+        if(telaGigante){
+            setShowOffcanvas(false);
+        }
         return () => {
             window.removeEventListener('resize', verificaTamanhoTela);
         }
-    }, []);
+    }, [window.innerWidth]);
 
 
 
@@ -74,7 +92,7 @@ export function Header() {
             {location.pathname !== "/cliente/login" && location.pathname !== "/cliente/cadastro" && location.pathname !== "/restaurante/cadastro" && location.pathname !== "/restaurante/login" && (
                 <Navbar bg={temaEscuro === false ? "light" : "dark"} expand="lg" className="">
                     <Container fluid className=" d-flex justify-content-between align-items-center" >
-                         <Navbar.Brand >
+                         <Navbar.Brand>
                             {/* Verifica se está logado para apresentar as informações */}
                             {authenticated === false ? (
                                 //verifica qual tema está sendo aplicado para mostrar a melhor logo
@@ -165,8 +183,10 @@ export function Header() {
                             <>
                             {location.pathname !== "/cliente/pesquisa/" && location.pathname !== "/cliente/listar/restaurantes" ? (<></>): (<CarrinhoCompras />) }
                                 
-                                <Navbar.Toggle className="navbar-primary bg-primary" aria-controls={`offcanvasNavbar-expand-lg`} />
-                                <Navbar.Offcanvas
+                                <Navbar.Toggle onClick={handleToggleOffcanvas} className="navbar-primary bg-primary" aria-controls={`offcanvasNavbar-expand-lg`} />
+                                <Navbar.Offcanvas 
+                                    show={showOffcanvas}
+                                    onHide={handleCloseOffcanvas}
                                     className={temaEscuro === false ? "bg-light" : "bg-dark"}
                                     id={`offcanvasNavbar-expand-lg`}
                                     aria-labelledby={`offcanvasNavbarLabel-expand-lg`}
@@ -178,15 +198,15 @@ export function Header() {
                                         <Nav className="justify-content-end flex-grow-1 pe-3">
                                             {telaPequena || telaMedia || telaGrande ? (
                                                 <>
-                                                    {authenticated === true && roleCli === "cliente" ? <Nav.Link as={Link} to={`/cliente/perfil/${idCli}`} className="d-flex"><i className="bi bi-person-circle text-primary icones-atalho"></i><p className="textos-icones align-self-center text-primary mb-0 ms-1">Perfil</p></Nav.Link> : <></>}
-                                                    <Nav.Link as={Link} to={authenticated === true && roleCli === "cliente" ? `/cliente/pedidos` : (authenticated === true && roleRes === "restaurante" ? `/restaurante/pedidos` : null)} className="d-flex"><i className="bi bi-file-text-fill text-primary icones-atalho"></i><p className="textos-icones align-self-center text-primary mb-0 ms-1">Pedidos</p></Nav.Link>
+                                                    {authenticated === true && roleCli === "cliente" ? <Nav.Link as={Link} onClick={handleCloseOffcanvas} to={`/cliente/perfil/${idCli}`} className="d-flex"><i className="bi bi-person-circle text-primary icones-atalho"></i><p className="textos-icones align-self-center text-primary mb-0 ms-1">Perfil</p></Nav.Link> : <></>}
+                                                    <Nav.Link as={Link} onClick={handleCloseOffcanvas} to={authenticated === true && roleCli === "cliente" ? `/cliente/pedidos` : (authenticated === true && roleRes === "restaurante" ? `/restaurante/pedidos` : null)} className="d-flex"><i className="bi bi-file-text-fill text-primary icones-atalho"></i><p className="textos-icones align-self-center text-primary mb-0 ms-1">Pedidos</p></Nav.Link>
                                                     {authenticated === true && roleRes === "restaurante" ? (
-                                                        <Nav.Link as={Link} to={`/restaurante/perfil/${idRes}`} className="d-flex"><i class="bi bi-building-fill-gear text-primary icones-atalho"></i><p className="textos-icones align-self-center text-primary mb-0 ms-1">Editar informações de Empresa</p></Nav.Link>
+                                                        <Nav.Link as={Link} onClick={handleCloseOffcanvas} to={`/restaurante/perfil/${idRes}`} className="d-flex"><i class="bi bi-building-fill-gear text-primary icones-atalho"></i><p className="textos-icones align-self-center text-primary mb-0 ms-1">Editar informações de Empresa</p></Nav.Link>
                                                     ) : (
-                                                        <Nav.Link as={Link} to={`/cliente/listar/favoritos`} className="d-flex"><i className="bi bi-heart text-primary icones-atalho"></i><p className="textos-icones align-self-center text-primary mb-0 ms-1">Favoritos</p></Nav.Link>
+                                                        <Nav.Link as={Link} onClick={handleCloseOffcanvas} to={`/cliente/listar/favoritos`} className="d-flex"><i className="bi bi-heart text-primary icones-atalho"></i><p className="textos-icones align-self-center text-primary mb-0 ms-1">Favoritos</p></Nav.Link>
                                                     )}
-                                                    <Nav.Link as={Link} to={`/contato`} className="d-flex"><i className="bi bi-telephone-fill text-primary icones-atalho"></i><p className="textos-icones align-self-center text-primary mb-0 ms-1">Fale Conosco</p></Nav.Link>
-                                                    <Nav.Link as={Link} onClick={Deslogar} className="d-flex"><i className="bi bi-box-arrow-right text-primary icones-atalho"></i><p className="textos-icones align-self-center text-primary mb-0 ms-1">Sair</p></Nav.Link>
+                                                    <Nav.Link as={Link} onClick={handleCloseOffcanvas} to={`/contato`} className="d-flex"><i className="bi bi-telephone-fill text-primary icones-atalho"></i><p className="textos-icones align-self-center text-primary mb-0 ms-1">Fale Conosco</p></Nav.Link>
+                                                    <Nav.Link as={Link} onClick={handleCloseOffcanvasLogoff} className="d-flex"><i className="bi bi-box-arrow-right text-primary icones-atalho"></i><p className="textos-icones align-self-center text-primary mb-0 ms-1">Sair</p></Nav.Link>
                                                 </>
                                             ) : (
                                                 <>
