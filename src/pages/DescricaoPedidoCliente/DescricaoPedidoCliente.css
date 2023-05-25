@@ -1,13 +1,17 @@
 .container-desc-cliente {
-    width: 100vw;
-    height: 100vh;
-
+    height: 100%;
+    width: 100%;
+    overflow: hidden !important;  
 }
 
 .section-desc-cliente {
     display: flex;
     justify-content: center;
     width: 100%;
+    min-height: 590px !important;
+    max-width: 1000px !important; 
+    overflow: hidden !important;
+    padding-bottom: 25px; 
 }
 
 .article-desc-cliente {
@@ -33,7 +37,7 @@
     color: #F06000 !important;
     background-color: white !important;
     border: none !important;
-    margin: 10% 0 0 0px;
+    margin: 5% 0 0 0px;
 }
 
 .button-desc-cardapio{
