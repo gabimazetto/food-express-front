@@ -41,8 +41,6 @@
 }
 
 .select-cadastro{
-/* width: 1px !important; */
-/* white-space: nowrap !important; */
 overflow: visible !important;
 border-color: #f06000 !important;
 border-width: 1.5px !important;
@@ -61,9 +59,19 @@ padding: 0.375rem 1.25rem 0.35rem 0.75rem !important;
     font-size: 11px;  
     white-space: pre-wrap;        
 }
+
 hr {
     color: #f06000;
 }
+
+.botao-voltar-editar {
+    height: 100% !important;
+    margin-top: 5px;
+  }
+  
+  .form-cadastro-inputs {
+    border-radius: 8px !important;
+  }
 
 @media (min-width: 970px) {
 
