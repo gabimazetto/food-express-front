@@ -144,7 +144,8 @@ export function CadastroRestaurante() {
                     <label className="form-label">CNPJ</label>
                     <CustomInputIconNone
                       type="text"
-                      pattern="[0-9]{2}.[0-9]{3}.[0-9]{3}/[0-9]{4}-[0-9]{2}|[0-9]{15}-[0-9]{2}"
+                      pattern="[0-9]{2}.[0-9]{3}.[0-9]{3}/[0-9]{4}-[0-9]{2}|[0-9]{8}0001[0-9]{2}"
+                      title="formato: XX.XXX.XXX/0001-XX ou XXXXXXXX0001XX"
                       placeholder="12.345.678/0001-00"
                       register={register("cnpj", {
                         required: "O CNPJ é obrigatório.",
