@@ -141,6 +141,10 @@
     border-top: 0.5px solid #f2f2f2;
 }
 
+.endereco-cards-pedido{
+    padding-left: 10px;
+}
+
 @media (max-width: 480px){
     .article-desc-cliente{
         width: 90%;

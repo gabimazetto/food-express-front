@@ -66,7 +66,7 @@ export function DescricaoPedidoCliente() {
                 ) : (
                     <article className="article-desc-cliente" key={descricaoPedidos.id}>
                         <div>
-                            <Button as={Link} to="/cliente/pedidos/" className="button-desc-cliente"> <i class="bi bi-arrow-left"></i> Voltar</Button>
+                            <Button as={Link} to="/cliente/pedidos/" className="button-desc-cliente"> <i className="bi bi-arrow-left"></i> Voltar</Button>
                             <div className="desc-nome-restaurante">
                                 <h1>{descricaoPedidos.restaurante?.nomeFantasia}</h1>
                                 <img src={fotoTesteLogo} className="desc-foto-pedido" alt="" />
