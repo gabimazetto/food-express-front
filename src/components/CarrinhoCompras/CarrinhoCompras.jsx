@@ -10,7 +10,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { ContainerCardImg } from "../../components/ContainerCardImg/ContainerCardImg";
-import imgSacolaTriste from "../../assets/images/garconete.png";
+import imgSacolaTriste from "../../assets/images/sacolaTriste.png";
 
 export function CarrinhoCompras() {
     const { idCli } = useContext(ContextClient);

@@ -13,7 +13,8 @@ export function CardPedidoCliente({ pedido }) {
   const [avaliacao, setAvaliacao] = useState(0);
   const [comentario, setComentario] = useState("");
   const [avaliacaoExistente, setAvaliacaoExistente] = useState(false);
-
+  const dayjs = require("dayjs");
+  const dataPedido = dayjs(pedido.dataRegistro);
   useEffect(() => {
     initializeAvaliacaoExistente();
     carregarComentario();
@@ -79,7 +80,6 @@ export function CardPedidoCliente({ pedido }) {
         });
       });
 
-
     setAvaliacao(0);
     setComentario("");
   }
@@ -91,9 +91,7 @@ export function CardPedidoCliente({ pedido }) {
     if (avaliacaoExistente) {
       for (let i = 1; i <= maxAvaliacao; i++) {
         const classeEstrela =
-          i <= Number(avaliacao)
-            ? "bi bi-star-fill"
-            : "bi bi-star";
+          i <= Number(avaliacao) ? "bi bi-star-fill" : "bi bi-star";
 
         estrelas.push(
           <i
@@ -106,9 +104,7 @@ export function CardPedidoCliente({ pedido }) {
     } else {
       for (let i = 1; i <= maxAvaliacao; i++) {
         const classeEstrela =
-          i <= Number(avaliacao)
-            ? "bi bi-star-fill"
-            : "bi bi-star";
+          i <= Number(avaliacao) ? "bi bi-star-fill" : "bi bi-star";
 
         estrelas.push(
           <i
@@ -123,7 +119,6 @@ export function CardPedidoCliente({ pedido }) {
 
     return estrelas;
   }
-
 
   return (
     <div className="container-cards-pedidos">
@@ -142,20 +137,32 @@ export function CardPedidoCliente({ pedido }) {
         <div className="items-cards-pedidos">
           <div className="mb-2 d-flex flex-column">
             <p>
-              <b>Data:</b> {pedido.dataRegistro}
+              <b>Data:</b> {dataPedido.format("DD/MM/YYYY")}
             </p>
             {pedido.status === "Pendente" ? (
-              <p><b>Status:</b> {pedido.status}</p>
+              <p>
+                <b>Status:</b> {pedido.status}
+              </p>
             ) : pedido.status === "Aguardando confirmação" ? (
-              <p>Status: <b className="aguardando">{pedido.status}</b></p>
+              <p>
+                Status: <b className="aguardando">{pedido.status}</b>
+              </p>
             ) : pedido.status === "Confirmado" ? (
-              <p>Status:<b className="confirmado"> {pedido.status}</b></p>
+              <p>
+                Status:<b className="confirmado"> {pedido.status}</b>
+              </p>
             ) : pedido.status === "A caminho" ? (
-              <p>Status: <b className="aCaminho">{pedido.status}</b></p>
+              <p>
+                Status: <b className="aCaminho">{pedido.status}</b>
+              </p>
             ) : pedido.status === "Entregue" ? (
-              <p>Status: <b className="entregue">{pedido.status}</b></p>
+              <p>
+                Status: <b className="entregue">{pedido.status}</b>
+              </p>
             ) : pedido.status === "Cancelado" ? (
-              <p>Status: <b className="cancelado">{pedido.status}</b></p>
+              <p>
+                Status: <b className="cancelado">{pedido.status}</b>
+              </p>
             ) : null}
           </div>
           <div className="vertical-row-pedidos mb-1"></div>

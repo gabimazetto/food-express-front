@@ -99,13 +99,14 @@ export function CadastroCliente() {
                   className="mt-4 ms-5 logo-web-cadastro"
                   alt="Imagem de uma menina com uma fatia de pizza"
                 />
-                <h1 className="title-client-cad">
+                <h1 className="title-client-cad mb-4 ms-5">
                   Cadastre-se e seja nosso cliente!
                 </h1>
-                <Form className="form-cad" onSubmit={handleSubmit(onSubmit)}>
+                <Form className="form-cad ms-5" onSubmit={handleSubmit(onSubmit)}>
                   <div className="mb-3">
                     <label className="form-label">Nome</label>
                     <CustomInputIconNone
+                    className="form-cadastro-inputs"                    
                       type="text"
                       placeholder="Informe seu nome"
                       register={register("nome", {
@@ -118,6 +119,7 @@ export function CadastroCliente() {
                   <div className="mb-3">
                     <label className="form-label">Email</label>
                     <CustomInputIconNone
+                    className="form-cadastro-inputs"
                       type="email"
                       placeholder="Informe seu e-mail"
                       /*  icon="bi bi-envelope-at-fill white" */
@@ -131,6 +133,7 @@ export function CadastroCliente() {
                   <div className="mb-3">
                     <label className="form-label">Senha</label>
                     <CustomInputIconNone
+                    className="form-cadastro-inputs"
                       type={senha}
                       placeholder="Crie sua senha"
                       icon={icone}
@@ -146,6 +149,7 @@ export function CadastroCliente() {
                   <div className="mb-3">
                     <label className="form-label">Confirmação de senha</label>
                     <CustomInputIconNone
+                    className="form-cadastro-inputs"
                       type={senha2}
                       placeholder="Confirme sua senha"
                       icon={icone2}
@@ -164,6 +168,7 @@ export function CadastroCliente() {
                   <div className="mb-3">
                     <label className="form-label">Telefone</label>
                     <CustomInputIconNone
+                    className="form-cadastro-inputs"
                       type="tel"
                       /*  icon="bi bi-telephone white" */
                       pattern="[(]{1}[0-9]{2}[)]{1}[0-9]{5}-[0-9]{4}|[(0-9)]{11}"
@@ -183,11 +188,11 @@ export function CadastroCliente() {
                   <div className="mb-3">
                     <label className="form-label">Data de nascimento</label>
                     <CustomInputIconNone
+                    className="form-cadastro-inputs"
                       type="date"
-                      /*  icon="bi bi-calendar-date white" */
                       min={dayjs("1920-01-01").format("YYYY-MM-DD")}
                       max={today.subtract(13, "year").format("YYYY-MM-DD")}
-                      className="font-data"
+                      // className="font-data"
                       register={register("dataNascimento")}
                     />
                   </div>
@@ -195,6 +200,7 @@ export function CadastroCliente() {
                   <div className="mb-3">
                     <label className="form-label">CPF</label>
                     <CustomInputIconNone
+                    className="form-cadastro-inputs"
                       type="text"
                       pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}|[0-9]{11}"
                       title="formato: XXX.XXX.XXX-XX ou XXXXXXXXXXX"
@@ -210,6 +216,7 @@ export function CadastroCliente() {
                     <div className="mb-3 flex-grow-1">
                       <label className="form-label">Cidade</label>
                       <CustomInputIconNone
+                      className="form-cadastro-inputs"
                         type="text"
                         placeholder="Cidade"
                         register={register("endereco.cidade", {
@@ -269,6 +276,7 @@ export function CadastroCliente() {
                     <div className="mb-3 flex-grow-1">
                       <label className="form-label">CEP</label>
                       <CustomInputIconNone
+                      className="form-cadastro-inputs"
                         type="text"
                         placeholder="99999-999"
                         pattern="[0-9]{5}-[0-9]{3}|[0-9]{8}"
@@ -287,6 +295,7 @@ export function CadastroCliente() {
                   <div className="mb-3">
                     <label className="form-label">Logradouro</label>
                     <CustomInputIconNone
+                    className="form-cadastro-inputs"
                       type="text"
                       placeholder="Rua Ator Paulo Gustavo"
                       register={register("endereco.rua", {
@@ -300,6 +309,7 @@ export function CadastroCliente() {
                     <div className="mb-3 flex-grow-1">
                       <label className="form-label">Número</label>
                       <CustomInputIconNone
+                      className="form-cadastro-inputs"
                         type="text"
                         placeholder="100"
                         register={register("endereco.numero", {
@@ -312,6 +322,7 @@ export function CadastroCliente() {
                     <div className="mb-3 flex-grow-1">
                       <label className="form-label">Complemento</label>
                       <CustomInputIconNone
+                      className="form-cadastro-inputs"
                         type="text"
                         placeholder="Apt/Casa"
                         register={register("endereco.complemento")}
@@ -319,20 +330,30 @@ export function CadastroCliente() {
                       />
                     </div>
                   </div>
-                  <div class="d-grid gap-2 col-12 flex-fill">
+                  <div className="d-flex justify-content-between align-items-center">
+
+                  <ButtonNavigation
+                      type="submit"
+                      route="/"
+                      icon="white bi bi-arrow-left-circle-fill"
+                      className="botao-voltar-editar"
+                      tooltipContent="Voltar para a home"
+                    />
+
                     <ButtonNavigation
                       text="Cadastrar"
                       type="submit"
-                      className="white button_cadastro mt-5"
+                      className="white button_cadastro"
                     />
-                    <hr />
+                    
                   </div>
+                  <hr />
                 </Form>
               </div>
             </div>
           </div>
         </main>
-        {/* </div> */}
+        
       </ContainerCenterMobile>
     </>
   );
