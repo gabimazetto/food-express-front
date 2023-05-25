@@ -1,15 +1,20 @@
-.logo-web-cadastro{
+.logo-web-cadastro {
     display: none;
-}
-.imagem-cadastro-web{
+  }
+  .imagem-cadastro-web {
     display: none;
-}
-
-.background-gradient-escuro {
-    background: linear-gradient(90deg, rgba(54,54,54,0.905374649859944) 15%, rgba(217,123,11,0.8213410364145658) 43%, rgba(255,255,255,1) 100%);
-}
-
-.title-restaurant{
+  }
+  
+  .background-gradient-escuro {
+    background: linear-gradient(
+      90deg,
+      rgba(54, 54, 54, 0.905374649859944) 15%,
+      rgba(217, 123, 11, 0.8213410364145658) 43%,
+      rgba(255, 255, 255, 1) 100%
+    );
+  }
+  
+  .title-restaurant {
     margin-top: 8%;
     margin-left: 5% !important;
     color: #f06000;
@@ -17,107 +22,105 @@
     font-weight: bold;
     text-align: start;
     max-width: 380px;
-}
-
-.main-container{
+  }
+  
+  .main-container {
     width: 80% !important;
     background-color: #fff;
-    box-shadow: #D93F0B1a 0px 4px 12px;    
+    box-shadow: #d93f0b1a 0px 4px 12px;
     overflow: auto !important;
     margin-top: 7%;
     margin-bottom: 8%;
-}
-
-.font-data{
+  }
+  
+  .font-data {
     font-size: 1rem;
     color: #555555 !important;
-}
-
-.select-cadastro{
-/* width: 1px !important; */
-/* white-space: nowrap !important; */
-overflow: visible !important;
-border-color: #f06000 !important;
-border-width: 1.5px !important;
-padding: 0.375rem 1.25rem 0.35rem 0.75rem !important;
-}
-
-.white{
+  }
+  
+  .select-cadastro {
+    overflow: visible !important;
+    border-color: #f06000 !important;
+    border-width: 1.5px !important;
+    padding: 0.375rem 1.25rem 0.35rem 0.75rem !important;
+  }
+  
+  .white {
     color: #fff !important;
-}
-
-.button_cadastro{
-    margin-right: 5% !important;  
-}
-
-.input-cadastro::placeholder {    
-    font-size: 11px;  
-    white-space: pre-wrap;        
-}
-hr {
+  }
+  
+  .button_cadastro {
+    margin-right: 5% !important;
+  }
+  
+  .input-cadastro::placeholder {
+    font-size: 11px;
+    white-space: pre-wrap;
+  }
+  hr {
     color: #f06000;
-}
-
-
-@media (min-width: 970px) {
-    .main-container{
-        width: 95% !important;
-        max-width: 90% !important;
+  }
+  
+  .botao-voltar-editar {
+    height: 100% !important;
+    margin-top: 5px;
+  }
+  
+  .form-cadastro-inputs {
+    border-radius: 8px !important;
+  }
+  
+  @media (min-width: 970px) {
+    .main-container {
+      width: 95% !important;
+      max-width: 90% !important;
     }
-    
-    .logo-web-cadastro{
-        display: block;
-        max-width: 250px;
-        margin-left: 1rem !important;
-    }    
-
-    .card-web{
-        background-color: #D97B0B;
-        position: relative;    
-        height: 100% !important; 
-        min-width: 380px !important;   
-        /* overflow: auto; */
-        /* bottom: 22%;
-        left: 3.2%; */
-        border-radius: 30px;
-        margin-top: 0 !important;         
+  
+    .logo-web-cadastro {
+      display: block;
+      max-width: 250px;
+      margin-left: 1rem !important;
     }
-    .imagem-cadastro-web{
-        display: block;
-        width: 100%;
-        right: 18% !important;
-        margin-top: 60%;
+  
+    .card-web {
+      background-color: #d97b0b;
+      position: relative;
+      height: 100% !important;
+      min-width: 380px !important;
+      border-radius: 30px;
+      margin-top: 0 !important;
     }
-    .imagem-cadastro-mobile{
-        display: none;
+    .imagem-cadastro-web {
+      display: block;
+      width: 100%;
+      right: 18% !important;
+      margin-top: 60%;
+    }
+    .imagem-cadastro-mobile {
+      display: none;
     }
     .flex {
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: space-between;        
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
     }
-    
-    .title-restaurant{
-    margin-top: 5%;
-    margin-left: 3%;
-    }    
-}
-
-
-
-@media (min-width: 1200px) {
-
-    .container-cadas-rest{
-        height: 100% !important;
-        overflow-y: hidden !important;
-        max-height: none !important;
+  
+    .title-restaurant {
+      margin-top: 5%;
+      margin-left: 3%;
     }
-
+  }
+  
+  @media (min-width: 1200px) {
+    .container-cadas-rest {
+      height: 100% !important;
+      overflow-y: hidden !important;
+      max-height: none !important;
+    }
+  
     .main-container {
-        min-height: 590px !important;
-        max-width: 1000px !important;
-        
+      min-height: 590px !important;
+      max-width: 1000px !important;
     }
-
-
-} 
+  }
+  

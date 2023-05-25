@@ -93,17 +93,22 @@ export function CadastroRestaurante() {
                   className="mt-4 ms-5 logo-web-cadastro"
                   alt="Logo FoodExpress"
                 />
-                <h1 className="title-restaurant">
+                <h1 className="title-restaurant mb-4 ms-5">
                   Cadastre-se e seja nosso parceiro!
                 </h1>
-                <Form onSubmit={handleSubmit(onSubmit)}>
+                <Form className="ms-5" onSubmit={handleSubmit(onSubmit)}>
                   <div className="mb-3">
                     <label className="form-label">Nome Fantasia</label>
                     <CustomInputIconNone
+                      className="form-cadastro-inputs"
                       type="text"
                       placeholder="Informe o nome fantasia do estabelecimento"
                       register={register("nomeFantasia", {
                         required: "O nome fantasia é obrigatório",
+                        maxLength: {
+                          value: 25,
+                          message: "Limite de 25 caracteres.",
+                        },
                       })}
                       error={errors.nomeFantasia}
                     />
@@ -112,6 +117,7 @@ export function CadastroRestaurante() {
                   <div className="mb-3">
                     <label className="form-label">Razão Social</label>
                     <CustomInputIconNone
+                      className="form-cadastro-inputs"
                       type="text"
                       placeholder="Informe a razão social do seu estabelecimento"
                       register={register("razaoSocial", {
@@ -124,6 +130,7 @@ export function CadastroRestaurante() {
                   <div className="mb-3">
                     <label className="form-label">Telefone</label>
                     <CustomInputIconNone
+                      className="form-cadastro-inputs"
                       type="tel"
                       /*  icon="bi bi-telephone white" */
                       pattern="[(0-9)]{4}[0-9]{5}-[0-9]{4}|[0-9]{11}"
@@ -143,6 +150,7 @@ export function CadastroRestaurante() {
                   <div className="mb-3">
                     <label className="form-label">CNPJ</label>
                     <CustomInputIconNone
+                      className="form-cadastro-inputs"
                       type="text"
                       pattern="[0-9]{2}.[0-9]{3}.[0-9]{3}/[0-9]{4}-[0-9]{2}|[0-9]{8}0001[0-9]{2}"
                       title="formato: XX.XXX.XXX/0001-XX ou XXXXXXXX0001XX"
@@ -157,6 +165,7 @@ export function CadastroRestaurante() {
                   <div className="mb-3">
                     <label className="form-label">Email</label>
                     <CustomInputIconNone
+                      className="form-cadastro-inputs"
                       type="email"
                       placeholder="Informe seu e-mail"
                       /* icon="bi bi-envelope-at-fill white" */
@@ -170,6 +179,7 @@ export function CadastroRestaurante() {
                   <div className="mb-3">
                     <label className="form-label">Senha</label>
                     <CustomInputIconNone
+                      className="form-cadastro-inputs"
                       type={senha}
                       placeholder="Crie sua senha"
                       icon={icone}
@@ -185,6 +195,7 @@ export function CadastroRestaurante() {
                   <div className="mb-3">
                     <label className="form-label">Confirmação de senha</label>
                     <CustomInputIconNone
+                      className="form-cadastro-inputs"
                       type={senha2}
                       placeholder="Confirme sua senha"
                       icon={icone2}
@@ -204,6 +215,7 @@ export function CadastroRestaurante() {
                     <div className="mb-3 flex-grow-1">
                       <label className="form-label">Cidade</label>
                       <CustomInputIconNone
+                        className="form-cadastro-inputs"
                         type="text"
                         placeholder="Cidade"
                         register={register("endereco.cidade", {
@@ -264,6 +276,7 @@ export function CadastroRestaurante() {
                     <div className="mb-3 flex-grow-1">
                       <label className="form-label">CEP</label>
                       <CustomInputIconNone
+                        className="form-cadastro-inputs"
                         type="text"
                         placeholder="99999-999"
                         pattern="[0-9]{5}-[0-9]{3}|[0-9]{8}"
@@ -279,6 +292,7 @@ export function CadastroRestaurante() {
                   <div className="mb-3">
                     <label className="form-label">Logradouro</label>
                     <CustomInputIconNone
+                      className="form-cadastro-inputs"
                       type="text"
                       placeholder="Rua Ator Paulo Gustavo"
                       register={register("endereco.rua", {
@@ -292,6 +306,7 @@ export function CadastroRestaurante() {
                     <div className="mb-3 flex-grow-1">
                       <label className="form-label">Número</label>
                       <CustomInputIconNone
+                        className="form-cadastro-inputs"
                         type="text"
                         placeholder="100"
                         register={register("endereco.numero", {
@@ -304,6 +319,7 @@ export function CadastroRestaurante() {
                     <div className="mb-3 flex-grow-1">
                       <label className="form-label">Complemento</label>
                       <CustomInputIconNone
+                        className="form-cadastro-inputs"
                         type="text"
                         placeholder="Apt/Casa"
                         register={register("endereco.complemento")}
@@ -312,14 +328,24 @@ export function CadastroRestaurante() {
                     </div>
                   </div>
 
-                  <div class="d-grid gap-2 col-12 flex-fill">
+                  <div className="d-flex justify-content-between align-items-center">
+
+                    <ButtonNavigation
+                      type="submit"
+                      route="/"
+                      icon="white bi bi-arrow-left-circle-fill"
+                      className="botao-voltar-editar"
+                      tooltipContent="Voltar para a home"
+                    />
+
                     <ButtonNavigation
                       text="Cadastrar"
                       type="submit"
-                      className="white button_cadastro mt-5"
+                      className="white button_cadastro"
                     />
-                    <hr />
+
                   </div>
+                  <hr />
                 </Form>
               </div>
             </div>
