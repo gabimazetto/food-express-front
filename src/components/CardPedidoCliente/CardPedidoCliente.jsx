@@ -15,7 +15,8 @@ function PedidoCliente({ pedido }) {
   const [avaliacao, setAvaliacao] = useState(0);
   const [comentario, setComentario] = useState("");
   const [avaliacaoExistente, setAvaliacaoExistente] = useState(false);
-
+  const dayjs = require("dayjs");
+  const dataPedido = dayjs(pedido.dataRegistro);
   useEffect(() => {
     initializeAvaliacaoExistente();
     carregarComentario();
@@ -81,7 +82,6 @@ function PedidoCliente({ pedido }) {
         });
       });
 
-
     setAvaliacao(0);
     setComentario("");
   }
@@ -93,9 +93,7 @@ function PedidoCliente({ pedido }) {
     if (avaliacaoExistente) {
       for (let i = 1; i <= maxAvaliacao; i++) {
         const classeEstrela =
-          i <= Number(avaliacao)
-            ? "bi bi-star-fill"
-            : "bi bi-star";
+          i <= Number(avaliacao) ? "bi bi-star-fill" : "bi bi-star";
 
         estrelas.push(
           <i
@@ -108,9 +106,7 @@ function PedidoCliente({ pedido }) {
     } else {
       for (let i = 1; i <= maxAvaliacao; i++) {
         const classeEstrela =
-          i <= Number(avaliacao)
-            ? "bi bi-star-fill"
-            : "bi bi-star";
+          i <= Number(avaliacao) ? "bi bi-star-fill" : "bi bi-star";
 
         estrelas.push(
           <i
@@ -125,7 +121,6 @@ function PedidoCliente({ pedido }) {
 
     return estrelas;
   }
-
 
   return (
     <Form>
@@ -145,27 +140,41 @@ function PedidoCliente({ pedido }) {
         <div className="items-cards-pedidos">
           <div className="mb-2">
             <p>
-              <b>Data:</b> {pedido.dataRegistro}
+              <b>Data:</b> {dataPedido.format("DD/MM/YYYY")}
             </p>
           </div>
           <div className="mb-2">
             {pedido.status === "Pendente" ? (
-              <p><b>Status:</b> {pedido.status}</p>
+              <p>
+                <b>Status:</b> {pedido.status}
+              </p>
             ) : pedido.status === "Aguardando confirmação" ? (
-              <p>Status: <b className="aguardando">{pedido.status}</b></p>
+              <p>
+                Status: <b className="aguardando">{pedido.status}</b>
+              </p>
             ) : pedido.status === "Confirmado" ? (
-              <p>Status:<b className="confirmado"> {pedido.status}</b></p>
+              <p>
+                Status:<b className="confirmado"> {pedido.status}</b>
+              </p>
             ) : pedido.status === "A caminho" ? (
-              <p>Status: <b className="aCaminho">{pedido.status}</b></p>
+              <p>
+                Status: <b className="aCaminho">{pedido.status}</b>
+              </p>
             ) : pedido.status === "Entregue" ? (
-              <p>Status: <b className="entregue">{pedido.status}</b></p>
+              <p>
+                Status: <b className="entregue">{pedido.status}</b>
+              </p>
             ) : pedido.status === "Cancelado" ? (
-              <p>Status: <b className="cancelado">{pedido.status}</b></p>
+              <p>
+                Status: <b className="cancelado">{pedido.status}</b>
+              </p>
             ) : null}
           </div>
           <div className="itens-cards-container">
-            {pedido.items.map(item => (
-              <p key={item.id}><b>{item.quantidade}</b> {item.comida?.nome}</p>
+            {pedido.items.map((item) => (
+              <p key={item.id}>
+                <b>{item.quantidade}</b> {item.comida?.nome}
+              </p>
             ))}
           </div>
         </div>
@@ -195,8 +204,8 @@ function PedidoCliente({ pedido }) {
             <Button
               onClick={() => EnviarAvaliacao(pedido.restauranteId, pedido.id)}
               variant="primary"
-            className="mb-2"
-             >
+              className="mb-2"
+            >
               Enviar avaliação
             </Button>
           </div>
@@ -224,10 +233,8 @@ export function CardPedidoCliente() {
       initializeTable();
     }, 5000);
 
-
-    return () => clearInterval(attPagina)
+    return () => clearInterval(attPagina);
   }, [idCli]);
-
 
   function initializeTable() {
     axios

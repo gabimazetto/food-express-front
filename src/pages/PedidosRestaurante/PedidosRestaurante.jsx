@@ -6,11 +6,14 @@ import { ContextRestaurant } from "../../contexts/RestaurantContext";
 import { toast } from "react-hot-toast";
 import { ContextLogin } from "../../contexts/LoginContext";
 import "./PedidosRestaurante.css";
+import { ButtonNavigation } from "../../components/ButtonNavigation/ButtonNavigation";
+import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/ContainerCenterMobile";
 
 export function PedidosRestaurante() {
   const [pedidos, setPedidos] = useState(null);
   const { idRes } = useContext(ContextRestaurant);
   const { config } = useContext(ContextLogin);
+  const dayjs = require("dayjs");
 
   useEffect(() => {
     initializeTable();
@@ -70,7 +73,7 @@ export function PedidosRestaurante() {
   }
 
   return (
-    <Container className="container-pedidos">
+    <ContainerCenterMobile>
       <h1>Pedidos</h1>
       {pedidos === null ? (
         <Loader />
@@ -78,80 +81,85 @@ export function PedidosRestaurante() {
         <Table striped bordered hover>
           <thead>
             <tr>
-              <th>Data Pedido</th>
-              <th>Nome Refeição</th>
-              <th>Quantidade</th>
-              <th>Preparação</th>
-              <th>Nome Cliente</th>
-              <th>Rua</th>
-              <th>Numero</th>
-              <th>Editar Pedido</th>
+              <th className="align-middle">Data Pedido</th>
+              <th className="align-middle">Itens</th>
+              <th className="align-middle">Status</th>
+              <th className="align-middle">Nome Cliente</th>
+              <th className="align-middle">Rua</th>
+              <th className="align-middle">Numero</th>
+              <th className="align-middle">Editar Status</th>
             </tr>
           </thead>
           <tbody>
             {pedidos.map((pedido) => {
+              const dataPedido = dayjs(pedido.dataRegistro);
               return (
                 <tr key={pedido.id}>
-                  <td>{pedido.dataRegistro}</td>
-                  <td colSpan={2}>
+                  <td className="align-middle">
+                    {dataPedido.format("DD/MM/YYYY")}
+                  </td>
+                  <td className="align-middle">
                     {pedido.items.map((item, index) => (
                       <div key={index}>
-                        <p>{item.comida}</p>
-                        <p>{item.quantidade}</p>
+                        <td>
+                          {item.quantidade}x {item.comida}
+                        </td>
                       </div>
                     ))}
                   </td>
-                  <td>
+                  <td className="align-middle p-table">
                     {pedido.status === "Pendente" ? (
-                      <p>
-                        <b>Status:</b> {pedido.status}
+                      <p className="align-middle p-table">
+                        <b></b> {pedido.status}
                       </p>
                     ) : pedido.status === "Aguardando confirmação" ? (
-                      <p>
-                        Status: <b className="aguardando">{pedido.status}</b>
+                      <p className="align-middle p-table">
+                        <b className="aguardando">{pedido.status}</b>
                       </p>
                     ) : pedido.status === "Confirmado" ? (
-                      <p>
-                        Status:<b className="confirmado"> {pedido.status}</b>
+                      <p className="align-middle p-table">
+                        <b className="confirmado">{pedido.status}</b>
                       </p>
                     ) : pedido.status === "A caminho" ? (
-                      <p>
-                        Status: <b className="aCaminho">{pedido.status}</b>
+                      <p className="align-middle p-table">
+                        <b className="aCaminho">{pedido.status}</b>
                       </p>
                     ) : pedido.status === "Entregue" ? (
-                      <p>
-                        Status: <b className="entregue">{pedido.status}</b>
+                      <p className="align-middle p-table">
+                        <b className="entregue">{pedido.status}</b>
                       </p>
                     ) : pedido.status === "Cancelado" ? (
-                      <p>
-                        Status: <b className="cancelado">{pedido.status}</b>
+                      <p className="align-middle">
+                        <b className="cancelado">{pedido.status}</b>
                       </p>
                     ) : null}
                   </td>
-                  <td>{pedido.cliente.nome}</td>
-                  <td>{pedido.enderecoPedido?.rua}</td>
-                  <td>{pedido.enderecoPedido?.numero}</td>
+                  <td className="align-middle">{pedido.cliente.nome}</td>
+                  <td className="align-middle">{pedido.enderecoPedido?.rua}</td>
+                  <td className="align-middle">
+                    {pedido.enderecoPedido?.numero}
+                  </td>
                   <td>
                     {pedido.status === "Aguardando confirmação" ? (
                       <Button
                         value={"Confirmado"}
                         onClick={() => updateStatus(pedido.id, "Confirmado")}
                       >
-                        Confirmado
+                        Confirmar
                       </Button>
                     ) : pedido.status === "Confirmado" ? (
                       <Button
                         value={"A caminho"}
                         onClick={() => updateStatus(pedido.id, "A caminho")}
                       >
-                        A caminho
+                        Encaminhar
                       </Button>
                     ) : pedido.status === "A caminho" ? (
                       <Button
                         value={"Entregue"}
                         onClick={() => updateStatus(pedido.id, "Entregue")}
                       >
-                        Entregue
+                        Finalizar
                       </Button>
                     ) : (
                       <Button>Finalizado</Button>
@@ -163,6 +171,14 @@ export function PedidosRestaurante() {
           </tbody>
         </Table>
       )}
-    </Container>
+
+      <ButtonNavigation
+        type="submit"
+        route="/cliente/home"
+        icon="white bi bi-arrow-left-circle-fill"
+        className="botao-voltar-editar d-flex justify-content-center align-items-center"
+        tooltipContent="Voltar para a home"
+      />
+    </ContainerCenterMobile>
   );
 }
