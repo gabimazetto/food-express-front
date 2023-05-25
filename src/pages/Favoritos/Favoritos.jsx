@@ -5,6 +5,7 @@ import { Button, Card, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { ContextLogin } from "../../contexts/LoginContext";
 import "./Favoritos.css";
+import { ButtonNavigation } from "../../components/ButtonNavigation/ButtonNavigation";
 
 
 
@@ -103,10 +104,15 @@ export function Favoritos() {
             </Row>
             </div>
         </section>
-            <div className="botao-voltar-fav">
-                <Button as={Link} to="/cliente/home">
-                Voltar
-                </Button>
+            <div>
+            <ButtonNavigation
+                                            
+                                            type="submit"
+                                            route="/cliente/home"
+                                            icon="white bi bi-arrow-left-circle-fill"
+                                            className="botao-voltar-favoritos"
+                                            tooltipContent="Voltar para a home"
+                                        />
             </div>
         </>
     );

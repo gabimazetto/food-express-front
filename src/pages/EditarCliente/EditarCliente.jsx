@@ -310,6 +310,7 @@ export function EditarCliente() {
                                             route="/cliente/home"
                                             icon="white bi bi-arrow-left-circle-fill"
                                             className="botao-voltar-editar"
+                                            tooltipContent="Voltar para a home"
                                         />
 
                                         <ButtonNavigation
