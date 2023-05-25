@@ -15,6 +15,7 @@ export function HomeCliente() {
       imagem: require('../../assets/images/1.png')
     },
 
+
     {
       id: 2,
       titulo: 'Lanche',
@@ -100,9 +101,9 @@ export function HomeCliente() {
       {/* Mobile inicio */}
       <section className='sectionRestaurante'>
         <div className='searchBox'>
-        <Link to={`/cliente/listar/restaurantes`}>
+          <Link to={`/cliente/listar/restaurantes`}>
             <Button className='searchBoxButton'>Veja os Restaurantes Disponíveis</Button>
-        </Link>
+          </Link>
         </div>
         <div className='melhoresRestaurantes'>
           <div className='melhoresRestaurantesSvg'>
@@ -127,10 +128,10 @@ export function HomeCliente() {
       <section className='sectionComida'>
         <div className='searchBox'>
           <div className='searchBoxComida'>
-          <Link to={`/cliente/pesquisa/`}>
-            <Button className='searchBoxButton'>Consulte o Cardápio</Button>
-          </Link>
-          
+            <Link to={`/cliente/pesquisa/`}>
+              <Button className='searchBoxButton'>Consulte o Cardápio</Button>
+            </Link>
+
           </div>
         </div>
         <div className='escolhaComida'>
@@ -152,20 +153,20 @@ export function HomeCliente() {
           {categorias.map((categoria) => (
             <div key={categoria.id} className="categoria-item">
               <Link to={`/cliente/pesquisa/${categoria.titulo}`}>
-              <img src={categoria.imagem} alt={categoria.titulo} />
+                <img src={categoria.imagem} alt={categoria.titulo} />
               </Link>
               <h3>{categoria.titulo}</h3>
             </div>
           ))}
         </div>
       </section>
-       {/* Mobile fim */}
+      {/* Mobile fim */}
 
 
 
 
       {/* Desktop Inicio */}
-      <section className='sectionRestauranteDesktop'>
+      <section className='sectionRestauranteDesktop mb-4'>
         <div className='divRestauranteDesktop'>
           <div className='melhoresRestaurantesDesktop'>
             <p className='melhoresRestaurantesTxtDesktop'>Os melhores restaurantes na sua casa</p>
@@ -174,13 +175,13 @@ export function HomeCliente() {
           </div>
           <div className='searchBoxDesktop'>
             <div className='searchBoxRestauranteButtonDesktop'>
-            <Link to={`/cliente/listar/restaurantes`}>
-              <Button className='searchBoxRestauranteButtonStyleDesktop'>
-              Veja os Restaurantes Disponíveis
-              </Button>
-            </Link>
+              <Link to={`/cliente/listar/restaurantes`}>
+                <Button className='searchBoxRestauranteButtonStyleDesktop'>
+                  Veja os Restaurantes Disponíveis
+                </Button>
+              </Link>
             </div>
-            
+
           </div>
         </div>
         <div className='divRestauranteDesktopLeft'>
@@ -190,25 +191,27 @@ export function HomeCliente() {
 
       <section className='sectionComidaDesktop'>
         <div className='divComidasDesktop'>
-          <div className='melhoresComidasDesktop'>
+          <div className='melhoresComidasDesktop mb-5'>
             <p className='melhoresComidasTxtDesktop'>Escolha por Categoria</p>
           </div>
-          <div className='melhoresComidasImgDesktop'>
-            <img className='melhoresComidasImgStyleDesktop' src={imgLivro} alt='Imagem Livro'></img>
-          </div>
+
           <div className='searchBoxComidasButtonDesktop'>
             <Link to={`/cliente/pesquisa`}>
-              <Button className='searchBoxComidasButtonStyleDesktop'>
-              Consulte o Cardápio
+              <Button className='searchBoxComidasButtonStyleDesktop mb-5'>
+                Consulte o Cardápio
               </Button>
             </Link>
-            </div>
+          </div>
         </div>
+        <div className='melhoresComidasImgDesktop mb-5'>
+          <img className='melhoresComidasImgStyleDesktop' src={imgLivro} alt='Imagem Livro'></img>
+        </div>
+
         <div className="grid-containerDesktop">
           {categorias.map((categoria) => (
             <div key={categoria.id} className="categoria-itemDesktop">
               <Link to={`/cliente/pesquisa/${categoria.titulo}`}>
-              <img className='cetegoria-imgDesktop' src={categoria.imagem} alt={categoria.titulo} />
+                <img className='cetegoria-imgDesktop' src={categoria.imagem} alt={categoria.titulo} />
               </Link>
               <h3 className='categoria-TxtDesktop'>{categoria.titulo}</h3>
             </div>
