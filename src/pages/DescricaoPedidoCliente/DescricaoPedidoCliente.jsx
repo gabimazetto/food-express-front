@@ -59,8 +59,8 @@ export function DescricaoPedidoCliente() {
     };
 
     return (
-        <div className="container-desc-cliente">
-            <section className="section-desc-cliente">
+        <div className="centered-container fluid container-desc-cliente container-edit-cli">
+            <section className="section-desc-cliente ">
                 {descricaoPedidos === null ? (
                     <Loader />
                 ) : (
