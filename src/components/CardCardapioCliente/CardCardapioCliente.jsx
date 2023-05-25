@@ -7,19 +7,14 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { Loader } from "../Loader/Loader";
 import { Link } from "react-router-dom";
-import { Button, Form, Modal } from "react-bootstrap";
-import { CustomInputIconNone } from "../CustomInputIconNone/CustomInputIconNone";
-import { useForm } from "react-hook-form";
+import { Button, Modal } from "react-bootstrap";
 import { CarrinhoCompras } from "../CarrinhoCompras/CarrinhoCompras";
 
 
 export function CardCardapioCliente({ className, comidas, updateData }) {
-  const dayjs = require("dayjs");
   const [cardapio, setCardapio] = useState([]);
   const { idCli } = useContext(ContextClient);
   const { config } = useContext(ContextLogin);
-  const today = dayjs();
-  const dataRegistro = today.format("YYYY-MM-DD");
   const [show, setShow] = useState(false);
   const [pedidoId, setPedidoId] = useState(null);
   const [restauranteId, setRestauranteId] = useState(null);
@@ -28,24 +23,15 @@ export function CardCardapioCliente({ className, comidas, updateData }) {
 
 
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm({
-    defaultValues: {
-      status: "Aguardando confirmação",
-    },
-  });
-
   useEffect(() => {
-    initializeTable();
-  }, [updateData, idCli]);
+    function initializeTable() {
+      setCardapio(comidas);
+    }
 
-  function initializeTable() {
-    setCardapio(comidas);
-  }
+    initializeTable();
+  }, [updateData, className, comidas, idCli]);
+
+
 
   const handleClose = () => setShow(false);
   const handleShow = (pedidoId, restauranteId, comidaId) => {
@@ -99,7 +85,7 @@ export function CardCardapioCliente({ className, comidas, updateData }) {
             })),
           };
         });
-  
+
         if (pedidoStatus.length > 0) {
           const pedidoExistente = pedidoStatus[0];
           if (pedidoExistente.pedido.restauranteId === restauranteId) {
@@ -117,11 +103,16 @@ export function CardCardapioCliente({ className, comidas, updateData }) {
               novoItem(comidaId, pedidoExistente.id);
             }
           } else {
-            handleShow(pedidoExistente.id, restauranteId, comidaId);
+            if (pedidoExistente.items.length === 0) {
+              delPedido(pedidoExistente.id);
+              addPedidoItem(restauranteId, comidaId);
+            } else {
+              handleShow(pedidoExistente.id, restauranteId, comidaId);
+            }
           }
         } else {
           addPedidoItem(restauranteId, comidaId);
-        }    
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -136,55 +127,6 @@ export function CardCardapioCliente({ className, comidas, updateData }) {
     addPedidoItem(restauranteId, comidaId);
   };
 
-  function onSubmit(data) {
-    const {
-      status,
-      quantidade,
-      metodoPagamento,
-      enderecoPedido: { uf, cidade, cep, rua, numero, complemento },
-    } = data;
-    axios.put("http://localhost:3001/pedidos", {
-      status,
-      metodoPagamento,
-      enderecoPedido: {
-        uf,
-        cidade,
-        cep,
-        rua,
-        numero,
-        complemento,
-      },
-    }, config)
-      .then((response) => {
-        toast.success("Pedido atualizado", {
-          position: "bottom-right",
-          duration: 2000,
-        });
-      })
-      .catch((error) => {
-        toast.error("Algo deu errado", {
-          position: "bottom-right",
-          duration: 2000,
-        });
-        console.log(error);
-      });
-
-    axios
-      .put(`http://localhost:3001/items`, { quantidade }, config)
-      .then((response) => {
-        toast.success("Pedido encaminhado para produção", {
-          position: "bottom-right",
-          duration: 2000,
-        });
-      })
-      .catch((error) => {
-        toast.error("Algo deu errado", {
-          position: "bottom-right",
-          duration: 2000,
-        });
-        console.log(error);
-      });
-  }
 
 
 
