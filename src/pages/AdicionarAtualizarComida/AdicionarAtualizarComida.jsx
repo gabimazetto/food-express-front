@@ -160,7 +160,7 @@ export function AdicionarAtualizarComida() {
                             <Form.Label>Preço:</Form.Label>
                             <InputGroup className="custon-input-group mt-2">
                                 <InputGroup.Text className="white me-1">
-                                    <i class="bi bi-currency-dollar"></i>
+                                    <span>R$</span>
                                 </InputGroup.Text>
                                 <Form.Control
                                     placeholder="Digite o preço da comida"

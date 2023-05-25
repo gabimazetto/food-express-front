@@ -274,10 +274,10 @@ export function CarrinhoCompras() {
                                     <div className="preco-nome-canvas" key={item.id}>
                                         <div className="input-preco-canvas">
                                             <button
-                                                className="btn btn-sm btn-primary diminuir-button"
+                                                className="btn btn-primary diminuir-button"
                                                 onClick={() => diminuirItens(index)}
                                             >
-                                                -
+                                                <span>-</span>
                                             </button>
                                             <input
                                                 type="number"
@@ -301,10 +301,10 @@ export function CarrinhoCompras() {
                                                 }}
                                             />
                                             <button
-                                                className="btn btn-sm btn-primary  aumentar-button"
+                                                className="btn btn-primary  aumentar-button"
                                                 onClick={() => aumentarItens(index)}
                                             >
-                                                +
+                                                <span>+</span>
                                             </button>
                                         </div>
                                         <ul className="lista-canvas">

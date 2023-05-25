@@ -2,14 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import "./CardPedidoCliente.css";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import fotoTesteLogo from "../../assets/images/10.png";
-import { Loader } from "../Loader/Loader";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { ContextClient } from "../../contexts/ClientContext";
 import { ContextLogin } from "../../contexts/LoginContext";
 
-function PedidoCliente({ pedido }) {
+export function CardPedidoCliente({ pedido }) {
   const { idCli } = useContext(ContextClient);
   const { config } = useContext(ContextLogin);
   const [avaliacao, setAvaliacao] = useState(0);
@@ -123,10 +121,9 @@ function PedidoCliente({ pedido }) {
   }
 
   return (
-    <Form>
+    <div className="container-cards-pedidos">
       <article className="article-cards-pedidos" key={pedido.id}>
         <div className="foto-cards-pedidos">
-          <img src={fotoTesteLogo} className="card-foto-pedido" alt="" />
           <h1>{pedido.restaurante.nomeFantasia}</h1>
           <Button
             as={Link}
@@ -138,12 +135,10 @@ function PedidoCliente({ pedido }) {
         </div>
         <div className="vertical-row-pedidos"></div>
         <div className="items-cards-pedidos">
-          <div className="mb-2">
+          <div className="mb-2 d-flex flex-column">
             <p>
               <b>Data:</b> {dataPedido.format("DD/MM/YYYY")}
             </p>
-          </div>
-          <div className="mb-2">
             {pedido.status === "Pendente" ? (
               <p>
                 <b>Status:</b> {pedido.status}
@@ -170,95 +165,67 @@ function PedidoCliente({ pedido }) {
               </p>
             ) : null}
           </div>
+          <div className="vertical-row-pedidos mb-1"></div>
           <div className="itens-cards-container">
-            {pedido.items.map((item) => (
-              <p key={item.id}>
-                <b>{item.quantidade}</b> {item.comida?.nome}
-              </p>
+            {pedido.items.map(item => (
+              <p key={item.id}><b>{item.quantidade}x </b> {item.comida?.nome}</p>
             ))}
           </div>
         </div>
         <div className="vertical-row-pedidos"></div>
-        {avaliacaoExistente ? (
-          <div className="avaliacao-enviada">
-            <div className="avaliacao mt-2">
-              <p>
-                <b>Avaliação:</b>
-              </p>
-              <div className="rating-stars">{estrelas()}</div>
+        {
+          pedido.status === "Entregue" ? (
+            <>
+              {avaliacaoExistente ? (
+                <div className="avaliacao-enviada">
+                  <div className="avaliacao mt-2">
+                    <p>
+                      <b>Avaliação:</b>
+                    </p>
+                    <div className="rating-stars">{estrelas()}</div>
+                    <div className="vertical-row-pedidos mt-2 mb-2"></div>
+                  </div>
+                  <p>Comentário: {comentario}</p>
+                </div>
+              ) : (
+                <div className="input-card-pedido">
+                  <div className="container-avaliacao-pedidos mt-2">
+                    <p>
+                      <b>Avaliação:</b>
+                    </p>
+                    <div className="rating-stars">{estrelas()}</div>
+                  </div>
+                  <Form.Control
+                    className="input-avaliacao mb-1 mt-2"
+                    type="text"
+                    placeholder="Escreva aqui sua avaliação"
+                    value={comentario}
+                    onChange={(e) => setComentario(e.target.value)}
+                  />
+                  <Button
+                    onClick={() => EnviarAvaliacao(pedido.restauranteId, pedido.id)}
+                    variant="primary input-avaliacao "
+                    className="mb-2"
+                  >
+                    Enviar avaliação
+                  </Button>
+                </div>
+              )}
+              {/* <div className="refazer-cards-pedidos">
+                <div>
+                  <Button className="botoes-card-pedidos">Refazer pedido</Button>
+                </div>
+              </div> */}
+            </>) : (<>
+              <div className="endereco-cards-pedido">
+                <p>{(pedido.enderecoPedido?.rua).toUpperCase()}, {pedido.enderecoPedido?.numero}, COMPL.: {(pedido.enderecoPedido?.complemento).toUpperCase()}, {pedido.enderecoPedido?.cep}</p>
+                <p>CEP: {pedido.enderecoPedido?.cep}</p>
+              </div>
               <div className="vertical-row-pedidos mt-2 mb-2"></div>
-            </div>
-            <p>Comentário: {comentario}</p>
-          </div>
-        ) : (
-          <div className="rest-cards-pedidos">
-            <div className="rating-stars">{estrelas()}</div>
-            <Form.Label>Avaliação</Form.Label>
-            <Form.Control
-              className="w-25"
-              type="text"
-              placeholder="Escreva aqui sua avaliação"
-              value={comentario}
-              onChange={(e) => setComentario(e.target.value)}
-            />
-            <Button
-              onClick={() => EnviarAvaliacao(pedido.restauranteId, pedido.id)}
-              variant="primary"
-              className="mb-2"
-            >
-              Enviar avaliação
-            </Button>
-          </div>
-        )}
-
-        <div className="refazer-cards-pedidos">
-          <div>
-            {/* <Button className="botoes-card-pedidos">Ajuda</Button> */}
-            <Button className="botoes-card-pedidos">Refazer pedido</Button>
-          </div>
-        </div>
+              <Button className="botoes-card-pedidos" as={Link} to="/contato">Ajuda</Button>
+            </>)
+        }
       </article>
-    </Form>
-  );
-}
-
-export function CardPedidoCliente() {
-  const [pedidos, setPedidos] = useState([]);
-  const { idCli } = useContext(ContextClient);
-  const { config } = useContext(ContextLogin);
-
-  useEffect(() => {
-    initializeTable();
-    const attPagina = setInterval(() => {
-      initializeTable();
-    }, 5000);
-
-    return () => clearInterval(attPagina);
-  }, [idCli]);
-
-  function initializeTable() {
-    axios
-      .get(`http://localhost:3001/pedidos/cliente/${idCli}`, config)
-      .then((response) => {
-        setPedidos(response.data);
-      })
-      .catch((error) => {
-        toast.error("Erro ao carregar dados.");
-      });
-  }
-  return (
-    <>
-      <main className="main-card-pedido">
-        <section className="section-cards-pedidos">
-          {pedidos === null ? (
-            <Loader />
-          ) : (
-            pedidos.map((pedido) => (
-              <PedidoCliente key={pedido.id} pedido={pedido} />
-            ))
-          )}
-        </section>
-      </main>
-    </>
+    </div>
   );
 }

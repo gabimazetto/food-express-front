@@ -40,6 +40,7 @@
     flex-flow: nowrap row !important;
     align-items: center;
     text-align: left;
+    height: 45px;
 }
 
 .container-valores-canvas {
@@ -55,6 +56,15 @@
 
 .input-preco-canvas input, .input-preco-canvas button{
     height: 37px;
+}
+
+.input-preco-canvas button{
+    width: 25px !important;
+}
+
+.diminuir-button span, .aumentar-button span{
+    display: flex;
+    justify-content: center !important;
 }
 
 .quantidade-input-canvas {
