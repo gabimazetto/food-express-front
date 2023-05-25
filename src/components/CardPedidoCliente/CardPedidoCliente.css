@@ -1,28 +1,26 @@
-
 .main-card-pedido {
     display: flex;
     justify-content: center;
-}
-
-.hidden {
+  }
+  
+  .hidden {
     display: none;
   }
-
+  
   .rating-stars {
     color: #ffd700;
     font-size: 20px;
   }
-
-.section-cards-pedidos {
-    width: 80%;
+  
+  .section-cards-pedidos {
+    width: 100%;
     display: flex;
-    flex-flow: row wrap;
+    flex-wrap: wrap;
     justify-content: space-evenly;
-}
-
-.article-cards-pedidos {
-    width: 500px;
-    /* height: 350px; */
+  }
+  
+  .article-cards-pedidos {
+    width: calc(50% - 20px); /* Alteração da largura dos cards */
     min-height: 440px;
     min-width: 300px;
     display: flex;
@@ -32,145 +30,101 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
     box-sizing: border-box;
     padding: 5px;
-    margin-left: 15px;
     margin: 15px 10px;
-}
-
-.foto-cards-pedidos {
+  }
+  
+  .foto-cards-pedidos {
     width: 100%;
     height: 20%;
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
-    color: #F06000 !important;
+    color: #f06000 !important;
     font-weight: 700;
     font-size: 1.2em;
-}
-
-.botao-cards-detalhes{
+  }
+  
+  .botao-cards-detalhes {
     width: 40px !important;
     height: 40px !important;
     background-color: white !important;
     border: none !important;
     margin-right: 25px;
-}
-
-.botao-cards-detalhes i{
-    color: #F06000;
+  }
+  
+  .botao-cards-detalhes i {
+    color: #f06000;
     font-weight: 700;
-}
-
-.card-foto-pedido {
+  }
+  
+  .card-foto-pedido {
     width: 85px;
     height: 80px;
-}
-
-.items-cards-pedidos {
+  }
+  
+  .items-cards-pedidos {
     height: 50%;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     padding: 10px;
     font-weight: lighter;
-}
-
-.items-cards-pedidos div {
+  }
+  
+  .items-cards-pedidos div {
     display: flex;
     flex-flow: nowrap row;
     width: 100% !important;
-}
-
-.items-cards-pedidos .itens-cards-container{
+  }
+  
+  .items-cards-pedidos .itens-cards-container {
     display: flex;
     flex-direction: column;
     line-height: 35px;
     font-size: 20px;
-}
-
-.rest-cards-pedidos {
+  }
+  
+  .rest-cards-pedidos {
     height: 12.5%;
     width: 100%;
-}
-
-.rest-cards-pedidos div {
+  }
+  
+  .rest-cards-pedidos div {
     width: 100%;
     display: flex;
     flex-direction: row;
-}
-
-.refazer-cards-pedidos {
+  }
+  
+  .refazer-cards-pedidos {
     height: 12.5%;
     width: 100%;
-}
-
-.refazer-cards-pedidos div {
+  }
+  
+  .refazer-cards-pedidos div {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-}
-
-.botoes-card-pedidos{
+  }
+  
+  .botoes-card-pedidos {
     background-color: white !important;
     border: none !important;
-    color: #F06000 !important;
+    color: #f06000 !important;
     font-weight: 700;
-}
-
-.article-cards-pedidos div div p {
+  }
+  
+  .article-cards-pedidos div div p {
     text-align: start !important;
     margin-block-start: 0px;
     margin-block-end: 0px;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-}
-
-.vertical-row-pedidos {
+  }
+  
+  .vertical-row-pedidos {
     width: 90%;
     display: flex;
     align-self: center;
-    border-top: 0.5px solid #f2f2f2;
-}
-
-
-/* CORES DOS STATUS DOS PEDIDOS */
-
-.aguardando{
-    color: #b4a7d6;
-}
-
-.confirmado{
-    color: #808005;
-}
-
-.aCaminho{
-    color: #239999;
-}
-
-.entregue{
-    color: #6aa84f;
-}
-
-.cancelado{
-    color: #e01919;
-}
-
-@media (max-width: 480px) {
-    .foto-cards-pedidos h1 {
-        font-size: 1em !important;
-    }
-
-    .items-cards-pedidos .itens-cards-container{
-        display: flex;
-        flex-direction: column;
-        line-height: 30px;
-        font-size: 17px;
-    }
-
-    .items-cards-pedidos div{
-        display: flex;
-        flex-direction: column;
-        font-size: 14px;
-    }
-}
+  }  

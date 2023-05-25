@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useCallback, useContext, useEffect, useState } from "react";
-import { Button, Form, Modal, Offcanvas } from "react-bootstrap";
+import { Button, Form, Modal, Offcanvas, OffcanvasBody, OffcanvasHeader } from "react-bootstrap";
 import { ContextClient } from "../../contexts/ClientContext";
 import { ContextLogin } from "../../contexts/LoginContext";
 import { ContextSacolaCompras } from "../../contexts/SacolaComprasContext";
@@ -9,6 +9,8 @@ import { CustomInputIconNone } from "../CustomInputIconNone/CustomInputIconNone"
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { ContainerCardImg } from "../../components/ContainerCardImg/ContainerCardImg";
+import imgSacolaTriste from "../../assets/images/garconete.png";
 
 export function CarrinhoCompras() {
   const { idCli } = useContext(ContextClient);
@@ -444,7 +446,21 @@ export function CarrinhoCompras() {
             </>
           ) : (
             <>
-              <h1 className="">Não existe nenhum item em sua sacola</h1>
+
+            <OffcanvasHeader>
+                <h1>Sacola vazia</h1>
+            </OffcanvasHeader>
+            <OffcanvasBody>
+            <ContainerCardImg className="card-carrinho">
+                <img
+                  src={imgSacolaTriste}
+                  className="mt-4"
+                  alt="Imagem de uma sacola vazia e triste"
+                />
+              </ContainerCardImg>
+            </OffcanvasBody>
+
+
             </>
           )}
         </Offcanvas>
