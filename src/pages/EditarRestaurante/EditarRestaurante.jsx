@@ -279,12 +279,12 @@ export function EditaRestaurante() {
 
                                     <div class="d-flex justify-content-between ">
 
-                                        <ButtonNavigation
-                                            
+                                        <ButtonNavigation                                            
                                             type="submit"
                                             route="/restaurante/home"
                                             icon="white bi bi-arrow-left-circle-fill"
                                             className="botao-voltar-editar"
+                                            tooltipContent="Voltar para a home"
                                         />
 
                                         <ButtonNavigation

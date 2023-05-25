@@ -22,15 +22,12 @@ export function AdicionarAtualizarComida() {
 
     function convertPrice(price) {
         const formattedPrice = price.replace(",", ".");
-        // Check if the price has a decimal point
         if (formattedPrice.indexOf(".") === -1) {
-            // If there is no decimal point, append .00 to the end
             return `${formattedPrice}.00`;
         }
-        // Check if the decimal part has less than two digits
+
         const decimalPart = formattedPrice.split(".")[1];
         if (decimalPart.length < 2) {
-            // If there are less than two digits, append a zero
             return `${formattedPrice}0`;
         }
         return formattedPrice;
@@ -42,7 +39,7 @@ export function AdicionarAtualizarComida() {
         formData.append("nome", data.nome);
         formData.append("descricao", data.descricao);
         formData.append("categoria", data.categoria);
-        formData.append("preco", convertPrice(data.preco)); // Convert the price before appending
+        formData.append("preco", convertPrice(data.preco));
         formData.append("peso", data.peso);
         formData.append("imagem", data.imagem[0]);
         formData.append("restauranteId", idRes);
@@ -57,7 +54,6 @@ export function AdicionarAtualizarComida() {
             });
         } else {
             await axios.put(`http://localhost:3001/comidas/${id}`, formData, config);
-
             toast.success("Comida atualizada com sucesso!", {
                 position: "bottom-right",
                 duration: 2000,
@@ -209,12 +205,14 @@ export function AdicionarAtualizarComida() {
                             :
                             <div className="invisible"></div>
                         } */}
+
                         <div className="d-flex justify-content-evenly align-items-end mt-3 mb-3">
                             <ButtonNavigation
                                 type="submit"
                                 route="/restaurante/cardapio"
                                 icon="white bi bi-arrow-left-circle-fill"
                                 className="botao-voltar-editar"
+                                tooltipContent="Voltar para o cardápio"
                             />
 
                             {!id ?
@@ -223,21 +221,18 @@ export function AdicionarAtualizarComida() {
                                 </Button>
                                 :
                                 <Button variant="primary" className="botao-form-card" type="submit">
-                                    Editar
+                                    Salvar alterações
                                 </Button>
                             }
-                            <Button variant="primary" className="botao-form-card" type="Reset">
-                                Limpar
-                            </Button>
+                                <Button variant="primary" className="botao-form-card" type="Reset">
+                                    Limpar
+                                </Button>
+                            {id ?
+                                <Button onClick={onDelete} variant="primary" className="botao-form-card" type="button">
+                                    Excluir
+                                </Button>
+                                : ""}
                         </div>
-                        {id ?
-                            <>   <div className="vertical-row mb-4"></div>
-                                <div className=" mb-2">
-                                    <Button onClick={onDelete} variant="primary" className="exluir-form-card" type="button">
-                                        Excluir comida
-                                    </Button>
-                                </div></>
-                            : ""}
                     </div>
                 </Form>
             </main>

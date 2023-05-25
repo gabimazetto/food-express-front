@@ -1,5 +1,5 @@
 .form-container {
-    max-width: 600px;
+    max-width: 500px;
     margin: auto;
   }
   
@@ -20,5 +20,14 @@
   .form-container button {
     margin-top: 20px;
     align-self: flex-end;
+  }
+
+  .botao-voltar-editar {
+    height: 38px !important;
+    /* margin-top: 5% !important; */
+    width: 38px !important;
+    padding: 1% !important;
+    /* margin-left: 50% !important; */
+    margin: 0 !important;
   }
   
