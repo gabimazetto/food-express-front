@@ -133,7 +133,7 @@ export function CardapioRestaurante() {
                 type="submit"
                 route="/restaurante/home"
                 icon="white bi bi-arrow-left-circle-fill"
-                className="botao-voltar-editar"
+                className="botao-voltar-editar me-3"
                 tooltipContent="Voltar para a home"
               />
             

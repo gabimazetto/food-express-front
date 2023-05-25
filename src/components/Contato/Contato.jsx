@@ -68,12 +68,23 @@ export function Contato() {
           icon="bi bi-pencil-square" // Substitua pelo seu ícone de mensagem
         />
         {messageError && <p style={{ color: 'red' }}>{messageError}</p>}
+
+        <div class="d-flex justify-content-between align-items-end mt-3 mb-3">
+        <ButtonNavigation                                            
+                                            type="submit"
+                                            route="/"
+                                            icon="white bi bi-arrow-left-circle-fill"
+                                            className="botao-voltar-editar"
+                                            tooltipContent="Voltar para a home"
+                                        />
+        
             <ButtonNavigation
                 text="Enviar"
                 type="submit"
-                className="white d-inline-block px-2 py1 mb-4 me-2"
+                className="white"
             />
-        
+</div>
+
       </form>
       <ToastContainer autoClose={3000} />
     </div>
