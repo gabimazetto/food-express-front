@@ -83,4 +83,22 @@ h6,
     border-left-color:#F5F2F2;
 }
 
+/* CORES DOS STATUS DOS PEDIDOS */
+.aguardando{
+  color: #b4a7d6;
+}
+.confirmado{
+  color: #808005;
+}
+.aCaminho{
+  color: #239999;
+}
+.entregue{
+  color: #6aa84f;
+}
+.cancelado{
+  color: #e01919;
+}
+
+
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
