@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import { Button, Container, Table } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
 import { Loader } from "../../components/Loader/Loader";
 import { ContextRestaurant } from "../../contexts/RestaurantContext";
 import { toast } from "react-hot-toast";
@@ -19,7 +19,7 @@ export function PedidosRestaurante() {
     initializeTable();
     const attPagina = setInterval(() => {
       initializeTable();
-    }, 5000);
+    }, 10000);
 
     return () => clearInterval(attPagina);
   }, [idRes]);
