@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { Card, Button, Container, Row, Col } from 'react-bootstrap';
-// import { Button, Table } from "react-bootstrap";
 import { Loader } from "../../components/Loader/Loader";
 import { Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
@@ -10,6 +9,7 @@ import { ContextClient } from "../../contexts/ClientContext";
 import { ContextLogin } from "../../contexts/LoginContext";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import ReactStars from "react-stars";
+import { ButtonNavigation } from "../../components/ButtonNavigation/ButtonNavigation";
 
 
 export function Restaurantes() {
@@ -108,96 +108,108 @@ export function Restaurantes() {
 
   return (
     <Container>
-    <div className="navbar nav-rest">
-      <h1>Restaurantes</h1>
-      <form className="form-rest form-inline">
-        <input type="text" className="search-rest"
-        value={busca}
-        onChange={(e) => setBusca(e.target.value)} placeholder="Pesquise por nome ou cidade" />
-      </form>
-     
-    </div>
+      <div className="navbar nav-rest">
+        <h1 className="mt-4 mb-4">Restaurantes</h1>
 
-    {restaurantes === null ? (
-      <Loader />
-    ) : (
-      <Row>
-        {restaurantes
-          .filter((restaurante) => {
-            const nomeFantasia = restaurante.nomeFantasia.toLowerCase();
-            const cidade = restaurante.endereco.cidade.toLowerCase();
-            const termoBusca = busca.toLowerCase();
-            return (
-              nomeFantasia.includes(termoBusca) ||
-              cidade.includes(termoBusca)
-            );
-          })
-          .map((restaurante) => {
-            return (
-              <Col md={4} key={restaurante.id}>
-                <Card className="mb-4 py-4 card-principal">
-                  <Card.Body className="card-rest">
-                    <Card.Title className="fs-3 title-rest">{restaurante.nomeFantasia}</Card.Title>
-                    
-                    <Card.Subtitle className="mb-2 text-muted">
-                     Cidade: {restaurante.endereco.cidade}
-                    </Card.Subtitle>
-                    <div className="icons-rest">
-                      <Button className="detalhes my-button-not-filled-rest"
-                        as={Link}
-                        to={`/cliente/restaurante/cardapio/${restaurante.id}`}
-                      >
-                        <i className="bi bi-book"></i> Mais Detalhes
-                      </Button>
-                      <Button       className="my-button-not-filled-rest"
-                        type="submit"
-                        onClick={() => FavRestaurante(restaurante.id)}
-                      >
-                        {restaurante.favorito ? (
-                          <i className="bi bi-heart-fill icon-list-rest"></i>
-                        ) : (
-                          <i className="bi bi-heart"></i>
-                        )}
-                        
-                      </Button>
-                      
-                      <Button className="my-button-not-filled-rest" onClick={() => {
-                        handleShow();
-                        buscarComentariosAvaliacoes(restaurante.id);
-                      }}>
-                        <ReactStars
-                          count={5}
-                          value={mediasAvaliacoes[restaurante.id]}
-                          size={24}
-                          color2={'#f06000'}
-                          edit={false}  // Isso desabilita a possibilidade do usuário alterar o valor
-                        />
-                      </Button>
-                                          
-                      <Offcanvas show={show} onHide={handleClose}>
-                      <Offcanvas.Header closeButton className="offcanvas-header">
-                        <Offcanvas.Title className="offcanvas-title">Avaliações</Offcanvas.Title>
-                      </Offcanvas.Header>
-                      <Offcanvas.Body className="offcanvas-body">
-                        {comentariosAvaliacoes.map((comentario, index) => (
-                          <div key={index}>
-                            <p>Cliente: {comentario.nomeCliente}</p>
-                            <p>Comentário: {comentario.comentario}</p>
-                            <p>Nota: {comentario.nota}</p>
-                            <hr />
-                          </div>
-                        ))}
-                      </Offcanvas.Body>
-                    </Offcanvas>
-                    </div>
-                  </Card.Body>
-                </Card>
-              </Col>
-            );
-          })}
-      </Row>
-    )}
-  </Container>
+        <form className="form-rest form-inline">
+          <input type="text" className="search-rest"
+            value={busca}
+            onChange={(e) => setBusca(e.target.value)} placeholder="Pesquise por nome ou cidade" />
+        </form>
+
+      </div>
+
+      {restaurantes === null ? (
+        <Loader />
+      ) : (
+        <Row>
+          {restaurantes
+            .filter((restaurante) => {
+              const nomeFantasia = restaurante.nomeFantasia.toLowerCase();
+              const cidade = restaurante.endereco.cidade.toLowerCase();
+              const termoBusca = busca.toLowerCase();
+              return (
+                nomeFantasia.includes(termoBusca) ||
+                cidade.includes(termoBusca)
+              );
+            })
+            .map((restaurante) => {
+              return (
+                <Col md={4} key={restaurante.id}>
+                  <Card className="mb-4 py-4 card-principal">
+                    <Card.Body className="card-rest">
+                      <Card.Title className="fs-3 title-rest">{restaurante.nomeFantasia}</Card.Title>
+
+                      <Card.Subtitle className="mb-2 text-muted">
+                        Cidade: {restaurante.endereco.cidade}
+                      </Card.Subtitle>
+                      <div className="icons-rest">
+                        <Button className="detalhes my-button-not-filled-rest"
+                          as={Link}
+                          to={`/cliente/restaurante/cardapio/${restaurante.id}`}
+                        >
+                          <i className="bi bi-book"></i> Mais Detalhes
+                        </Button>
+                        <Button className="my-button-not-filled-rest"
+                          type="submit"
+                          onClick={() => FavRestaurante(restaurante.id)}
+                        >
+                          {restaurante.favorito ? (
+                            <i className="bi bi-heart-fill icon-list-rest"></i>
+                          ) : (
+                            <i className="bi bi-heart"></i>
+                          )}
+
+                        </Button>
+
+                        <Button className="my-button-not-filled-rest" onClick={() => {
+                          handleShow();
+                          buscarComentariosAvaliacoes(restaurante.id);
+                        }}>
+                          <ReactStars
+                            count={5}
+                            value={mediasAvaliacoes[restaurante.id]}
+                            size={24}
+                            color2={'#f06000'}
+                            edit={false}  // Isso desabilita a possibilidade do usuário alterar o valor
+                          />
+                        </Button>
+
+                        <Offcanvas show={show} onHide={handleClose}>
+                          <Offcanvas.Header closeButton className="offcanvas-header">
+                            <Offcanvas.Title className="offcanvas-title">Avaliações</Offcanvas.Title>
+                          </Offcanvas.Header>
+                          <Offcanvas.Body className="offcanvas-body">
+                            {comentariosAvaliacoes.map((comentario, index) => (
+                              <div key={index}>
+                                <p>Cliente: {comentario.nomeCliente}</p>
+                                <p>Comentário: {comentario.comentario}</p>
+                                <p>Nota: {comentario.nota}</p>
+                                <hr />
+                              </div>
+                            ))}
+                          </Offcanvas.Body>
+                        </Offcanvas>
+
+                      </div>
+                    </Card.Body>
+                  </Card>
+
+                </Col>
+              );
+            })}
+        </Row>
+      )}
+      <div className="d-flex align-items-end justify-content-end ">
+        <ButtonNavigation
+          type="submit"
+          route="/"
+          icon="white bi bi-arrow-left-circle-fill"
+          className="botao-voltar-rest d-flex align-items-center justify-content-center"
+          tooltipContent="Voltar para a home"
+        />
+      </div>
+    </Container>
 
 
     // <div className="container">
