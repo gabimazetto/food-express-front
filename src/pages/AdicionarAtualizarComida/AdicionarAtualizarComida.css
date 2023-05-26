@@ -67,8 +67,8 @@
 
 
 .forms-comidas div .botao-form-card {
-    /* width: 140px !important;
-    height: 38px !important; */
+    width: 140px !important;
+    height: 38px !important;
     color: white;
 }
 
@@ -88,13 +88,14 @@
     width: 50% !important;
 }
 
-.botao-voltar-editar {
+.botao-voltar-addatt {
     height: 38px !important;
-    /* margin-top: 5% !important; */
+    
     width: 38px !important;
     padding: 1% !important;
     /* margin-left: 50% !important; */
   }
+
 
 
 @media (max-width: 480px) {
