@@ -1,4 +1,4 @@
-import { Button } from "react-bootstrap"
+import { Button, Container } from "react-bootstrap"
 import imagemLogo from "../../assets/images/cardapio2.png"
 import "./HomeRestaurante.css"
 import { CardCardapioRestaurante } from "../../components/CardCardapioRestaurante/CardCardapioRestaurante"
@@ -38,12 +38,13 @@ export function HomeRestaurante() {
     }
 
     return (
-        <div className="container-home-restaurante ">
+<Container>
+<div className="container-home-restaurante ">
             <header className="header-home-restaurante ">
                 <div className="container-header ">
-                    <div className="titulo-home-restaurante ">
-                        <h1>Cardápio</h1>
-                        <div className="button-header invisivel-mobile ">
+                    <div className="titulo-home-restaurante text-center">
+                        <h1 className="mt-4 mb-4">Cardápio</h1>
+                        <div className="button-header">
                             <Button as={Link} to="/restaurante/cardapio/" className="button-meus-itens" variant="primary">Meus itens</Button>
                             <Button as={Link} to="/restaurante/cardapio/cadastro" className="button-add-itens" variant="primary">Adicionar novo</Button>
                         </div>
@@ -52,9 +53,7 @@ export function HomeRestaurante() {
                         <img src={imagemLogo} alt="" />
                     </div>
                 </div>
-                <div className="invisivel-desktop button-home-restaurante">
-                    <Button as={Link} to="/restaurante/cardapio/cadastro" className="button-header" variant="primary">Adicionar refeição</Button>
-                </div>
+
             </header>
             {idRes === null ? (
                 <Loader />
@@ -66,5 +65,6 @@ export function HomeRestaurante() {
             )}
 
         </div>
+</Container>
     )
 }
