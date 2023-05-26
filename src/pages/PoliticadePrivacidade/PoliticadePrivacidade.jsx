@@ -1,5 +1,6 @@
 import noteFood from "../../assets/images/noteFood.png";
 import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/ContainerCenterMobile";
+import "./PoliticadePrivacidade.css";
 
 
 
@@ -8,20 +9,11 @@ export function PoliticadePrivacidade() {
 
     return (
         <>
-            <ContainerCenterMobile className="background-gradient">
+            <ContainerCenterMobile className="background-gradient ">
                 <main className="border container rounded-5 ">
-                    <div className="grid" >
-                        <div className="colTwo" >
-                            <div className="text-center">
-                                <img
-                                    src={noteFood}
-                                    class="mt-4"
-                                    alt=""
-                                />
-                            </div>
-                        </div>
-                        <div className="colOne">
-                            <div className="px-3 py-4" style={{ maxHeight: '500px', overflowY: 'auto' }}>
+                    <div className="grid " >
+                        <div className="colOne imagem-privacidade ">
+                            <div className="row conteudo-pp">
                                 <h1>Política de Privacidade</h1>
                                 <p>Esta Política de Privacidade descreve como coletamos, usamos, divulgamos e protegemos as informações pessoais que você fornece ao utilizar nosso website. Respeitamos a sua privacidade e estamos comprometidos em proteger as suas informações pessoais.</p>
                                 <h2>Informações Coletadas</h2>
