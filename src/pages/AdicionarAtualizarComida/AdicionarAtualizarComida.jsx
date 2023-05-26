@@ -19,6 +19,7 @@ export function AdicionarAtualizarComida() {
     const { idRes } = useContext(ContextRestaurant);
     const { config } = useContext(ContextLogin);
     const navigate = useNavigate();
+    const [botaocadastrar, setBotaoCadastrar] = useState(false);
 
     function convertPrice(price) {
         const formattedPrice = price.replace(",", ".");
@@ -45,21 +46,25 @@ export function AdicionarAtualizarComida() {
         formData.append("restauranteId", idRes);
 
 
-
-        if (!id) {
-            await axios.post("http://localhost:3001/comidas", formData, config);
-            toast.success("Comida adicionada com sucesso!", {
-                position: "bottom-right",
-                duration: 2000,
-            });
-        } else {
-            await axios.put(`http://localhost:3001/comidas/${id}`, formData, config);
-            toast.success("Comida atualizada com sucesso!", {
-                position: "bottom-right",
-                duration: 2000,
-            });
+        try {
+            setBotaoCadastrar(true); 
+            if (!id) {
+                await axios.post("http://localhost:3001/comidas", formData, config);
+                toast.success("Comida adicionada com sucesso!", {
+                    position: "bottom-right",
+                    duration: 2000,
+                });
+            } else {
+                await axios.put(`http://localhost:3001/comidas/${id}`, formData, config);
+                toast.success("Comida atualizada com sucesso!", {
+                    position: "bottom-right",
+                    duration: 2000,
+                });
+            }
+            navigate('/restaurante/cardapio/');
+        } catch (error) {
+            setBotaoCadastrar(false);
         }
-        navigate('/restaurante/cardapio/');
     }
 
     useEffect(() => {
@@ -237,12 +242,12 @@ export function AdicionarAtualizarComida() {
 
 
                             {!id ?
-                                <Button variant="primary" className="botao-form-card" type="submit">
-                                    Cadastrar
+                                <Button variant="primary" className="botao-form-card" type="submit" disabled={botaocadastrar}>
+                                    {botaocadastrar ? 'Enviando...' : (!id ? 'Cadastrar' : 'Salvar alterações')}
                                 </Button>
                                 :
                                 <Button variant="primary" className="botao-form-card" type="submit">
-                                    Salvar
+                                    Salvar alterações
                                 </Button>
                             }
                                 <Button variant="primary" className="botao-form-card" type="Reset">
