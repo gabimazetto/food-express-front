@@ -189,7 +189,7 @@
     line-height: 54px;
     color: #f06000;
     font-weight: bold;
-    text-align: initial;
+    text-align: center;
   }
 
   .melhoresRestaurantesLoremDesktop {
@@ -393,7 +393,7 @@
     line-height: 54px;
     color: #f06000;
     font-weight: bold;
-    text-align: initial;
+    text-align: center;
   }
 
   .melhoresRestaurantesLoremDesktop {
@@ -426,14 +426,14 @@
   }
   
 
- 
+
   .divRestauranteDesktopLeft {
     text-align: center;
     height: auto;
   }
 
   .divRestauranteDesktopImg {
-    max-width: 100%;
+    max-width: 80%;
     height: auto;
     background-color: #ffffff;
   }
