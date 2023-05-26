@@ -1,8 +1,30 @@
+.card-fav-principal{
+    border: 1px solid #f06000 !important;
+    height: 250px !important;
+    width: 320px !important;
+} 
+
+.botao-favoritos{
+    position: absolute;
+    bottom: 20px; /* Ajuste o valor conforme necessário */
+    left: 50%; /* Centraliza horizontalmente. Ajuste o valor conforme necessário */
+    transform: translateX(-50%);
+    width: 250px;
+    margin-top: 10px !important;
+}
+
+.section-fav{
+    max-width: 850px !important;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
 @media (min-width: 786px){
 .section-fav{
     max-width: 850px !important;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     text-align: center;
 }
 .titulo-fav{
@@ -14,7 +36,6 @@
     justify-content: space-around;
     width: 80%;
 }
-
 
 .row-fav-rest {
     display: inline-block !important;
@@ -40,7 +61,8 @@
 
 .card-fav-principal{
     border: 1px solid #f06000 !important;
-    max-height: 370px;
+    height: 250px !important;
+    width: 400px !important;
 } 
 
 .card-fav{
@@ -53,8 +75,16 @@
         height: 38px !important;            
         width: 38px !important;
         padding: 0 !important;
-
+        
       }
+      .botao-favoritos{
+        position: absolute;
+        bottom: 20px; /* Ajuste o valor conforme necessário */
+        left: 50%; /* Centraliza horizontalmente. Ajuste o valor conforme necessário */
+        transform: translateX(-50%);
+        width: 300px;
+        margin-top: 10px !important;
+    }
 }
 
 @media (max-width:785px) {
@@ -78,14 +108,22 @@
 
     .card-fav-principal{
         border: 1px solid #f06000 !important;
-        max-height: 370px;
+        position: relative !important
     } 
     
     .card-fav{
         display: flex;
         gap: 1rem;
-        flex-direction: column;
+        flex-direction: column;        
         }
-
+        
+.botao-favoritos{
+    position: absolute;
+    bottom: 10px; /* Ajuste o valor conforme necessário */
+    left: 50%; /* Centraliza horizontalmente. Ajuste o valor conforme necessário */
+    transform: translateX(-50%);
+    width: 300px;
+    margin-top: 10px !important;
+}
 
 }
