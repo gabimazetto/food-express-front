@@ -93,80 +93,80 @@ export function PedidosRestaurante() {
           <tbody>
             {pedidos.map((pedido) => {
               const dataPedido = dayjs(pedido.dataRegistro);
-              return (
-                <tr key={pedido.id}>
-                  <td className="align-middle">
-                    {dataPedido.format("DD/MM/YYYY")}
-                  </td>
-                  <td className="align-middle">
-                    {pedido.items.map((item, index) => (
-                      <div key={index}>
-                        <td>
-                          {item.quantidade}x {item.comida}
-                        </td>
-                      </div>
-                    ))}
-                  </td>
-                  <td className="align-middle p-table">
-                    {pedido.status === "Pendente" ? (
-                      <p className="align-middle p-table">
-                        <b></b> {pedido.status}
-                      </p>
-                    ) : pedido.status === "Aguardando confirmação" ? (
-                      <p className="align-middle p-table">
-                        <b className="aguardando">{pedido.status}</b>
-                      </p>
-                    ) : pedido.status === "Confirmado" ? (
-                      <p className="align-middle p-table">
-                        <b className="confirmado">{pedido.status}</b>
-                      </p>
-                    ) : pedido.status === "A caminho" ? (
-                      <p className="align-middle p-table">
-                        <b className="aCaminho">{pedido.status}</b>
-                      </p>
-                    ) : pedido.status === "Entregue" ? (
-                      <p className="align-middle p-table">
-                        <b className="entregue">{pedido.status}</b>
-                      </p>
-                    ) : pedido.status === "Cancelado" ? (
-                      <p className="align-middle">
-                        <b className="cancelado">{pedido.status}</b>
-                      </p>
-                    ) : null}
-                  </td>
-                  <td className="align-middle">{pedido.cliente.nome}</td>
-                  <td className="align-middle">{pedido.enderecoPedido?.rua}</td>
-                  <td className="align-middle">
-                    {pedido.enderecoPedido?.numero}
-                  </td>
-                  <td>
-                    {pedido.status === "Aguardando confirmação" ? (
-                      <Button
-                        value={"Confirmado"}
-                        onClick={() => updateStatus(pedido.id, "Confirmado")}
-                      >
-                        Confirmar
-                      </Button>
-                    ) : pedido.status === "Confirmado" ? (
-                      <Button
-                        value={"A caminho"}
-                        onClick={() => updateStatus(pedido.id, "A caminho")}
-                      >
-                        Encaminhar
-                      </Button>
-                    ) : pedido.status === "A caminho" ? (
-                      <Button
-                        value={"Entregue"}
-                        onClick={() => updateStatus(pedido.id, "Entregue")}
-                      >
-                        Finalizar
-                      </Button>
-                    ) : (
-                      <Button>Finalizado</Button>
-                    )}
-                  </td>
-                </tr>
-              );
+              if (pedido.status !== "Pendente") {
+                return (
+                  <tr key={pedido.id}>
+                    <td className="align-middle">
+                      {dataPedido.format("DD/MM/YYYY")}
+                    </td>
+                    <td className="align-middle">
+                      {pedido.items.map((item, index) => (
+                        <div key={index}>
+                          <td>
+                            {item.quantidade}x {item.comida}
+                          </td>
+                        </div>
+                      ))}
+                    </td>
+                    <td className="align-middle p-table">
+                      {pedido.status === "Aguardando confirmaçãp" ? (
+                        <p className="align-middle p-table">
+                          <b className="aguardando"></b> {pedido.status}
+                        </p>
+                      ) : pedido.status === "Confirmado" ? (
+                        <p className="align-middle p-table">
+                          <b className="confirmado">{pedido.status}</b>
+                        </p>
+                      ) : pedido.status === "A caminho" ? (
+                        <p className="align-middle p-table">
+                          <b className="aCaminho">{pedido.status}</b>
+                        </p>
+                      ) : pedido.status === "Entregue" ? (
+                        <p className="align-middle p-table">
+                          <b className="entregue">{pedido.status}</b>
+                        </p>
+                      ) : pedido.status === "Cancelado" ? (
+                        <p className="align-middle">
+                          <b className="cancelado">{pedido.status}</b>
+                        </p>
+                      ) : null}
+                    </td>
+                    <td className="align-middle">{pedido.cliente.nome}</td>
+                    <td className="align-middle">
+                      {pedido.enderecoPedido?.rua}
+                    </td>
+                    <td className="align-middle">
+                      {pedido.enderecoPedido?.numero}
+                    </td>
+                    <td>
+                      {pedido.status === "Aguardando confirmação" ? (
+                        <Button
+                          value={"Confirmado"}
+                          onClick={() => updateStatus(pedido.id, "Confirmado")}
+                        >
+                          Confirmar
+                        </Button>
+                      ) : pedido.status === "Confirmado" ? (
+                        <Button
+                          value={"A caminho"}
+                          onClick={() => updateStatus(pedido.id, "A caminho")}
+                        >
+                          Encaminhar
+                        </Button>
+                      ) : pedido.status === "A caminho" ? (
+                        <Button
+                          value={"Entregue"}
+                          onClick={() => updateStatus(pedido.id, "Entregue")}
+                        >
+                          Finalizar
+                        </Button>
+                      ) : (
+                        <Button>Finalizado</Button>
+                      )}
+                    </td>
+                  </tr>
+                );
+              } else return null;
             })}
           </tbody>
         </Table>
