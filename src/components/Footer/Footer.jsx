@@ -37,21 +37,21 @@ export function Footer() {
                     </h3>
                 </Col>
                 <Col className="col-one-footer" >
-                    <p>
+                    <div>
                         <Link to={getHomeLink()} className="link-footer" ><p>Home</p> </Link>
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                         <Link to="/sobre" className="link-footer" ><p>Sobre nós</p> </Link>
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                         <Link to="/faq" className="link-footer" ><p>FAQ</p> </Link>
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                         <Link to="/privacidade" className="link-footer" ><p>Política de privacidade</p> </Link>
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                         <Link to="/contato" className="link-footer" ><p>Contato</p> </Link>
-                    </p>
+                    </div>
                 </Col>
                 <Col  className="col-two-footer" >
                     <p>
