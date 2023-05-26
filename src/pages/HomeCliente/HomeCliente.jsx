@@ -97,7 +97,7 @@ export function HomeCliente() {
     {
       id: 15,
       titulo: 'Bebidas',
-      imagem: require('../../assets/images/10.png')
+      imagem: require('../../assets/images/11.png')
     }
   ]
 

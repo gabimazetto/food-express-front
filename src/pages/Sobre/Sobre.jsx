@@ -1,26 +1,19 @@
 import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/ContainerCenterMobile";
 import meninaNoteFood from "../../assets/images/meninaNoteFood.png";
+import "./Sobre.css";
 
 
 
 export function Sobre() {
     return(
         <>
-                    <ContainerCenterMobile className="background-gradient">
-                <main className="border container rounded-5 ">
+                    <div className="container-principal-sobre centered-container-secundarias">
+                    <h1 className="tituloPrincipalSobre">Sobre</h1>
+                <main className="border border-secundaria container rounded-5 ">
                     <div className="grid" >
-                        <div className="colTwo" >
-                            <div className="text-center">
-                                <img
-                                    src={meninaNoteFood}
-                                    class="mt-4"
-                                    alt=""
-                                />
-                            </div>
-                        </div>
-                        <div className="colOne">
-                            <div className="px-5 py-3"style={{ maxHeight: '500px', overflowY: 'auto' }}>
-                                <h1>Sobre nós</h1>
+                        <div className="colOne imagem-sobre">
+                            <div className="conteudo-ss">
+                                <h2>Sobre nós</h2>
                                 <h2>Bem-vindo ao FoodExpress!</h2>
                                 <p>Somos uma plataforma online que facilita o registro e entrega de comida, trazendo a melhor experiência gastronômica diretamente para a sua porta. Combinamos a conveniência de um aplicativo intuitivo e o prazer de desfrutar de refeições deliciosas no conforto da sua casa.</p>
                                 <p>Nossa missão é conectar você aos melhores restaurantes e estabelecimentos culinários da região, oferecendo uma ampla variedade de opções para todos os gostos e necessidades alimentares. Acreditamos que comida é muito mais do que apenas uma necessidade básica; é uma forma de arte que deve ser apreciada e compartilhada.</p>
@@ -36,7 +29,7 @@ export function Sobre() {
                             </div>
                         </div>
                 </main>
-            </ContainerCenterMobile>
+            </div>
         </>
     );
 }

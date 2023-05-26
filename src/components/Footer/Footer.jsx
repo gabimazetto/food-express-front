@@ -1,7 +1,9 @@
 import "../Footer/Footer.css"
 import logo from "../../assets/images/logoTemaClaro.png"
 import { Link } from "react-router-dom";
+import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faGoogle, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { Col, Row } from "react-bootstrap";
 import { useContext } from "react";
@@ -10,6 +12,9 @@ import { ContextRestaurant } from "../../contexts/RestaurantContext";
 
 
 export function Footer() {
+
+    // Adicione os ícones ao library
+    library.add(faHome, faEnvelope, faPhone);
 
     const { roleCli } = useContext(ContextClient);
     const { roleRes } = useContext(ContextRestaurant);
@@ -37,33 +42,33 @@ export function Footer() {
                     </h3>
                 </Col>
                 <Col className="col-one-footer" >
-                    <p>
+                    <div>
                         <Link to={getHomeLink()} className="link-footer" ><p>Home</p> </Link>
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                         <Link to="/sobre" className="link-footer" ><p>Sobre nós</p> </Link>
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                         <Link to="/faq" className="link-footer" ><p>FAQ</p> </Link>
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                         <Link to="/privacidade" className="link-footer" ><p>Política de privacidade</p> </Link>
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                         <Link to="/contato" className="link-footer" ><p>Contato</p> </Link>
-                    </p>
+                    </div>
                 </Col>
                 <Col  className="col-two-footer" >
                     <p>
-                        <FontAwesomeIcon icon={['fas', 'home']} />
+                    <FontAwesomeIcon icon={faHome} />
                         São Paulo, SP, BR
                     </p>
                     <p>
-                        <FontAwesomeIcon icon={['fas', 'envelope']} />
+                    <FontAwesomeIcon icon={faEnvelope} />
                         contato@foodexpress.com
                     </p>
                     <p>
-                        <FontAwesomeIcon icon={['fas', 'phone']} /> 99 99999-9999
+                    <FontAwesomeIcon icon={faPhone} /> 99 99999-9999
                     </p>
                 </Col>
             </section>
