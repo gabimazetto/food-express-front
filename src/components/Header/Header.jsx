@@ -90,8 +90,8 @@ export function Header() {
     return (
         <>
             {location.pathname !== "/cliente/login" && location.pathname !== "/cliente/cadastro" && location.pathname !== "/restaurante/cadastro" && location.pathname !== "/restaurante/login" && (
-                <Navbar bg={temaEscuro === false ? "light" : "dark"} expand="lg" className="">
-                    <Container fluid className=" d-flex justify-content-between align-items-center" >
+                <Navbar bg={temaEscuro === false ? "light" : "dark"} expand="lg" className="container-navbar">
+                    <Container fluid className=" d-flex justify-content-between align-items-center " >
                          <Navbar.Brand>
                             {/* Verifica se está logado para apresentar as informações */}
                             {authenticated === false ? (
