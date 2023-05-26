@@ -3,9 +3,9 @@
 }
 
 .container-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
     height: 60%;
     width: 100%;
 }
@@ -15,7 +15,7 @@
     color: #F06000;
     font-family: "Signika Negative";
     font-weight: 700;
-    padding-right: 15px;
+    padding-right: 30px;
 }
 
 .titulo-home-restaurante {
@@ -27,19 +27,20 @@
 }
 
 .button-meus-itens {
-    width: 110px;
+    width: 140px;
     /* height: 40px; */
-    text-align: start !important;
-    margin-bottom: 34.5px;
+    text-align: center !important;
+    /* margin-bottom: 34.5px; */
     color: white !important;
+    margin-right: 10px;
 }
 
 /* MEDIA QUERY'S */
 /* DISPOSITIVOS MÓVEIS */
 @media (max-width: 780px) {
-    .container-header{
+    /* .container-header{
         display: none;
-    }
+    } */
 
     .header-home-restaurante {
         height: 220px;
@@ -53,7 +54,7 @@
     }
 
     .imagem-home-restaurante {
-        padding-left: 15px;
+        display: none !important;
     }
 
     .titulo-home-restaurante h1 {
@@ -108,6 +109,22 @@
         height: 50%;
     }
 
+    .button-add-itens {
+        min-width: 200px;
+        max-width: 200px;
+        height: 43px;
+        text-align: center !important;
+        color: white !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .button-meus-itens {
+        min-width: 200px;
+        max-width: 200px;
+        height: 43px;
+        margin-bottom: 1rem !important;
+    }
+
     .imagem-home-restaurante {
         display: flex;
         justify-content: center;
@@ -121,9 +138,9 @@
     }
 
     .button-add-itens {
-        width: 166px;
+        width: 200px;
         /* height: 40px; */
-        text-align: start !important;
+        text-align: center !important;
         color: white !important;
     }
 
@@ -161,6 +178,22 @@
         flex-flow: column nowrap;
     }
 
+    .button-add-itens {
+        min-width: 200px;
+        max-width: 200px;
+        height: 43px;
+        text-align: center !important;
+        color: white !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .button-meus-itens {
+        min-width: 200px;
+        max-width: 200px;
+        height: 43px;
+        margin-bottom: 1rem !important;
+    }
+
     .imagem-home-restaurante {
         display: flex;
         justify-content: center;
@@ -176,7 +209,7 @@
     .button-add-itens {
         width: 166px;
         /* height: 40px; */
-        text-align: start !important;
+        text-align: center !important;
         color: white !important;
     }
 
@@ -203,13 +236,16 @@
         height: 50%;
         display: flex;
         align-items: center;
+        margin-left: 30% !important;
     }
 
     .button-header {
-        width: 75%;
+        min-width: 200px;
+        max-width: 200px;
         height: 50%;
         display: flex;
         flex-flow: column nowrap;
+        
     }
 
     .imagem-home-restaurante {
@@ -225,15 +261,19 @@
     }
 
     .button-add-itens {
-        width: 207.5px;
+        min-width: 200px;
+        max-width: 200px;
         height: 43px;
-        text-align: start !important;
+        text-align: center !important;
         color: white !important;
+        margin-bottom: 1rem !important;
     }
 
     .button-meus-itens {
-        width: 137.5px;
+        min-width: 200px;
+        max-width: 200px;
         height: 43px;
+        margin-bottom: 1rem !important;
     }
 
     .invisivel-desktop {

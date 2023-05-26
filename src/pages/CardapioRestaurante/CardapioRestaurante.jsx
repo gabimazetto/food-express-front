@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { Button, Form, InputGroup, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Button, Container, Form, InputGroup, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Loader } from "../../components/Loader/Loader";
 import "./CardapioRestaurante.css"
 import { CardCardapioRestaurante } from "../../components/CardCardapioRestaurante/CardCardapioRestaurante";
@@ -111,47 +111,50 @@ export function CardapioRestaurante() {
 
   return (
     <>
-      <div className="containerCardRest">
-        <div className="container-titulo-cardapio">
-          <h1 className="cardapio-titulo">Cardápio</h1>
-          <div className="d-flex flex-column">
-          <Form>
-            <InputGroup className="mb-3">
-              <Form.Control
-                value={pesquisa}
-                onChange={handlePesquisa}
-                placeholder="Pesquisar"
-                aria-label="Pesquisar nome ou categoria"
-                aria-describedby="basic-addon2"
-                className="cardapio-input"
-              />
-            </InputGroup>
-          </Form>
-          <div className="d-flex justify-content-evenly align-items-end mt-3 mb-3">
+      <Container>
+        <div className="containerCardRest">
+          <div className="container-titulo-cardapio">
+            <h1 className="cardapio-titulo mt-4 mb-4">Cardápio</h1>
+            <div className="d-flex flex-column">
+              <Form>
+                <InputGroup className="mb-3">
+                  <Form.Control
+                    value={pesquisa}
+                    onChange={handlePesquisa}
+                    placeholder="Pesquisar"
+                    aria-label="Pesquisar nome ou categoria"
+                    aria-describedby="basic-addon2"
+                    className="cardapio-input"
+                  />
+                </InputGroup>
+              </Form>
+              <div className="d-flex justify-content-evenly align-items-end mt-3 mb-3">
 
-              <ButtonNavigation
-                type="submit"
-                route="/restaurante/home"
-                icon="white bi bi-arrow-left-circle-fill"
-                className="botao-voltar-editar me-3"
-                tooltipContent="Voltar para a home"
-              />
-            
-            <Button as={Link} to="/restaurante/cardapio/cadastro" className="min-input button-add-cardapio">
-              Adicionar novo
-            </Button>
+                <Button as={Link} to="/restaurante/cardapio/cadastro" className="min-input button-add-cardapio">
+                  Adicionar novo
+                </Button>
+              </div>
+            </div>
           </div>
+          {comidasFiltradas === null ? (
+            <Loader />
+          ) : (
+            <CardCardapioRestaurante
+              comidas={comidasFiltradas}
+              updateData={handleUpdateData}
+            />
+          )}
         </div>
-        </div>
-        {comidasFiltradas === null ? (
-          <Loader />
-        ) : (
-          <CardCardapioRestaurante
-            comidas={comidasFiltradas}
-            updateData={handleUpdateData}
+        <div className="d-flex justify-content-start align-items-start mt-3 mb-5">
+          <ButtonNavigation
+            type="submit"
+            route="/restaurante/home"
+            icon="white bi bi-arrow-left-circle-fill"
+            className="botao-voltar-editar mb-5 d-flex justify-content-center align-items-center"
+            tooltipContent="Voltar para a home"
           />
-        )}
-      </div>
+        </div>
+      </Container>
     </>
   );
 }
