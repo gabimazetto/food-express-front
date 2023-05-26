@@ -200,7 +200,7 @@ export function Restaurantes() {
             })}
         </Row>
       )}
-      <div className="d-flex align-items-end justify-content-end ">
+      <div className="d-flex align-items-start justify-content-start  mt-3 ms-1 ">
         <ButtonNavigation
           type="submit"
           route="/"

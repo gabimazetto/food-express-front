@@ -130,6 +130,7 @@ hr {
 .container-edit-rest {
   height: 100%;
   overflow-y: hidden !important;
+  display: block !important;
 }
   main.container-perfil-rest {
     min-height: 590px !important;
