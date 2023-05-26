@@ -102,8 +102,8 @@ export function EditaRestaurante() {
                       register={register("nomeFantasia", {
                         required: "O Nome Fantasia é obrigatório.",
                         maxLength: {
-                          value: 130,
-                          message: "Limite de 130 caracteres.",
+                          value: 25,
+                          message: "Limite de 25 caracteres.",
                         },
                       })}
                       error={errors.nomeFantasia}

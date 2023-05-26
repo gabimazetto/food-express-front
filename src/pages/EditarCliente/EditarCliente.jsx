@@ -101,6 +101,10 @@ export function EditarCliente() {
                       type="text"
                       register={register("nome", {
                         required: "O nome completo é obrigatório.",
+                        maxLength: {
+                          value: 25,
+                          message: "Limite de 25 caracteres.",
+                        },
                       })}
                       error={errors.nome}
                     />
