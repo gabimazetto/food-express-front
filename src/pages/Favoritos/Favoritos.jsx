@@ -63,7 +63,7 @@ export function Favoritos() {
                                                                 <Card.Body className="card-fav">
                                                                     <Card.Title className="fs-3 title-fav">{favorito.nomeFantasia}</Card.Title>
                                                                     <Card.Subtitle className="mb-2 text-muted">{favorito.razaoSocial}</Card.Subtitle>
-                                                                    <Button as={Link} to={`http://localhost:3000/cliente/restaurante/cardapio/${favorito.id}`}>
+                                                                    <Button className="botao-favoritos" as={Link} to={`http://localhost:3000/cliente/restaurante/cardapio/${favorito.id}`}>
                                                                         Ir para Restaurante
                                                                     </Button>
                                                                 </Card.Body>
@@ -91,7 +91,7 @@ export function Favoritos() {
                                                             <Card.Body className="card-fav">
                                                                 <Card.Title className="fs-3 title-fav">{comidafavorita.nome}</Card.Title>
                                                                 <Card.Subtitle className="mb-2 text-muted">Descrição: {comidafavorita.descricao}</Card.Subtitle>
-                                                                <Button as={Link} to={`http://localhost:3000/cliente/restaurante/cardapio/${comidafavorita.id}`}>
+                                                                <Button className="botao-favoritos" as={Link} to={`http://localhost:3000/cliente/restaurante/cardapio/${comidafavorita.id}`}>
                                                                     Ir para Cardápio
                                                                 </Button>
                                                             </Card.Body>
