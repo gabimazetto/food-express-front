@@ -242,7 +242,7 @@ export function AdicionarAtualizarComida() {
                                 </Button>
                                 :
                                 <Button variant="primary" className="botao-form-card" type="submit">
-                                    Salvar alterações
+                                    Salvar
                                 </Button>
                             }
                                 <Button variant="primary" className="botao-form-card" type="Reset">

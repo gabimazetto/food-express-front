@@ -67,13 +67,14 @@
 
 
 .forms-comidas div .botao-form-card {
-    width: 140px !important;
+    width: 95px !important;
     height: 38px !important;
     color: white;
 }
 
 .forms-container-botoes {
     width: 100%;
+    
 }
 
 .borda-direita {
