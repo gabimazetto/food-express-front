@@ -1,5 +1,4 @@
-import noteFood from "../../assets/images/noteFood.png";
-import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/ContainerCenterMobile";
+import React from 'react';
 import "./PoliticadePrivacidade.css";
 
 
@@ -9,12 +8,13 @@ export function PoliticadePrivacidade() {
 
     return (
         <>
-            <ContainerCenterMobile className="background-gradient ">
-                <main className="border container rounded-5 ">
+            <div className="container-principal-privacidade centered-container-secundarias">
+                <h1 className="tituloPrincipalPrivacidade tituloPrincipalPrivacidadeDesktop">Política de Privacidade</h1>
+                <main className="border border-secundaria container rounded-5">
                     <div className="grid " >
-                        <div className="colOne imagem-privacidade ">
-                            <div className="row conteudo-pp">
-                                <h1>Política de Privacidade</h1>
+                        <div className="colOne imagem-privacidade">
+                            <div className="conteudo-pp">
+                                <h2>Política de Privacidade</h2>
                                 <p>Esta Política de Privacidade descreve como coletamos, usamos, divulgamos e protegemos as informações pessoais que você fornece ao utilizar nosso website. Respeitamos a sua privacidade e estamos comprometidos em proteger as suas informações pessoais.</p>
                                 <h2>Informações Coletadas</h2>
                                 <p>Ao utilizar nosso website, podemos coletar as seguintes informações pessoais: <br />
@@ -61,7 +61,7 @@ export function PoliticadePrivacidade() {
                         </div>
                     </div>
                 </main>
-            </ContainerCenterMobile>
+            </div>
         </>
     );
 }

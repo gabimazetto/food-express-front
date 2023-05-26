@@ -12,7 +12,7 @@
     }
 
     
-    .tituloPrincipalPrivacidade {
+    .tituloPrincipalSobre {
         color: #f06000;
         font-size: 48px;
         font-weight: bold;
@@ -27,7 +27,7 @@
         font-size: 16px;
     }
 
-    .imagem-privacidade {
+    .imagem-sobre {
         width: 100%;
         height: 100%;
         display: flex;
@@ -35,12 +35,12 @@
         justify-content: center;
     }
 
-    .imagem-privacidade::before {
+    .imagem-sobre::before {
         content: "";
         opacity: 0.16;
         position: absolute;
         background-attachment: scroll;
-        background-image: url("../../assets/images/noteFood.png");
+        background-image: url("../../assets/images/meninaNoteFood.png");
         background-repeat: no-repeat;
         background-size: 70%;
         background-position: center;
@@ -51,11 +51,11 @@
 }
 
 @media (min-width: 769px) {
-    .container-principal-privacidade {
+    .container-principal-secundarias {
         padding-bottom: 50px;
     }
 
-    .tituloPrincipalPrivacidadeDesktop {
+    .tituloPrincipalSobre {
         color: #f06000;
         font-size: 48px;
         font-weight: bold;
@@ -78,14 +78,14 @@
         padding: 18px;
     }
 
-    .conteudo-ss {
+    .conteudo-pp {
         overflow: auto;
         max-height: 700px;
         padding: 30px 20px 0 20px;
         font-size: 20px;
     }
 
-    .imagem-privacidade {
+    .imagem-sobre {
         width: 100%;
         height: 100%;
         display: flex;
@@ -93,12 +93,12 @@
         justify-content: center;
     }
 
-    .imagem-privacidade::before {
+    .imagem-sobre::before {
         content: "";
         opacity: 0.16;
         position: absolute;
         background-attachment: scroll;
-        background-image: url("../../assets/images/noteFood.png");
+        background-image: url("../../assets/images/meninaNoteFood.png");
         background-repeat: no-repeat;
         background-size: 50%;
         background-position: center;
