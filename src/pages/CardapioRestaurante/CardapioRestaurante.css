@@ -10,7 +10,7 @@
     font-weight: 700;
     font-size: 45px;
     line-height: 45px;
-    text-align: start;
+    text-align: center;
     margin-left: 50px;
     width: 90%;
 }
@@ -52,7 +52,7 @@ form .cardapio-input {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 80%;
+        /* width: 80%; */
     }
 
     .container-titulo-cardapio form{
