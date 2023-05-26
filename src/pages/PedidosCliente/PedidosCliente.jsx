@@ -6,7 +6,8 @@ import { ContextClient } from "../../contexts/ClientContext";
 import { ContextLogin } from "../../contexts/LoginContext";
 import { toast } from "react-hot-toast";
 import { Loader } from "../../components/Loader/Loader";
-
+import { ButtonNavigation } from "../../components/ButtonNavigation/ButtonNavigation";
+import { Container } from "react-bootstrap";
 
 
 
@@ -39,17 +40,28 @@ export function PedidosCliente() {
 
     return (
         <>
-            <main className="main-card-pedido">
-                <section className="section-cards-pedidos">
-                    {pedidos === null ? (
-                        <Loader />
-                    ) : (
-                        pedidos.map((pedido) => (
-                            <CardPedidoCliente key={pedido.id} pedido={pedido} />
-                        ))
-                    )}
-                </section>
-            </main>
+            <Container className="mt-5">
+                <main className="main-card-pedido">
+                    <section className="section-cards-pedidos">
+                        {pedidos === null ? (
+                            <Loader />
+                        ) : (
+                            pedidos.map((pedido) => (
+                                <CardPedidoCliente key={pedido.id} pedido={pedido} />
+                            ))
+                        )}
+                    </section>
+                </main>
+                <div className="d-flex align-items-start justify-content-start ">
+                    <ButtonNavigation
+                        type="submit"
+                        route="/"
+                        icon="white bi bi-arrow-left-circle-fill"
+                        className="botao-voltar-cardapio d-flex align-items-center justify-content-center"
+                        tooltipContent="Voltar para a home"
+                    />
+                </div>
+            </Container>
         </>
     );
 }

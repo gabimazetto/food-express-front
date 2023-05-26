@@ -3,6 +3,9 @@
 }
 
 .campo-pesquisa {
-    width: 65% !important;
-    min-width: 330px;
+    border-radius: 8px !important;
+    width: 320px !important;
+
+    
 }
+

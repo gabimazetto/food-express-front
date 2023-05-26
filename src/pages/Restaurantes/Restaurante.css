@@ -8,7 +8,7 @@ input.search-rest {
   padding: 2px 50px 5px 40px;
   border-radius: 8px;
   border: 1px solid #f06000;
-  width: 350px;
+  width: 300px;
   height: 40px;
   font-size: 17px;
 }
@@ -97,11 +97,15 @@ form.form-rest:before {
 
 }
 
+.botao-voltar-rest {
+  height: 38px !important;
+  width: 38px !important;
+  padding: 1% !important;
+  margin-bottom: 3%;
+}
+
 @media (max-width: 1025px) {
   .card-principal{
     max-height: 530px;
   }
 }
-/* .offcanvas-backdrop {
-  background-color: rgba(0,0,0,0.5) !important;
-} */

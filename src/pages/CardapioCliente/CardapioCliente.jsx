@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { Button, Form, InputGroup } from "react-bootstrap";
+import { Button, Container, Form, InputGroup } from "react-bootstrap";
 import { Loader } from "../../components/Loader/Loader";
 import "./CardapioCliente.css"
 import { CardCardapioCliente } from "../../components/CardCardapioCliente/CardCardapioCliente";
 import { Link, useParams } from "react-router-dom";
 import { ContextLogin } from "../../contexts/LoginContext";
+import { ButtonNavigation } from "../../components/ButtonNavigation/ButtonNavigation";
 
 
 export function CardapioCliente() {
@@ -16,6 +17,7 @@ export function CardapioCliente() {
     const [avaliacao, setAvaliacao] = useState(null);
     const [comentario, setComentario] = useState("");
     const { id } = useParams();
+    const [nomeRestaurante, setNomeRestaurante] = useState("");
 
 
     // INICIAR TABELA DE CARDÁPIO
@@ -27,6 +29,7 @@ export function CardapioCliente() {
     function handleUpdateData() {
         initializeTable();
     }
+
 
     // FUNÇÃO INICIAR TABELA DE CARDÁPIO
     function initializeTable() {
@@ -111,9 +114,10 @@ export function CardapioCliente() {
 
     return (
         <>
+            <Container>
             <div className="container">
                 <div className="d-flex justify-content-between align-items-center">
-                    <h1 className="cardapio-titulo">Cardápio</h1>
+                    <h1 className="cardapio-titulo mt-4 mb-4">Cardápio</h1>
                     <Form>
                         <InputGroup className="mb-3 mt-4 ">
                             <Form.Control
@@ -125,9 +129,6 @@ export function CardapioCliente() {
                                 className="input-cardapio-cliente"
                             />
                         </InputGroup>
-                        <Button variant="primary" as={Link} to="/cliente/listar/restaurantes" className="button-voltar-restaurantes">
-                            Voltar
-                        </Button>
                     </Form>
                 </div>
                 {comidasFiltradas === null ? (
@@ -139,6 +140,16 @@ export function CardapioCliente() {
                     />
                 )}
             </div>
+            <div className="d-flex align-items-end justify-content-end ">
+        <ButtonNavigation
+          type="submit"
+          route="/cliente/listar/restaurantes"
+          icon="white bi bi-arrow-left-circle-fill"
+          className="botao-voltar-cardapio d-flex align-items-center justify-content-center"
+          tooltipContent="Voltar para restaurantes"
+        />
+      </div>
+            </Container>
         </>
     );
 }

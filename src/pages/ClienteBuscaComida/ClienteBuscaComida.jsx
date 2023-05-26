@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { Form, InputGroup } from "react-bootstrap";
+import { Container, Form, InputGroup } from "react-bootstrap";
 import { Loader } from "../../components/Loader/Loader";
 import "./ClienteBuscaComida.css"
 import { CardCardapioCliente } from "../../components/CardCardapioCliente/CardCardapioCliente";
 import { useParams } from "react-router-dom";
 import { ContextLogin } from "../../contexts/LoginContext";
+import { ButtonNavigation } from "../../components/ButtonNavigation/ButtonNavigation";
 
 
 
@@ -71,6 +72,7 @@ export function ClienteBuscaComida() {
 
     return (
         <>
+            <Container>
             <div className="container">
                 <div className="d-flex justify-content-between align-items-center header-pesquisa">
                     <Form>
@@ -78,8 +80,8 @@ export function ClienteBuscaComida() {
                             <Form.Control
                                 value={pesquisa}
                                 onChange={handlePesquisa}
-                                placeholder="Pesquisar nome ou categoria ou descrição"
-                                aria-label="Pesquisar nome ou categoria ou descrição"
+                                placeholder="Pesquisar por nome / categoria / descrição"
+                                aria-label="Pesquisar por nome/categoria/descrição"
                                 aria-describedby="basic-addon2"
                                 className="rounded mt-4"
                             />
@@ -98,6 +100,16 @@ export function ClienteBuscaComida() {
                     />
                 )}
             </div>
+            <div className="d-flex align-items-start justify-content-start ">
+        <ButtonNavigation
+          type="submit"
+          route="/"
+          icon="white bi bi-arrow-left-circle-fill"
+          className="botao-voltar-cardapio d-flex align-items-center justify-content-center"
+          tooltipContent="Voltar para a home"
+        />
+      </div>
+            </Container>
         </>
     );
 }
