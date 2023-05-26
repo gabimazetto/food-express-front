@@ -6,8 +6,7 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    /* background: linear-gradient(90.09deg, #363636 0.08%, rgba(240, 96, 0, 0) 97.08%); */
+    align-items: center;    
 }
 
 .forms-comidas {
@@ -59,15 +58,13 @@
 }
 
 .forms-comidas div .exluir-form-card {
-    /* width: 140px !important;
-    height: 40px !important; */
     background-color: white;
     color: #f06000;
 }
 
 
 .forms-comidas div .botao-form-card {
-    width: 95px !important;
+    width: 100px !important;
     height: 38px !important;
     color: white;
 }
@@ -92,7 +89,7 @@
 .botao-voltar-addatt {
     height: 38px !important;
     
-    width: 38px !important;
+    width: 48px !important;
     padding: 1% !important;
     /* margin-left: 50% !important; */
   }
@@ -216,6 +213,8 @@
 }
 
 @media screen and (min-width: 1201px) {
+
+
 
     .forms-comidas {
         display: flex;
