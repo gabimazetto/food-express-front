@@ -92,6 +92,12 @@ export function HomeCliente() {
       id: 14,
       titulo: 'Árabe',
       imagem: require('../../assets/images/14.png')
+    },
+
+    {
+      id: 15,
+      titulo: 'Bebidas',
+      imagem: require('../../assets/images/10.png')
     }
   ]
 
@@ -166,7 +172,7 @@ export function HomeCliente() {
 
 
       {/* Desktop Inicio */}
-      <section className='sectionRestauranteDesktop mb-4'>
+      <section className='sectionRestauranteDesktop'>
         <div className='divRestauranteDesktop'>
           <div className='melhoresRestaurantesDesktop'>
             <p className='melhoresRestaurantesTxtDesktop'>Os melhores restaurantes na sua casa</p>
@@ -191,21 +197,23 @@ export function HomeCliente() {
 
       <section className='sectionComidaDesktop'>
         <div className='divComidasDesktop'>
-          <div className='melhoresComidasDesktop mb-5'>
+          <div className='melhoresComidasDesktop'>
             <p className='melhoresComidasTxtDesktop'>Escolha por Categoria</p>
+          </div>
+
+          <div className='melhoresComidasImgDesktop'>
+            <img className='melhoresComidasImgStyleDesktop' src={imgLivro} alt='Imagem Livro'></img>
           </div>
 
           <div className='searchBoxComidasButtonDesktop'>
             <Link to={`/cliente/pesquisa`}>
-              <Button className='searchBoxComidasButtonStyleDesktop mb-5'>
+              <Button className='searchBoxComidasButtonStyleDesktop'>
                 Consulte o Cardápio
               </Button>
             </Link>
           </div>
         </div>
-        <div className='melhoresComidasImgDesktop mb-5'>
-          <img className='melhoresComidasImgStyleDesktop' src={imgLivro} alt='Imagem Livro'></img>
-        </div>
+        
 
         <div className="grid-containerDesktop">
           {categorias.map((categoria) => (
