@@ -1,8 +1,18 @@
-.container-pedidos {
-  min-height: 50vh;
-  margin-top: 5%;
+.container-rest-pedidos{
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
 }
-
+.pedido-rest-web h1{
+  color: #f06000;
+  text-align: center;
+  font-weight: 600;
+  margin: 1rem 0px;
+}
+.fixed-size-button {
+  width: 140px; 
+  text-align: left;
+}
 .aguardando {
   color: #b4a7d6;
 }
@@ -25,4 +35,54 @@
 
 .p-table {
   margin: 0 !important;
+}
+
+.pedido-rest-mobile {
+  display: none;
+}
+
+@media (max-width: 920px) {
+  .pedido-rest-web {
+    display: none;
+  }
+
+  .button-end{
+    display: flex !important;
+    justify-self: end !important;
+  }
+  .card-rest-pedido {
+    min-height: 450px ;
+  }
+
+  .pedido-rest-mobile {
+    display: block;
+  }
+  .pedido-rest-mobile h1 {
+    color: #f06000;    
+    font-weight: 600;   
+  }
+  .aguardando {
+    color: #b4a7d6;
+  }
+  
+  .confirmado {
+    color: #808005;
+  }
+  
+  .aCaminho {
+    color: #239999;
+  }
+  
+  .entregue {
+    color: #6aa84f;
+  }
+  
+  .cancelado {
+    color: #e01919;
+  }
+  
+  .p-table {
+    margin: 0 !important;
+  }
+
 }

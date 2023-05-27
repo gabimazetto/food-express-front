@@ -98,7 +98,7 @@ export function AdicionarAtualizarComida() {
 
 
     return (
-        <Container>
+       
             <ContainerCenterMobile className="background-gradient container-addComida">
 
                 <main className="container-forms-comidas">
@@ -238,19 +238,19 @@ export function AdicionarAtualizarComida() {
                         </div>
                     </Form>
                 </main>
-
-            </ContainerCenterMobile>
-            <div className="d-flex justify-content-start align-items-start mt-3 ms-3 ">
+                <div className="d-flex justify-content-start align-items-start mt-3 ms-5 ">
                 <ButtonNavigation
                     type="submit"
                     route="/"
                     icon="white bi bi-arrow-left-circle-fill"
-                    className="botao-voltar-addatt d-flex justify-content-center align-items-center mb-5"
+                    className="botao-voltar-addatt d-flex justify-content-center align-items-center mt-5 mb-5"
                     tooltipContent="Voltar para a home"
                 />
 
             </div>
-        </Container>
+            </ContainerCenterMobile>
+
+   
     )
 }
 

@@ -50,7 +50,16 @@ export function Contato() {
 
   return (
     <div className="form-container">
-      <h1 style={{textAlign: "center", color: "#f06000"}}>Fale Conosco</h1>
+                      <div className="d-flex justify-content-start align-items-start ms-1">
+                    <ButtonNavigation
+                        type="submit"
+                        route="/cliente/home"
+                        icon="white bi bi-arrow-left-circle-fill"
+                        className="botao-voltar-editar d-flex justify-content-center align-items-center mb-1"
+                        tooltipContent="Voltar para a home"
+                    />
+                </div>
+      <h1 className="titulo-contato" style={{textAlign: "center", color: "#f06000"}}>Fale Conosco</h1>
       <form onSubmit={handleSubmit}> {/* Adicione um manipulador de submissão ao formulário */}
         <CustomInput 
           type="email"
@@ -69,14 +78,7 @@ export function Contato() {
         />
         {messageError && <p style={{ color: 'red' }}>{messageError}</p>}
 
-        <div class="d-flex justify-content-between align-items-end mt-3 mb-3">
-        <ButtonNavigation                                            
-                                            type="submit"
-                                            route="/"
-                                            icon="white bi bi-arrow-left-circle-fill"
-                                            className="botao-voltar-editar"
-                                            tooltipContent="Voltar para a home"
-                                        />
+        <div class="d-flex justify-content-end align-items-end mt-3 mb-3 me-1">
         
             <ButtonNavigation
                 text="Enviar"
@@ -87,6 +89,8 @@ export function Contato() {
 
       </form>
       <ToastContainer autoClose={3000} />
+      
     </div>
+        
   );
 }

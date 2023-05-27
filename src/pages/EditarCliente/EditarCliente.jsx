@@ -240,6 +240,7 @@ export function EditarCliente() {
           </div>
 
         </main>
+
         {/* <div className="d-flex justify-content-start align-items-start mt-3 ms-1">
           <ButtonNavigation
             type="submit"

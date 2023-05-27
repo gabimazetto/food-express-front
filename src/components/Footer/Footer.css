@@ -19,9 +19,9 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding: 1rem;
+    padding: 1rem 0px;
     max-width: 1150px !important;
-    margin: 0 10% !important;
+    margin: 0 5% !important;
   }
   
   .logo-footer {
@@ -35,6 +35,9 @@
 
    .col-two-footer{
     margin-top: 1.5rem;
+   }
+   .col-two-footer p{
+    font-size: 0.95rem;
    }
 
    .footer-copy{
@@ -53,6 +56,15 @@
     /* text-decoration: none; */
    }
 
+   /* .contato-footer{
+    font-size: 0.75rem;
+   } */
+
+   @media (max-width: 940px) {
+    .col-two-footer p{
+      font-size: 0.75rem;
+     }
+}
    @media (min-width: 1400px) {
     .container-footer {
 

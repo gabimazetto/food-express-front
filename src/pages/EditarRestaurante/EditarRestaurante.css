@@ -16,7 +16,7 @@
 }
 
 .container-perfil-rest {
-  width: 90% !important;
+  width: 80% !important;
   background-color: #fff !important;
   box-shadow: #d93f0b1a 0px 4px 12px;
   overflow: hidden !important;
@@ -71,11 +71,13 @@ hr {
   margin-top: 5px;
 }
 
+
 .input-group-perfil .input-uf {
   width: 100% !important;
   border: 1px solid #f06000;
   border-radius: 8px !important;
 }
+
 
 .input-group-perfil .formulario-editar-perfil {
   width: 100% !important;

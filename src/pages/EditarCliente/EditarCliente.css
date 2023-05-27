@@ -33,6 +33,7 @@
   max-width: 380px;
 }
 
+
 .container-titulo-perfil-cli {
   display: flex;
   justify-content: center;
@@ -67,6 +68,21 @@ hr {
 .botao-voltar-editar {
   margin-top: 5px;
 } */
+@media (min-width: 470px) {
+  .container-edit-cli {
+    height: 100%;
+    align-items: center !important;
+    display: block !important;
+  }
+
+  .container-perfil-cli {
+    width: 90% !important;
+    /* max-width: 900px !important; */
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+}
 
 .input-group-perfilCli .input-uf {
   width: 100% !important;
@@ -80,6 +96,7 @@ hr {
   border-radius: 8px !important;
 }
 
+
 @media (max-width: 750px) {
   .form-perfil-cli div div {
     width: 100%;
@@ -87,6 +104,7 @@ hr {
     flex-flow: nowrap column;
     align-items: center;
     text-align: start !important;
+
   }
 
   .input-group-perfilCli label {
@@ -136,6 +154,7 @@ hr {
     display: block;
     width: 100%;
     margin-top: 2rem;
+    overflow: hidden;
   }
 
   .container-edit-cli {
