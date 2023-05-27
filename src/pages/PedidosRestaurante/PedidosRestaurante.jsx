@@ -74,7 +74,7 @@ export function PedidosRestaurante() {
 
   return (
     <>
-      <ContainerCenterMobile className="container-rest-pedidos">
+      <ContainerCenterMobile className="container-rest-pedidos ms-4 me-4">
         <section className="pedido-rest-web">
           <h1>Pedidos</h1>
           {pedidos === null ? (
