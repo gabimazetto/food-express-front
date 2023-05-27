@@ -1,40 +1,42 @@
-.imagem-perfil-mobile {
+.imagem-perfilCli-mobile {
   display: block;
   max-width: -webkit-fill-available;
   align-items: center;
 }
 
-.imagem-perfil-web {
+.imagem-perfilCli-web {
   display: none;
 }
 
 .background-gradient-escuro {
-  background: linear-gradient(
-    90deg,
-    rgba(54, 54, 54, 0.905374649859944) 15%,
-    rgba(217, 123, 11, 0.8213410364145658) 43%,
-    rgba(255, 255, 255, 1) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(54, 54, 54, 0.905374649859944) 15%,
+      rgba(217, 123, 11, 0.8213410364145658) 43%,
+      rgba(255, 255, 255, 1) 100%);
   /* height: 100vh; */
 }
 
-.title-perfil-cli {
-  margin-top: 8%;
-  margin-left: 30% !important;
-  color: #f06000;
-  font-size: 2.5rem;
-  font-weight: bold;
-  text-align: start;
-  max-width: 380px;
-}
-
 .container-perfil-cli {
-  width: 100% !important;
+  width: 90% !important;
   background-color: #fff !important;
   box-shadow: #d93f0b1a 0px 4px 12px;
   overflow: hidden !important;
   margin-top: 7%;
   margin-bottom: 8%;
+  border-radius: 30px;
+}
+
+.title-perfil-cli {
+  color: #f06000;
+  font-size: 2.5rem;
+  font-weight: bold;
+  max-width: 380px;
+}
+
+.container-titulo-perfil-cli {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5%;
 }
 
 .font-data {
@@ -55,36 +57,66 @@
 
 .button-perfil {
   margin-right: 5% !important;
-  
+
 }
 
 hr {
   color: #f06000;
 }
 
-/* .botao-voltar-editar {
-  height: 100% !important;
+.botao-voltar-editar {
   margin-top: 5px;
 } */
 
-@media (min-width: 970px) {
+.input-group-perfilCli .input-uf {
+  width: 100% !important;
+  border: 1px solid #f06000;
+  border-radius: 8px !important;
+}
 
-  .container-edit-cli {
-    max-width: none;
-    min-width: auto;
-    max-height: none;
+.input-group-perfilCli .formulario-editar-perfil {
+  width: 100% !important;
+  border: 1px solid #f06000;
+  border-radius: 8px !important;
+}
 
-    height: 100%;
-    overflow-y: hidden !important;
+@media (max-width: 750px) {
+  .form-perfil-cli div div {
+    width: 100%;
+    display: flex;
+    flex-flow: nowrap column;
+    align-items: center;
+    text-align: start !important;
   }
 
-
-  .container-perfil-cli {
-    width: 80% !important;
-    max-width: 900px !important;
-    margin-left: auto;
-    margin-right: auto;
+  .input-group-perfilCli label {
+    width: 90%;
+    text-align: start;
+    padding-left: 1%;
   }
+
+  .input-group-perfilCli {
+    display: flex;
+    flex-flow: nowrap column;
+    width: 100%;
+  }
+
+  .input-group-perfilCli .formulario-editar-perfil,
+  .input-group-perfilCli .input-uf {
+    width: 90% !important;
+  }
+
+  .inputs-editar-cli label,
+  .num-comp-perfil .complemento-perfil {
+    margin-top: 12px;
+  }
+}
+
+.inputs-editar-cli .cidade-perfil {
+  margin-top: 0;
+}
+
+@media (min-width: 751px) {
 
   .logo-web-perfil {
     display: block;
@@ -100,45 +132,74 @@ hr {
     height: 100%;
   }
 
-  .imagem-perfil-web {
+  .imagem-perfilCli-web {
     display: block;
-    width: 130%;
+    width: 100%;
     margin-top: 2rem;
   }
 
-  .imagem-perfil-mobile {
-    display: none;
+  .container-edit-cli {
+    height: 100%;
+    overflow-y: hidden !important;
+    min-height: 900px;
   }
 
-  .flex-perfil-cli {
+  main.container-perfil-cli {
+    min-height: 590px !important;
+    max-width: 900px !important;
+    overflow: hidden !important;
     display: flex;
-    flex-direction: row-reverse;
+    flex-flow: row-reverse nowrap;
     justify-content: space-between;
+
+  }
+
+  .form-perfil-cli {
+    padding-left: 25px !important;
+  }
+
+  .container-formulario-cli {
+    width: 50%;
+  }
+
+  .inputs-editar-cli {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .inputs-editar-cli .input-cidade,
+  .inputs-editar-cli .input-cep {
+    width: 160px;
+  }
+
+  div .input-group-perfilCli {
+    width: 100% !important;
+    display: flex;
+    flex-flow: nowrap column;
+  }
+
+  .input-group-perfilCli .formulario-editar-perfilCli {
+    width: 100% !important;
+    border: 1px solid #f06000;
+    border-radius: 8px !important;
+  }
+
+  .container-num-cep {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .num-comp-perfilCli {
+    width: 48%;
+  }
+
+  .imagem-perfilCli-mobile {
+    display: none;
   }
 
   .title-perfil-cli {
     margin-top: 0;
     margin-left: 3%;
-  }
-}
-
-
-@media (min-width: 1020px) {
-  .card-web-cli {
-    /* min-width: 480px !important; */
-    left: 2.3%;
-  }
-}
-
-@media (min-width: 1200px) {
-.container-edit-cli {
-  height: 100%;
-  overflow-y: hidden !important;
-  display: block !important;
-}
-  main.container-perfil-cli {
-    min-height: 590px !important;
-    max-width: 1000px !important; 
-    overflow: hidden !important;   
   }
 }

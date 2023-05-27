@@ -36,6 +36,7 @@ export function CardapioCliente() {
         axios
             .get(`http://localhost:3001/comidas/restaurante/${id}`, config)
             .then((response) => {
+                console.log(response.data)
                 setComidas(response.data);
                 setComidasFiltradas(response.data);
             })
@@ -57,6 +58,7 @@ export function CardapioCliente() {
         });
         setPesquisa(pesquisa);
         setComidasFiltradas(comidasFiltradas);
+        console.log(comidasFiltradas)
     };
 
     //Jogar depois para a listagem de pedidos
