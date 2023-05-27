@@ -29,7 +29,7 @@
 }
 
 .container-perfil-rest {
-  width: 90% !important;
+  width: 80% !important;
   background-color: #fff !important;
   box-shadow: #d93f0b1a 0px 4px 12px;
   overflow: hidden !important;
@@ -65,6 +65,22 @@ hr {
 .botao-voltar-editar {
   height: 38px;
   margin-top: 5px;
+}
+
+@media (min-width: 470px) {
+  .container-edit-rest {
+    height: 100%;
+    align-items: center !important;
+    display: block !important;
+  }
+
+  .container-perfil-rest {
+    width: 90% !important;
+    /* max-width: 900px !important; */
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
 }
 
 @media (min-width: 970px) {

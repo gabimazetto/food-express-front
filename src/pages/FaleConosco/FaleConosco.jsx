@@ -1,16 +1,15 @@
-
-import { Form } from "react-bootstrap";
 import { ContainerCenterMobile } from "../../components/ContainerCenterMobile/ContainerCenterMobile";
 import contatoimg from "../../assets/images/noteContato.png";
 import "./FaleConosco.css";
 import { Contato } from "../../components/Contato/Contato";
+import { ButtonNavigation } from "../../components/ButtonNavigation/ButtonNavigation";
 
 
 export function FaleConosco() {
 
     return (
         <>
-            <ContainerCenterMobile className="background-gradient">
+            <ContainerCenterMobile className="background-gradient container-fale-conosco">
                 <main className="border container-fale rounded-5 ">
 
                     <div className="flex" >
@@ -28,7 +27,9 @@ export function FaleConosco() {
                         </div>
                     </div>                   
                 </main>
+
             </ContainerCenterMobile>
+
            </>
     );
 }

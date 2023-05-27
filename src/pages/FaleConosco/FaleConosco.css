@@ -55,8 +55,14 @@
 }
 @media (min-width: 1400px) {
     .container-fale {
-        min-height: 580px !important;
-        max-width: 1150px !important;
+        min-height: 580px !important;        
+        max-width: 850px !important;
+        overflow-y: hidden !important;
+  }
+
+  .container-fale-conosco{
+    /* overflow: hidden !important; */
+    height: 100vh !important;
   }
 }
 
