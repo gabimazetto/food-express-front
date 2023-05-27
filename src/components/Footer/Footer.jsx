@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
-import { faFacebookF, faGoogle, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { Col, Row } from "react-bootstrap";
+ import { Col, Row } from "react-bootstrap";
 import { useContext } from "react";
 import { ContextClient } from "../../contexts/ClientContext";
 import { ContextRestaurant } from "../../contexts/RestaurantContext";
@@ -59,11 +58,11 @@ export function Footer() {
                     </div>
                 </Col>
                 <Col  className="col-two-footer" >
-                    <p>
-                    <FontAwesomeIcon icon={faHome} />
+                    <p >
+                    <FontAwesomeIcon  icon={faHome} />
                         São Paulo, SP, BR
                     </p>
-                    <p>
+                    <p className="contato-footer">
                     <FontAwesomeIcon icon={faEnvelope} />
                         contato@foodexpress.com
                     </p>
