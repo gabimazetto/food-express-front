@@ -43,16 +43,16 @@ export function ClienteBuscaComida() {
         }
 
         axios
-            .get("http://localhost:3001/comidas", { 
-                params, 
+            .get("http://localhost:3001/comidas", {
+                params,
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
-        })
+            })
             .then((response) => {
                 console.log(response);
-                    setComidas(factoryListaComidas(response.data, idCli));
-                    setComidasFiltradas(factoryListaComidas(response.data, idCli));
+                setComidas(factoryListaComidas(response.data, idCli));
+                setComidasFiltradas(factoryListaComidas(response.data, idCli));
             })
             .catch((error) => {
                 console.log(error);
@@ -75,25 +75,28 @@ export function ClienteBuscaComida() {
 
     return (
         <>
-            <div className="container">
-                <div className="d-flex justify-content-between align-items-center header-pesquisa">
-                    <Form>
-                        <InputGroup className="mb-3 campo-pesquisa ">
-                            <Form.Control
-                                value={pesquisa}
-                                onChange={handlePesquisa}
-                                placeholder="Pesquisar nome ou categoria ou descrição"
-                                aria-label="Pesquisar nome ou categoria ou descrição"
-                                aria-describedby="basic-addon2"
-                                className="rounded mt-4"
-                            />
-                        </InputGroup>
-                    </Form>
-                    {categoria && (
-                        <p>Buscando por categoria: {categoria}</p>
-                    )}
+            <div className="">
+                <div className="box-pesquisa">
+                    <div className="header-pesquisa">
+                        <Form className="teste">
+                            <InputGroup className="mb-3 campo-pesquisa">
+                                <Form.Control
+                                    value={pesquisa}
+                                    onChange={handlePesquisa}
+                                    placeholder="Pesquisar"
+                                    aria-label="Pesquisar nome ou categoria ou descrição"
+                                    aria-describedby="basic-addon2"
+                                    className="rounded mt-4"
+                                    title="pesquise por nome, categoria ou descrição."
+                                />
+                            </InputGroup>
+                        </Form>
+                        {categoria && (
+                            <p>Buscando por categoria: {categoria}</p>
+                        )}
+                    </div>
                 </div>
-                { !comidas.length ? (
+                {!comidas.length ? (
                     <Loader />
                 ) : (
                     <CardCardapioCliente
