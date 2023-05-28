@@ -29,7 +29,8 @@ export function CardCardapioCliente({ className, comidas, updateData }) {
     }
 
     initializeTable();
-  }, [updateData, className, comidas, idCli]);
+  }, [comidas]);
+  
 
 
 
@@ -41,31 +42,28 @@ export function CardCardapioCliente({ className, comidas, updateData }) {
     setShow(true);
   };
 
-  function FavComida(comidaId) {
+  async function handleFavoritaComida(comida) {
     const data = {
       favoritar: true,
-      comidaId,
+      comidaId: comida.id,
       clienteId: idCli,
     };
-    axios
-      .post("http://localhost:3001/comidas/favoritos", data, config)
-      .then((response) => {
-        toast.success("Adicionado aos Favoritos", {
-          position: "bottom-right",
-          duration: 2000,
-        });
-        setCardapio((prevCardapio) =>
-          prevCardapio.map((comida) =>
-            comida.id === comidaId ? { ...comida, favorito: true } : comida
-          )
-        );
-      })
-      .catch((error) => {
-        toast.error("Algo deu errado", {
-          position: "bottom-right",
-          duration: 2000,
-        });
+    try{
+      const response = await axios.patch("http://localhost:3001/favoritos/comidas/", data, config);
+      toast.success(`${response.data.message}`, {
+        position: "bottom-right",
+        duration: 2000,
       });
+      const newList = cardapio.map((item) => {
+        const favorito = (item.id === comida.id) ? !comida.favorito : item.favorito;
+        return {...item, favorito}
+      })
+      setCardapio(newList);
+      
+
+    }catch(err){
+
+    }
   }
 
 
@@ -159,6 +157,8 @@ export function CardCardapioCliente({ className, comidas, updateData }) {
           <Loader />
         ) : (
           cardapio.map((comida) => {
+            const classFavorito = comida.favorito ? "bi bi-heart-fill d-flex align-items-center" : "bi bi-heart d-flex align-items-center";
+            
             return (
               <article
                 className={`article-home-cliente ${className}`}
@@ -173,14 +173,10 @@ export function CardCardapioCliente({ className, comidas, updateData }) {
                     <Link>
                       <button
                         className="cards-botoes"
-                        onClick={() => FavComida(comida.id)}
+                        onClick={() => handleFavoritaComida(comida)}
                         style={{ cursor: "pointer" }}
                       >
-                        {comida.favorito ? (
-                          <i className="bi bi-heart-fill d-flex align-items-center"></i>
-                        ) : (
-                          <i className="bi bi-heart d-flex align-items-center"></i>
-                        )}
+                        <i className={classFavorito}></i>
                       </button>
                     </Link>
                   </div>

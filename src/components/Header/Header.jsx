@@ -181,7 +181,7 @@ export function Header() {
                             <></>
                         ) : (
                             <>
-                            {location.pathname !== "/cliente/pesquisa/" && location.pathname !== "/cliente/listar/restaurantes" ? (<></>): (<CarrinhoCompras />) }
+                            {/* {location.pathname !== "/cliente/pesquisa/" && location.pathname !== "/cliente/listar/restaurantes" ? (<></>): (<CarrinhoCompras />) } */}
                                 
                                 <Navbar.Toggle onClick={handleToggleOffcanvas} className="navbar-primary bg-primary" aria-controls={`offcanvasNavbar-expand-lg`} />
                                 <Navbar.Offcanvas 

@@ -41,11 +41,13 @@ function ClientContext({ children }) {
 
     async function handleDecodeCliente(token) {
         try {
-            const decoded = jwtDecode(token);
+            const decoded = await jwtDecode(token);
             if(decoded.role === "cliente"){
                 setIdCli(decoded.id);
+                localStorage.setItem("id", decoded.id);
                 setEmailCli(decoded.email);
                 setRoleCli(decoded.role);
+                
             }
         } catch (error) {
             console.log(error);
@@ -56,6 +58,7 @@ function ClientContext({ children }) {
         localStorage.removeItem("token");
         setAuthenticated(false);
         setIdCli(null);
+        localStorage.removeItem("id");
         setEmailCli(null);
         setRoleCli(null);
     }

@@ -10,9 +10,10 @@ import { ContextLogin } from "../../contexts/LoginContext";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import ReactStars from "react-stars";
 import { ButtonNavigation } from "../../components/ButtonNavigation/ButtonNavigation";
+import { factoryListaRestaurantes } from "../../utils/restaurantes";
 
 export function Restaurantes() {
-  const [restaurantes, setRestaurantes] = useState(null);
+  const [restaurantes, setRestaurantes] = useState([]);
   const [busca, setBusca] = useState("");
   const { idCli } = useContext(ContextClient);
   const { config } = useContext(ContextLogin);
@@ -39,57 +40,51 @@ export function Restaurantes() {
     axios
       .get("http://localhost:3001/restaurantes", config)
       .then((response) => {
-        const restaurantes = response.data.map((restaurante) => {
-          const {
-            endereco: { uf, cidade, cep, rua, numero, complemento },
-          } = restaurante;
-          return {
-            ...restaurante,
-            endereco: { uf, cidade, cep, rua, numero, complemento },
-            favorito: false,
-            media: 0,
-          };
-        });
-        setRestaurantes(restaurantes);
-        buscarMediaRestaurantes(restaurantes);
-      })
+        factoryListaRestaurantes(response.data, idCli).then((newData) => {
+          setRestaurantes(newData)
+          buscarMediaRestaurantes(newData);
+        })
+        
+        
+        })
       .catch((error) => {
         console.log(error);
       });
   }
 
-  function FavRestaurante(restauranteId) {
+  async function handleFavoritaRestaurante(restaurante) {
+
     const data = {
       favoritar: true,
-      restauranteId,
+      restauranteId: restaurante.id,
       clienteId: idCli,
     };
-    axios
-      .post("http://localhost:3001/restaurantes/favoritos", data, config)
-      .then((response) => {
-        toast.success("Adicionado aos Favoritos", {
-          position: "bottom-right",
-          duration: 2000,
-        });
-        setRestaurantes((prevRestaurantes) =>
-          prevRestaurantes.map((restaurante) =>
-            restaurante.id === restauranteId
-              ? { ...restaurante, favorito: true }
-              : restaurante
-          )
-        );
-      })
-      .catch((error) => {
-        toast.error("Algo deu errado", {
-          position: "bottom-right",
-          duration: 2000,
-        });
+    try{
+      const response = await axios.patch("http://localhost:3001/favoritos/restaurante/", data, config);
+      toast.success(`${response.data.message}`, {
+        position: "bottom-right",
+        duration: 2000,
       });
+
+      const newList = restaurantes.map((item) => {
+        const favorito = (item.id === restaurante.id) ? !restaurante.favorito : item.favorito;
+        return { ...item, favorito}
+      })
+
+      setRestaurantes(newList);
+      
+    }catch(err){
+      toast.error("Algo deu errado", {
+        position: "bottom-right",
+        duration: 2000,
+      });
+    }
   }
 
   async function buscarMediaRestaurantes(restaurantes) {
     try {
       const medias = {};
+      
       for (const restaurante of restaurantes) {
         const response = await axios.get(
           `http://localhost:3001/avaliacaos/media/${restaurante.id}`,
@@ -157,7 +152,7 @@ export function Restaurantes() {
         </form>
       </div>
 
-      {restaurantes === null ? (
+      { !restaurantes.length ? (
         <Loader />
       ) : (
         <Row>
@@ -171,6 +166,7 @@ export function Restaurantes() {
               );
             })
             .map((restaurante) => {
+              console.log(restaurante)
               return (
                 <Col md={4} key={restaurante.id}>
                   <Card className="mb-4 py-4 card-principal">
@@ -190,7 +186,7 @@ export function Restaurantes() {
                         <Button
                           className="my-button-not-filled-rest"
                           type="submit"
-                          onClick={() => FavRestaurante(restaurante.id)}
+                          onClick={() => handleFavoritaRestaurante(restaurante)}
                         >
                           {restaurante.favorito ? (
                             <i className="bi bi-heart-fill icon-list-rest"></i>

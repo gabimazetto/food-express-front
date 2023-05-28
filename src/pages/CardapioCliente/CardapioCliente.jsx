@@ -7,13 +7,15 @@ import { CardCardapioCliente } from "../../components/CardCardapioCliente/CardCa
 import { useParams } from "react-router-dom";
 import { ContextLogin } from "../../contexts/LoginContext";
 import { ButtonNavigation } from "../../components/ButtonNavigation/ButtonNavigation";
+import { ContextClient } from "../../contexts/ClientContext";
+import { factoryListaComidas } from "../../utils/comidas";
 
 export function CardapioCliente() {
   const { config } = useContext(ContextLogin);
-  const [comidas, setComidas] = useState(null);
+  const [comidas, setComidas] = useState([]);
   const [pesquisa, setPesquisa] = useState("");
   const [comidasFiltradas, setComidasFiltradas] = useState(comidas);
-
+  const { idCli } = useContext(ContextClient);
   const { id } = useParams();
 
   // INICIAR TABELA DE CARDÁPIO
@@ -25,18 +27,19 @@ export function CardapioCliente() {
     initializeTable();
   }
 
-  // FUNÇÃO INICIAR TABELA DE CARDÁPIO
-  function initializeTable() {
-    axios
-      .get(`http://localhost:3001/comidas/restaurante/${id}`, config)
-      .then((response) => {
-        setComidas(response.data);
-        setComidasFiltradas(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+
+    // FUNÇÃO INICIAR TABELA DE CARDÁPIO
+    function initializeTable() {
+        axios
+            .get(`http://localhost:3001/comidas/restaurante/${id}`, config)
+            .then((response) => {
+                setComidas(factoryListaComidas(response.data, idCli));
+                setComidasFiltradas(factoryListaComidas(response.data, idCli));
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
 
   // FUNÇÃO PESQUISAR POR NOME, CATEGORIA, DESCRIÇÃO E CODIGO
   const handlePesquisa = (event) => {
@@ -73,7 +76,7 @@ export function CardapioCliente() {
               </InputGroup>
             </Form>
           </div>
-          {comidasFiltradas === null ? (
+          { !comidasFiltradas.length ? (
             <Loader />
           ) : (
             <CardCardapioCliente
