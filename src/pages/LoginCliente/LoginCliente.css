@@ -1,8 +1,8 @@
 .background-gradient {
     background: linear-gradient(90deg, rgba(54,54,54,1) 0%,  rgba(240,96,0,0.38139005602240894) 49%, rgba(255,255,255,1) 77%);
-    min-height: 100vh;
+    height: 100%;
 }
-.container-login{
+.container-login-cli{
     width: 85% !important;
     background-color: #fff;
     box-shadow: #D93F0B1a 0px 4px 12px;    
@@ -52,7 +52,7 @@
     }
   }
 @media (min-width: 970px) {
-    .container-login{
+    .container-login-cli{
        display: flex;
        flex-direction: row-reverse;
        justify-content: center;
@@ -63,7 +63,7 @@
     }
     .background-gradient {
         background: linear-gradient(90deg, rgba(54,54,54,1) 0%,  rgba(240,96,0,0.38139005602240894) 49%, rgba(255,255,255,1) 77%);
-        min-height: 100vh;
+        height: 100%;
     }
 
     .img-login{
@@ -91,8 +91,13 @@
 }
 
 @media (min-width: 1400px) {
-    .container-login {
-        min-height: 695px !important;
+    .background-gradient {
+        background: linear-gradient(90deg, rgba(54,54,54,1) 0%,  rgba(240,96,0,0.38139005602240894) 49%, rgba(255,255,255,1) 77%);
+        max-height: 950px !important;
+    }
+    .container-login-cli {
+       
         max-width: 1150px !important;
+        overflow-y: hidden !important;
     }
 }

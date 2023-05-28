@@ -35,7 +35,7 @@ export function LoginCliente() {
   return (
     <>
       <ContainerCenterMobile className="background-gradient">
-        <main className="border container-login rounded-5 ">
+        <main className="border container-login-cli rounded-5 ">
           <div className="colTwoLogin" >
             <img
               src={loginImg}
