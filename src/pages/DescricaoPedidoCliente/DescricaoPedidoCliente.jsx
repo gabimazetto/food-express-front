@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import fotoTesteLogo from "../../assets/images/10.png";
 import "./DescricaoPedidoCliente.css";
 import { Button } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
@@ -69,7 +68,6 @@ export function DescricaoPedidoCliente() {
                             <Button as={Link} to="/cliente/pedidos/" className="button-desc-cliente"> <i className="bi bi-arrow-left"></i> Voltar</Button>
                             <div className="desc-nome-restaurante">
                                 <h1>{descricaoPedidos.restaurante?.nomeFantasia}</h1>
-                                <img src={fotoTesteLogo} className="desc-foto-pedido" alt="" />
                             </div>
                             <Button as={Link} to={`/cliente/restaurante/cardapio/${descricaoPedidos.restauranteId}`} className="button-desc-cardapio" ><span>Ver cardápio</span></Button>
                         </div>

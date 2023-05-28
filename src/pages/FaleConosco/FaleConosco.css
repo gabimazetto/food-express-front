@@ -5,6 +5,7 @@
     overflow-x: hidden;
     margin-top: 10%;
     margin-bottom: 10%;
+    max-height: 800px;
 }
 
 .flex   {

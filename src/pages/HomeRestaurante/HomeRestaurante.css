@@ -1,5 +1,7 @@
 .container-home-restaurante {
     width: 100%;
+    min-height: 420px;
+    margin-top: 3%;
 }
 
 .container-header {

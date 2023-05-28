@@ -8,7 +8,7 @@ export function Home() {
   return (
     
     <div className="principal">
-      <section className="section-cliente">
+      <section className="section-cliente-1 ms-5">
             <div className="cliente-img">
               <img className="cliente-img-mulher" src={imgMulherNotebook} alt="" />
             </div>
@@ -42,7 +42,7 @@ export function Home() {
             </div>
           </section>
 
-          <section className="section-cliente">
+          <section className="section-cliente-2 me-5">
             <div className="cliente-img">
               <img className="cliente-img-mulher" src={imgRestaurante} alt="" />
             </div>

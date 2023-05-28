@@ -269,9 +269,9 @@ export function CarrinhoCompras() {
                             </header>
                             <Offcanvas.Body>
                                 <div className="vertical-row-canvas"></div>
-                                <div className="mt-3">Descrição pedido:</div>
+                                <div className="mb-3">Descrição pedido:</div>
                                 {canvasDados.items.map((item, index) => (
-                                    <div className="preco-nome-canvas" key={item.id}>
+                                    <div className="preco-nome-canvas mt-4" key={item.id}>
                                         <div className="input-preco-canvas">
                                             <button
                                                 className="btn btn-primary diminuir-button"

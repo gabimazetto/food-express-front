@@ -107,7 +107,7 @@ export function Header() {
                                         }
                                     >
                                         <Link to="/">
-                                            <img src={logoDeslogadoWhiteImg} width={"100%"} alt="Logo Food Express" />
+                                            <img src={logoDeslogadoWhiteImg} width={"100%"} alt="Logo Food Express"   style={{ maxWidth: "260px"}}    />
                                         </Link>
                                     </OverlayTrigger>
                                 ) : (
@@ -121,7 +121,7 @@ export function Header() {
                                         }
                                     >
                                         <Link to="/">
-                                            <img src={logoDeslogadoDarkImg} width={"100%"} alt="Logo Food Express" />
+                                            <img src={logoDeslogadoDarkImg} width={"100%"} alt="Logo Food Express" style={{ maxWidth: "260px"}}/>
                                         </Link>
                                     </OverlayTrigger>
                                 )
@@ -155,7 +155,7 @@ export function Header() {
                                             }
                                         >
                                             <Link to={authenticated === true && roleCli === "cliente" ? `/cliente/home` : (authenticated === true && roleRes === "restaurante" ? `/restaurante/home` : "/")}>
-                                                <img className="logo-logado" src={logoDeslogadoWhiteImg} alt="Logo Food Express" />
+                                                <img className="logo-logado" src={logoDeslogadoWhiteImg} alt="Logo Food Express" style={{ maxWidth: "260px"}} />
                                             </Link>
                                         </OverlayTrigger>
                                     ) : (
@@ -169,7 +169,7 @@ export function Header() {
                                             }
                                         >
                                             <Link to={authenticated === true && roleCli === "cliente" ? `/cliente/home` : (authenticated === true && roleRes === "restaurante" ? `/restaurante/home` : "/")}>
-                                                <img className="logo-logado" src={logoDeslogadoDarkImg} alt="Logo Food Express" />
+                                                <img className="logo-logado" src={logoDeslogadoDarkImg} alt="Logo Food Express" style={{ maxWidth: "260px"}}/>
                                             </Link>
                                         </OverlayTrigger>
                                     )
