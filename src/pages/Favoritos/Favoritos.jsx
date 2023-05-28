@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { ContextLogin } from "../../contexts/LoginContext";
 import "./Favoritos.css";
 import { ButtonNavigation } from "../../components/ButtonNavigation/ButtonNavigation";
+import { ContextClient } from "../../contexts/ClientContext";
 
 
 
@@ -14,29 +15,30 @@ export function Favoritos() {
     const [favoritos, setFavoritos] = useState([]);
     const [comidasFavoritas, setComidasFavoritas] = useState([]);
     const { config } = useContext(ContextLogin);
-
-    useEffect(() => {
+    const { idCli } = useContext(ContextClient)
+    
+    useEffect(() =>{
         initializeTable();
         initializeComidasTable();
     }, []);
 
 
-    function initializeTable() {
-        axios.get("http://localhost:3001/favoritos/restaurantes", config)
-            .then((response) => {
-                setFavoritos(response.data);
-            }).catch((error) => {
-                console.log(error);
-            });
+    function initializeTable(){
+        axios.get(`http://localhost:3001/favoritos/restaurantes/${idCli}`, config)
+        .then((response) =>{
+            setFavoritos(response.data);
+        }).catch((error) =>{
+            console.log(error);
+        });
     }
 
-    function initializeComidasTable() {
-        axios.get("http://localhost:3001/favoritos/comidas", config)
-            .then((response) => {
-                setComidasFavoritas(response.data);
-            }).catch((error) => {
-                console.log(error);
-            });
+    function initializeComidasTable(){
+        axios.get(`http://localhost:3001/favoritos/comidas/${idCli}`, config)
+        .then((response) =>{
+            setComidasFavoritas(response.data);
+        }).catch((error) =>{
+            console.log(error);
+        });
     }
 
     return (
@@ -59,13 +61,13 @@ export function Favoritos() {
                                                 <Col >
                                                     {favoritos.map(favorito => {
                                                         return (
-                                                            <Card className="mb-4 py-4 card-fav-principal">
+                                                            <Card  className="mb-4 py-4 card-fav-principal">
                                                                 <Card.Body className="card-fav">
-                                                                    <Card.Title className="fs-3 title-fav">{favorito.nomeFantasia}</Card.Title>
-                                                                    <Card.Subtitle className="mb-2 text-muted">{favorito.razaoSocial}</Card.Subtitle>
-                                                                    <Button className="botao-favoritos" as={Link} to={`http://localhost:3000/cliente/restaurante/cardapio/${favorito.id}`}>
-                                                                        Ir para Restaurante
-                                                                    </Button>
+                                                                    <Card.Title className="fs-3 title-fav">{favorito.restaurante.nomeFantasia}</Card.Title>
+                                                                        <Card.Subtitle className="mb-2 text-muted">{favorito.restaurante.razaoSocial}</Card.Subtitle>
+                                                                        <Button as={Link} to={`http://localhost:3000/cliente/restaurante/cardapio/${favorito.restauranteId}`}>
+                                                                            Ir para Restaurante
+                                                                        </Button>
                                                                 </Card.Body>
                                                             </Card>
                                                         )
@@ -87,11 +89,11 @@ export function Favoritos() {
                                             <Col>
                                                 {comidasFavoritas.map(comidafavorita => {
                                                     return (
-                                                        <Card className="mb-4 py-4 card-fav-principal">
+                                                        <Card  className="mb-4 py-4 card-fav-principal">
                                                             <Card.Body className="card-fav">
-                                                                <Card.Title className="fs-3 title-fav">{comidafavorita.nome}</Card.Title>
-                                                                <Card.Subtitle className="mb-2 text-muted">Descrição: {comidafavorita.descricao}</Card.Subtitle>
-                                                                <Button className="botao-favoritos" as={Link} to={`http://localhost:3000/cliente/restaurante/cardapio/${comidafavorita.id}`}>
+                                                                <Card.Title className="fs-3 title-fav">{comidafavorita.comida.nome}</Card.Title>
+                                                                    <Card.Subtitle className="mb-2 text-muted">Descrição: {comidafavorita.comida.descricao}</Card.Subtitle>
+                                                                    <Button as={Link} to={`http://localhost:3000/cliente/restaurante/cardapio/${comidafavorita.comida.restauranteId}`}>
                                                                     Ir para Cardápio
                                                                 </Button>
                                                             </Card.Body>

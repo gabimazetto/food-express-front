@@ -44,6 +44,7 @@ function RestaurantContext({ children }) {
             const decoded = await jwtDecode(token);
             if(decoded.role === "restaurante"){
                 setIdRes(decoded.id);
+                localStorage.setItem("id", decoded.id);
                 setEmailRes(decoded.email);
                 setRoleRes(decoded.role);
             }
@@ -56,6 +57,7 @@ function RestaurantContext({ children }) {
         localStorage.removeItem("token");
         setAuthenticated(false);
         setIdRes(null);
+        localStorage.removeItem("id");
         setEmailRes(null);
         setRoleRes(null);
     }
