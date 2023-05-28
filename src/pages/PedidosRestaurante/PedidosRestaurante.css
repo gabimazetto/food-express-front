@@ -46,10 +46,6 @@
     display: none;
   }
 
-  .button-end{
-    display: flex !important;
-    justify-self: end !important;
-  }
   .card-rest-pedido {
     min-height: 450px ;
   }
