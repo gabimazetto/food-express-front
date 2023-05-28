@@ -312,10 +312,9 @@
     border: none;
   }
   .melhoresComidasImgStyleDesktop {
-    max-width: 60%;
+    max-width: 40%;
     height: auto;
     margin-bottom: 30px;
-    margin-right: 50px;
   }
 
   .searchBoxComidasButtonStyleDesktop {
@@ -323,10 +322,6 @@
     color: #FFFFFF !important;
     border-radius: 8px !important;
     padding: 20px !important;
-  }
-
-  .searchBoxComidasInputDesktop:hover {
-    outline: none;
   }
 
   .divGridComidaDesktop {
