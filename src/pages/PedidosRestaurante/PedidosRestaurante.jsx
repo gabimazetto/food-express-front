@@ -202,7 +202,7 @@ export function PedidosRestaurante() {
                     >
                       <Card
                         key={pedido.id}
-                        style={{ width: "18rem" }}
+                        // style={{ width: "18rem" }}
                         className="card-rest-pedido card-principal"
                       >
                         <Card.Body>
@@ -292,12 +292,13 @@ export function PedidosRestaurante() {
           </div>
         </section>
 
-        <div className="button-rest-pedido d-flex justify-content-start mt-3">
+        <div className="button-rest-pedido d-flex justify-content-start mt-3 ">
           <ButtonNavigation
             type="submit"
             route="/cliente/home"
             icon="white bi bi-arrow-left-circle-fill"
             tooltipContent="Voltar para a home"
+            className="mb-3"
           />
         </div>
       </ContainerCenterMobile>

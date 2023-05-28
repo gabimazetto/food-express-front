@@ -79,7 +79,7 @@
    
     .colTwoLogin{
         background-color: #D97B0B;
-        width: 50%;
+        width: 55%;
         /* position: absolute; */
     }
 
@@ -88,6 +88,17 @@
             
     } 
    
+}
+
+@media (min-width: 1270px) {
+    .background-gradient {
+        min-height: 950px !important;
+    }
+    .container-login-cli {
+       
+        max-width: 950px !important;
+        overflow-y: hidden !important;
+    }
 }
 
 @media (min-width: 1400px) {

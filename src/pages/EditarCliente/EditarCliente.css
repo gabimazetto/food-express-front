@@ -139,7 +139,6 @@ hr {
   }
 
   .container-edit-cli {
-    height: 100%;
     overflow-y: hidden !important;
     min-height: 900px;
   }

@@ -79,12 +79,13 @@
    
     .colTwoLogin{
         background-color: #D97B0B;
-        width: 50%;
-        /* position: absolute; */
+        max-height: 550px;
+         /* margin-left: 180px; */
+         width: 550px;
     }
 
      .colTwoLogin img {
-       margin: 25% auto 0 -15%
+       margin: 10% 15% 0 5%;
             
     } 
    

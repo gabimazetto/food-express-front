@@ -81,7 +81,7 @@ export function EditaRestaurante() {
             </ContainerCardImg>
           </div>
 
-          <div className="container-formulario">
+          <div className="container-formulario me-1">
             <div className="container-titulo-perfil">
               <h1 className="title-perfil-rest">Perfil</h1>
             </div>
@@ -190,11 +190,11 @@ export function EditaRestaurante() {
                 </Form.Group>
               </div>
 
-              <div className="d-flex justify-content-evenly ">
-                <ButtonNavigation type="submit" route="/restaurante/home" icon="white bi bi-arrow-left-circle-fill" className="botao-voltar-editar" tooltipContent="Voltar para a home" />
+              <div className="d-flex align-items-center justify-content-between mb-3 ms-2">
+                <ButtonNavigation type="submit" route="/restaurante/home" icon="white bi bi-arrow-left-circle-fill " className="botao-voltar-editar" tooltipContent="Voltar para a home" />
                 {/* <div class="d-flex justify-content-between "> */}
 
-                <ButtonNavigation text="Salvar alterações" type="submit" className="white button-perfil mt-1 mb-3" />
+                <ButtonNavigation text="Salvar alterações" type="submit" className="white button-perfil " />
               </div>
             </Form>
 
