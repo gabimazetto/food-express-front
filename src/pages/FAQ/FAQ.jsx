@@ -10,7 +10,7 @@ export function FAQ() {
         <>
             <div className="container-principal-faq centered-container-secundarias">
                 <h1 className="tituloPrincipalfaq tituloPrincipalfaqDesktop">Dúvidas Frequentes</h1>
-                <main className="border-secundaria container rounded-5">
+                <main className="border border-secundaria container rounded-5">
                     <div className="grid " >
                         <div className="colOne imagem-faq">
                             <div className="conteudo-faq">
