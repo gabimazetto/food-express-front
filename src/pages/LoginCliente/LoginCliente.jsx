@@ -43,7 +43,7 @@ export function LoginCliente() {
               alt="Imagem de uma mulher no computador vendo imagens de comidas"
             />
           </div>
-          <div className="colOneLogin">
+          <div className="colOneLogin px-3">
             <div className="px-3 py-4 conteudo-login">
               <img src={logo} class="img-fluid logo-login pb-5" alt="Logo do FoodExpress" />
               <Form onSubmit={handleSubmit(onSubmit)}>

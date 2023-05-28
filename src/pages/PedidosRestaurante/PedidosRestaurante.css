@@ -1,7 +1,7 @@
 .container-rest-pedidos{
   display: grid;
   grid-template-columns: 1fr;
-  min-height: 100vh;
+  min-height: 150vh;
 }
 .pedido-rest-web h1{
   color: #f06000;
@@ -12,7 +12,10 @@
 .fixed-size-button {
   width: 140px; 
   text-align: left;
+  display: flex;
+  justify-content: space-between;
 }
+
 .aguardando {
   color: #b4a7d6;
 }

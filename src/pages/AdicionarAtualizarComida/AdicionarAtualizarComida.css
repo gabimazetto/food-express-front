@@ -1,9 +1,9 @@
 .container-addComida {
-    min-height: 140vh !important;
+    min-height: 142vh !important;
     
 }
 .container-forms-comidas {
-    width: 80%;
+    min-width: 80%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -66,8 +66,9 @@
 
 
 .forms-comidas div .botao-form-card {
-    width: 100px !important;
-    height: 38px !important;
+    width: 125px !important;
+    height: 45px !important;
+    margin-right: 2px;
     color: white;
 }
 
@@ -259,9 +260,10 @@
     }
 
     .forms-comidas img {
-        width: 429px;
+        max-width: 429px;
         height: 322px;
         margin-bottom: 10% !important;
+        border-radius: 8px;
     }
 
     .forms-comidas h1 {

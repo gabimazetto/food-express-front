@@ -106,8 +106,8 @@ export function AdicionarAtualizarComida() {
                     <Form onSubmit={handleSubmit(onSubmit)} className="forms-comidas">
 
                         <div className="invisible-desktop icon-voltar-comida">
-                            <h1 className="invisible-desktop ms-2 mt-5">{!id ? 'Adicionar item ao Cardápio' : 'Atualizar item do Cardápio'}</h1>
-                            <h1 className="invisible-desktop ms-2 mt-5">{!id ? <img src={imagemLogo} alt="Uma foto de um prato com garfo e faca" /> : <img src={imagemComida} alt="Foto da comida selecionada" />}</h1>
+                            <h1 className="invisible-desktop mt-5">{!id ? 'Adicionar item ao Cardápio' : 'Atualizar item do Cardápio'}</h1>
+                            <h1 className="invisible-desktop mt-5">{!id ? <img src={imagemLogo} alt="Uma foto de um prato com garfo e faca" /> : <img src={imagemComida} alt="Foto da comida selecionada" />}</h1>
                         </div>
 
                         <div className="invisible-mobile forms-header-desktop">
@@ -238,10 +238,10 @@ export function AdicionarAtualizarComida() {
                         </div>
                     </Form>
                 </main>
-                <div className="d-flex justify-content-start align-items-start mt-3 ms-5 ">
+                <div className="d-flex justify-content-start align-items-start mt-3 ms-2 ">
                 <ButtonNavigation
                     type="submit"
-                    route="/"
+                    route="/restaurante/cardapio"
                     icon="white bi bi-arrow-left-circle-fill"
                     className="botao-voltar-addatt d-flex justify-content-center align-items-center mt-5 mb-5"
                     tooltipContent="Voltar para a home"

@@ -56,59 +56,6 @@ export function CardapioRestaurante() {
     setComidasFiltradas(comidasFiltradas);
   };
 
-  // Jogar depois para a listagem de pedidos
-
-  //   function EnviarAvaliacao() {
-  //     axios
-  //       .post(`http://localhost:3001/avaliacaos`, {
-  //         avaliacao,
-  //         comentario,
-  //         clienteId,
-  //         restauranteId,
-  //         pedidoId,
-  //       })
-  //       .then((response) => {
-  //         toast.success(response.data.message, {
-  //           position: "bottom-right",
-  //           duration: 2000,
-  //         });
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //         toast.error(error.response.data.message, {
-  //           position: "bottom-right",
-  //           duration: 2000,
-  //         });
-  //       });
-
-  //     setAvaliacao(null);
-  //     setComentario("");
-
-  //     handleClose2();
-  //   }
-
-  //   function Estrelas({ maxAvaliacao, rating, RatingChange }) {
-  //     const stars = [];
-  //     for (let i = 1; i <= maxAvaliacao; i++) {
-  //       const filled = i <= rating;
-  //       const classeEstrela = filled ? "bi bi-star-fill" : "bi bi-star";
-
-  //       const handleStarClick = () => {
-  //         RatingChange(i);
-  //       };
-
-  //       stars.push(
-  //         <i
-  //           className={classeEstrela}
-  //           key={i}
-  //           onClick={handleStarClick}
-  //           style={{ cursor: "pointer" }}
-  //         ></i>
-  //       );
-  //     }
-  //     return <div className="rating-stars">{stars}</div>;
-  //   }
-
   return (
     <>
       <Container>

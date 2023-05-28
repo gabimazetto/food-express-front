@@ -84,7 +84,7 @@ function App() {
           {/* Rotas privadas acessíveis apenas para Restaurante */}
           <Route element={<PrivateRouteRestaurant />}>
               <Route path="/restaurante/home" element={<HomeRestaurante />}/>
-              <Route path="/restaurante/cardapio/" element={<CardapioRestaurante />} />  {/* Alterar a rota também no adicionar/atualizar comida*/}
+              <Route path="/restaurante/cardapio" element={<CardapioRestaurante />} />  {/* Alterar a rota também no adicionar/atualizar comida*/}
               <Route path="/restaurante/cardapio/cadastro" element={<AdicionarAtualizarComida />} />         {/* Adicionar nova comida ao cardapio*/}
               <Route path="/restaurante/cardapio/item/:id" element={<AdicionarAtualizarComida />} />       {/* Atualizar comida no cardapio*/}
               <Route path="/restaurante/perfil/:idR" element={<EditaRestaurante />} />
