@@ -1,11 +1,46 @@
-.header-pesquisa form{
-    width: 80% !important;
+@media (min-width: 786px) {
+
+    .box-pesquisa {
+        padding: 30px;
+    }
+
+    .header-pesquisa {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .header-pesquisa p {
+        margin: 0;
+    }
+
+    .campo-pesquisa {
+        border-radius: 8px !important;
+        width: 280px !important;
+    }
+
 }
 
-.campo-pesquisa {
-    border-radius: 8px !important;
-    width: 320px !important;
+@media (max-width: 786px) {
 
-    
+    .box-pesquisa {
+        display: flex;
+        padding: 20px;
+        justify-content: center;
+    }
+
+    .header-pesquisa {
+        display: block;
+        text-align: center;
+    }
+
+    .campo-pesquisa {
+        border-radius: 8px !important;
+
+    }
+
+    .campo-pesquisa {
+        border-radius: 8px !important;
+
+    }
 }
-
