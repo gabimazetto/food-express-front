@@ -53,6 +53,10 @@
         display: flex;
         justify-content: center;
     }
+    .botaoNotFound{
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
 @media (min-width: 769px) {
