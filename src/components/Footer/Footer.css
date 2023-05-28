@@ -29,12 +29,13 @@
   }
   
    .col-one-footer{
-    margin-left: 15% !important;
+    margin-left: 25% !important;
     margin-top: 1.5rem;
    }
 
    .col-two-footer{
     margin-top: 1.5rem;
+    margin-left: 25% !important;
    }
    .col-two-footer p{
     font-size: 0.95rem;
