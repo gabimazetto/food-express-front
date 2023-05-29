@@ -16,7 +16,7 @@
 }
 
 .container-perfil-rest {
-  width: 80% !important;
+  width: 90% !important;
   background-color: #fff !important;
   box-shadow: #d93f0b1a 0px 4px 12px;
   overflow: hidden !important;
@@ -205,5 +205,97 @@ hr {
   .title-perfil-rest {
     margin-top: 0;
     margin-left: 3%;
+  }
+  .botao-voltar-editar {
+    height: 38px;
+    margin-top: 5px;
+  }
+}
+
+@media (min-width: 460px) {
+  .container-edit-rest {
+    height: 100%;
+    align-items: center !important;
+    display: block !important;
+  }
+
+  .container-perfil-rest {
+    width: 90% !important;
+    /* max-width: 900px !important; */
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+}
+
+@media (min-width: 970px) {
+
+  .container-edit-rest {
+    max-width: none;
+    min-width: auto;
+    max-height: none;
+
+    height: 100%;
+    overflow-y: hidden !important;
+  }
+
+
+  .container-perfil-rest {
+    width: 80% !important;
+    max-width: 900px !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .logo-web-perfil {
+    display: block;
+    max-width: 250px;
+    margin-left: 1rem !important;
+  }
+
+  .card-web-rest {
+    background-color: #d97b0b;
+    position: relative;
+    border-radius: 30px;
+    padding: 2rem;
+    height: 100%;
+  }
+
+  .imagem-perfil-web {
+    display: block;
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  .flex-perfil-rest {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .title-perfil-rest {
+    margin-top: 0;
+    margin-left: 3%;
+  }
+}
+
+
+@media (min-width: 1020px) {
+  .card-web-rest {
+    /* min-width: 480px !important; */
+    left: 2.3%;
+  }
+}
+
+@media (min-width: 1200px) {
+.container-edit-rest {
+  height: 100%;
+  overflow-y: hidden !important;
+  display: block !important;
+}
+  main.container-perfil-rest {
+    min-height: 590px !important;
+    max-width: 1000px !important; 
+    overflow: hidden !important;   
   }
 }
