@@ -191,8 +191,6 @@ export function EditaRestaurante() {
               </div>
 
               <div className="d-flex align-items-center justify-content-between mb-3 ms-2">
-                <ButtonNavigation type="submit" route="/restaurante/home" icon="white bi bi-arrow-left-circle-fill " className="botao-voltar-editar" tooltipContent="Voltar para a home" />
-                {/* <div class="d-flex justify-content-between "> */}
 
                 <ButtonNavigation text="Salvar alterações" type="submit" className="white button-perfil " />
               </div>
@@ -200,15 +198,15 @@ export function EditaRestaurante() {
 
           </div>
         </main>
-        {/* <div className="d-flex justify-content-start align-items-start mt-3 ms-1">
-          <ButtonNavigation
-            type="submit"
-            route="/restaurante/home"
-            icon="white bi bi-arrow-left-circle-fill"
-            className=" d-flex justify-content-center align-items-center mt-5 mb-5"
-            tooltipContent="Voltar para a home"
-          />
-        </div> */}
+        <div className="d-flex justify-content-start align-items-start mt-3 ms-3">
+                    <ButtonNavigation
+                        type="submit"
+                        route="/restaurante/home"
+                        icon="white bi bi-arrow-left-circle-fill"
+                        className=" d-flex justify-content-center align-items-center mt-5 mb-5"
+                        tooltipContent="Voltar para a home"
+                    />
+                </div>
       </ContainerCenterMobile>
     </>
   );

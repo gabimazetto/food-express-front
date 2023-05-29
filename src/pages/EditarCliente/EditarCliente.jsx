@@ -222,13 +222,6 @@ export function EditarCliente() {
               </div>
 
               <div class="d-flex justify-content-evenly ">
-                <ButtonNavigation
-                  type="submit"
-                  route="/restaurante/home"
-                  icon="white bi bi-arrow-left-circle-fill"
-                  className="botao-voltar-editar"
-                  tooltipContent="Voltar para a home"
-                />
 
                 <ButtonNavigation
                   text="Salvar alterações"
@@ -241,15 +234,15 @@ export function EditarCliente() {
 
         </main>
 
-        {/* <div className="d-flex justify-content-start align-items-start mt-3 ms-1">
-          <ButtonNavigation
-            type="submit"
-            route="/cliente/home"
-            icon="white bi bi-arrow-left-circle-fill"
-            className=" d-flex justify-content-center align-items-center mt-5 mb-5"
-            tooltipContent="Voltar para a home"
-          />
-        </div> */}
+        <div className="d-flex justify-content-start align-items-start mt-3 ms-3">
+                    <ButtonNavigation
+                        type="submit"
+                        route="/cliente/home"
+                        icon="white bi bi-arrow-left-circle-fill"
+                        className=" d-flex justify-content-center align-items-center mt-5 mb-5"
+                        tooltipContent="Voltar para a home"
+                    />
+                </div>
       </ContainerCenterMobile>
 
     </>

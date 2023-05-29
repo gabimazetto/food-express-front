@@ -202,3 +202,97 @@ hr {
     margin-left: 3%;
   }
 }
+
+@media (min-width: 470px) {
+  .container-edit-cli {
+    height: 100%;
+    align-items: center !important;
+    display: block !important;
+  }
+
+  .container-perfil-cli {
+    width: 90% !important;
+    /* max-width: 900px !important; */
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+}
+
+@media (min-width: 970px) {
+
+  .container-edit-cli {
+    max-width: none;
+    min-width: auto;
+    max-height: none;
+
+    height: 100%;
+    overflow-y: hidden !important;
+    display: block !important;
+  }
+
+
+  .container-perfil-cli {
+    width: 100% !important;
+    /* max-width: 900px !important; */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .logo-web-perfil {
+    display: block;
+    max-width: 250px;
+    margin-left: 1rem !important;
+  }
+
+  .card-web-cli {
+    background-color: #d97b0b;
+    position: relative;
+    border-radius: 30px;
+    padding: 2rem;
+    height: 100%;
+  }
+
+  .imagem-perfil-web {
+    display: block;
+    width: 130%;
+    margin-top: 2rem;
+    overflow: hidden;
+  }
+
+  .imagem-perfil-mobile {
+    display: none;
+  }
+
+  .flex-perfil-cli {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .title-perfil-cli {
+    margin-top: 0;
+    margin-left: 3%;
+  }
+}
+
+
+@media (min-width: 1020px) {
+  .card-web-cli {
+    /* min-width: 480px !important; */
+    left: 2.3%;
+  }
+}
+
+@media (min-width: 1200px) {
+.container-edit-cli {
+  height: 100%;
+  overflow-y: hidden !important;
+  display: block !important;
+}
+  main.container-perfil-cli {
+    min-height: 590px !important;
+    max-width: 1000px !important; 
+    overflow: hidden !important;   
+  }
+}
