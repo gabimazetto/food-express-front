@@ -106,7 +106,7 @@ export function CadastroCliente() {
                   <div className="mb-3">
                     <label className="form-label">Nome</label>
                     <CustomInputIconNone
-                    className="form-cadastro-inputs"                    
+                      className="form-cadastro-inputs"
                       type="text"
                       placeholder="Informe seu nome"
                       register={register("nome", {
@@ -114,12 +114,13 @@ export function CadastroCliente() {
                       })}
                       error={errors.nome}
                     />
+
                   </div>
 
                   <div className="mb-3">
                     <label className="form-label">Email</label>
                     <CustomInputIconNone
-                    className="form-cadastro-inputs"
+                      className="form-cadastro-inputs"
                       type="email"
                       placeholder="Informe seu e-mail"
                       /*  icon="bi bi-envelope-at-fill white" */
@@ -133,7 +134,7 @@ export function CadastroCliente() {
                   <div className="mb-3">
                     <label className="form-label">Senha</label>
                     <CustomInputIconNone
-                    className="form-cadastro-inputs"
+                      className="form-cadastro-inputs"
                       type={senha}
                       placeholder="Crie sua senha"
                       icon={icone}
@@ -149,7 +150,7 @@ export function CadastroCliente() {
                   <div className="mb-3">
                     <label className="form-label">Confirmação de senha</label>
                     <CustomInputIconNone
-                    className="form-cadastro-inputs"
+                      className="form-cadastro-inputs"
                       type={senha2}
                       placeholder="Confirme sua senha"
                       icon={icone2}
@@ -168,7 +169,7 @@ export function CadastroCliente() {
                   <div className="mb-3">
                     <label className="form-label">Telefone</label>
                     <CustomInputIconNone
-                    className="form-cadastro-inputs"
+                      className="form-cadastro-inputs"
                       type="tel"
                       /*  icon="bi bi-telephone white" */
                       pattern="[(]{1}[0-9]{2}[)]{1}[0-9]{5}-[0-9]{4}|[(0-9)]{11}"
@@ -188,7 +189,7 @@ export function CadastroCliente() {
                   <div className="mb-3">
                     <label className="form-label">Data de nascimento</label>
                     <CustomInputIconNone
-                    className="form-cadastro-inputs"
+                      className="form-cadastro-inputs"
                       type="date"
                       min={dayjs("1920-01-01").format("YYYY-MM-DD")}
                       max={today.subtract(13, "year").format("YYYY-MM-DD")}
@@ -200,7 +201,7 @@ export function CadastroCliente() {
                   <div className="mb-3">
                     <label className="form-label">CPF</label>
                     <CustomInputIconNone
-                    className="form-cadastro-inputs"
+                      className="form-cadastro-inputs"
                       type="text"
                       pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}|[0-9]{11}"
                       title="formato: XXX.XXX.XXX-XX ou XXXXXXXXXXX"
@@ -216,7 +217,7 @@ export function CadastroCliente() {
                     <div className="mb-3 flex-grow-1">
                       <label className="form-label">Cidade</label>
                       <CustomInputIconNone
-                      className="form-cadastro-inputs"
+                        className="form-cadastro-inputs"
                         type="text"
                         placeholder="Cidade"
                         register={register("endereco.cidade", {
@@ -276,7 +277,7 @@ export function CadastroCliente() {
                     <div className="mb-3 flex-grow-1">
                       <label className="form-label">CEP</label>
                       <CustomInputIconNone
-                      className="form-cadastro-inputs"
+                        className="form-cadastro-inputs"
                         type="text"
                         placeholder="99999-999"
                         pattern="[0-9]{5}-[0-9]{3}|[0-9]{8}"
@@ -295,7 +296,7 @@ export function CadastroCliente() {
                   <div className="mb-3">
                     <label className="form-label">Logradouro</label>
                     <CustomInputIconNone
-                    className="form-cadastro-inputs"
+                      className="form-cadastro-inputs"
                       type="text"
                       placeholder="Rua Ator Paulo Gustavo"
                       register={register("endereco.rua", {
@@ -309,7 +310,7 @@ export function CadastroCliente() {
                     <div className="mb-3 flex-grow-1">
                       <label className="form-label">Número</label>
                       <CustomInputIconNone
-                      className="form-cadastro-inputs"
+                        className="form-cadastro-inputs"
                         type="text"
                         placeholder="100"
                         register={register("endereco.numero", {
@@ -322,7 +323,7 @@ export function CadastroCliente() {
                     <div className="mb-3 flex-grow-1">
                       <label className="form-label">Complemento</label>
                       <CustomInputIconNone
-                      className="form-cadastro-inputs"
+                        className="form-cadastro-inputs"
                         type="text"
                         placeholder="Apt/Casa"
                         register={register("endereco.complemento")}
@@ -332,7 +333,7 @@ export function CadastroCliente() {
                   </div>
                   <div className="d-flex justify-content-between align-items-center">
 
-                  <ButtonNavigation
+                    <ButtonNavigation
                       type="submit"
                       route="/"
                       icon="white bi bi-arrow-left-circle-fill"
@@ -345,7 +346,7 @@ export function CadastroCliente() {
                       type="submit"
                       className="white button_cadastro"
                     />
-                    
+
                   </div>
                   <hr />
                 </Form>
@@ -353,7 +354,7 @@ export function CadastroCliente() {
             </div>
           </div>
         </main>
-        
+
       </ContainerCenterMobile>
     </>
   );
