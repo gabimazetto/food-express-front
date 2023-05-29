@@ -60,8 +60,6 @@
 
 }
 
-
-
 hr {
   color: #f06000;
 }
@@ -159,7 +157,7 @@ hr {
   }
 
   .form-perfil {
-    padding-left: 25px !important;
+    padding: 0px 25px 0px 25px !important;
   }
 
   .container-formulario {
@@ -167,14 +165,24 @@ hr {
   }
 
   .inputs-editar-rest {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
   }
 
-  .inputs-editar-rest .input-cidade,
+ 
+  .inputs-editar-rest .input-cidade {
+    width: 100%;
+    display: flex;
+  }
+
   .inputs-editar-rest .input-cep {
-    width: 160px;
+    width: 100%;
+  }
+
+  .input-group-uf {
+    padding-left: 10px;
+    width: 35%;
+    max-width: 85px;
+    display: block;
   }
 
   div .input-group-perfil {

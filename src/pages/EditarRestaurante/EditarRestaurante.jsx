@@ -113,9 +113,7 @@ export function EditaRestaurante() {
                     <Form.Control className={`formulario-editar-perfil ${errors.endereco?.cidade && "is-invalid"}`} type="text" {...register("endereco.cidade", { required: "O nome da cidade é obrigatório.", maxLength: { value: 14, message: "Limite de 14 caracteres." } })} />
                     {errors.cidade && <Form.Text className="invalid-feedback">{errors.cidade}</Form.Text>}
                   </InputGroup>
-                </Form.Group>
-
-                <Form.Group className="">
+                  <Form.Group className="input-group-uf">
                   <InputGroup className="input-group-perfil ">
                     <Form.Label className="">UF</Form.Label>
                     <Form.Select className="select-perfil input-uf" {...register("endereco.uf", { required: "O UF é obrigatório.", maxLength: { value: 2, message: "Limite de 2 caracteres.", }, })}>
@@ -151,6 +149,9 @@ export function EditaRestaurante() {
                     {errors.endereco?.uf && (<Form.Text className="invalid-feedback"> {errors.endereco?.uf.message} </Form.Text>)}
                   </InputGroup>
                 </Form.Group>
+                </Form.Group>
+
+                
 
 
                 <Form.Group className="input-cep">
