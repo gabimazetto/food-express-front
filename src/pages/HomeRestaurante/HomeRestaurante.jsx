@@ -38,15 +38,19 @@ export function HomeRestaurante() {
     }
 
     return (
-<Container>
+
 <div className="container-home-restaurante ">
             <header className="header-home-restaurante ">
                 <div className="container-header ">
                     <div className="titulo-home-restaurante text-center">
-                        <h1 className="mt-4 mb-4">Cardápio</h1>
+                        <h1 className="">Cardápio</h1>
                         <div className="button-header">
+                            <div className="botao-1">
                             <Button as={Link} to="/restaurante/cardapio/" className="button-meus-itens" variant="primary">Meus itens</Button>
+                            </div>
+                            <div className="botao-2">
                             <Button as={Link} to="/restaurante/cardapio/cadastro" className="button-add-itens" variant="primary">Adicionar novo</Button>
+                            </div>
                         </div>
                     </div>
                     <div className="imagem-home-restaurante">
@@ -65,6 +69,6 @@ export function HomeRestaurante() {
             )}
 
         </div>
-</Container>
+
     )
 }
