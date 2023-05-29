@@ -17,15 +17,7 @@
     color: #F06000;
     font-family: "Signika Negative";
     font-weight: 700;
-    padding-right: 30px;
-}
 
-.titulo-home-restaurante {
-    width: 90%;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-evenly;
-    align-items: center;
 }
 
 .button-meus-itens {
@@ -34,7 +26,14 @@
     text-align: center !important;
     /* margin-bottom: 34.5px; */
     color: white !important;
-    margin-right: 10px;
+}
+
+.botao-1 {
+    padding: 10px;
+}
+
+.botao-2 {
+    padding: 10px;
 }
 
 /* MEDIA QUERY'S */
@@ -43,10 +42,6 @@
     /* .container-header{
         display: none;
     } */
-
-    .header-home-restaurante {
-        height: 220px;
-    }
 
     .button-home-restaurante {
         display: flex;
@@ -57,6 +52,13 @@
 
     .imagem-home-restaurante {
         display: none !important;
+    }
+
+    .titulo-home-restaurante {
+        width: 90%;
+        display: flex;
+        flex-flow: column nowrap;
+    
     }
 
     .titulo-home-restaurante h1 {
@@ -92,33 +94,27 @@
 @media screen and (min-width: 781px) and (max-width: 1200px) {
     .container-home-restaurante {
         width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     .container-header {
         height: 50vh;
+        display: flex;
+    }
+
+    .titulo-home-restaurante {
+        width: 90%;
+        display: flex;
+        flex-flow: column nowrap;
+        padding: 30px;
+    
     }
 
     .titulo-home-restaurante h1 {
         font-size: 46px;
-        width: 75%;
-        height: 50%;
-        display: flex;
-        align-items: center;
     }
 
-    .button-header {
-        width: 75%;
-        height: 50%;
-    }
-
-    .button-add-itens {
-        min-width: 200px;
-        max-width: 200px;
-        height: 43px;
-        text-align: center !important;
-        color: white !important;
-        margin-bottom: 1rem !important;
-    }
 
     .button-meus-itens {
         min-width: 200px;
@@ -127,16 +123,11 @@
         margin-bottom: 1rem !important;
     }
 
-    .imagem-home-restaurante {
+    .imagem-home-restaurante h1 {
         display: flex;
         justify-content: center;
         align-items: center;
         width: 100%;
-    }
-
-    .container-header div img {
-        width: 231px;
-        height: 249px;
     }
 
     .button-add-itens {
@@ -149,75 +140,12 @@
     .invisivel-desktop {
         display: none;
     }
-}
-
-/* TELAS PEQUENAS */
-@media screen and (min-width: 769px) and (max-width: 1200px) {
-    .header-home-restaurante {
-        width: 90%;
-        margin-right: auto;
-        margin-left: auto;
-    }
-
-
-    .container-header {
-        display: flex;
-    }
-
-
-    .titulo-home-restaurante h1 {
-        font-size: 46px;
-        width: 75%;
-        height: 50%;
-        display: flex;
-        align-items: center;
-    }
-
-    .button-header {
-        width: 75%;
-        height: 50%;
-        display: flex;
-        flex-flow: column nowrap;
-    }
-
-    .button-add-itens {
-        min-width: 200px;
-        max-width: 200px;
-        height: 43px;
-        text-align: center !important;
-        color: white !important;
-        margin-bottom: 1rem !important;
-    }
-
-    .button-meus-itens {
-        min-width: 200px;
-        max-width: 200px;
-        height: 43px;
-        margin-bottom: 1rem !important;
-    }
-
-    .imagem-home-restaurante {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-    }
 
     .container-header div img {
         width: 365.33px;
         height: 314px;
     }
 
-    .button-add-itens {
-        width: 166px;
-        /* height: 40px; */
-        text-align: center !important;
-        color: white !important;
-    }
-
-    .invisivel-desktop {
-        display: none;
-    }
 }
 
 /* TELAS GRANDES */
@@ -232,22 +160,23 @@
         height: 60vh;
     }
 
+    .titulo-home-restaurante {
+        width: 90%;
+        display: flex;
+        flex-flow: column nowrap;
+        padding: 30px;
+    
+    }
+
     .titulo-home-restaurante h1 {
         font-size: 57.5px;
-        width: 75%;
-        height: 50%;
-        display: flex;
-        align-items: center;
-        margin-left: 30% !important;
+
     }
 
     .button-header {
-        min-width: 200px;
-        max-width: 200px;
-        height: 50%;
         display: flex;
         flex-flow: column nowrap;
-        
+
     }
 
     .imagem-home-restaurante {
