@@ -172,6 +172,7 @@ hr {
   .inputs-editar-rest .input-cidade {
     width: 100%;
     display: flex;
+    margin-bottom: 0.5rem;
   }
 
   .inputs-editar-rest .input-cep {
